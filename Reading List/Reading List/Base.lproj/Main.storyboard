@@ -48,18 +48,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="253" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77X-EV-JAI">
-                                                    <rect key="frame" x="15" y="11" width="313" height="22"/>
+                                                    <rect key="frame" x="15" y="1.5" width="313" height="31.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="31.5" placeholderIntrinsicHeight="31.5" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2L-Wq-fiJ">
+                                                <button autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="31.5" placeholderIntrinsicHeight="31.5" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2L-Wq-fiJ">
                                                     <rect key="frame" x="335.5" y="6" width="31.5" height="31.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="31.5" id="dMO-Im-onV"/>
                                                         <constraint firstAttribute="width" secondItem="J2L-Wq-fiJ" secondAttribute="height" multiplier="1:1" id="swi-0w-U16"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="unchecked"/>
+                                                    <state key="normal" image="unchecked"/>
                                                     <connections>
                                                         <action selector="readToggled:" destination="UPg-oW-2zD" eventType="touchUpInside" id="4jR-Rv-5T1"/>
                                                     </connections>
@@ -69,8 +68,8 @@
                                                 <constraint firstItem="77X-EV-JAI" firstAttribute="leading" secondItem="jz0-wA-FDB" secondAttribute="leadingMargin" id="GR4-32-3wA"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="77X-EV-JAI" secondAttribute="bottom" id="KGA-9g-Mgi"/>
                                                 <constraint firstItem="J2L-Wq-fiJ" firstAttribute="top" secondItem="jz0-wA-FDB" secondAttribute="top" constant="6" id="MRX-bq-G2y"/>
-                                                <constraint firstItem="77X-EV-JAI" firstAttribute="top" secondItem="jz0-wA-FDB" secondAttribute="topMargin" id="PXI-AB-9UA"/>
                                                 <constraint firstAttribute="bottom" secondItem="J2L-Wq-fiJ" secondAttribute="bottom" constant="6" id="TQg-A7-qfN"/>
+                                                <constraint firstItem="J2L-Wq-fiJ" firstAttribute="height" secondItem="77X-EV-JAI" secondAttribute="height" id="cV9-mV-Mgv"/>
                                                 <constraint firstItem="J2L-Wq-fiJ" firstAttribute="leading" secondItem="77X-EV-JAI" secondAttribute="trailing" constant="8" id="fWG-Pw-MX0"/>
                                                 <constraint firstAttribute="trailing" secondItem="J2L-Wq-fiJ" secondAttribute="trailing" constant="8" id="oeF-Df-K9B"/>
                                             </constraints>

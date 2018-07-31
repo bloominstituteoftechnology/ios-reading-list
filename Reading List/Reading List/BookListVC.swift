@@ -1,44 +1,5 @@
-//
-//  BookView.swift
-//  Reading List
-//
-//  Created by William Bundy on 7/31/18.
-//  Copyright © 2018 Lambda School. All rights reserved.
-//
-
 import Foundation
 import UIKit
-
-protocol BookCellDelegate: class
-{
-	func onToggle(_ book:Book, state:Bool)
-}
-
-class BookCell: UITableViewCell
-{
-	weak var delegate:BookCellDelegate!
-	@IBOutlet weak var nameLabel: UILabel!
-	@IBOutlet weak var readButton: UIButton!
-	var book:Book! {
-		didSet {
-			nameLabel.text = book.name
-			readButton.setImage(getButtonImage(), for: UIControlState.normal)
-		}
-	}
-
-	@IBAction func readToggled(_ sender: Any)
-	{
-		book.read = !book.read
-		readButton.setImage(getButtonImage(), for: UIControlState.normal)
-		delegate?.onToggle(book, state:book.read)
-	}
-
-	func getButtonImage() -> UIImage!
-	{
-		return book.read ? UIImage(named: "checked") : UIImage(named:"unchecked")
-	}
-
-}
 
 class BookListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, BookCellDelegate
 {
@@ -125,38 +86,3 @@ class BookListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 	
 }
 
-class AddBookVC: UIViewController
-{
-	var controller:BookController!
-	var book:Book?
-
-	@IBOutlet weak var nameField: UITextField!
-	@IBOutlet weak var reasonField: UITextField!
-
-	override func viewWillAppear(_ animated: Bool)
-	{
-		super.viewWillAppear(animated)
-
-		guard let book = book else { return }
-		nameField.text = book.name
-		reasonField.text = book.readingReason
-	}
-
-
-	@IBAction func addBook(_ sender: Any)
-	{
-		guard let name = nameField.text, name != "",
-			let reason = reasonField.text, reason != ""
-			else {return}
-
-		if var book = book {
-			controller.delete(book)
-			book.name = name
-			book.readingReason = reason
-			controller.add(book)
-		} else {
-			controller.create(name, reason)
-		}
-		navigationController?.popViewController(animated: true)
-	}
-}
