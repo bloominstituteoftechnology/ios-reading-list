@@ -9,6 +9,8 @@
 import Foundation
 
 class BookController {
+    // This model controller provides basic CRUD functionality for books: [Book]
+    // It also provides methods to handle saving and loading from the persistent store (documents directory).
     
     func create(title: String, reasonToRead: String) {
         let book = Book(title: title, reasonToRead: reasonToRead)
