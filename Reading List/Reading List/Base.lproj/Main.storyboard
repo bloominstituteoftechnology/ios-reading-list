@@ -39,6 +39,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VG7-5R-QG3">
                                                     <rect key="frame" x="50" y="0.0" width="269" height="49"/>
                                                     <state key="normal" image="unchecked"/>
+                                                    <connections>
+                                                        <action selector="toggleBookReadStatus:" destination="KgA-j5-D25" eventType="touchUpInside" id="Rmz-h5-HoL"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -67,6 +70,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookHasBeenRead" destination="VG7-5R-QG3" id="C9Q-ua-qgb"/>
+                        <outlet property="bookTitle" destination="jYn-z8-z8Y" id="6FZ-MN-Iug"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Auq-yp-Log" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -25,4 +25,12 @@ class ReadingListTableViewController: UITableViewController {
 
         return cell
     }
+    
+    @IBAction func toggleBookReadStatus(_ sender: Any) {
+    }
+    
+    // MARK: - Properties
+    @IBOutlet var bookTitle: UILabel!
+    @IBOutlet var bookHasBeenRead: UIButton!
+    
 }
