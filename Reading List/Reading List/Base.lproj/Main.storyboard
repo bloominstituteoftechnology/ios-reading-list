@@ -77,20 +77,56 @@
             </objects>
             <point key="canvasLocation" x="440.80000000000001" y="58.920539730134934"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="Eex-FE-ivJ">
             <objects>
-                <viewController id="C2z-9Q-xoo" sceneMemberID="viewController">
+                <viewController id="C2z-9Q-xoo" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gIR-T8-YDn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TJP-fU-tdG">
+                                <rect key="frame" x="16" y="94" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qgw-xp-raK">
+                                <rect key="frame" x="16" y="139" width="343" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="irM-Q9-kVe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hf2-m5-ZnU" firstAttribute="trailing" secondItem="TJP-fU-tdG" secondAttribute="trailing" constant="16" id="2dM-nc-Nxd"/>
+                            <constraint firstItem="TJP-fU-tdG" firstAttribute="leading" secondItem="hf2-m5-ZnU" secondAttribute="leading" constant="16" id="E8L-2o-bBw"/>
+                            <constraint firstItem="Qgw-xp-raK" firstAttribute="leading" secondItem="hf2-m5-ZnU" secondAttribute="leading" constant="16" id="QtV-uo-nHr"/>
+                            <constraint firstItem="Qgw-xp-raK" firstAttribute="top" secondItem="TJP-fU-tdG" secondAttribute="bottom" constant="15" id="TAv-3u-ObW"/>
+                            <constraint firstItem="TJP-fU-tdG" firstAttribute="top" secondItem="hf2-m5-ZnU" secondAttribute="top" constant="30" id="keg-cy-rgM"/>
+                            <constraint firstItem="hf2-m5-ZnU" firstAttribute="trailing" secondItem="Qgw-xp-raK" secondAttribute="trailing" constant="16" id="l3B-lJ-4nD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hf2-m5-ZnU"/>
                     </view>
+                    <navigationItem key="navigationItem" id="DZM-6l-X5X">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="WJD-YE-hQl">
+                            <connections>
+                                <action selector="saveBookUpdate:" destination="C2z-9Q-xoo" id="SdJ-AG-9mL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookDescriptionText" destination="Qgw-xp-raK" id="a0C-tH-e8u"/>
+                        <outlet property="bookTitleText" destination="TJP-fU-tdG" id="aZg-wN-tIX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAV-qJ-QVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1190" y="59"/>
+            <point key="canvasLocation" x="1189.5999999999999" y="58.920539730134934"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aHy-S8-Cce">
