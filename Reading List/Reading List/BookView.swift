@@ -28,6 +28,7 @@ class BookCell: UITableViewCell
 
 	@IBAction func readToggled(_ sender: Any)
 	{
+		book.read = readSwitch.isOn
 		delegate?.onToggle(book, state:readSwitch.isOn)
 	}
 	// TODO(will) handle switch-flipping with a delegate
@@ -42,9 +43,11 @@ class BookListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 	func onToggle(_ book: Book, state: Bool)
 	{
 		controller.markRead(book, state:state)
+		table.reloadSections(IndexSet(0...1), with: .fade);
 	}
 
-	override func viewDidLoad() {
+	override func viewDidLoad()
+	{
 		table.dataSource = self
 		table.delegate = self
 	}
@@ -59,7 +62,6 @@ class BookListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
 	{
-		print(section)
 		if section == 0 {
 			return controller.unreadBooks.count
 		} else if section == 1 {
@@ -75,7 +77,7 @@ class BookListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 		cell.delegate = self
 		if indexPath.section == 0 {
 			cell.book = controller.unreadBooks[indexPath.row]
-		} else if indexPath.section == 1{
+		} else if indexPath.section == 1 {
 			cell.book = controller.readBooks[indexPath.row]
 		}
 		return cell
@@ -89,6 +91,20 @@ class BookListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
 	{
 		return ["Unread", "Read"][section]
+	}
+
+	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+	{
+		return true
+	}
+
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+	{
+		if editingStyle == .delete {
+			var books = indexPath.section == 0 ? controller.unreadBooks : controller.readBooks
+			controller.delete(books[indexPath.row])
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		}
 	}
 
 	override  func prepare(for segue: UIStoryboardSegue, sender: Any?)

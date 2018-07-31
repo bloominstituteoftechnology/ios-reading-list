@@ -14,6 +14,10 @@ struct Book: Equatable, Comparable, Codable
 	var readingReason:String
 	var read:Bool
 
+	static func ==(lhs:Book, rhs:Book) -> Bool
+	{
+		return lhs.name == rhs.name && lhs.readingReason == rhs.readingReason
+	}
 	static func <(lhs:Book, rhs:Book) -> Bool
 	{
 		if lhs.read || rhs.read {
@@ -34,11 +38,15 @@ class BookController
 
 	var unreadBooks:[Book] = []
 	var readBooks:[Book] = []
-	
+
+	init() {
+		load()
+	}
 
 	func add(_ book:Book)
 	{
 		books.append(book)
+		sortBooks()
 	}
 
 	@discardableResult
@@ -53,12 +61,14 @@ class BookController
 	{
 		guard let index = books.index(of:book) else {return}
 		books[index].read = state
+		sortBooks()
 	}
 
 	func delete(_ book:Book)
 	{
 		guard let index = books.index(of:book) else {return}
 		books.remove(at: index)
+		sortBooks()
 	}
 
 	func sortBooks()
@@ -75,7 +85,7 @@ class BookController
 
 		unreadBooks.sort()
 		readBooks.sort()
-		print("books sorted!", books.count, unreadBooks.count, readBooks.count)
+		save()
 	}
 
 	func getDefaultPersistURL() -> URL
