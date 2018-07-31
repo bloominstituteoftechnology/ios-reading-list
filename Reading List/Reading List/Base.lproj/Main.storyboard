@@ -57,7 +57,7 @@
                                 <connections>
                                     <outlet property="bookTitleTextLabel" destination="pZQ-k2-gaY" id="deu-JI-rVy"/>
                                     <outlet property="hasBeenReadButtonLabel" destination="2jH-pz-umX" id="VxF-ej-4mm"/>
-                                    <segue destination="Okg-Ob-4fZ" kind="show" identifier="showBookDetails" id="q4w-Mb-MTB"/>
+                                    <segue destination="Okg-Ob-4fZ" kind="show" identifier="showBookDetails" id="o0I-f1-qGp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="173.59999999999999" y="74.212893553223395"/>
         </scene>
-        <!--Title-->
+        <!--Book Detail View Controller-->
         <scene sceneID="npr-ct-t0i">
             <objects>
                 <viewController id="Okg-Ob-4fZ" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -121,7 +121,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EtT-yI-Mby"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="XYV-JB-Om5">
+                    <navigationItem key="navigationItem" id="XYV-JB-Om5">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="V1k-XS-DaV">
                             <connections>
                                 <action selector="save:" destination="Okg-Ob-4fZ" id="3gl-2r-exc"/>
@@ -160,6 +160,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="coF-h5-alt"/>
+        <segue reference="o0I-f1-qGp"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,7 +10,7 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     
-    func updateViews() {
+    private func updateViews() {
         guard let book = book else { return }
         // Set the cell's label to the book's title
         bookTitleTextLabel.text = book.title

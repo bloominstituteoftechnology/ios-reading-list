@@ -9,10 +9,14 @@
 import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        bookController.loadFromPersistentStore()
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     @IBAction func addBook(_ sender: Any) {
@@ -25,9 +29,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        if section == 0 && bookController.readBooks.count > 0 {
             return "Read Books"
-        } else if section == 1 {
+        } else if section == 1 && bookController.unreadBooks.count > 0 {
             return "Unread Books"
         } else {
             return nil
@@ -80,6 +84,16 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? BookDetailViewController else { return }
+        
+        if segue.identifier == "showAddBookDetail" {
+            vc.bookController = bookController
+        } else if segue.identifier == "showBookDetails" {
+            vc.bookController = bookController
+            
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            vc.book = bookFor(indexPath: indexPath)
+        }
     }
 
     // MARK: - Properties
