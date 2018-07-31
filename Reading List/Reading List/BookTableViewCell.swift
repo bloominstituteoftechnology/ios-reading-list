@@ -10,9 +10,9 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     func updateViews() {
-        guard let bookTitle = bookTitleText.text,
-            let bookHasBeenRead = bookHasBeenRead.currentImage else { return }
-        
+//        guard let bookTitle = bookTitleText.text,
+//            let bookHasBeenRead = bookHasBeenRead.currentImage else { return }
+        bookTitleText.text = book.title
     }
     
     @IBAction func toggleBookReadStatus(_ sender: Any) {
@@ -23,7 +23,7 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet var bookHasBeenRead: UIButton!
     
     // MARK: - Properties
-    var book: Book? {
+    var book: Book! {
         didSet {
             updateViews()
         }

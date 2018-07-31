@@ -8,10 +8,18 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
-
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let book = bookFor(indexPath: indexPath)
+        bookController.updateReadStatus(for: book)
+        tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        bookController.loadFromPersistentStore()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -23,6 +31,7 @@ class ReadingListTableViewController: UITableViewController {
         let amountOfUnreadBooks = bookController.unreadBooks.count
         
         if section == 0 {
+            print(amountOfReadBooks)
             return amountOfReadBooks
         } else if section == 1 {
             return amountOfUnreadBooks
@@ -30,13 +39,55 @@ class ReadingListTableViewController: UITableViewController {
             return 0
         }
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
-
-
-        return cell
+        let book = bookFor(indexPath: indexPath)
+        guard let bookCell = cell as? BookTableViewCell else { return cell }
+        
+        bookCell.book = book
+        bookCell.delegate = self
+        
+        return bookCell
+    }
+    
+    private func bookFor(indexPath: IndexPath) -> Book {
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+        } else {
+            return bookController.unreadBooks[indexPath.row]
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let book = bookFor(indexPath: indexPath)
+            bookController.deleteBook(book: book)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Read Books"
+        } else if section == 1 {
+            return "Unread Books"
+        } else { return "" }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddBook" {
+            if let vc = segue.destination as? BookDetailViewController {
+                vc.bookController = bookController
+            }
+        } else if segue.identifier == "UpdateBook" {
+            if let vc = segue.destination as? BookDetailViewController {
+                vc.bookController = bookController
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    vc.book = bookController.books[indexPath.row]
+                }
+            }
+        }
     }
     
     let bookController = BookController()

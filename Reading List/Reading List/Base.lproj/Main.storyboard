@@ -31,13 +31,16 @@
                                             <rect key="frame" x="28" y="26" width="319" height="49"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYn-z8-z8Y">
-                                                    <rect key="frame" x="0.0" y="14.5" width="42" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="14.5" width="256" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VG7-5R-QG3">
-                                                    <rect key="frame" x="50" y="0.0" width="269" height="49"/>
+                                                    <rect key="frame" x="264" y="0.0" width="55" height="49"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="55" id="dda-oL-jJJ"/>
+                                                    </constraints>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
                                                         <action selector="toggleBookReadStatus:" destination="xhi-Qw-RbV" eventType="touchUpInside" id="jmZ-fk-cxI"/>
@@ -120,8 +123,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bookDescriptionText" destination="Qgw-xp-raK" id="a0C-tH-e8u"/>
-                        <outlet property="bookTitleText" destination="TJP-fU-tdG" id="aZg-wN-tIX"/>
+                        <outlet property="bookReasonToReadText" destination="Qgw-xp-raK" id="ORV-LQ-kff"/>
+                        <outlet property="bookTitle" destination="TJP-fU-tdG" id="g9P-aM-GTf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAV-qJ-QVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -149,6 +152,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uEG-mC-ca3"/>
+        <segue reference="9CX-l4-XHX"/>
     </inferredMetricsTieBreakers>
 </document>

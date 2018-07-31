@@ -9,15 +9,32 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let book = book else { return }
+        bookTitle.text = book.title
+        bookReasonToReadText.text = book.reasonToRead
     }
+
     
     @IBAction func saveBookUpdate(_ sender: Any) {
-        
+        if (book == nil) {
+            guard let bookTitle = bookTitle.text,
+                let reasonToRead = bookReasonToReadText.text else { return }
+            bookController?.createBook(title: bookTitle, reasonToRead: reasonToRead, hasBeenRead: false)
+        } else {
+            guard let book = book,
+                let bookTitle = bookTitle.text,
+                let reasonToRead = bookReasonToReadText.text else { return }
+            print("In here with \(bookTitle)")
+            bookController?.updateBookTitle(for: book, title: bookTitle)
+            bookController?.updateReasonToRead(for: book, reasonToRead: reasonToRead)
+        }
     }
     
-    @IBOutlet var bookDescriptionText: UITextView!
-    @IBOutlet var bookTitleText: UITextField!
+    @IBOutlet var bookTitle: UITextField!
+    @IBOutlet var bookReasonToReadText: UITextView!
+    
+    var bookController: BookController?
+    var book: Book?
 }
