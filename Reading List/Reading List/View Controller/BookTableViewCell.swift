@@ -39,5 +39,4 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookTitleTextLabel: UILabel!
     @IBOutlet weak var hasBeenReadButtonLabel: UIButton!
     
-
 }

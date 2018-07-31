@@ -50,6 +50,7 @@ class BookController {
     func saveToPersistentStore() {
         do {
             // Encoding entire books array to PropertyList and write it to "disk" at readingListURL
+            books = sortAlphabetically(for: books)
             let encoder = PropertyListEncoder()
             let booksData = try encoder.encode(books)
             if let readingListURL = readingListURL {
@@ -68,9 +69,14 @@ class BookController {
             let data = try Data(contentsOf: readingListURL)
             let decodedBooks = try decoder.decode([Book].self, from: data)
             books = decodedBooks
+            
         } catch {
             NSLog("An error occured while loading book: \(error)")
         }
+    }
+    
+    func sortAlphabetically(for books: [Book]) -> [Book] {
+        return books.sorted( by: { $0.title < $1.title } )
     }
     
     private var readingListURL: URL? {

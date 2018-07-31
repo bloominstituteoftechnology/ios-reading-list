@@ -19,9 +19,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         super.viewDidLoad()
     }
     
-    @IBAction func addBook(_ sender: Any) {
-    }
-    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

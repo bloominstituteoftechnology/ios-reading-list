@@ -69,7 +69,6 @@
                     <navigationItem key="navigationItem" title="Reading List" largeTitleDisplayMode="always" id="kmi-NH-Ovu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sgJ-Xt-EUO">
                             <connections>
-                                <action selector="addBook:" destination="zRt-Bl-JeR" id="gYk-eZ-45S"/>
                                 <segue destination="Okg-Ob-4fZ" kind="show" identifier="showAddBookDetail" id="coF-h5-alt"/>
                             </connections>
                         </barButtonItem>
