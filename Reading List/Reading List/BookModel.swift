@@ -90,7 +90,7 @@ class BookController
 
 	func getDefaultPersistURL() -> URL
 	{
-		return FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appendingPathComponent("Books.plist")
+		return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("Books.plist")
 	}
 
 	func save()

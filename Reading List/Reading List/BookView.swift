@@ -18,20 +18,26 @@ class BookCell: UITableViewCell
 {
 	weak var delegate:BookCellDelegate!
 	@IBOutlet weak var nameLabel: UILabel!
-	@IBOutlet weak var readSwitch: UISwitch!
+	@IBOutlet weak var readButton: UIButton!
 	var book:Book! {
 		didSet {
 			nameLabel.text = book.name
-			readSwitch.setOn(book.read, animated: true)
+			readButton.setImage(getButtonImage(), for: UIControlState.normal)
 		}
 	}
 
 	@IBAction func readToggled(_ sender: Any)
 	{
-		book.read = readSwitch.isOn
-		delegate?.onToggle(book, state:readSwitch.isOn)
+		book.read = !book.read
+		readButton.setImage(getButtonImage(), for: UIControlState.normal)
+		delegate?.onToggle(book, state:book.read)
 	}
-	// TODO(will) handle switch-flipping with a delegate
+
+	func getButtonImage() -> UIImage!
+	{
+		return book.read ? UIImage(named: "checked") : UIImage(named:"unchecked")
+	}
+
 }
 
 class BookListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, BookCellDelegate
