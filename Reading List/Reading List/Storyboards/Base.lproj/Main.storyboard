@@ -44,7 +44,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Bp9-5y-9pR" secondAttribute="height" multiplier="1:1" id="Zbu-1W-0u2"/>
                                                     </constraints>
-                                                    <state key="normal" image="checked"/>
+                                                    <state key="normal" image="unchecked"/>
                                                     <connections>
                                                         <action selector="checkboxButton:" destination="71v-Pq-Wcb" eventType="touchUpInside" id="YE9-aY-OJe"/>
                                                     </connections>
@@ -155,7 +155,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checked" width="50" height="50"/>
+        <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JcB-lM-0Ya"/>
