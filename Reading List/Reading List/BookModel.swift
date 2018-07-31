@@ -49,10 +49,10 @@ class BookController
 		return b
 	}
 
-	func markRead(_ book:Book)
+	func markRead(_ book:Book, state:Bool)
 	{
 		guard let index = books.index(of:book) else {return}
-		books[index].read = true
+		books[index].read = state
 	}
 
 	func delete(_ book:Book)
@@ -75,6 +75,7 @@ class BookController
 
 		unreadBooks.sort()
 		readBooks.sort()
+		print("books sorted!", books.count, unreadBooks.count, readBooks.count)
 	}
 
 	func getDefaultPersistURL() -> URL

@@ -30,17 +30,16 @@
         <!--Reading List-->
         <scene sceneID="M1O-bg-ukt">
             <objects>
-                <viewController title="Reading List" id="UXs-ra-5ac" sceneMemberID="viewController">
+                <viewController title="Reading List" id="UXs-ra-5ac" customClass="BookListVC" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jWx-Z8-LzL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AkP-I5-Tu1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AkP-I5-Tu1">
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookCell" id="UPg-oW-2zD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BookCell" id="UPg-oW-2zD" customClass="BookCell" customModule="Reading_List" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UPg-oW-2zD" id="jz0-wA-FDB">
@@ -55,6 +54,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prs-OB-5yO">
                                                     <rect key="frame" x="311" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="readToggled:" destination="UPg-oW-2zD" eventType="valueChanged" id="qOe-Iu-kdF"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LS3-28-ysf">
                                                     <rect key="frame" x="255" y="11" width="48" height="22"/>
@@ -67,16 +69,18 @@
                                                 <constraint firstItem="LS3-28-ysf" firstAttribute="leading" secondItem="77X-EV-JAI" secondAttribute="trailing" constant="8" id="0TG-my-C0O"/>
                                                 <constraint firstItem="LS3-28-ysf" firstAttribute="bottom" secondItem="jz0-wA-FDB" secondAttribute="bottomMargin" id="4Zj-no-z1L"/>
                                                 <constraint firstAttribute="bottom" secondItem="prs-OB-5yO" secondAttribute="bottom" constant="6" id="5aN-hq-udp"/>
+                                                <constraint firstAttribute="trailing" secondItem="prs-OB-5yO" secondAttribute="trailing" constant="15" id="9NO-Gi-JhI"/>
                                                 <constraint firstItem="77X-EV-JAI" firstAttribute="leading" secondItem="jz0-wA-FDB" secondAttribute="leadingMargin" id="GR4-32-3wA"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="77X-EV-JAI" secondAttribute="bottom" id="KGA-9g-Mgi"/>
                                                 <constraint firstItem="prs-OB-5yO" firstAttribute="leading" secondItem="LS3-28-ysf" secondAttribute="trailing" constant="8" id="OyU-D0-mwM"/>
                                                 <constraint firstItem="77X-EV-JAI" firstAttribute="top" secondItem="jz0-wA-FDB" secondAttribute="topMargin" id="PXI-AB-9UA"/>
                                                 <constraint firstItem="prs-OB-5yO" firstAttribute="top" secondItem="jz0-wA-FDB" secondAttribute="top" constant="6" id="T40-6v-gwJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="prs-OB-5yO" secondAttribute="trailing" constant="15" id="gQ1-aC-1GV"/>
                                                 <constraint firstItem="LS3-28-ysf" firstAttribute="top" secondItem="jz0-wA-FDB" secondAttribute="topMargin" id="tcs-FT-sSN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="nameLabel" destination="77X-EV-JAI" id="J7Z-Dc-sGS"/>
+                                            <outlet property="readSwitch" destination="prs-OB-5yO" id="B3j-VY-tsP"/>
                                             <segue destination="KoL-Yw-yXr" kind="show" id="APk-kF-pgC"/>
                                         </connections>
                                     </tableViewCell>
@@ -84,9 +88,24 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AkP-I5-Tu1" firstAttribute="top" secondItem="DR8-CD-bs8" secondAttribute="top" id="Jnz-Ha-X5a"/>
+                            <constraint firstItem="AkP-I5-Tu1" firstAttribute="trailing" secondItem="DR8-CD-bs8" secondAttribute="trailing" id="llL-nH-ORq"/>
+                            <constraint firstItem="AkP-I5-Tu1" firstAttribute="bottom" secondItem="DR8-CD-bs8" secondAttribute="bottom" id="pmo-dV-DRX"/>
+                            <constraint firstItem="AkP-I5-Tu1" firstAttribute="leading" secondItem="DR8-CD-bs8" secondAttribute="leading" id="y2f-Tp-1B2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DR8-CD-bs8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Reading List" id="WWL-Mp-GfM"/>
+                    <navigationItem key="navigationItem" title="Reading List" id="WWL-Mp-GfM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xbQ-Ta-Tco">
+                            <connections>
+                                <segue destination="KoL-Yw-yXr" kind="show" id="6LN-ca-sga"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="AkP-I5-Tu1" id="KxR-RH-m0g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCE-vf-Fcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,7 +114,7 @@
         <!--Add Book-->
         <scene sceneID="MQt-6F-Rl4">
             <objects>
-                <viewController title="Add Book" id="KoL-Yw-yXr" sceneMemberID="viewController">
+                <viewController title="Add Book" id="KoL-Yw-yXr" customClass="AddBookVC" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k4q-x0-GWh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,6 +133,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="addBook:" destination="KoL-Yw-yXr" eventType="primaryActionTriggered" id="qx5-X1-XEL"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -127,12 +149,23 @@
                         <viewLayoutGuide key="safeArea" id="dzh-3H-H9C"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Book" id="HFk-id-uHR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="SG4-KS-J8L"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="SG4-KS-J8L">
+                            <connections>
+                                <action selector="addBook:" destination="KoL-Yw-yXr" id="UIe-UD-07F"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameField" destination="CON-ep-JDI" id="rTN-67-wbH"/>
+                        <outlet property="reasonField" destination="Yc4-N7-Gc5" id="Tv8-fT-qQ2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bt-kQ-EJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1135" y="90"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="APk-kF-pgC"/>
+    </inferredMetricsTieBreakers>
 </document>
