@@ -10,8 +10,6 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     func updateViews() {
-//        guard let bookTitle = bookTitleText.text,
-//            let bookHasBeenRead = bookHasBeenRead.currentImage else { return }
         bookTitleText.text = book.title
     }
     

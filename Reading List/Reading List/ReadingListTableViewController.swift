@@ -14,12 +14,16 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let book = bookFor(indexPath: indexPath)
         bookController.updateReadStatus(for: book)
-        tableView.reloadRows(at: [indexPath], with: .fade)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bookController.loadFromPersistentStore()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
