@@ -9,21 +9,25 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func updateViews() {
+        guard let bookTitle = bookTitleText.text,
+            let bookHasBeenRead = bookHasBeenRead.currentImage else { return }
+        
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    
     @IBAction func toggleBookReadStatus(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     @IBOutlet var bookTitleText: UILabel!
     @IBOutlet var bookHasBeenRead: UIButton!
+    
+    // MARK: - Properties
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
+    weak var delegate: BookTableViewCellDelegate?
     
 }

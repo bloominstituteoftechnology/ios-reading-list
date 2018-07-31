@@ -13,9 +13,22 @@ class ReadingListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let amountOfReadBooks = bookController.readBooks.count
+        let amountOfUnreadBooks = bookController.unreadBooks.count
+        
+        if section == 0 {
+            return amountOfReadBooks
+        } else if section == 1 {
+            return amountOfUnreadBooks
+        } else {
+            return 0
+        }
     }
 
     
@@ -25,4 +38,6 @@ class ReadingListTableViewController: UITableViewController {
 
         return cell
     }
+    
+    let bookController = BookController()
 }
