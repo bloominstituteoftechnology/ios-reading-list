@@ -20,5 +20,10 @@ class BookTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    @IBAction func toggleBookReadStatus(_ sender: Any) {
+    }
+    
+    @IBOutlet var bookTitleText: UILabel!
+    @IBOutlet var bookHasBeenRead: UIButton!
+    
 }
