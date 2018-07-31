@@ -30,6 +30,10 @@ class BookController {
         return documentDirectory.appendingPathComponent("ReadingList.plist")
     }
     
+    init() {
+        loadFromPersistentStore()
+    }
+    
     func createBook(withTitle title: String, reasonToRead: String, hasBeenRead: Bool = false) {
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
         books.append(book)
@@ -100,6 +104,7 @@ class BookController {
             let decoder = PropertyListDecoder()
             
             let decodedBooks = try decoder.decode([Book].self, from: data)
+            books = decodedBooks
             
         } catch {
             NSLog("Error saving books data \(error)")

@@ -13,9 +13,10 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     var bookController = BookController()
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        tableView.reloadData()
     }
 
     private func bookFor(indexPath: IndexPath) -> Book {
@@ -30,6 +31,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         guard let index = tableView.indexPath(for: cell) else { return }
         let book = bookFor(indexPath: index)
         bookController.updateHasBeenRead(for: book)
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -68,22 +70,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-   
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
@@ -93,14 +79,21 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        guard let detailVC = segue.destination as? BookDetailViewController else { return }
+        
+        detailVC.bookController = bookController
+        
+        if segue.identifier == "ShowBookDetail" {
+            // Get index of the cell that was tapped
+            guard let index = tableView.indexPathForSelectedRow?.row else { return }
+            
+            let book = bookController.books[index]
+            detailVC.book = book
+        }
     }
-    */
+    
 
 }
