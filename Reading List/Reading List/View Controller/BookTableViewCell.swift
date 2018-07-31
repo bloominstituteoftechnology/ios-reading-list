@@ -12,8 +12,10 @@ class BookTableViewCell: UITableViewCell {
     
     func updateViews() {
         guard let book = book else { return }
+        // Set the cell's label to the book's title
         bookTitleTextLabel.text = book.title
         
+        // Set image based on whether book hasBeenRead
         book.hasBeenRead == true
             ? hasBeenReadButtonLabel.setImage(UIImage(named: "checked"), for: .normal)
             : hasBeenReadButtonLabel.setImage(UIImage(named: "unchecked"), for: .normal)
@@ -27,7 +29,11 @@ class BookTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     weak var delegate: BookTableViewCellDelegate?
     
     @IBOutlet weak var bookTitleTextLabel: UILabel!
