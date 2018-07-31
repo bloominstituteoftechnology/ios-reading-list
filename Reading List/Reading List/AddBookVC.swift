@@ -23,7 +23,13 @@ class AddBookVC: UIViewController
 	{
 		guard let name = nameField.text, name != "",
 			let reason = reasonField.text, reason != ""
-			else {return}
+			else {
+				let alert = UIAlertController(title: "Incomplete Form", message: "Please enter the name and reason", preferredStyle: .alert)
+				alert.addAction(UIAlertAction(title: "Try again", style: .default, handler:{_ in }))
+				present(alert, animated: true, completion:nil)
+			return
+
+		}
 
 		if var book = book {
 			controller.delete(book)
