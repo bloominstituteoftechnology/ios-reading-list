@@ -51,6 +51,7 @@ class BookController {
         print("Updating \(book) title with \(title)")
         guard let index = books.index(of: book) else { return }
         books[index].title = title
+        print(books)
     }
     
     func updateReasonToRead(for book: Book, reasonToRead: String) {

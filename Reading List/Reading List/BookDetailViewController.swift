@@ -26,9 +26,9 @@ class BookDetailViewController: UIViewController {
             guard let book = book,
                 let bookTitle = bookTitle.text,
                 let reasonToRead = bookReasonToReadText.text else { return }
-            print("In here with \(bookTitle)")
             bookController?.updateBookTitle(for: book, title: bookTitle)
             bookController?.updateReasonToRead(for: book, reasonToRead: reasonToRead)
+            bookController?.saveToPersistentStore()
         }
     }
     
