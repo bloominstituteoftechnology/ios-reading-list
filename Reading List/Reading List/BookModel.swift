@@ -49,6 +49,34 @@ class BookController
 		return b
 	}
 
+	func markRead(_ book:Book)
+	{
+		guard let index = books.index(of:book) else {return}
+		books[index].read = true
+	}
+
+	func delete(_ book:Book)
+	{
+		guard let index = books.index(of:book) else {return}
+		books.remove(at: index)
+	}
+
+	func sortBooks()
+	{
+		unreadBooks.removeAll(keepingCapacity: true)
+		readBooks.removeAll(keepingCapacity: true)
+		for book in books {
+			if book.read {
+				readBooks.append(book)
+			} else {
+				unreadBooks.append(book)
+			}
+		}
+
+		unreadBooks.sort()
+		readBooks.sort()
+	}
+
 	func getDefaultPersistURL() -> URL
 	{
 		return FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appendingPathComponent("Books.plist")
