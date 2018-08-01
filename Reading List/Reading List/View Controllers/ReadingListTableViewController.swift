@@ -88,9 +88,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         
         if segue.identifier == "ShowBookDetail" {
             // Get index of the cell that was tapped
-            guard let index = tableView.indexPathForSelectedRow?.row else { return }
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
             
-            let book = bookController.books[index]
+            let book = bookFor(indexPath: indexPath)
             detailVC.book = book
         }
     }

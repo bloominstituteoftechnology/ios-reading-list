@@ -38,6 +38,9 @@ class BookController {
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
         books.append(book)
         
+        // Sort after adding to array
+        books.sort { $0.title < $1.title }
+        
         saveToPersistentStore()
     }
     
@@ -50,28 +53,33 @@ class BookController {
     
     func updateHasBeenRead(for book: Book) {
         // Get index of book we're interested in
-        if let index = books.index(of: book) {
-            var book = book
-            book.hasBeenRead = !book.hasBeenRead
-            
-            books.remove(at: index)
-            books.insert(book, at: index)
-        }
+        guard let index = books.index(of: book) else { return }
+        
+        var book = book
+        book.hasBeenRead = !book.hasBeenRead
+        
+        books.remove(at: index)
+        books.insert(book, at: index)
         
         saveToPersistentStore()
     }
     
     func update(book: Book, title: String, reasonToRead: String) {
-        if let index = books.index(of: book) {
-            var book = book
-            book.title = title
-            book.reasonToRead = reasonToRead
-            
-            books.remove(at: index)
-            books.insert(book, at: index)
-        }
+        guard let index = books.index(of: book) else { return }
         
+        var book = book
+        book.title = title
+        book.reasonToRead = reasonToRead
+        
+        books.remove(at: index)
+        books.insert(book, at: index)
+        
+        // Sort after a change is made
+        books.sort { $0.title < $1.title }
+        
+        // Want to save only if there are changes to save
         saveToPersistentStore()
+      
     }
     
     func saveToPersistentStore() {
