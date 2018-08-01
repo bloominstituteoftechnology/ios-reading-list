@@ -90,7 +90,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
                 vc.bookController = bookController
                 
                 if let indexPath = self.tableView.indexPathForSelectedRow {
-                    vc.book = bookController.books[indexPath.row]
+                    vc.book = bookFor(indexPath: indexPath)
                 }
             }
         }

@@ -45,6 +45,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1374D6282111555A0063C528 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				13563A232110EAE300B06B08 /* Book.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1374D629211155640063C528 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				13563A2D2111012F00B06B08 /* BookTableViewCellDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1374D62A211155690063C528 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13563A292110FA2000B06B08 /* BookTableViewCell.swift */,
+				13563A2B2110FFAA00B06B08 /* BookDetailViewController.swift */,
+				13563A272110F62C00B06B08 /* ReadingListTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1374D62B2111556F0063C528 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13563A252110EC9E00B06B08 /* BookController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		1374D62C211155900063C528 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4669416C2110E22B00E7FF73 /* Main.storyboard */,
+				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
@@ -64,17 +107,14 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
-				13563A2B2110FFAA00B06B08 /* BookDetailViewController.swift */,
+				1374D62C211155900063C528 /* Storyboards */,
+				1374D62B2111556F0063C528 /* Model Controllers */,
+				1374D62A211155690063C528 /* View Controllers */,
+				1374D629211155640063C528 /* Protocols */,
+				1374D6282111555A0063C528 /* Models */,
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
-				4669416C2110E22B00E7FF73 /* Main.storyboard */,
-				13563A292110FA2000B06B08 /* BookTableViewCell.swift */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
-				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
 				466941742110E22B00E7FF73 /* Info.plist */,
-				13563A232110EAE300B06B08 /* Book.swift */,
-				13563A252110EC9E00B06B08 /* BookController.swift */,
-				13563A272110F62C00B06B08 /* ReadingListTableViewController.swift */,
-				13563A2D2111012F00B06B08 /* BookTableViewCellDelegate.swift */,
 			);
 			path = "Reading List";
 			sourceTree = "<group>";
