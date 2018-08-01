@@ -14,10 +14,12 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let book = bookFor(indexPath: indexPath)
         bookController.updateReadStatus(for: book)
-        
+        tableView.reloadSections(IndexSet(0...1), with: .fade)
     }
     
     override func viewDidLoad() {
+        tableView.dataSource = self
+        tableView.delegate = self
         super.viewDidLoad()
         bookController.loadFromPersistentStore()
     }
@@ -35,7 +37,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         let amountOfUnreadBooks = bookController.unreadBooks.count
         
         if section == 0 {
-            print(amountOfReadBooks)
             return amountOfReadBooks
         } else if section == 1 {
             return amountOfUnreadBooks
@@ -87,6 +88,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         } else if segue.identifier == "UpdateBook" {
             if let vc = segue.destination as? BookDetailViewController {
                 vc.bookController = bookController
+                
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     vc.book = bookController.books[indexPath.row]
                 }

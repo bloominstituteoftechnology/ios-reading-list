@@ -32,7 +32,6 @@ class BookController {
     }
     
     func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
-        print("Called with: \(title)")
         books.append(Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead))
         saveToPersistentStore()
     }
@@ -44,7 +43,8 @@ class BookController {
     
     func updateReadStatus(for book: Book) {
         guard let index = books.index(of: book) else { return }
-        books[index].hasBeenRead = !(books[index].hasBeenRead)
+        books[index].hasBeenRead.toggle()
+        saveToPersistentStore()
     }
     
     func updateBookTitle(for book: Book, title: String) {
@@ -55,7 +55,7 @@ class BookController {
     func updateReasonToRead(for book: Book, reasonToRead: String) {
         guard let index = books.index(of: book) else { return }
         books[index].reasonToRead = reasonToRead
-    }
+   }
     
     // MARK: - Properties
     

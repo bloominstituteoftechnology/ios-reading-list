@@ -10,6 +10,14 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     func updateViews() {
+        if book.hasBeenRead {
+            let image = UIImage(named: "checked.png") as UIImage?
+            bookHasBeenRead.setImage(image, for: [])
+        } else {
+            let image = UIImage(named: "unchecked.png") as UIImage?
+            bookHasBeenRead.setImage(image, for: [])
+        }
+        
         bookTitleText.text = book.title
     }
     
