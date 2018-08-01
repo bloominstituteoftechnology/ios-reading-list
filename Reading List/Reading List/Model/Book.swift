@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Book: Equatable, Codable
+struct Book: Codable, Equatable
 {
     var title: String
     var reasonToRead: String
@@ -20,4 +20,6 @@ struct Book: Equatable, Codable
         self.reasonToRead = reasonToRead
         self.hasBeenRead = hasBeenRead
     }
+    
+    
 }

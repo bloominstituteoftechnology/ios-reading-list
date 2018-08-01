@@ -16,7 +16,7 @@
         <scene sceneID="k7W-DN-ppC">
             <objects>
                 <tableViewController id="lmL-J7-38Q" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hMe-ye-YTL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hMe-ye-YTL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,6 +60,7 @@
                                 <connections>
                                     <outlet property="bookTitleLabel" destination="Vxl-ep-4UT" id="YRX-hb-c5Q"/>
                                     <outlet property="checkBoxButton" destination="iLB-kJ-pux" id="H2a-LB-8cr"/>
+                                    <segue destination="fPR-PZ-m5i" kind="show" identifier="ToEditView" id="hhA-tA-m5o"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,7 +73,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="k3g-Vv-M2X">
                             <connections>
                                 <action selector="addBook:" destination="lmL-J7-38Q" id="1bB-5g-JIH"/>
-                                <segue destination="fPR-PZ-m5i" kind="show" identifier="ToDetailView" id="nXQ-ks-4yP"/>
+                                <segue destination="fPR-PZ-m5i" kind="show" identifier="ToAddView" id="CIa-oc-a27"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -100,7 +101,7 @@
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Bq-AQ-W23">
                                 <rect key="frame" x="16" y="128" width="343" height="204"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="204" id="Dj7-d4-NxT"/>
                                 </constraints>
@@ -114,7 +115,6 @@
                             <constraint firstItem="BlF-zv-d9W" firstAttribute="leading" secondItem="dhC-Ds-QfA" secondAttribute="leading" constant="16" id="PfH-xh-g85"/>
                             <constraint firstItem="dhC-Ds-QfA" firstAttribute="trailing" secondItem="4Bq-AQ-W23" secondAttribute="trailing" constant="16" id="VdY-Rq-62O"/>
                             <constraint firstItem="dhC-Ds-QfA" firstAttribute="trailing" secondItem="BlF-zv-d9W" secondAttribute="trailing" constant="16" id="WsL-Po-8XB"/>
-                            <constraint firstItem="dhC-Ds-QfA" firstAttribute="bottom" secondItem="4Bq-AQ-W23" secondAttribute="bottom" constant="335" id="euf-I6-uF3"/>
                             <constraint firstItem="4Bq-AQ-W23" firstAttribute="top" secondItem="BlF-zv-d9W" secondAttribute="bottom" constant="8" id="evI-Vb-bPf"/>
                             <constraint firstItem="BlF-zv-d9W" firstAttribute="top" secondItem="dhC-Ds-QfA" secondAttribute="top" constant="26" id="vGK-l3-DQK"/>
                         </constraints>
@@ -158,4 +158,7 @@
     <resources>
         <image name="unchecked" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="CIa-oc-a27"/>
+    </inferredMetricsTieBreakers>
 </document>
