@@ -16,7 +16,7 @@ class BookDetailViewController: UIViewController {
         bookReasonToReadText.text = book.reasonToRead
     }
 
-    
+
     @IBAction func saveBookUpdate(_ sender: Any) {
         if (book == nil) {
             guard let bookTitle = bookTitle.text,
@@ -31,10 +31,10 @@ class BookDetailViewController: UIViewController {
             bookController?.saveToPersistentStore()
         }
     }
-    
+
     @IBOutlet var bookTitle: UITextField!
     @IBOutlet var bookReasonToReadText: UITextView!
-    
+
     var bookController: BookController?
     var book: Book?
 }

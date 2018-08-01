@@ -14,7 +14,7 @@ struct Book: Codable, Equatable {
         self.reasonToRead = reasonToRead
         self.hasBeenRead = false
     }
-    
+
     var title: String
     var reasonToRead: String
     var hasBeenRead: Bool
