@@ -14,6 +14,7 @@
 		9411A547211A5AF800BC0E14 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9411A546211A5AF800BC0E14 /* Book.swift */; };
 		9411A549211A5D6500BC0E14 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9411A548211A5D6500BC0E14 /* BookController.swift */; };
 		9411A54B211A62CA00BC0E14 /* Persistence Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9411A54A211A62CA00BC0E14 /* Persistence Controller.swift */; };
+		9411A54D211A641F00BC0E14 /* ReadingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9411A54C211A641F00BC0E14 /* ReadingListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9411A546211A5AF800BC0E14 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		9411A548211A5D6500BC0E14 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		9411A54A211A62CA00BC0E14 /* Persistence Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persistence Controller.swift"; sourceTree = "<group>"; };
+		9411A54C211A641F00BC0E14 /* ReadingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		9411A545211A5AC300BC0E14 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9411A54C211A641F00BC0E14 /* ReadingListTableViewCell.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			files = (
 				9411A54B211A62CA00BC0E14 /* Persistence Controller.swift in Sources */,
 				9411A549211A5D6500BC0E14 /* BookController.swift in Sources */,
+				9411A54D211A641F00BC0E14 /* ReadingListTableViewCell.swift in Sources */,
 				9411A547211A5AF800BC0E14 /* Book.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 			);

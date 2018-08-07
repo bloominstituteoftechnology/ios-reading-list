@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="96" id="gfS-qZ-Iug">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="96" id="gfS-qZ-Iug" customClass="ReadingListTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gfS-qZ-Iug" id="Fz3-G5-Fjj">
@@ -37,10 +37,15 @@
                                             <rect key="frame" x="291" y="11" width="68" height="68"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button" image="unchecked"/>
+                                            <connections>
+                                                <action selector="isCompleteButtonTapped:" destination="gfS-qZ-Iug" eventType="touchUpInside" id="OOm-nE-qml"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bookLabel" destination="6nz-Mj-ep3" id="Dld-gL-O6j"/>
+                                    <outlet property="isCompleteButton" destination="vcP-Rp-vEt" id="09f-5e-7fN"/>
                                     <segue destination="Jm5-fe-iuT" kind="show" id="PLm-uv-BGA"/>
                                 </connections>
                             </tableViewCell>
