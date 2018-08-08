@@ -16,6 +16,7 @@
 		9411A54B211A62CA00BC0E14 /* Persistence Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9411A54A211A62CA00BC0E14 /* Persistence Controller.swift */; };
 		9411A54D211A641F00BC0E14 /* ReadingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9411A54C211A641F00BC0E14 /* ReadingListTableViewCell.swift */; };
 		9411A54F211A67A800BC0E14 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9411A54E211A67A800BC0E14 /* DetailViewController.swift */; };
+		9411A551211A6EA600BC0E14 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9411A550211A6EA600BC0E14 /* ReadingListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9411A54A211A62CA00BC0E14 /* Persistence Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persistence Controller.swift"; sourceTree = "<group>"; };
 		9411A54C211A641F00BC0E14 /* ReadingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewCell.swift; sourceTree = "<group>"; };
 		9411A54E211A67A800BC0E14 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9411A550211A6EA600BC0E14 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				9411A54C211A641F00BC0E14 /* ReadingListTableViewCell.swift */,
 				9411A54E211A67A800BC0E14 /* DetailViewController.swift */,
+				9411A550211A6EA600BC0E14 /* ReadingListTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				9411A54B211A62CA00BC0E14 /* Persistence Controller.swift in Sources */,
 				9411A549211A5D6500BC0E14 /* BookController.swift in Sources */,
 				9411A54D211A641F00BC0E14 /* ReadingListTableViewCell.swift in Sources */,
+				9411A551211A6EA600BC0E14 /* ReadingListTableViewController.swift in Sources */,
 				9411A54F211A67A800BC0E14 /* DetailViewController.swift in Sources */,
 				9411A547211A5AF800BC0E14 /* Book.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
