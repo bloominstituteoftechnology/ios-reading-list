@@ -70,7 +70,7 @@
         <!--Title-->
         <scene sceneID="vkL-qN-fev">
             <objects>
-                <viewController id="Jm5-fe-iuT" sceneMemberID="viewController">
+                <viewController id="Jm5-fe-iuT" customClass="DetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6TX-ZY-CAQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,8 +94,16 @@
                         <viewLayoutGuide key="safeArea" id="8Jb-yl-SQl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="xlf-qm-xKS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ggJ-T1-gD1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ggJ-T1-gD1">
+                            <connections>
+                                <action selector="Send:" destination="Jm5-fe-iuT" id="ICa-Hl-Drw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookTitleTextField" destination="df3-ef-oVb" id="fR6-ZK-Z7o"/>
+                        <outlet property="reasonToReadTextView" destination="hmB-dK-pay" id="bok-MP-5fK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9RZ-cK-faT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
