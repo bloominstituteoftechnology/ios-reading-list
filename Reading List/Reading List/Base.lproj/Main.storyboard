@@ -114,7 +114,11 @@
                         <viewLayoutGuide key="safeArea" id="nV8-cl-Js4"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="rea-mZ-tQC">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ZAL-hn-nn8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ZAL-hn-nn8">
+                            <connections>
+                                <action selector="addBook:" destination="Wps-fW-5Kw" id="l6y-93-19n"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cop-Id-DaN" userLabel="First Responder" sceneMemberID="firstResponder"/>

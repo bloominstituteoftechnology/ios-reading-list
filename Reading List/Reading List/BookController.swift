@@ -85,5 +85,5 @@ class BookController {
             book.hasBeenRead == false
         }
     }
-    private(set) var books: [Book] = []
+    private(set) var books: [Book] = [Book(title: "This is some Book", reasonToRead: "I don't know")]
 }

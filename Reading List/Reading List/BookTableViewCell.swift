@@ -14,6 +14,12 @@ class BookTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func updateViews() {
+        guard let book = book else { return }
+        bookTitleLabel?.text = book.title
+        book.hasBeenRead ? checkButton?.setImage(UIImage(named: "checked.png"), for: .normal) : checkButton?.setImage(UIImage(named: "unchecked"), for: .normal)
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -21,9 +27,12 @@ class BookTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    weak var delegate: BookTableViewCellDelegate?
+    
     
     
     @IBAction func toggleRead(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     
@@ -31,6 +40,11 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var checkButton: UIButton!
     
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
 
 }

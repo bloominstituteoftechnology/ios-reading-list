@@ -21,6 +21,10 @@ class BookDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func addBook(_ sender: Any) {
+        
+    }
+    
 
     /*
     // MARK: - Navigation
