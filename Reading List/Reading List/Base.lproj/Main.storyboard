@@ -9,6 +9,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -89,17 +90,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6tz-nn-hA5">
-                                <rect key="frame" x="16" y="132" width="343" height="275.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6tz-nn-hA5">
+                                <rect key="frame" x="16" y="132" width="343" height="441"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0It-51-iV3">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="257.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="0It-51-iV3" secondAttribute="height" multiplier="4:3" id="IMH-1F-5qw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoq-Im-q8C">
+                                        <rect key="frame" x="0.0" y="265.5" width="343" height="30"/>
+                                        <state key="normal" title="Add Image"/>
+                                        <connections>
+                                            <action selector="addImage:" destination="eag-Bc-hnT" eventType="touchUpInside" id="LWu-5v-f1f"/>
+                                        </connections>
+                                    </button>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GxZ-fK-Zid">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="303.5" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vR9-j3-ifk">
-                                        <rect key="frame" x="0.0" y="30" width="343" height="245.5"/>
+                                        <rect key="frame" x="0.0" y="341.5" width="343" height="99.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -109,7 +123,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6tz-nn-hA5" firstAttribute="height" secondItem="LdJ-TF-wXy" secondAttribute="height" multiplier="1/2" id="1Xk-OQ-aXm"/>
+                            <constraint firstItem="6tz-nn-hA5" firstAttribute="height" secondItem="LdJ-TF-wXy" secondAttribute="height" multiplier="4/5" id="1Xk-OQ-aXm"/>
                             <constraint firstItem="6tz-nn-hA5" firstAttribute="leading" secondItem="LdJ-TF-wXy" secondAttribute="leading" constant="16" id="KPx-vO-tXf"/>
                             <constraint firstItem="LdJ-TF-wXy" firstAttribute="trailing" secondItem="6tz-nn-hA5" secondAttribute="trailing" constant="16" id="Qlm-Bf-jIW"/>
                             <constraint firstItem="6tz-nn-hA5" firstAttribute="top" secondItem="LdJ-TF-wXy" secondAttribute="top" constant="16" id="fxY-Xc-oEg"/>
@@ -124,6 +138,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="0It-51-iV3" id="1NW-eJ-tE7"/>
                         <outlet property="reasonToReadTextField" destination="vR9-j3-ifk" id="3pE-kd-9u1"/>
                         <outlet property="titleTextField" destination="GxZ-fK-Zid" id="bf8-3o-k2L"/>
                     </connections>
