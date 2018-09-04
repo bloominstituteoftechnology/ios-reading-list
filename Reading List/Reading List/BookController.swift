@@ -74,5 +74,16 @@ class BookController {
         return documentsDir.appendingPathComponent("Reading-List.plist")
     }
     
+    var readBooks: [Book] {
+        return books.filter { (book) -> Bool in
+            book.hasBeenRead == true
+        }
+    }
+    
+    var unreadBooks: [Book] {
+        return books.filter { (book) -> Bool in
+            book.hasBeenRead == false
+        }
+    }
     private(set) var books: [Book] = []
 }
