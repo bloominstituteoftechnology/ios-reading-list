@@ -36,10 +36,10 @@ class BookController {
         saveToPersistentStore()
     }
     
-    func updateHasBeenRead(book: Book, hasBeenRead: Bool) {
+    func updateHasBeenRead(book: Book) {
         guard let index = books.index(of: book) else { return }
         var newBook = book
-        newBook.hasBeenRead = hasBeenRead
+        newBook.hasBeenRead = !book.hasBeenRead
         books.remove(at: index)
         books.insert(newBook, at: index)
         saveToPersistentStore()
@@ -76,14 +76,14 @@ class BookController {
     
     var readBooks: [Book] {
         return books.filter { (book) -> Bool in
-            book.hasBeenRead == true
+            book.hasBeenRead
         }
     }
     
     var unreadBooks: [Book] {
         return books.filter { (book) -> Bool in
-            book.hasBeenRead == false
+            !book.hasBeenRead
         }
     }
-    private(set) var books: [Book] = [Book(title: "This is some Book", reasonToRead: "I don't know")]
+    private(set) var books: [Book] = []
 }

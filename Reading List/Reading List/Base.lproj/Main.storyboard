@@ -70,7 +70,6 @@
                     <navigationItem key="navigationItem" title="Reading List" id="b6b-aD-fF9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Saa-Y6-g5z">
                             <connections>
-                                <action selector="addBook:" destination="4zR-1D-73e" id="x4Q-lc-oVN"/>
                                 <segue destination="Wps-fW-5Kw" kind="show" identifier="AddBook" id="Lwz-HG-4xl"/>
                             </connections>
                         </barButtonItem>
