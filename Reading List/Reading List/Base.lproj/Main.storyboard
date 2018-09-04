@@ -59,7 +59,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="hasBeenReadButton" destination="lOc-oA-sd1" id="uBD-Wt-2n8"/>
-                                    <outlet property="titleLabel" destination="5NI-27-X1A" id="yEC-yG-eEe"/>
+                                    <outlet property="titleLabel" destination="dPj-Fv-aeF" id="BPT-Ig-baW"/>
                                     <segue destination="eag-Bc-hnT" kind="show" identifier="ShowBookSegue" id="ezM-Th-XPS"/>
                                 </connections>
                             </tableViewCell>

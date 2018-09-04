@@ -9,17 +9,33 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    // MARK: - Properties
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
     }
+    
+    weak var delegate: BookTableViewCellDelegate?
 
-    @IBOutlet weak var titleLabel: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var hasBeenReadButton: UIButton!
     
     @IBAction func toggleHasBeenRead(_ sender: UIButton) {
+        delegate?.toggleHasBeenRead(for: self)
+    }
+    
+    // MARK: - Private Utility Methods
+    private func updateViews() {
+        guard let book = book else { return }
         
+        titleLabel.text = book.title
+        if book.hasBeenRead {
+            hasBeenReadButton.setImage(UIImage(named: "checked"), for: .normal)
+        } else {
+            hasBeenReadButton.setImage(UIImage(named: "unchecked"), for: .normal)
+        }
     }
     
 }

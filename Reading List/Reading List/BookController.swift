@@ -13,15 +13,21 @@ class BookController {
     private(set) var books: [Book] = []
     
     var readBooks: [Book] {
-        return books.filter({ (book) -> Bool in
+        let filteredBooks = books.filter({ (book) -> Bool in
             return book.hasBeenRead
         })
+        return sortByTitle(filteredBooks)
     }
     
     var unreadBooks: [Book] {
-        return books.filter({ (book) -> Bool in
+        let filteredBooks = books.filter({ (book) -> Bool in
             return !book.hasBeenRead
         })
+        return sortByTitle(filteredBooks)
+    }
+    
+    init() {
+        loadFromPersistentStore()
     }
     
     // MARK: CRUD Methods
@@ -90,5 +96,11 @@ class BookController {
         let fileName = "ReadingList.plist"
         
         return documentsURL.appendingPathComponent(fileName)
+    }
+    
+    private func sortByTitle(_ books: [Book]) -> [Book] {
+        return books.sorted(by: { (book1, book2) -> Bool in
+            return book1.title < book2.title
+        })
     }
 }
