@@ -26,27 +26,31 @@ class BookDetailViewController: UIViewController {
 
     // MARK: - UI Methods
     @IBAction func saveBook(_ sender: UIBarButtonItem) {
+        //Unwrap the text fields and views and make sure the required ones have content.
         guard let title = titleTextField.text, !title.isEmpty,
             let reasonToRead = reasonToReadTextField.text else { return }
         
         if let book = book {
             //Update the current book
-            bookController?.update(book, title: title, reasonToRead: reasonToRead)
+            bookController?.update(book, title: title, reasonToRead: reasonToRead, imageData: nil)
         } else {
             //Create a new book
-            bookController?.createBook(title: title, reasonToRead: reasonToRead)
+            bookController?.createBook(title: title, reasonToRead: reasonToRead, imageData: nil)
         }
         
+        //Pop the view off of the stack
         navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Private Utility Methods
     private func updateViews() {
+        //If there is no book, the user is adding a new one
         guard let book = book else {
             title = "Add a new book"
             return
         }
         
+        //If there is a book, update the UI to reflect its properties
         title = book.title
         titleTextField.text = book.title
         reasonToReadTextField.text = book.reasonToRead

@@ -28,8 +28,10 @@ class BookTableViewCell: UITableViewCell {
     
     // MARK: - Private Utility Methods
     private func updateViews() {
+        //Make sure there is a book
         guard let book = book else { return }
         
+        //Set the book's title and whether it has been read or not
         titleLabel.text = book.title
         if book.hasBeenRead {
             hasBeenReadButton.setImage(UIImage(named: "checked"), for: .normal)

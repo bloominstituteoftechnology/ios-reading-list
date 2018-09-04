@@ -10,8 +10,10 @@ import Foundation
 
 class BookController {
     
+    // MARK: - Properties
     private(set) var books: [Book] = []
     
+    //Computed property that returns a sorted array of the read books.
     var readBooks: [Book] {
         let filteredBooks = books.filter({ (book) -> Bool in
             return book.hasBeenRead
@@ -19,6 +21,7 @@ class BookController {
         return sortByTitle(filteredBooks)
     }
     
+    //Computed property that returns a sorted array of the unread books.
     var unreadBooks: [Book] {
         let filteredBooks = books.filter({ (book) -> Bool in
             return !book.hasBeenRead
@@ -26,20 +29,22 @@ class BookController {
         return sortByTitle(filteredBooks)
     }
     
+    // MARK: - Initializers
     init() {
         loadFromPersistentStore()
     }
     
     // MARK: CRUD Methods
     //Create method
-    func createBook(title: String, reasonToRead: String) {
-        let book = Book(title: title, reasonToRead: reasonToRead)
+    func createBook(title: String, reasonToRead: String, imageData: Data?) {
+        let book = Book(title: title, reasonToRead: reasonToRead, imageData: imageData)
         
         books.append(book)
         saveToPersistentStore()
     }
     
     //Update methods
+    //Method to toggle whether a book has been read or not
     func updateHasBeenRead(for book: Book) {
         guard let index = books.index(of: book) else { return }
         
@@ -47,11 +52,13 @@ class BookController {
         saveToPersistentStore()
     }
     
-    func update(_ book: Book, title: String, reasonToRead: String) {
+    //Method to update the book's properties
+    func update(_ book: Book, title: String, reasonToRead: String, imageData: Data?) {
         guard let index = books.index(of: book) else { return }
         
         books[index].title = title
         books[index].reasonToRead = reasonToRead
+        books[index].imageData = imageData
         saveToPersistentStore()
     }
     
@@ -98,6 +105,8 @@ class BookController {
         return documentsURL.appendingPathComponent(fileName)
     }
     
+    // MARK: - Private Utility Functions
+    //Method to sort books alphabetically by title.
     private func sortByTitle(_ books: [Book]) -> [Book] {
         return books.sorted(by: { (book1, book2) -> Bool in
             return book1.title < book2.title
