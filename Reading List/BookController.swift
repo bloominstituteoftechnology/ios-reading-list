@@ -10,6 +10,8 @@ import Foundation
 
 class BookController {
     
+    init() { loadFromPersistentStore() }
+    
     //Create book.
     func create(title: String, reasonToRead: String) {
         let book = Book(title: title, reasonToRead: reasonToRead)
