@@ -21,6 +21,7 @@ class BookTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var hasBeenReadButton: UIButton!
+    @IBOutlet weak var bookImageView: UIImageView!
     
     @IBAction func toggleHasBeenRead(_ sender: UIButton) {
         delegate?.toggleHasBeenRead(for: self)
@@ -37,6 +38,12 @@ class BookTableViewCell: UITableViewCell {
             hasBeenReadButton.setImage(UIImage(named: "checked"), for: .normal)
         } else {
             hasBeenReadButton.setImage(UIImage(named: "unchecked"), for: .normal)
+        }
+        //If there is an image associated with the book, display it on the cell
+        if let imageData = book.imageData, let image = UIImage(data: imageData) {
+            bookImageView.image = image
+        } else {
+            bookImageView.image = nil
         }
     }
     

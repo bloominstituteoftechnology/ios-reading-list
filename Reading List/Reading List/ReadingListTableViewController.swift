@@ -69,6 +69,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
     }
     
+    //Set cell height
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
+    
     // MARK: - Book table view cell delegate
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         //Make sure you can get an index path for the cell and then get the book at that index
