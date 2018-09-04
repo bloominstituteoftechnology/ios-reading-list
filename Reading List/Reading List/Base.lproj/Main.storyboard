@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="LDF-iT-8lw" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="75" id="LDF-iT-8lw" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LDF-iT-8lw" id="IZF-54-Qiq">
@@ -86,7 +86,7 @@
         <!--Title-->
         <scene sceneID="mcu-79-Axp">
             <objects>
-                <viewController id="l7F-yO-I1a" sceneMemberID="viewController">
+                <viewController id="l7F-yO-I1a" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LgO-Ki-blw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,13 +94,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AO9-Bw-B0A">
                                 <rect key="frame" x="16" y="72" width="343" height="222.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOOK TITLE" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7d-Dh-5xm">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7d-Dh-5xm">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" text="Reason to read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dIv-Es-fcG">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dIv-Es-fcG">
                                         <rect key="frame" x="0.0" y="38" width="343" height="184.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -119,8 +119,16 @@
                         <viewLayoutGuide key="safeArea" id="pVP-xV-86h"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="MhO-yu-TKu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Vfo-eb-5aD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Vfo-eb-5aD">
+                            <connections>
+                                <action selector="saveBook:" destination="l7F-yO-I1a" id="COP-hB-wRA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookTextField" destination="v7d-Dh-5xm" id="NfV-AC-wJ2"/>
+                        <outlet property="reasonTextView" destination="dIv-Es-fcG" id="Dkt-Eg-ihv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lka-2N-EZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,6 +154,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="m9c-Da-Y4f"/>
+        <segue reference="JZd-1P-VX8"/>
     </inferredMetricsTieBreakers>
 </document>
