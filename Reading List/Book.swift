@@ -9,7 +9,7 @@
 import Foundation
 
 struct Book: Equatable, Codable {
-    let title: String
+    var title: String
     var reasonToRead: String
     var hasBeenRead: Bool
     

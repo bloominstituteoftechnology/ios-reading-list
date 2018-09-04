@@ -11,8 +11,44 @@ import Foundation
 class BookController {
     
     //Create book.
+    func create(title: String, reasonToRead: String) {
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        books.append(book)
+        
+        saveToPersistentStore()
+    }
     
     //Delete book.
+    func delete(book: Book) {
+        guard let index = books.index(of: book) else { return }
+        books.remove(at: index)
+        
+        saveToPersistentStore()
+    }
+    
+    //Update hasBeenRead property
+    func updateHasBeenRead(for book: Book) {
+        guard let index = books.index(of: book) else { return }
+        
+        var scratch = book
+        let newStatus = !book.hasBeenRead
+        scratch.hasBeenRead = newStatus
+        
+        books.remove(at: index)
+        books.insert(scratch, at: index)
+        
+        saveToPersistentStore()
+    }
+    
+    //Update title and reasonToRead properties
+    func update(book: Book, title: String, reasonToRead: String){
+        guard let index = books.index(of: book) else { return }
+        
+        books[index].title = title
+        books[index].reasonToRead = reasonToRead
+        
+        saveToPersistentStore()
+    }
     
     //Encode books array to data.
     private func saveToPersistentStore() {
@@ -56,5 +92,11 @@ class BookController {
         return documentDirectory?.appendingPathComponent(fileName)
     }
     
+    var readBooks: [Book] {
+        return books.filter{$0.hasBeenRead}
+    }
+    var unreadBooks: [Book] {
+        return books.filter{!$0.hasBeenRead}
+    }
     private(set) var books: [Book] = []
 }
