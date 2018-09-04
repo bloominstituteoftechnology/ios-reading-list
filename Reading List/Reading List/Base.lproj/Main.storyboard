@@ -1,24 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dnW-bS-Hfj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Reading List-->
+        <scene sceneID="aGo-DM-jPX">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="4zR-1D-73e" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="x7z-u2-OUV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WEx-Uz-P1g">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WEx-Uz-P1g" id="iUN-H9-TVQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilL-ew-CYY">
+                                            <rect key="frame" x="25" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NO3-FN-qra">
+                                            <rect key="frame" x="329" y="6" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="NO3-FN-qra" secondAttribute="height" multiplier="1:1" id="eeV-9M-ABh"/>
+                                            </constraints>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ilL-ew-CYY" firstAttribute="top" secondItem="iUN-H9-TVQ" secondAttribute="topMargin" id="14U-gd-Cyb"/>
+                                        <constraint firstItem="NO3-FN-qra" firstAttribute="top" secondItem="iUN-H9-TVQ" secondAttribute="top" constant="6" id="2WN-NW-1SF"/>
+                                        <constraint firstItem="NO3-FN-qra" firstAttribute="leading" secondItem="ilL-ew-CYY" secondAttribute="trailing" constant="262" id="Mnf-QA-Edn"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ilL-ew-CYY" secondAttribute="bottom" constant="1" id="RoG-41-NFk"/>
+                                        <constraint firstAttribute="bottom" secondItem="NO3-FN-qra" secondAttribute="bottom" constant="7.5" id="Xg2-dA-OEX"/>
+                                        <constraint firstItem="ilL-ew-CYY" firstAttribute="leading" secondItem="iUN-H9-TVQ" secondAttribute="leadingMargin" constant="9" id="eMx-ze-n0U"/>
+                                        <constraint firstItem="NO3-FN-qra" firstAttribute="leading" secondItem="ilL-ew-CYY" secondAttribute="trailing" constant="262" id="q80-jc-6Tf"/>
+                                        <constraint firstAttribute="trailing" secondItem="NO3-FN-qra" secondAttribute="trailing" constant="16" id="vGH-7P-kIN"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Wps-fW-5Kw" kind="show" id="Aio-ca-U8P"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4zR-1D-73e" id="ksS-Bj-mJf"/>
+                            <outlet property="delegate" destination="4zR-1D-73e" id="CCj-SU-XNx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Reading List" id="b6b-aD-fF9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Saa-Y6-g5z"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lRa-Tj-mcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="943.20000000000005" y="111.99400299850076"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="2W1-rs-RA3">
+            <objects>
+                <viewController id="Wps-fW-5Kw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CxP-Yn-20Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nV8-cl-Js4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="rea-mZ-tQC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cop-Id-DaN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1716" y="112"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Syz-MF-mGF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dnW-bS-Hfj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="IJd-jQ-4jT">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4zR-1D-73e" kind="relationship" relationship="rootViewController" id="Fpb-Yu-N1I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YxP-zp-hgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4" y="111.99400299850076"/>
         </scene>
     </scenes>
 </document>
