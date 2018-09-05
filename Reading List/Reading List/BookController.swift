@@ -15,8 +15,9 @@ class BookController {
         loadFromPersistentStore()
     }
     
-    func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
-        books.append(Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead))
+    func createBook(title: String, reasonToRead: String) {
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        books.append(book)        
         saveToPersistentStore()
     }
     

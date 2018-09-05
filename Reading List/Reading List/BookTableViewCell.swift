@@ -18,7 +18,8 @@ class BookTableViewCell: UITableViewCell {
     func updateViews() {
         guard let book = book else { return }
         bookTitleLabel?.text = book.title
-        book.hasBeenRead ? checkButton?.setImage(UIImage(named: "checked.png"), for: .normal) : checkButton?.setImage(UIImage(named: "unchecked"), for: .normal)
+        
+        book.hasBeenRead ? checkButton?.setImage(UIImage(named: "checked"), for: .normal) : checkButton?.setImage(UIImage(named: "unchecked"), for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -11,9 +11,19 @@ import UIKit
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let book = bookController.books[indexPath.row]
+        let book = bookFor(indexPath: indexPath)
         bookController.updateHasBeenRead(book: book)
         tableView.reloadData()
+    }
+    
+    func bookFor(indexPath: IndexPath) -> Book {
+        
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+            
+        } else {
+            return bookController.unreadBooks[indexPath.row]
+        }
     }
     
 
@@ -47,16 +57,23 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "Read Books"
-        default:
-            return "Unread Books"
+        if section == 0 {
+            if bookController.readBooks.count == 0 {
+                return nil
+            } else {
+                return "Read Books"
+            }
+        } else {
+            if bookController.unreadBooks.count == 0 {
+                return nil
+            } else {
+                return "UnRead Books"
+            }
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
-        let book = bookController.books[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
+        let book = bookFor(indexPath: indexPath)
         // Configure the cell...
         cell.book = book
         cell.delegate = self
@@ -66,7 +83,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            let book = bookController.books[indexPath.row] 
+            let book = bookFor(indexPath: indexPath)
             bookController.deleteBook(book: book)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -77,8 +94,17 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddBook" {
+            guard let destinationVC = segue.destination as? BookDetailViewController else { return }
+            destinationVC.bookController = bookController
+        }
+        else if segue.identifier == "ShowBook" {
+            guard let destinationVC = segue.destination as? BookDetailViewController else { return }
+            destinationVC.bookController = bookController
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let book = bookFor(indexPath: indexPath)
+            destinationVC.book = book
+        }
     }
     
     var bookController = BookController()
