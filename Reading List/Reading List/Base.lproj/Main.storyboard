@@ -76,7 +76,7 @@
             </objects>
             <point key="canvasLocation" x="608.5" y="89.5"/>
         </scene>
-        <!--Title-->
+        <!--Add Book-->
         <scene sceneID="Sdh-vb-O0C">
             <objects>
                 <viewController id="SHL-Vw-bbn" customClass="DetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,7 +109,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lZh-q5-ISz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="GN8-Ny-PqA">
+                    <navigationItem key="navigationItem" title="Add Book" id="GN8-Ny-PqA">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="PLW-Pc-ZMH">
                             <connections>
                                 <action selector="saveButton:" destination="SHL-Vw-bbn" id="1ch-il-Jt2"/>
@@ -148,6 +148,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mFe-Ur-TD4"/>
+        <segue reference="sgM-vZ-VYt"/>
     </inferredMetricsTieBreakers>
 </document>

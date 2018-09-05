@@ -14,19 +14,33 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var reasonView: UITextView!
     
+    var bookController: BookController?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var book: Book?
+    
+    func updateViews(){
+        guard let book = book else {return}
+        
+        title = book.title
+        
+        
+        TitleLabel.text = book.title
+        reasonView.text = book.reasonToRead
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func saveButton(_ sender: Any) {
+        
+        guard let title = TitleLabel.text, let reason = reasonView.text else {return}
+    
+    if let book = book {
+        bookController?.updateTitleAndReason(for: book, title: title, reason: reason)
+    } else {
+       bookController?.createBook(title: title, reason: reason)
+    }
+        
+    navigationController?.popViewController(animated: true)
+        
     }
     
 
