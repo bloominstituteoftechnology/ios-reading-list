@@ -17,6 +17,7 @@ class BookDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reasonToReadTextField: UITextView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addImageButton: UIButton!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -44,7 +45,7 @@ class BookDetailViewController: UIViewController, UIImagePickerControllerDelegat
         //If there is an image picked, represent it as Data, else pass nil
         let imageData: Data?
         if let image = imageView.image {
-            imageData = UIImagePNGRepresentation(image)
+            imageData = image.pngData()
         } else {
             imageData = nil
         }
@@ -57,22 +58,29 @@ class BookDetailViewController: UIViewController, UIImagePickerControllerDelegat
             bookController?.createBook(title: title, reasonToRead: reasonToRead, imageData: imageData)
         }
         
-        //Pop the view off of the stack
+        let hapticGenerator = UINotificationFeedbackGenerator()
+        hapticGenerator.notificationOccurred(.success)
+        
         navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Image picker controller delegate
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         
         picker.dismiss(animated: true, completion: nil)
         
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        guard let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage else { return }
         
         imageView.image = image
+        addImageButton.setTitle("Change Image", for: .normal)
     }
     
     // MARK: - Private Utility Methods
     private func updateViews() {
+        addImageButton.setTitle("Add Image", for: .normal)
         //If there is no book, the user is adding a new one
         guard let book = book else {
             title = "Add a new book"
@@ -85,8 +93,19 @@ class BookDetailViewController: UIViewController, UIImagePickerControllerDelegat
         reasonToReadTextField.text = book.reasonToRead
         if let imageData = book.imageData {
             imageView.image = UIImage(data: imageData)
+            addImageButton.setTitle("Change Image", for: .normal)
         }
         
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

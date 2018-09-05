@@ -49,7 +49,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
     
     //Handle a cell getting deleted
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             //Get the book for the index path
             let book = bookFor(indexPath: indexPath)
@@ -84,6 +84,8 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         bookController.updateHasBeenRead(for: book)
         tableView.reloadData()
         
+        let hapticGenerator = UINotificationFeedbackGenerator()
+        hapticGenerator.notificationOccurred(.success)
     }
 
     
