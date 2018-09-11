@@ -22,6 +22,16 @@ class BookController {
         return documentDirectory.appendingPathComponent(fileName)
     }
     
+    var readBooks: [Book] {
+        let allReadBooks = books.filter{ $0.hasBeenRead == true }
+        return allReadBooks
+    }
+    
+    var unreadBooks: [Book] {
+        let allUnreadBooks = books.filter{ $0.hasBeenRead == false }
+        return allUnreadBooks
+    }
+    
     // MARK: - Persistance functions
     
     func saveToPersistentStore() {
@@ -65,7 +75,13 @@ class BookController {
     }
     
     func updateHasBeenRead(for book: Book) {
-        book.hasBeenRead = !book.hasBeenRead
+        //book.hasBeenRead = !book.hasBeenRead
+    }
+    
+    func modifyBook(book: Book, tite: String, reasonToRead: String) {
+        guard let index = books.index(of: book) else { return }
+        books[index].title = tite
+        books[index].reasonToRead = reasonToRead
     }
     
 }
