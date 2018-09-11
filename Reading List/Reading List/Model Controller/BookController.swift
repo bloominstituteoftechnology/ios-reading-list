@@ -14,11 +14,58 @@ class BookController {
     
     private(set) var books = [Book]()
     
+    var readingListURL: URL? {
+        let fileManager = FileManager.default
+        let fileName = "ReadingList.plist"
+        guard let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil}
+        
+        return documentDirectory.appendingPathComponent(fileName)
+    }
+    
     // MARK: - Persistance functions
     
-    var readinfListURL: URL? {
-        var fm = FileManager.default
+    func saveToPersistentStore() {
+        let encoder = PropertyListEncoder()
+        guard let unwrappedReadingListURL = readingListURL else { return }
         
+        do {
+            let booksDate = try encoder.encode(books)
+            try booksDate.write(to: unwrappedReadingListURL)
+            
+        } catch {
+            NSLog("Error saving data to persistent store: \(error)")
+        }
+    }
+    
+    func loadFromPersistentStore() {
+        
+        do {
+            guard let unwrappedReadingListURL = readingListURL else { return }
+            let booksData = try Data(contentsOf: unwrappedReadingListURL)
+            let decoder = PropertyListDecoder()
+            let decodeBooks = try decoder.decode([Book].self, from: booksData)
+            books = decodeBooks
+        } catch {
+            NSLog("Error loading data from persistent store: \(error)")
+        }
+    }
+    
+    // MARK: - CRUD methods
+    
+    func createBook(title: String, reasonToRead: String, hasBeenRead: Bool = false) {
+        let newBook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        books.append(newBook)
+        
+        saveToPersistentStore()
+    }
+    
+    func deleteBook(book: Book) {
+        guard let index = books.index(of: book) else { return }
+        books.remove(at: index)
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        book.hasBeenRead = !book.hasBeenRead
     }
     
 }
