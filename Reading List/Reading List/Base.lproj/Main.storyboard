@@ -13,13 +13,13 @@
         <!--Reading List-->
         <scene sceneID="1it-Pk-NOU">
             <objects>
-                <tableViewController id="BVE-Y1-SC7" sceneMemberID="viewController">
+                <tableViewController id="BVE-Y1-SC7" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pxt-pC-81i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="96" id="gfS-qZ-Iug" customClass="ReadingListTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="96" id="gfS-qZ-Iug" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gfS-qZ-Iug" id="Fz3-G5-Fjj">
@@ -38,15 +38,15 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button" image="unchecked"/>
                                             <connections>
-                                                <action selector="isCompleteButtonTapped:" destination="gfS-qZ-Iug" eventType="touchUpInside" id="OOm-nE-qml"/>
+                                                <action selector="hasBeenReadButton:" destination="gfS-qZ-Iug" eventType="touchUpInside" id="5VE-He-O9g"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="bookLabel" destination="6nz-Mj-ep3" id="Dld-gL-O6j"/>
-                                    <outlet property="isCompleteButton" destination="vcP-Rp-vEt" id="09f-5e-7fN"/>
-                                    <segue destination="Jm5-fe-iuT" kind="show" id="PLm-uv-BGA"/>
+                                    <outlet property="bookLabel" destination="6nz-Mj-ep3" id="N1y-5L-iDD"/>
+                                    <outlet property="hasBeenRead" destination="vcP-Rp-vEt" id="KfV-lD-5Wr"/>
+                                    <segue destination="Jm5-fe-iuT" kind="show" identifier="showDetail" id="PLm-uv-BGA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -58,7 +58,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="uXT-Gr-hci">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xYx-1B-LHu">
                             <connections>
-                                <segue destination="Jm5-fe-iuT" kind="show" id="wRX-41-TQC"/>
+                                <segue destination="Jm5-fe-iuT" kind="show" identifier="addDetail" id="wRX-41-TQC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -70,7 +70,7 @@
         <!--Title-->
         <scene sceneID="vkL-qN-fev">
             <objects>
-                <viewController id="Jm5-fe-iuT" customClass="DetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jm5-fe-iuT" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6TX-ZY-CAQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,13 +96,13 @@
                     <navigationItem key="navigationItem" title="Title" id="xlf-qm-xKS">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ggJ-T1-gD1">
                             <connections>
-                                <action selector="Send:" destination="Jm5-fe-iuT" id="ICa-Hl-Drw"/>
+                                <action selector="save:" destination="Jm5-fe-iuT" id="4cG-Mt-848"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bookTitleTextField" destination="df3-ef-oVb" id="fR6-ZK-Z7o"/>
-                        <outlet property="reasonToReadTextView" destination="hmB-dK-pay" id="bok-MP-5fK"/>
+                        <outlet property="bookTitleLabel" destination="df3-ef-oVb" id="qqx-Zk-JF7"/>
+                        <outlet property="textView" destination="hmB-dK-pay" id="v9g-5v-3r4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9RZ-cK-faT" userLabel="First Responder" sceneMemberID="firstResponder"/>

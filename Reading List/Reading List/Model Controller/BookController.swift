@@ -26,8 +26,27 @@ class BookController {
         saveToPersistence()
     }
     
-    func updateHasBeenRead(for book: Book) -> Bool{
-       return book.hasBeenRead != book.hasBeenRead
+    func updateHasBeenRead(for book: Book) {
+        guard let index = books.index(of: book) else {return}
+        var scratch = book
+       scratch.hasBeenRead = !book.hasBeenRead
+        books.remove(at: index)
+        books.insert(scratch, at: index)
+        saveToPersistence()
+    }
+    
+    func delete(book: Book){
+        guard let index = books.index(of: book) else {return}
+        books.remove(at: index)
+        saveToPersistence()
+    }
+    
+    var readBooks: [Book] {
+        return books.filter({$0.hasBeenRead})
+    }
+    
+    var unreadBooks: [Book]{
+        return books.filter({$0.hasBeenRead == false})
     }
     
     var books: [Book] = []
