@@ -15,9 +15,33 @@ class BookDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func save(_ sender: Any) {
+    
+    func updateView(){
+        guard isViewLoaded else {return}
+        if let book = book {
+            navigationController?.title = book.title
+            bookTitleLabel.text = book.title
+            textView.text = book.reasonToRead
+        }else if book == nil{
+            navigationController?.title = "Add new book"
+        }
     }
     
+    @IBAction func save(_ sender: Any) {
+        guard let title = bookTitleLabel.text,
+        let reasonToRead = textView.text
+        else {return}
+        
+        if let book = book{
+            bookController?.updateBook(book: book, title: title, reasonToRead: reasonToRead)
+        }else{
+            bookController?.createBook(title: title, reasonToRead: reasonToRead)
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
+    var book: Book?
+    var bookController: BookController?
     @IBOutlet weak var bookTitleLabel: UITextField!
     @IBOutlet weak var textView: UITextView!
 }

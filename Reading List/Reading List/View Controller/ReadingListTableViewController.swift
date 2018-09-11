@@ -13,15 +13,10 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         guard let index = tableView.indexPath(for: cell) else {return}
         let book = self.bookFor(indexPath: index)
         bookController.updateHasBeenRead(for: book)
+        tableView.reloadData()
     }
     
     weak var delegate: BookTableViewCellDelegate?
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        tableView.reloadData()
-    }
-
-  
 
     // MARK: - Table view data source
 
@@ -69,6 +64,16 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addDetail"{
+            guard let detailVC = segue.destination as? BookDetailViewController else {return}
+            detailVC.bookController = bookController
+        }else if segue.identifier == "showDetail"{
+            guard let indexPath = tableView.indexPathForSelectedRow,
+                let detailVC = segue.destination as? BookDetailViewController else {return}
+            let book = self.bookFor(indexPath: indexPath)
+            detailVC.bookController = bookController
+            detailVC.book = book
+        }
     
     }
     
