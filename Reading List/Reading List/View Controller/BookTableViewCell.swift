@@ -10,6 +10,10 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var bookTitleLabel: UILabel!
+    @IBOutlet weak var checkButtonOutlet: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +24,9 @@ class BookTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func checkButtonTapped(_ sender: Any) {
+    }
+    
 
 }

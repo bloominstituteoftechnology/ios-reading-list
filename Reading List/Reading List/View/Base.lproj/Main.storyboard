@@ -43,6 +43,9 @@
                                                         <constraint firstAttribute="width" secondItem="yft-IU-mfS" secondAttribute="height" multiplier="1:1" id="hpM-HX-5Wo"/>
                                                     </constraints>
                                                     <state key="normal" image="unchecked"/>
+                                                    <connections>
+                                                        <action selector="checkButtonTapped:" destination="Nsm-Qh-SPs" eventType="touchUpInside" id="PSc-wf-RQs"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -55,6 +58,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bookTitleLabel" destination="JUj-OC-OGP" id="dDt-iH-N8s"/>
+                                    <outlet property="checkButtonOutlet" destination="yft-IU-mfS" id="hEQ-Gl-mPC"/>
                                     <segue destination="8cC-V4-gkY" kind="show" identifier="TableViewCellSegue" id="zCI-9L-y64"/>
                                 </connections>
                             </tableViewCell>
@@ -79,14 +84,51 @@
         <!--Title-->
         <scene sceneID="gCK-Ta-Kam">
             <objects>
-                <viewController id="8cC-V4-gkY" sceneMemberID="viewController">
+                <viewController id="8cC-V4-gkY" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="10j-Wp-ZAA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xgE-FM-f3q">
+                                <rect key="frame" x="16" y="132" width="343" height="238"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xwp-M5-Cxo">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cXd-es-y4i">
+                                        <rect key="frame" x="0.0" y="38" width="343" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="1kN-EW-lqX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xgE-FM-f3q" firstAttribute="top" secondItem="Z06-So-e74" secondAttribute="top" constant="16" id="SBV-Xi-ANQ"/>
+                            <constraint firstItem="xgE-FM-f3q" firstAttribute="leading" secondItem="Z06-So-e74" secondAttribute="leading" constant="16" id="W66-A6-NIG"/>
+                            <constraint firstItem="Z06-So-e74" firstAttribute="trailing" secondItem="xgE-FM-f3q" secondAttribute="trailing" constant="16" id="e88-2L-kbc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Z06-So-e74"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="UmR-u6-zhV"/>
+                    <navigationItem key="navigationItem" title="Title" id="UmR-u6-zhV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ys2-b9-CGO">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="8cC-V4-gkY" id="9w2-mk-znI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookTitleTextField" destination="Xwp-M5-Cxo" id="9yg-50-XE3"/>
+                        <outlet property="reasonToReadTextView" destination="cXd-es-y4i" id="2W3-CB-TqV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyu-b4-5tK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
