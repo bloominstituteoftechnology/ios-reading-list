@@ -8,8 +8,8 @@
 
 import Foundation
 
-class BookController{
+class BookController {
    
-      
+    var books: [Book] = []
      
 }
