@@ -60,7 +60,7 @@
                                 <connections>
                                     <outlet property="bookTitleLabel" destination="JUj-OC-OGP" id="dDt-iH-N8s"/>
                                     <outlet property="checkButtonOutlet" destination="yft-IU-mfS" id="hEQ-Gl-mPC"/>
-                                    <segue destination="8cC-V4-gkY" kind="show" identifier="TableViewCellSegue" id="zCI-9L-y64"/>
+                                    <segue destination="8cC-V4-gkY" kind="show" identifier="tableViewCellSegue" id="zCI-9L-y64"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,7 +72,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="qjW-TH-GuF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="U3J-Ay-ksg">
                             <connections>
-                                <segue destination="8cC-V4-gkY" kind="show" identifier="AddButtonSegue" id="4iT-vZ-ky2"/>
+                                <segue destination="8cC-V4-gkY" kind="show" identifier="addButtonSegue" id="4iT-vZ-ky2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -157,6 +157,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4iT-vZ-ky2"/>
+        <segue reference="zCI-9L-y64"/>
     </inferredMetricsTieBreakers>
 </document>
