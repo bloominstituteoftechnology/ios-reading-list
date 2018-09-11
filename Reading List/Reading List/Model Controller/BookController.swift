@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class BookController {
+    
+    // MARK: - Properties
+    
+    private(set) var books = [Book]()
+    
+    // MARK: - Persistance functions
+    
+    var readinfListURL: URL? {
+        var fm = FileManager.default
+        
+    }
+    
+}
