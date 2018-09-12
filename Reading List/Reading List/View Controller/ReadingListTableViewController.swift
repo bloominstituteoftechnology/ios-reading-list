@@ -21,6 +21,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         tableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
             return bookController.readBooks[indexPath.row]
