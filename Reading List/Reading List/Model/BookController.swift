@@ -25,7 +25,8 @@ class BookController {
     
     // create new book
     func createBook(withName title:String, reasonToRead:String, hasBeenRead:Bool) {
-        
+        let newBook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        books.append(newBook)
     }
     
     // MARK: - Persistence Functions
