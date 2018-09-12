@@ -107,6 +107,7 @@ class BookController {
     }
     
     // Mark - Computed Properties
+        // returns array of books that have been read or unread
     
     var readBooks: [Book] {
         return books.filter { (book) -> Bool in
