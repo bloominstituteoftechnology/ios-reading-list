@@ -16,6 +16,7 @@
 		C337B300214904D300A76F19 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C337B2FF214904D300A76F19 /* BookController.swift */; };
 		C337B3022149333200A76F19 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C337B3012149333200A76F19 /* ReadingListTableViewController.swift */; };
 		C337B3042149334400A76F19 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C337B3032149334400A76F19 /* BookTableViewCell.swift */; };
+		C337B3262149734100A76F19 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C337B3252149734100A76F19 /* BookDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C337B2FF214904D300A76F19 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		C337B3012149333200A76F19 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		C337B3032149334400A76F19 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		C337B3252149734100A76F19 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		C337B3062149335400A76F19 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C337B3252149734100A76F19 /* BookDetailViewController.swift */,
 				C337B3012149333200A76F19 /* ReadingListTableViewController.swift */,
 			);
 			path = "View Controller";
@@ -175,6 +178,7 @@
 				C337B3022149333200A76F19 /* ReadingListTableViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				C337B300214904D300A76F19 /* BookController.swift in Sources */,
+				C337B3262149734100A76F19 /* BookDetailViewController.swift in Sources */,
 				C337B3042149334400A76F19 /* BookTableViewCell.swift in Sources */,
 				C337B2FD2148CED100A76F19 /* Book.swift in Sources */,
 			);
