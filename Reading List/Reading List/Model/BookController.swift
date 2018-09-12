@@ -10,6 +10,10 @@ import Foundation
 
 class BookController {
     
+    init() {
+        loadFromPersistentStore()
+    }
+    
     // MARK: - CRUD
     
     // Reading
@@ -32,7 +36,6 @@ class BookController {
     }
     
     // UPDATE - book Title and Reason
-    
     func updateBookDetails (book: Book, title: String, reasonToRead: String){
         guard let index = books.index(of: book) else {return}
         books[index].title = title
@@ -40,12 +43,11 @@ class BookController {
         saveToPersistentStore()
     }
     
-    
     // UPDATE - book hasBeenRead
-    
     func updateHasBeenRead(book: Book){
         guard let index = books.index(of: book) else {return}
         books[index].hasBeenRead = !book.hasBeenRead
+        saveToPersistentStore()
     }
     
     
@@ -103,5 +105,20 @@ class BookController {
             NSLog("Error loading books data: \(error)")
         }
     }
+    
+    // Mark - Computed Properties
+    
+    var readBooks: [Book] {
+        return books.filter { (book) -> Bool in
+            book.hasBeenRead
+        }
+    }
+    
+    var unreadBooks: [Book] {
+        return books.filter { (book) -> Bool in
+            !book.hasBeenRead
+        }
+    }
+    
     
 }
