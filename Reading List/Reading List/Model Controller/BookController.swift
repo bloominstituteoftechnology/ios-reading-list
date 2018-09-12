@@ -14,6 +14,7 @@ class BookController {
     
     private(set) var books = [Book]()
     
+    // MARK: - Computed properties
     var readingListURL: URL? {
         let fileManager = FileManager.default
         let fileName = "ReadingList.plist"
@@ -30,6 +31,12 @@ class BookController {
     var unreadBooks: [Book] {
         let allUnreadBooks = books.filter{ $0.hasBeenRead == false }
         return allUnreadBooks
+    }
+    
+    // MARK: - Initializer
+    
+    init() {
+        loadFromPersistentStore()
     }
     
     // MARK: - Persistance functions
