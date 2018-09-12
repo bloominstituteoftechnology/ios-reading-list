@@ -18,7 +18,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.reloadData()
     }
     
     func bookFor(indexPath: IndexPath) -> Book {
@@ -29,6 +29,8 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             return bookController.unreadBooks[indexPath.row]
         }
     }
+    
+    // MARK: - Delegation
     
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let index = tableView.indexPath(for: cell) else { return }
@@ -64,6 +66,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         if section == 0 {
             return "Read Books"
         } else {

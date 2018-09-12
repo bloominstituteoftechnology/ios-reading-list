@@ -21,24 +21,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="readingListTableCell" id="Nsm-Qh-SPs" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="readingListTableCell" rowHeight="125" id="Nsm-Qh-SPs" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nsm-Qh-SPs" id="5Ie-Zg-x82">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nl4-AB-6KK">
-                                            <rect key="frame" x="16" y="2" width="343" height="39.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="124.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUj-OC-OGP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="295.5" height="39.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUj-OC-OGP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="210.5" height="124.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yft-IU-mfS">
-                                                    <rect key="frame" x="303.5" y="0.0" width="39.5" height="39.5"/>
+                                                    <rect key="frame" x="218.5" y="0.0" width="124.5" height="124.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="yft-IU-mfS" secondAttribute="height" multiplier="1:1" id="hpM-HX-5Wo"/>
                                                     </constraints>
@@ -51,10 +51,10 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="nl4-AB-6KK" secondAttribute="bottom" constant="2" id="8ln-T3-GbC"/>
-                                        <constraint firstItem="nl4-AB-6KK" firstAttribute="leading" secondItem="5Ie-Zg-x82" secondAttribute="leading" constant="16" id="SDf-Xt-UK7"/>
-                                        <constraint firstItem="nl4-AB-6KK" firstAttribute="top" secondItem="5Ie-Zg-x82" secondAttribute="top" constant="2" id="T4z-ss-arT"/>
-                                        <constraint firstAttribute="trailing" secondItem="nl4-AB-6KK" secondAttribute="trailing" constant="16" id="Zlk-sV-syj"/>
+                                        <constraint firstItem="nl4-AB-6KK" firstAttribute="top" secondItem="5Ie-Zg-x82" secondAttribute="top" id="DZT-RX-NR1"/>
+                                        <constraint firstAttribute="trailing" secondItem="nl4-AB-6KK" secondAttribute="trailing" constant="16" id="FsK-SI-dep"/>
+                                        <constraint firstAttribute="bottom" secondItem="nl4-AB-6KK" secondAttribute="bottom" id="dp1-of-S09"/>
+                                        <constraint firstItem="nl4-AB-6KK" firstAttribute="leading" secondItem="5Ie-Zg-x82" secondAttribute="leading" constant="16" id="zv6-RZ-seI"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -81,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="184.85757121439281"/>
         </scene>
-        <!--Title-->
+        <!--Book Detail-->
         <scene sceneID="gCK-Ta-Kam">
             <objects>
                 <viewController id="8cC-V4-gkY" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -118,7 +118,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Z06-So-e74"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="UmR-u6-zhV">
+                    <navigationItem key="navigationItem" title="Book Detail" id="UmR-u6-zhV">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ys2-b9-CGO">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="8cC-V4-gkY" id="9w2-mk-znI"/>

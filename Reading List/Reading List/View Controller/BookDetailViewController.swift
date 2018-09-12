@@ -16,9 +16,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var reasonToReadTextView: UITextView!
     
     var bookController: BookController?
-    var book: Book? {
-        didSet { updateViews() }
-    }
+    var book: Book?
     
     // MARK: - Functions
 
@@ -28,25 +26,26 @@ class BookDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let theBook = book,
-              let title = book?.title,
-              let reason = book?.reasonToRead else { return }
+        guard let title = bookTitleTextField.text,
+              let reason = reasonToReadTextView.text,
+              title != "" && reason != "" else { return } // Why we use a conditional statement like this?
         
-        if book == nil {
-            bookController?.createBook(title: title, reasonToRead: reason)
-        } else {
+        if let theBook = book {
             bookController?.modifyBook(book: theBook, tite: title, reasonToRead: reason)
+        } else {
+            bookController?.createBook(title: title, reasonToRead: reason)
         }
+        
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func updateViews() {
-        guard let title = book?.title,
-              let reason = book?.reasonToRead else { return }
-        
-        bookTitleTextField.text = title
-        reasonToReadTextView.text = reason
+        guard let title = bookTitleTextField.text,
+              let reason = reasonToReadTextView.text else { return }
         
         if title != "" {
+            book?.title = title
+            book?.reasonToRead = reason
             self.navigationItem.title = title
         } else {
             self.navigationItem.title = "Add a new book"
