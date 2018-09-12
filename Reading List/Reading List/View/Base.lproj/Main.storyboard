@@ -21,26 +21,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="readingListTableCell" rowHeight="102" id="Nsm-Qh-SPs" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="102"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="readingListTableCell" id="Nsm-Qh-SPs" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nsm-Qh-SPs" id="5Ie-Zg-x82">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleAspectFit" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="I8p-dZ-O11">
-                                            <rect key="frame" x="16" y="8" width="343" height="85.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="339" height="43.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUj-OC-OGP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="249.5" height="85.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yft-IU-mfS">
-                                                    <rect key="frame" x="257.5" y="0.0" width="85.5" height="85.5"/>
+                                                    <rect key="frame" x="296" y="0.0" width="43" height="43.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="yft-IU-mfS" secondAttribute="height" multiplier="1:1" id="J3d-YE-IcP"/>
+                                                        <constraint firstAttribute="width" secondItem="yft-IU-mfS" secondAttribute="height" multiplier="1:1" id="Tdk-RW-ppG"/>
                                                     </constraints>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
@@ -48,13 +48,17 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="43.5" id="0DN-vi-ucp"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="I8p-dZ-O11" secondAttribute="trailing" constant="16" id="doT-sI-pRf"/>
-                                        <constraint firstAttribute="bottom" secondItem="I8p-dZ-O11" secondAttribute="bottom" constant="8" id="miy-yn-zXV"/>
-                                        <constraint firstItem="I8p-dZ-O11" firstAttribute="leading" secondItem="5Ie-Zg-x82" secondAttribute="leading" constant="16" id="wd1-im-NCE"/>
-                                        <constraint firstItem="I8p-dZ-O11" firstAttribute="top" secondItem="5Ie-Zg-x82" secondAttribute="top" constant="8" id="zMK-sI-dO0"/>
+                                        <constraint firstItem="I8p-dZ-O11" firstAttribute="leading" secondItem="5Ie-Zg-x82" secondAttribute="leading" constant="20" id="8Xi-xp-vUp"/>
+                                        <constraint firstAttribute="bottom" secondItem="I8p-dZ-O11" secondAttribute="bottom" id="Amm-hB-F6Y"/>
+                                        <constraint firstItem="I8p-dZ-O11" firstAttribute="top" secondItem="5Ie-Zg-x82" secondAttribute="top" id="Y5F-wO-qdT"/>
+                                        <constraint firstAttribute="trailing" secondItem="I8p-dZ-O11" secondAttribute="trailing" constant="16" id="goD-Un-Syy"/>
+                                        <constraint firstItem="I8p-dZ-O11" firstAttribute="centerY" secondItem="5Ie-Zg-x82" secondAttribute="centerY" id="vZ5-fR-89J"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
