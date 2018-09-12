@@ -23,11 +23,39 @@ class BookController {
         return directory.appendingPathComponent("ReadingList.plist")
     }
     
-    // create new book
+    // CREATE -  new book
+            // Question?  Do I need the bool in this function?
     func createBook(withName title:String, reasonToRead:String, hasBeenRead:Bool) {
-        let newBook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        let newBook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
         books.append(newBook)
+        saveToPersistentStore()
     }
+    
+    // UPDATE - book Title and Reason
+    
+    func updateBookDetails (book: Book, title: String, reasonToRead: String){
+        guard let index = books.index(of: book) else {return}
+        books[index].title = title
+        books[index].reasonToRead = reasonToRead
+        saveToPersistentStore()
+    }
+    
+    
+    // UPDATE - book hasBeenRead
+    
+    func updateHasBeenRead(book: Book){
+        guard let index = books.index(of: book) else {return}
+        books[index].hasBeenRead = !book.hasBeenRead
+    }
+    
+    
+    // DELETE - book
+    func deleteBook(book:Book){
+        guard let index = books.index(of: book) else {return}
+        books.remove(at: index)
+        saveToPersistentStore()
+    }
+    
     
     // MARK: - Persistence Functions
     

@@ -9,8 +9,8 @@
 import Foundation
 
 struct Book: Codable, Equatable {
-    let title:String
-    let reasonToRead:String
+    var title:String
+    var reasonToRead:String
     var hasBeenRead:Bool
     
     
