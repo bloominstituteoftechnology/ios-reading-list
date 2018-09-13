@@ -19,7 +19,7 @@ class BookDetailViewController: UIViewController {
         
     }
     
-    
+    var bookController: BookController?
     
     
     

@@ -44,7 +44,6 @@
                                             <state key="normal" image="checked"/>
                                             <connections>
                                                 <action selector="checkboxToggle:" destination="PT8-ol-mfW" eventType="touchUpInside" id="s2e-jJ-unn"/>
-                                                <segue destination="tR1-Xi-LD6" kind="show" identifier="checkSegue" id="Q4P-QQ-RmP"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -59,6 +58,7 @@
                                 <connections>
                                     <outlet property="bookTitleLabel" destination="u8f-3C-ymw" id="BRJ-JV-ZIv"/>
                                     <outlet property="checkButton" destination="Yb5-e0-oHG" id="2gw-6F-qw0"/>
+                                    <segue destination="tR1-Xi-LD6" kind="show" identifier="ShowBook" id="ncs-i3-bQ4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,7 +70,7 @@
                     <navigationItem key="navigationItem" title="Reading List" largeTitleDisplayMode="always" id="OwJ-Rl-pQ6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nVB-Lt-nEe">
                             <connections>
-                                <segue destination="tR1-Xi-LD6" kind="show" identifier="addSegue" id="qhb-YX-Dgq"/>
+                                <segue destination="tR1-Xi-LD6" kind="show" identifier="AddBook" id="qhb-YX-Dgq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
