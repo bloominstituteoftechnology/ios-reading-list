@@ -13,13 +13,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     var bookController = BookController()
     
@@ -32,7 +28,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
     
     
-    let bookController = BookController()
+    
     
     func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
@@ -42,7 +38,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             
             return bookController.unreadBooks[indexPath.row]
         }
-        
+    }
         
   
         
@@ -52,7 +48,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         
     // set a title for the books you want have read and the ones you have not read so far.
         
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             if section == 0 {
                 if bookController.readBooks.count == 0 {
                     return nil
@@ -69,13 +65,13 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
         
     // set number of section.  In this case 2
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
             // #warning Incomplete implementation, return the number of sections
             return 2
         }
     
     // for this one because we have more than 1 section. Use a switch / case should be cleaner.
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // remember we have to have two sections now
             // use a conditional statement - Switch
         
@@ -90,7 +86,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
         
         // add the delegate between the custom cell and the TVC
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else {return UITableViewCell()}
             
             let book = bookFor(indexPath: indexPath)
@@ -104,7 +100,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
         
         // enable the delete option
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
                 let book = bookFor(indexPath: indexPath)
                 
@@ -118,7 +114,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
          
         // this is the segueway set up
         
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "AddBook" {
                 
                 guard let  destinationVC = segue.destination as? BookDetailViewController else {return}
@@ -129,9 +125,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
                 
                 guard let destinationVC = segue.destination as? BookDetailViewController else {return}
                 
-                let book = bookFor(indexPath: indexPath)
-                
                 destinationVC.bookController = bookController
+                
+                let book = bookFor(indexPath: indexpath)
                 
                 destinationVC.book = book
             }
@@ -139,4 +135,4 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         
         
     }
-}
+

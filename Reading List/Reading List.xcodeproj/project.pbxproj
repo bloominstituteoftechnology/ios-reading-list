@@ -50,7 +50,6 @@
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
-				C337B3272149797800A76F19 /* BookTableViewCellDelegate.swift */,
 				466941672110E22A00E7FF73 /* Reading List */,
 				466941662110E22A00E7FF73 /* Products */,
 			);
@@ -93,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				C337B3032149334400A76F19 /* BookTableViewCell.swift */,
+				C337B3272149797800A76F19 /* BookTableViewCellDelegate.swift */,
 			);
 			path = "Cell Controller";
 			sourceTree = "<group>";
