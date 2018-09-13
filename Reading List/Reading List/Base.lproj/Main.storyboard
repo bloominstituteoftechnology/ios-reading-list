@@ -6,8 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,32 +27,30 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8f-3C-ymw">
-                                            <rect key="frame" x="25" y="40" width="81" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="81" id="0mA-Tm-RKS"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yb5-e0-oHG">
-                                            <rect key="frame" x="297" y="32" width="39" height="38"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="39" id="BpB-co-yY5"/>
-                                            </constraints>
-                                            <state key="normal" image="checked"/>
-                                            <connections>
-                                                <action selector="checkboxToggle:" destination="PT8-ol-mfW" eventType="touchUpInside" id="s2e-jJ-unn"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleAspectFit" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LgG-Em-wSo">
+                                            <rect key="frame" x="16" y="16" width="343" height="68.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8f-3C-ymw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="285" height="68.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yb5-e0-oHG">
+                                                    <rect key="frame" x="293" y="0.0" width="50" height="68.5"/>
+                                                    <state key="normal" image="checked"/>
+                                                    <connections>
+                                                        <action selector="checkboxToggle:" destination="PT8-ol-mfW" eventType="touchUpInside" id="s2e-jJ-unn"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Yb5-e0-oHG" secondAttribute="bottom" constant="20" id="ATR-2w-mVF"/>
-                                        <constraint firstItem="u8f-3C-ymw" firstAttribute="centerY" secondItem="QGS-ky-Q2x" secondAttribute="centerY" id="TJu-Ly-i6f"/>
-                                        <constraint firstItem="u8f-3C-ymw" firstAttribute="leading" secondItem="QGS-ky-Q2x" secondAttribute="leadingMargin" constant="9" id="UHa-Sj-czo"/>
-                                        <constraint firstItem="u8f-3C-ymw" firstAttribute="centerY" secondItem="Yb5-e0-oHG" secondAttribute="centerY" id="qsA-ax-kex"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Yb5-e0-oHG" secondAttribute="trailing" constant="23" id="vtn-ks-apS"/>
+                                        <constraint firstItem="LgG-Em-wSo" firstAttribute="leading" secondItem="QGS-ky-Q2x" secondAttribute="leading" constant="16" id="G3i-Mz-w3c"/>
+                                        <constraint firstAttribute="bottom" secondItem="LgG-Em-wSo" secondAttribute="bottom" constant="16" id="bSL-LC-Lul"/>
+                                        <constraint firstAttribute="trailing" secondItem="LgG-Em-wSo" secondAttribute="trailing" constant="16" id="cSc-B6-ete"/>
+                                        <constraint firstItem="LgG-Em-wSo" firstAttribute="top" secondItem="QGS-ky-Q2x" secondAttribute="top" constant="16" id="eol-Bw-tlE"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -77,7 +75,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wps-B1-Ory" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052" y="49.925037481259373"/>
+            <point key="canvasLocation" x="1086" y="-117"/>
         </scene>
         <!--Title-->
         <scene sceneID="5oJ-6B-mWe">
@@ -87,8 +85,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dNM-T8-9Yb">
-                                <rect key="frame" x="16" y="134" width="343" height="158"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dNM-T8-9Yb">
+                                <rect key="frame" x="16" y="132" width="343" height="240"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQe-NU-kgn">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -96,9 +94,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to Read" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9XO-KQ-BKl">
-                                        <rect key="frame" x="0.0" y="40" width="343" height="118"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to Read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9XO-KQ-BKl">
+                                        <rect key="frame" x="0.0" y="40" width="343" height="200"/>
                                         <color key="backgroundColor" red="0.464960875" green="0.77480224450000001" blue="0.8248461788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="KLH-tk-qQV"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.29831315016195792" green="0.41495581162669981" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -107,10 +109,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dNM-T8-9Yb" firstAttribute="leading" secondItem="DXM-c8-u8e" secondAttribute="leading" constant="16" id="Fsy-aP-5qC"/>
-                            <constraint firstItem="DXM-c8-u8e" firstAttribute="bottom" secondItem="dNM-T8-9Yb" secondAttribute="bottom" constant="375" id="Gqb-BH-kka"/>
-                            <constraint firstItem="dNM-T8-9Yb" firstAttribute="top" secondItem="DXM-c8-u8e" secondAttribute="top" constant="18" id="gFt-Ro-gMM"/>
-                            <constraint firstItem="DXM-c8-u8e" firstAttribute="trailing" secondItem="dNM-T8-9Yb" secondAttribute="trailing" constant="16" id="hQY-Pv-qst"/>
+                            <constraint firstItem="dNM-T8-9Yb" firstAttribute="leading" secondItem="DXM-c8-u8e" secondAttribute="leading" constant="16" id="Ghk-ip-BTs"/>
+                            <constraint firstItem="DXM-c8-u8e" firstAttribute="trailing" secondItem="dNM-T8-9Yb" secondAttribute="trailing" constant="16" id="GvK-WR-scw"/>
+                            <constraint firstItem="dNM-T8-9Yb" firstAttribute="top" secondItem="DXM-c8-u8e" secondAttribute="top" constant="16" id="l4K-A5-d2c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DXM-c8-u8e"/>
                     </view>

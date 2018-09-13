@@ -10,12 +10,17 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
     
-    
+    // when App is loading
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
     }
     
+    // when user updates something
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     var bookController = BookController()
     
@@ -32,11 +37,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
-            return bookController.readBooks[indexPath.row]
+            return bookController.unreadBooks[indexPath.row]
             
         } else {
             
-            return bookController.unreadBooks[indexPath.row]
+            return bookController.readBooks[indexPath.row]
         }
     }
         
@@ -77,11 +82,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         
             switch section {
             case 0:
-                return bookController.readBooks.count
+                return bookController.unreadBooks.count
             case 1:
-                return bookController.unreadBooks.count
+                return bookController.readBooks.count
             default:
-                return bookController.unreadBooks.count
+                return bookController.readBooks.count
             }
         }
         
