@@ -30,7 +30,7 @@ class BookController {
     // CREATE -  new book
             // Question?  Do I need the bool in this function?
     func createBook(withName title:String, reasonToRead:String) {
-        let newBook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
+        let newBook = Book(title: title, reasonToRead: reasonToRead)
         books.append(newBook)
         saveToPersistentStore()
     }

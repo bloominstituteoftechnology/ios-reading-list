@@ -123,11 +123,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
                 
             } else if segue.identifier == "ShowBook" {
                 
-                guard let destinationVC = segue.destination as? BookDetailViewController else {return}
-                
+                guard let destinationVC = segue.destination as? BookDetailViewController ,
+                let indexPath = tableView.indexPathForSelectedRow else { return }
                 destinationVC.bookController = bookController
                 
-                let book = bookFor(indexPath: indexpath)
+               let book = bookFor(indexPath: indexPath)
                 
                 destinationVC.book = book
             }
