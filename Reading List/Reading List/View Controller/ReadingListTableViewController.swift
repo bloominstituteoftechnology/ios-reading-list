@@ -8,56 +8,71 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {return}
+        let book = bookFor(indexPath: indexPath)
+        
+        bookController.updateHasBeenRead(book: book)
+        tableView.reloadData()
+    }
+    
+
+    let bookController = BookController()
+    
+    func bookFor(indexPath: IndexPath) -> Book {
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+            
+        } else {
+            
+            return bookController.unreadBooks[indexPath.row]
+        }
 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    override func viewDidLoad() {
+        func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    override func didReceiveMemoryWarning() {
+        func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
+    
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+        func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // remember we have to have two sections now
+        // use a conditional statement - Switch
+        
+        switch section {
+        case 0:
+            return bookController.readBooks.count
+        case 1:
+            return bookController.unreadBooks.count
+        default:
+            return bookController.unreadBooks.count
+        }
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -104,4 +119,5 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
+}
 }

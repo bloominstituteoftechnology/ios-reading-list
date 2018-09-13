@@ -45,7 +45,7 @@ class BookTableViewCell: UITableViewCell {
     }
     
     // referring to the delegate protocol
-    weak var delegate: BookTableViewCellDelegate?
+    var delegate: BookTableViewCellDelegate?
     
     
     
