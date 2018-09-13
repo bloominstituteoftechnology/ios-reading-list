@@ -28,7 +28,7 @@ class BookController {
     }
     
     // CREATE -  new book
-            // Question?  Do I need the bool in this function?
+            // Question?  Do I need the bool in this function? - NOPE! it messed it up
     func createBook(withName title:String, reasonToRead:String) {
         let newBook = Book(title: title, reasonToRead: reasonToRead)
         books.append(newBook)
