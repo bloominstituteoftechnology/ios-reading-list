@@ -20,7 +20,11 @@ class BookTableViewCell: UITableViewCell {
     }
     
     weak var delegate: BookTableViewCellDelegate?
-    var book: Book?
+    var book: Book?{
+        didSet{
+            updateViews()
+        }
+    }
     @IBAction func hasBeenReadButton(_ sender: Any) {
        delegate?.toggleHasBeenRead(for: self)
     }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Orc-FA-aAJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Orc-FA-aAJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,22 +26,31 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nz-Mj-ep3">
-                                            <rect key="frame" x="16" y="11" width="262" height="68"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcP-Rp-vEt">
-                                            <rect key="frame" x="291" y="11" width="68" height="68"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button" image="unchecked"/>
-                                            <connections>
-                                                <action selector="hasBeenReadButton:" destination="gfS-qZ-Iug" eventType="touchUpInside" id="5VE-He-O9g"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nIY-sK-DcQ">
+                                            <rect key="frame" x="26" y="11" width="323" height="74"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nz-Mj-ep3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="161.5" height="74"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcP-Rp-vEt">
+                                                    <rect key="frame" x="161.5" y="0.0" width="161.5" height="74"/>
+                                                    <state key="normal" title="Button" image="unchecked"/>
+                                                    <connections>
+                                                        <action selector="hasBeenReadButton:" destination="gfS-qZ-Iug" eventType="touchUpInside" id="5VE-He-O9g"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nIY-sK-DcQ" firstAttribute="top" secondItem="Fz3-G5-Fjj" secondAttribute="topMargin" id="7tC-2f-KI8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nIY-sK-DcQ" secondAttribute="bottom" id="Hjb-JP-9fW"/>
+                                        <constraint firstItem="nIY-sK-DcQ" firstAttribute="leading" secondItem="Fz3-G5-Fjj" secondAttribute="leadingMargin" constant="10" id="NCH-8a-nCt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="nIY-sK-DcQ" secondAttribute="trailing" constant="10" id="NpN-kj-1af"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookLabel" destination="6nz-Mj-ep3" id="N1y-5L-iDD"/>
@@ -75,22 +84,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="df3-ef-oVb">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="df3-ef-oVb">
                                 <rect key="frame" x="16" y="138" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Why do you like this book?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hmB-dK-pay">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Why do you like this book?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hmB-dK-pay">
                                 <rect key="frame" x="16" y="192" width="343" height="455"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hmB-dK-pay" firstAttribute="leading" secondItem="8Jb-yl-SQl" secondAttribute="leading" constant="16" id="Cjq-Rw-vDK"/>
+                            <constraint firstItem="hmB-dK-pay" firstAttribute="top" secondItem="df3-ef-oVb" secondAttribute="bottom" constant="24" id="H3L-Mk-ZPd"/>
+                            <constraint firstItem="8Jb-yl-SQl" firstAttribute="trailing" secondItem="df3-ef-oVb" secondAttribute="trailing" constant="16" id="JSF-Lv-1E0"/>
+                            <constraint firstItem="8Jb-yl-SQl" firstAttribute="trailing" secondItem="hmB-dK-pay" secondAttribute="trailing" constant="16" id="Ohq-82-WeD"/>
+                            <constraint firstItem="8Jb-yl-SQl" firstAttribute="bottom" secondItem="hmB-dK-pay" secondAttribute="bottom" constant="20" id="fLD-ZM-dC2"/>
+                            <constraint firstItem="hmB-dK-pay" firstAttribute="top" secondItem="df3-ef-oVb" secondAttribute="bottom" constant="24" id="sLn-hT-Jyh"/>
+                            <constraint firstItem="df3-ef-oVb" firstAttribute="top" secondItem="8Jb-yl-SQl" secondAttribute="top" constant="22" id="vnX-iU-2fs"/>
+                            <constraint firstItem="df3-ef-oVb" firstAttribute="leading" secondItem="8Jb-yl-SQl" secondAttribute="leading" constant="16" id="zyU-En-POH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8Jb-yl-SQl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="xlf-qm-xKS">

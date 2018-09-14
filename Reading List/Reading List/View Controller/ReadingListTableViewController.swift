@@ -9,6 +9,17 @@
 import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bookController.loadToPersistence()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
+    
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let index = tableView.indexPath(for: cell) else {return}
         let book = self.bookFor(indexPath: index)
@@ -37,15 +48,16 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as? BookTableViewCell else {return UITableViewCell()}
-       let book = self.bookFor(indexPath: indexPath)
+       let book = bookFor(indexPath: indexPath)
         cell.delegate = self
+        cell.book = book
         return cell
     }
 
   
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let book = self.bookFor(indexPath: indexPath)
+            let book = bookFor(indexPath: indexPath)
             bookController.delete(book: book)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
