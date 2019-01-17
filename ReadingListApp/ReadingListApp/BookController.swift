@@ -57,4 +57,10 @@ class BookController {
             print(error.localizedDescription)
         }
     }
+    
+    func create(withBook title: String, reasonToRead: String) {
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        books.append(book)
+        saveToPersistentStore()
+    }
 }
