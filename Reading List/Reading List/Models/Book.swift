@@ -17,7 +17,7 @@
 
 import Foundation
 
-struct Book {
+struct Book: Codable, Equatable {
     var title : String
     var reasonToRead : String
     var hasBeenRead : Bool
