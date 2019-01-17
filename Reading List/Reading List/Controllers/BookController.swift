@@ -75,11 +75,18 @@ class BookController {
         
     }
     
+    //MARK: - Multiple sections in tableview
     
-    
-//    let title: String
-//    let reasonToRead: String
-//    let hasBeenRead: Bool
+    var readBooks: [Book] {
+        var readBookList: [Book] = []
+        
+        for eachBook in books {
+            if eachBook.hasBeenRead == true {
+                readBookList.append(eachBook)
+            }
+        }
+        return readBookList
+    }
     
     
     
