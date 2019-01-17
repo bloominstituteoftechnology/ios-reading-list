@@ -13,11 +13,15 @@ class BookTableViewCell: UITableViewCell {
     func updateViews() {
         bookLabel.text = book?.title
         
-        let checked = UIImage(named: "checked")
-        bookButton.setImage(checked, for: .selected)
+        guard let read = book?.hasBeenRead else { return }
         
-        let unchecked = UIImage(named: "unchecked")
-        bookButton.setImage(unchecked, for: .normal)
+        if read {
+            let checked = UIImage(named: "checked")
+            bookButton.setImage(checked, for: .selected)
+        } else {
+            let unchecked = UIImage(named: "unchecked")
+            bookButton.setImage(unchecked, for: .normal)
+        }
     }
     
     @IBAction func bookButtonTapped(_ sender: UIButton) {
@@ -30,5 +34,4 @@ class BookTableViewCell: UITableViewCell {
     var book: Book?
     
     weak var delegate: BookTableViewCellDelegate?
-    
 }
