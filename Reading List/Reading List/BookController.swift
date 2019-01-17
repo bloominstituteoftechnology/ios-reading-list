@@ -79,14 +79,14 @@ class BookController {
         return finalURL
     }
     
-    private var readBooks: [Book] {
-        let readBooks = books.filter { $0.hasBeenRead == true }
-        return readBooks
+    var readBooks: [Book] {
+        let read = books.filter { $0.hasBeenRead == true }
+        return read
     }
     
-    private var unreadBooks: [Book] {
-        let unreadBooks = books.filter { $0.hasBeenRead == false }
-        return unreadBooks
+    var unreadBooks: [Book] {
+        let unread = books.filter { $0.hasBeenRead == false }
+        return unread
     }
     
     private(set) var books: [Book] = []

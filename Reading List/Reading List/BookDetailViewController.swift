@@ -21,6 +21,9 @@ class BookDetailViewController: UIViewController {
     
     //MARK: - Properties
     
+    var bookController: BookController?
+    var book: Book?
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var reasonTextView: UITextView!
 }
