@@ -13,6 +13,7 @@
 		7AAEEFDB21F1158B00900F2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AAEEFDA21F1158B00900F2A /* Assets.xcassets */; };
 		7AAEEFDE21F1158B00900F2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AAEEFDC21F1158B00900F2A /* LaunchScreen.storyboard */; };
 		7AAEEFE621F115DC00900F2A /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAEEFE521F115DC00900F2A /* Book.swift */; };
+		7AAEEFE921F116D800900F2A /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAEEFE821F116D800900F2A /* BookController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7AAEEFDD21F1158B00900F2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AAEEFDF21F1158B00900F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AAEEFE521F115DC00900F2A /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		7AAEEFE821F116D800900F2A /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				7AAEEFD321F1158800900F2A /* AppDelegate.swift */,
 				7AAEEFD521F1158800900F2A /* ViewController.swift */,
 				7AAEEFE721F1168D00900F2A /* Model */,
+				7AAEEFE821F116D800900F2A /* BookController.swift */,
 				7AAEEFD721F1158800900F2A /* Main.storyboard */,
 				7AAEEFDA21F1158B00900F2A /* Assets.xcassets */,
 				7AAEEFDC21F1158B00900F2A /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 			files = (
 				7AAEEFD621F1158800900F2A /* ViewController.swift in Sources */,
 				7AAEEFD421F1158800900F2A /* AppDelegate.swift in Sources */,
+				7AAEEFE921F116D800900F2A /* BookController.swift in Sources */,
 				7AAEEFE621F115DC00900F2A /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
