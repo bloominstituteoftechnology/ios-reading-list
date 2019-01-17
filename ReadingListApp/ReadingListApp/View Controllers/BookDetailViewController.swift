@@ -14,13 +14,34 @@ class BookDetailViewController: UIViewController {
     
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    var bookController: BookController?
+    var book: Book?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    func updateViews() {
+        if let book = book {
+        bookTitleTextField.text = book.title
+        descriptionTextView.text = book.reasonToRead
+        navigationController?.title = book.title
+        } else {
+            navigationController?.title = "Add a new book"
+        }
+    }
 
     @IBAction func saveBarButtonPressed(_ sender: UIBarButtonItem) {
+        
+        guard let title = bookTitleTextField.text, !title.isEmpty, let description = descriptionTextView.text, !description.isEmpty else { return }
+        if let book = book {
+            bookController?.updateBook(for: book, with: title, reasonToRead: description)
+        } else {
+            bookController?.create(withBook: title, reasonToRead: description)
+        }
+        navigationController?.popViewController(animated: true)
+        
     }
     
 }
