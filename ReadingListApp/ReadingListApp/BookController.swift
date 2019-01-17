@@ -63,4 +63,9 @@ class BookController {
         books.append(book)
         saveToPersistentStore()
     }
+    
+    func delete(book: Book) {
+        guard let index = books.index(of: book) else {return}
+        books.remove(at: index)
+    }
 }
