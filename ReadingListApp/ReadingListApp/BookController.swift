@@ -67,5 +67,17 @@ class BookController {
     func delete(book: Book) {
         guard let index = books.index(of: book) else {return}
         books.remove(at: index)
+        saveToPersistentStore()
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        guard let index = books.index(of: book) else {return}
+        //turn it from a constant to a variable
+        var book = books[index]
+        book.hasBeenRead = !book.hasBeenRead
+        //swap it.
+        books.remove(at: index)
+        books.insert(book, at: index)
+        saveToPersistentStore()
     }
 }
