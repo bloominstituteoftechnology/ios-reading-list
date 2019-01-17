@@ -16,6 +16,7 @@
 		CA8073E821F13139009229BE /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8073E721F13139009229BE /* ReadingListTableViewController.swift */; };
 		CA8073EA21F13170009229BE /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8073E921F13170009229BE /* BookTableViewCell.swift */; };
 		CA8073EC21F131D7009229BE /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8073EB21F131D7009229BE /* BookDetailViewController.swift */; };
+		CA8073EE21F13995009229BE /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8073ED21F13995009229BE /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CA8073E721F13139009229BE /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		CA8073E921F13170009229BE /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		CA8073EB21F131D7009229BE /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		CA8073ED21F13995009229BE /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				CA8073E921F13170009229BE /* BookTableViewCell.swift */,
+				CA8073ED21F13995009229BE /* BookTableViewCellDelegate.swift */,
 				CA8073EB21F131D7009229BE /* BookDetailViewController.swift */,
 				CA8073E721F13139009229BE /* ReadingListTableViewController.swift */,
 			);
@@ -176,6 +179,7 @@
 				CA8073EC21F131D7009229BE /* BookDetailViewController.swift in Sources */,
 				CA8073DF21F11DCF009229BE /* BookController.swift in Sources */,
 				CA8073EA21F13170009229BE /* BookTableViewCell.swift in Sources */,
+				CA8073EE21F13995009229BE /* BookTableViewCellDelegate.swift in Sources */,
 				CA8073DD21F11C93009229BE /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

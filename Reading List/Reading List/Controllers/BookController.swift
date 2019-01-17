@@ -66,13 +66,35 @@ class BookController {
     func deleteBook(book: Book) {
         guard let index = books.index(of: book) else { return }
         books.remove(at: index)
+        saveToPersistentStore()
         
     }
     
-    func updateBook(bookIndex: Int, title: String, reasonToRead: String, hasBeenRead: Bool) {
+    func updateHasBeenRead(for book: Book) {
         
-        //not sure what to put here, yet
+        guard let index = books.index(of: book) else { return }
+        let status: Bool = books[index].hasBeenRead
         
+        if status == true {
+            books[index].hasBeenRead = false
+        } else {
+            books[index].hasBeenRead = true
+        }
+    }
+    
+    func updateTitleOrReason(for book: Book, newTitle: String?, newReason: String?) {
+        //edit the Book's title and/or reasonToRead properties
+        guard let index = books.index(of: book) else { return }
+        
+        guard let newestTitle = newTitle, newTitle != "" else { return }
+        guard let newestReason = newReason, newReason != "" else { return }
+        
+        if newestTitle == newTitle {
+            books[index].title = newestTitle
+        }
+        if newestReason == newestReason {
+            books[index].reasonToRead = newestReason
+        }        
     }
     
     //MARK: - Multiple sections in tableview
