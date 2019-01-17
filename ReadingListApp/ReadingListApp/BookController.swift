@@ -80,4 +80,14 @@ class BookController {
         books.insert(book, at: index)
         saveToPersistentStore()
     }
+    
+    func updateBook(for book: Book, with title: String, reasonToRead: String) {
+        guard let index = books.index(of: book) else {return}
+        var book = books[index]
+        book.title = title
+        book.reasonToRead = reasonToRead
+        books.remove(at: index)
+        books.insert(book, at: index)
+        saveToPersistentStore()
+    }
 }
