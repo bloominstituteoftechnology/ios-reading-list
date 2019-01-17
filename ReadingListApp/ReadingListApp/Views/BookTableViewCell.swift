@@ -25,8 +25,10 @@ class BookTableViewCell: UITableViewCell {
         guard let book = book else {return}
         
         bookTitleLabel.text = book.title
+       
         let imageName = book.hasBeenRead ? "checked": "unchecked"
-        hasReadButton.imageView?.image = UIImage(named: imageName)
+        let image = UIImage(named: imageName)
+        hasReadButton.setImage(image, for: .normal)
     }
 
     override func awakeFromNib() {

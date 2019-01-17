@@ -20,15 +20,16 @@ class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        updateViews()
     }
     
     func updateViews() {
         if let book = book {
         bookTitleTextField.text = book.title
         descriptionTextView.text = book.reasonToRead
-        navigationController?.title = book.title
+        self.title = book.title
         } else {
-            navigationController?.title = "Add a new book"
+            self.title = "Add a new book"
         }
     }
 

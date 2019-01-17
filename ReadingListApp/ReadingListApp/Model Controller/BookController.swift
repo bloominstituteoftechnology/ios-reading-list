@@ -10,7 +10,7 @@ import Foundation
 
 class BookController {
     init(){
-        
+        loadFromPersistentStore()
     }
     private(set) var books: [Book] = []
     

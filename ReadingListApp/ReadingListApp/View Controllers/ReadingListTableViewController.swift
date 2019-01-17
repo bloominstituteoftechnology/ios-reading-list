@@ -19,6 +19,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
 
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
