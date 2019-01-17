@@ -9,13 +9,26 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-
+    
+    func updateViews() {
+        bookLabel.text = book?.title
+        
+        let checked = UIImage(named: "checked")
+        bookButton.setImage(checked, for: .selected)
+        
+        let unchecked = UIImage(named: "unchecked")
+        bookButton.setImage(unchecked, for: .normal)
+    }
     
     @IBAction func bookButtonTapped(_ sender: UIButton) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var bookButton: UIButton!
     
+    var book: Book?
+    
+    weak var delegate: BookTableViewCellDelegate?
     
 }
