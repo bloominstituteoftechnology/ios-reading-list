@@ -90,4 +90,12 @@ class BookController {
         books.insert(book, at: index)
         saveToPersistentStore()
     }
+    
+    var readBooks: [Book] {
+        return books.filter({ $0.hasBeenRead == true })
+    }
+    
+    var unreadBooks: [Book] {
+        return books.filter( { $0.hasBeenRead == false })
+    }
 }
