@@ -10,6 +10,10 @@ import UIKit
 
 class BookController {
     
+    init() {
+        loadFromPersistantStore()
+    }
+    
     func createBook(title: String, reasonToRead: String) {
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
