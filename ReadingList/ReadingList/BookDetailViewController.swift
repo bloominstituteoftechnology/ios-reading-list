@@ -8,13 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BookDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    @IBOutlet weak var titleTextField: UITextField!
+    
+    @IBOutlet weak var reasonTextView: UITextView!
+    
+    
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+    }
+    
+    
+    
 }
 
