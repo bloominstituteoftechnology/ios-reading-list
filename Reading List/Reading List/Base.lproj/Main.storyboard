@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="644" y="35.532233883058474"/>
         </scene>
-        <!--Add Book-->
+        <!--Add New Book-->
         <scene sceneID="OYa-ho-Ruz">
             <objects>
                 <viewController id="OHa-Q7-BHr" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -115,7 +115,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0wc-SQ-kYd"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Book" id="whG-qi-qXH">
+                    <navigationItem key="navigationItem" title="Add New Book" id="whG-qi-qXH">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="7nM-Jc-fuw">
                             <connections>
                                 <action selector="saveTapped:" destination="OHa-Q7-BHr" id="DQP-vU-KG2"/>
