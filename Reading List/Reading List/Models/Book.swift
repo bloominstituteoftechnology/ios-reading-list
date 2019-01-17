@@ -22,8 +22,8 @@ struct Book: Codable, Equatable {
     var reasonToRead : String
     var hasBeenRead : Bool
     
-    init(title: String, reasonToRead: String,  hasBeenRead: Bool = false) {
-        self.hasBeenRead = hasBeenRead
+    init(title: String, reasonToRead: String,  hasBeenRead: Bool) {
+        self.hasBeenRead = false
         self.title = title
         self.reasonToRead = reasonToRead
     }

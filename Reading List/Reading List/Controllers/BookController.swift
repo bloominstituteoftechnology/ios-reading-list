@@ -51,11 +51,6 @@ class BookController {
     }
     
     
-//    Create a function called saveToPersistentStore(). This function will be responsible for saving any changes to any Book object so that the changes will still be there when the user comes back into the application. You can implement this by doing the following:
-//    Create an instance of PropertyListEncoder.
-//    Inside of a do-try-catch block create a constant called booksData. Using the encode(value: ...) function of the property list encoder, encode the books array into Data.
-//    Call the write(to: URL) function on the data you encoded computed property. The url you pass in should be an unwrapped version of the readingListURL property.
-    
     func saveToPersistentStore(){
         guard let url = readingListURL else { return } // ensuring there is a valid save destination
         
@@ -79,6 +74,70 @@ class BookController {
             books = decodedBooks
         } catch {
             print ("no url or no data at url")}
+    }
+    
+    func Create(title: String, reason : String){
+        let newBook = Book(title: title, reasonToRead: reason, hasBeenRead: false)
+        books.append(newBook)
+        saveToPersistentStore()
+    }
+    
+    func Delete(bookToDelete : Book){
+        var index = 0
+        while index < books.count {
+            if bookToDelete == books[index]{
+                books.remove(at: index)
+                return
+            }
+            index += 1
+        }
+        saveToPersistentStore()
+    }
+    
+    func updateHasBeenRead(for book: Book){
+        var index = 0
+        while index < books.count {
+            if books[index] == book{
+                let oldBook = books[index]
+                let oldBookTitle = oldBook.title
+                let oldBookReason = oldBook.reasonToRead
+                let oldBookRead = oldBook.hasBeenRead
+                books.remove(at: index)
+                let newBook = Book(title: oldBookTitle, reasonToRead: oldBookReason, hasBeenRead: !oldBookRead)
+                books.insert(newBook, at: index)
+            }
+            index += 1
+        }
+        saveToPersistentStore()
+    }
+    func updateTitleOrReason(for book: Book, newTitle title: String?, newReason reason: String?){
+        var index = 0
+        while index < books.count {
+            if books[index] == book {
+                let oldBookTitle = books[index].title
+                let oldBookReason = books[index].reasonToRead
+                let oldBookRead = books[index].hasBeenRead
+                books.remove(at: index)
+                if title != nil && reason != nil {
+                    let updatedBook = Book(title: title!, reasonToRead: reason!, hasBeenRead: oldBookRead)
+                    books.insert(updatedBook, at: index)
+                    saveToPersistentStore()
+                    return
+                } else if title != nil {
+                    let updatedBook = Book(title: title!, reasonToRead: oldBookReason, hasBeenRead: oldBookRead)
+                    books.insert(updatedBook, at: index)
+                    saveToPersistentStore()
+                    return
+                } else if reason != nil {
+                    let updatedBook = Book(title: oldBookTitle, reasonToRead: reason!, hasBeenRead: oldBookRead)
+                    books.insert(updatedBook, at: index)
+                    saveToPersistentStore()
+                    return
+                }
+            }
+            index += 1
+        }
+        saveToPersistentStore()
     }
     
 }
