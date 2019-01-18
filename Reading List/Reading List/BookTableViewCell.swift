@@ -18,7 +18,7 @@ class BookTableViewCell: UITableViewCell {
         guard let book = book else { return }
         
         bookTitleLabel.text = book.title
-        hasBeenReadButton.setImage(book.hasBeenRead ? #imageLiteral(resourceName: "checked.png") : #imageLiteral(resourceName: "unchecked.png"), for: .normal)
+        hasBeenReadButton.setImage(book.hasBeenRead ? #imageLiteral(resourceName: "checked") : #imageLiteral(resourceName: "unchecked.png"), for: .normal)
     }
     
     @IBAction func hasBeenReadButtonTapped(_ sender: Any) {
