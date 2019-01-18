@@ -11,7 +11,10 @@
 		77E2C71E21F177B400463053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E2C71C21F177B400463053 /* Main.storyboard */; };
 		77E2C72021F177B400463053 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E2C71F21F177B400463053 /* Assets.xcassets */; };
 		77E2C72321F177B400463053 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E2C72121F177B400463053 /* LaunchScreen.storyboard */; };
-		77E2C72B21F1797000463053 /* ReadingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2C72A21F1797000463053 /* ReadingListViewController.swift */; };
+		77E2C72D21F1799B00463053 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2C72C21F1799B00463053 /* BookDetailViewController.swift */; };
+		77E2C72F21F179BE00463053 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2C72E21F179BE00463053 /* ReadingListTableViewController.swift */; };
+		77E2C73121F179CE00463053 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2C73021F179CE00463053 /* BookTableViewCell.swift */; };
+		77E2C73321F179D800463053 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2C73221F179D800463053 /* Book.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +24,10 @@
 		77E2C71F21F177B400463053 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77E2C72221F177B400463053 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77E2C72421F177B400463053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77E2C72A21F1797000463053 /* ReadingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListViewController.swift; sourceTree = "<group>"; };
+		77E2C72C21F1799B00463053 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		77E2C72E21F179BE00463053 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
+		77E2C73021F179CE00463053 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		77E2C73221F179D800463053 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +65,10 @@
 				77E2C71F21F177B400463053 /* Assets.xcassets */,
 				77E2C72121F177B400463053 /* LaunchScreen.storyboard */,
 				77E2C72421F177B400463053 /* Info.plist */,
-				77E2C72A21F1797000463053 /* ReadingListViewController.swift */,
+				77E2C72C21F1799B00463053 /* BookDetailViewController.swift */,
+				77E2C72E21F179BE00463053 /* ReadingListTableViewController.swift */,
+				77E2C73021F179CE00463053 /* BookTableViewCell.swift */,
+				77E2C73221F179D800463053 /* Book.swift */,
 			);
 			path = "Reading List again";
 			sourceTree = "<group>";
@@ -135,8 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77E2C73121F179CE00463053 /* BookTableViewCell.swift in Sources */,
 				77E2C71921F177B400463053 /* AppDelegate.swift in Sources */,
-				77E2C72B21F1797000463053 /* ReadingListViewController.swift in Sources */,
+				77E2C72F21F179BE00463053 /* ReadingListTableViewController.swift in Sources */,
+				77E2C73321F179D800463053 /* Book.swift in Sources */,
+				77E2C72D21F1799B00463053 /* BookDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

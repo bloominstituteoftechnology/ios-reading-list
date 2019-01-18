@@ -1,5 +1,5 @@
 //
-//  ReadingListViewController.swift
+//  BookDetailViewController.swift
 //  Reading List again
 //
 //  Created by Nathanael Youngren on 1/17/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReadingListViewController: UIViewController {
+class BookDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
