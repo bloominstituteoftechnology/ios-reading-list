@@ -83,21 +83,13 @@ class BookController {
     }
     
     func Delete(bookToDelete : Book){
-        var index = 0
-        while index < books.count {
-            if bookToDelete == books[index]{
+        guard let index = books.index(of: bookToDelete) else { return }
                 books.remove(at: index)
-                return
-            }
-            index += 1
-        }
-        saveToPersistentStore()
+                saveToPersistentStore()
     }
     
     func updateHasBeenRead(for book: Book){
-        var index = 0
-        while index < books.count {
-            if books[index] == book{
+        guard let index = books.index(of: book) else { return }
                 let oldBook = books[index]
                 let oldBookTitle = oldBook.title
                 let oldBookReason = oldBook.reasonToRead
@@ -105,17 +97,12 @@ class BookController {
                 books.remove(at: index)
                 let newBook = Book(title: oldBookTitle, reasonToRead: oldBookReason, hasBeenRead: !oldBookRead)
                 books.insert(newBook, at: index)
-            }
-            index += 1
-        }
-        saveToPersistentStore()
+            saveToPersistentStore()
     }
     
     
     func updateTitleOrReason(for book: Book, newTitle title: String?, newReason reason: String?){
-        var index = 0
-        while index < books.count {
-            if books[index] == book {
+        guard let index = books.index(of: book) else { return }
                 let oldBookTitle = books[index].title
                 let oldBookReason = books[index].reasonToRead
                 let oldBookRead = books[index].hasBeenRead
@@ -136,9 +123,6 @@ class BookController {
                     saveToPersistentStore()
                     return
                 }
-            }
-            index += 1
-        }
         saveToPersistentStore()
     }
     
