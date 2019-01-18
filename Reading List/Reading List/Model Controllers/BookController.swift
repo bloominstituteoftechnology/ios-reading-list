@@ -52,9 +52,9 @@ class BookController {
     }
     
     func loadFromPersistence() {
-        
+        guard let url = readingListURL,
+        FileManager.default.fileExists(atPath: url.path) else { return }
         do {
-            guard let url = readingListURL else { return }
             let decoder = PropertyListDecoder()
             let decodedBooks = try Data(contentsOf: url)
             books = try decoder.decode([Book].self, from: decodedBooks)

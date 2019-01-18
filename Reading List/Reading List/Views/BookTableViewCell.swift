@@ -32,6 +32,5 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookButton: UIButton!
     
     var book: Book?
-    
     weak var delegate: BookTableViewCellDelegate?
 }

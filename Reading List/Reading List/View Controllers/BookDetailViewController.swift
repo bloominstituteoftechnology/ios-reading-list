@@ -15,8 +15,10 @@ class BookDetailViewController: UIViewController {
         
         if book == nil {
             bookController?.createBook(title: title, reasonToRead: reasonTextView.text)
+            navigationController?.popViewController(animated: true)
         } else {
             bookController?.updateTitleReasonToRead(for: book!, title: title, reasonToRead: reasonTextView.text)
+            navigationController?.popViewController(animated: true)
         }
     }
     

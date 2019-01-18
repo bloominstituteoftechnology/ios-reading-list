@@ -35,6 +35,8 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         bookCell.book = book
         bookCell.delegate = self
         
+        tableView.reloadData()
+        
         return bookCell
     }
     
