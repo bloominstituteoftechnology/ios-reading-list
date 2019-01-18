@@ -12,7 +12,12 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
+    weak var delegate: BookTableViewCellDelegate?
 
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var checkMarkProperties: UIButton!
@@ -20,20 +25,12 @@ class BookTableViewCell: UITableViewCell {
     
     
     @IBAction func changeCheckMark(_ sender: UIButton) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     func updateViews(){
         guard let passedInBook = book else { return }
         bookTitleLabel.text = passedInBook.title
-        
-//        passedInBook.hasBeenRead ? checkMarkProperties.imageView?.image = UIImage(named: "checked") : checkMarkProperties.imageView?.image = UIImage(named: "unchecked")
-        
-        if passedInBook.hasBeenRead {
-            checkMarkProperties.imageView?.image = UIImage(named: "checked")
-        } else {
-            checkMarkProperties.imageView?.image = UIImage(named: "unchecked")
-        }
-        
-//        passedInBook.hasBeenRead == true ? checkMarkProperties.imageView?.image = UIImage(named: "checked") : checkMarkProperties.imageView?.image = UIImage(named: "unchecked")
+        checkMarkProperties.imageView?.image = passedInBook.hasBeenRead ? UIImage(named: "checked") : UIImage(named: "unchecked")
     }
 }

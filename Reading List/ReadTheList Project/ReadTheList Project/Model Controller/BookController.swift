@@ -37,7 +37,7 @@ class BookController {
         return notRead
     }
     
-   private init() {
+    init() {
         loadFromPersistenceStore()
     }
     
