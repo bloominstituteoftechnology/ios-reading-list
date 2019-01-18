@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+    
+    let bookController = BookController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +26,20 @@ class ReadingListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        let firstSectionCount = bookController.readBooks.count
+        let secondSectionCount = bookController.unReadBooks.count
+        
+        if section == 0 {
+            return firstSectionCount
+        } else if section == 1 {
+            return secondSectionCount
+        }
+        fatalError("Number of Section rows could not be computed.")
     }
 
     /*
@@ -86,5 +96,15 @@ class ReadingListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    // Delegate Func Implementation
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        guard let book = cell.book else { return }
+        
+        bookController.updateHasBeenRead(for: book)
+        tableView.reloadData()
+    }
 
 }
