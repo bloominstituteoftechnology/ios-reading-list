@@ -80,6 +80,7 @@ class BookController {
         } else {
             books[index].hasBeenRead = true
         }
+        saveToPersistentStore()
     }
     
     func updateTitleOrReason(for book: Book, newTitle: String?, newReason: String?) {
@@ -94,7 +95,8 @@ class BookController {
         }
         if newestReason == newestReason {
             books[index].reasonToRead = newestReason
-        }        
+        }
+        saveToPersistentStore()
     }
     
     //MARK: - Multiple sections in tableview
@@ -110,7 +112,16 @@ class BookController {
         return readBookList
     }
     
-    
+    var unreadBooks: [Book] {
+        var unreadBookList: [Book] = []
+        
+        for eachBook in books {
+            if eachBook.hasBeenRead == false {
+                unreadBookList.append(eachBook)
+            }
+        }
+        return unreadBookList
+    }
     
     
     
