@@ -20,10 +20,14 @@ class BookDetailViewController: UIViewController {
             guard let title = textField.text, let reason = textView.text  else { return }
             bookController?.Create(title: title, reason: reason)
             bookController?.saveToPersistentStore()
+            navigationController?.popViewController(animated: true)
             return
         }
         guard let title = textField.text, let reason = textView.text  else { return }
         bookController?.updateTitleOrReason(for: book, newTitle: title , newReason: reason)
+        bookController?.saveToPersistentStore()
+        print(bookController!.books.count)
+        navigationController?.popViewController(animated: true)
         
     }
     override func viewDidLoad() {

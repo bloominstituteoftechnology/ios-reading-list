@@ -14,13 +14,12 @@ class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
 
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var checkButton: UIButton!
-    @IBAction func checkButtonTapped(_ sender: Any) {
-        delegate?.toggleHasBeenRead(for: self)
-//      toggleHasBeenRead(for: sender as! BookTableViewCell) // Bang so app crashes if cell isn't present
+    @IBAction func checkButtonTapped(_ sender: UIButton!) {
+        print("Check toggled")
+       delegate?.toggleHasBeenRead(for: self)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        updateViews()
         // Initialization code
     }
 
@@ -43,8 +42,9 @@ class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
     weak var delegate : BookTableViewCellDelegate?
     
     func toggleHasBeenRead(for cell: BookTableViewCell) { // Not sure if any logic is needed in this
-//        guard let checkButton = cell.checkButton else { return }
-//        checkButton.imageView?.image = UIImage(named: "checked.png")
+        guard let checkButton = cell.checkButton else { return }
+        let image = UIImage(named: "checked.png")
+        checkButton.setImage(image, for: .normal)
         updateViews()
     }
     

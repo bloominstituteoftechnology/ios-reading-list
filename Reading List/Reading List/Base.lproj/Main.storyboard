@@ -19,21 +19,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookcell" id="tGx-RI-I5G" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookcell" rowHeight="63" id="tGx-RI-I5G" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tGx-RI-I5G" id="iKK-kY-Jss">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoF-CW-IPi">
-                                            <rect key="frame" x="16" y="11" width="300" height="22"/>
+                                            <rect key="frame" x="16" y="11" width="300" height="41"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4o-Fh-3wZ">
-                                            <rect key="frame" x="318" y="3.5" width="37" height="37"/>
+                                            <rect key="frame" x="318" y="13" width="37" height="37"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="E4o-Fh-3wZ" secondAttribute="height" multiplier="1:1" id="y4T-qE-ysG"/>
                                             </constraints>
@@ -113,7 +113,11 @@
                         <viewLayoutGuide key="safeArea" id="JeK-Ym-5zk"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a new book" id="PNM-2c-vTo">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="VH1-dU-xU8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="VH1-dU-xU8">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="QPb-cF-PnE" id="a2h-fC-Pn2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="textField" destination="aTz-MK-5Lw" id="7J2-HO-0bE"/>
