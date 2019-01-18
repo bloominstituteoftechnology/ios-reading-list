@@ -11,39 +11,32 @@ import Foundation
 class BookController {
     
     init() {
-        loadFromPersistence()
+        loadFromPersistentStore()
     }
     
-    private(set) var books: [Book] = []
+    private(set) var books = [Book]()
     
-    func createBook(title: String, reason: String) {
-        let newBook = Book(title: title, reasonToRead: reason)
-        books.append(newBook)
-        saveToPersistence()
-    }
-    
-    func updateTitleReason(for book: Book, title: String, reason: String) {
-        guard let index = books.index(of: book) else { return }
-        books[index].title = title
-        books[index].reasonToRead = reason
-        saveToPersistence()
-    }
-    
-    func updateIsRead(for book: Book) {
-        guard let index = books.index(of: book) else { return }
-        books[index].isRead = !books[index].isRead
-        saveToPersistence()
-    }
-    
-    func deleteBook(at index: Int) {
-        books.remove(at: index)
-        saveToPersistence()
-    }
-    
-    func saveToPersistence() {
-        guard let url = readingListURL else { return }
+    var readingListURL: URL? {
+        let fileManager = FileManager.default
+        guard let directory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        let url = directory.appendingPathComponent("realingList.plist")
         
+        return url
+    }
+    
+    var readBooks: [Book] {
+        let readBooks = books.filter({ $0.hasBeenRead == true })
+        return readBooks
+    }
+    
+    var unreadBooks: [Book] {
+        let unreadBooks = books.filter({ $0.hasBeenRead == false })
+        return unreadBooks
+    }
+    
+    func saveToPersistentStore() {
         let encoder = PropertyListEncoder()
+        guard let url = readingListURL else { return }
         
         do {
             let booksData = try encoder.encode(books)
@@ -53,35 +46,43 @@ class BookController {
         }
     }
     
-    func loadFromPersistence() {
-        guard let url = readingListURL else { return }
-        
+    func loadFromPersistentStore() {
         let decoder = PropertyListDecoder()
+        guard let url = readingListURL,
+            FileManager.default.fileExists(atPath: url.path) else { return }
         
         do {
-            let decodedBooks = try Data(contentsOf: url)
-            books = try decoder.decode([Book].self, from: decodedBooks)
+            let booksData = try Data(contentsOf: url)
+            let decodedBooks = try decoder.decode([Book].self, from: booksData)
+            self.books = decodedBooks
         } catch {
             print(error)
         }
     }
     
-    private var readingListURL: URL? {
-        let fileManager = FileManager.default
-        guard let directory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        let path = directory.appendingPathComponent("readinglist.plist")
-        return path
+    func createBook(with title:String, reasonToRead: String) {
+        let newBook = Book(with: title, reasonToRead: reasonToRead)
+        books.append(newBook)
+        
+        saveToPersistentStore()
     }
     
-    var readBooks: [Book] {
-        let filteredArray = books.filter({ $0.isRead == true })
-        return filteredArray
+    func delete(book: Book) {
+        guard let index = books.index(of: book) else { return }
+        books.remove(at: index)
+        
+        saveToPersistentStore()
     }
     
-    var unreadBooks: [Book] {
-        let filteredArray = books.filter({ $0.isRead == false })
-        return filteredArray
+    func updateHasBeenRead(for book: Book) {
+        guard let index = books.index(of: book) else { return }
+        books[index].hasBeenRead = !books[index].hasBeenRead
     }
     
+    func update(book: Book, title: String, reasonToRead: String) {
+        guard let index = books.index(of: book) else { return }
+        books[index].title = title
+        books[index].reasonToRead = reasonToRead
+    }
     
 }

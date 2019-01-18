@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="80" id="vjK-fE-6gC">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="80" id="vjK-fE-6gC" customClass="BookTableViewCell" customModule="Reading_List_again" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vjK-fE-6gC" id="uKy-wW-r2K">
@@ -30,14 +30,16 @@
                                             <rect key="frame" x="10" y="2" width="355" height="75.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbm-dH-pUW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="301" height="75.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="317" height="75.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ij2-ZN-aNU">
-                                                    <rect key="frame" x="309" y="0.0" width="46" height="75.5"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <rect key="frame" x="325" y="0.0" width="30" height="75.5"/>
+                                                    <connections>
+                                                        <action selector="unCheckButtonTapped:" destination="vjK-fE-6gC" eventType="touchUpInside" id="zvc-Ad-di4"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -50,6 +52,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bookTitleLabel" destination="fbm-dH-pUW" id="Hkd-Pm-wdd"/>
+                                    <outlet property="unCheckButton" destination="ij2-ZN-aNU" id="INL-9I-C0h"/>
                                     <segue destination="M29-Al-vG0" kind="show" identifier="DetailSegue" id="d8C-3n-iNd"/>
                                 </connections>
                             </tableViewCell>
@@ -107,8 +111,16 @@
                         <viewLayoutGuide key="safeArea" id="lDI-3K-Cqh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a new book" id="d43-SV-h2j">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rqQ-Rf-3Ku"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rqQ-Rf-3Ku">
+                            <connections>
+                                <action selector="saveBarButtonTapped:" destination="M29-Al-vG0" id="PAx-Zf-oZx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookTitleTextField" destination="rvB-zg-6RL" id="WxV-VJ-fu4"/>
+                        <outlet property="reasonToReadTextView" destination="Ta8-Gz-vDs" id="8Wp-6U-ifS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0D-Mn-9KD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

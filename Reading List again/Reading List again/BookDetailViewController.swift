@@ -9,45 +9,48 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
-
+    
+    var bookController: BookController?
+    var book: Book? {
+        didSet { updateViews() }
+    }
+    
+    @IBOutlet weak var bookTitleTextField: UITextField!
+    @IBOutlet weak var reasonToReadTextView: UITextView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
     }
     
-    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        guard let title = titleTextField.text else { return }
-        
-        if book == nil {
-            bookController?.createBook(title: title, reason: reasonTextView.text)
-            navigationController?.popViewController(animated: true)
-        } else {
-            bookController?.updateTitleReason(for: book!, title: title, reason: reasonTextView.text)
-            navigationController?.popViewController(animated: true)
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViews()
     }
     
-    func updateViews() {
-        guard let unwrappedBook = book else { return }
+    
+    @IBAction func saveBarButtonTapped(_ sender: Any) {
+        guard let bookController = bookController,
+            let title = bookTitleTextField.text, !title.isEmpty,
+            let reason = reasonToReadTextView.text else { return }
         
-        titleTextField.text = unwrappedBook.title
-        reasonTextView.text = unwrappedBook.reasonToRead
-        
-        if unwrappedBook.title != "" {
-            navigationItem.title = unwrappedBook.title
+        if let book = book {
+            bookController.update(book: book, title: title, reasonToRead: reason)
+        } else {
+            bookController.createBook(with: title, reasonToRead: reason)
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private func updateViews() {
+        guard isViewLoaded else { return }
+        if let book = book {
+            bookTitleTextField.text = book.title
+            reasonToReadTextView.text = book.reasonToRead
+            navigationItem.title = book.title
         } else {
             navigationItem.title = "Add a new book"
         }
     }
-    
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var reasonTextView: UITextView!
-
-    var bookController: BookController?
-    var book: Book? {
-        didSet {
-            updateViews()
-        }
-    }
-
 }
