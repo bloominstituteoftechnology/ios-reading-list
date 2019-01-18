@@ -13,7 +13,7 @@
         <!--Reading List-->
         <scene sceneID="bFJ-lR-43P">
             <objects>
-                <tableViewController id="VUt-ua-aHV" sceneMemberID="viewController">
+                <tableViewController id="VUt-ua-aHV" customClass="ReadingListTableViewController" customModule="Reading_List_again" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="02B-EL-BiO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,7 +74,7 @@
         <!--Add a new book-->
         <scene sceneID="33A-K0-KPr">
             <objects>
-                <viewController id="M29-Al-vG0" sceneMemberID="viewController">
+                <viewController id="M29-Al-vG0" customClass="BookDetailViewController" customModule="Reading_List_again" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7jz-NT-sOf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,6 +134,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="d8C-3n-iNd"/>
+        <segue reference="zY7-Ey-dHU"/>
     </inferredMetricsTieBreakers>
 </document>
