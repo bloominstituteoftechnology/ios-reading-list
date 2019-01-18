@@ -110,6 +110,8 @@ class BookController {
         }
         saveToPersistentStore()
     }
+    
+    
     func updateTitleOrReason(for book: Book, newTitle title: String?, newReason reason: String?){
         var index = 0
         while index < books.count {
@@ -138,6 +140,19 @@ class BookController {
             index += 1
         }
         saveToPersistentStore()
+    }
+    
+    
+    var readBooks: [Book] {
+        var allReadBooks : [Book] = []
+        allReadBooks = books.filter { $0.hasBeenRead == true }
+        return allReadBooks
+    }
+    
+    var unReadBooks: [Book] {
+        var allUnreadBooks: [Book] = []
+        allUnreadBooks = books.filter { $0.hasBeenRead == false }
+        return allUnreadBooks
     }
     
 }
