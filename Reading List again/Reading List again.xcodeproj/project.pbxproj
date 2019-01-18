@@ -15,6 +15,7 @@
 		77E2C72F21F179BE00463053 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2C72E21F179BE00463053 /* ReadingListTableViewController.swift */; };
 		77E2C73121F179CE00463053 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2C73021F179CE00463053 /* BookTableViewCell.swift */; };
 		77E2C73321F179D800463053 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2C73221F179D800463053 /* Book.swift */; };
+		77E2C73521F17A5300463053 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2C73421F17A5300463053 /* BookController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		77E2C72E21F179BE00463053 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		77E2C73021F179CE00463053 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		77E2C73221F179D800463053 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		77E2C73421F17A5300463053 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				77E2C72E21F179BE00463053 /* ReadingListTableViewController.swift */,
 				77E2C73021F179CE00463053 /* BookTableViewCell.swift */,
 				77E2C73221F179D800463053 /* Book.swift */,
+				77E2C73421F17A5300463053 /* BookController.swift */,
 			);
 			path = "Reading List again";
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77E2C73521F17A5300463053 /* BookController.swift in Sources */,
 				77E2C73121F179CE00463053 /* BookTableViewCell.swift in Sources */,
 				77E2C71921F177B400463053 /* AppDelegate.swift in Sources */,
 				77E2C72F21F179BE00463053 /* ReadingListTableViewController.swift in Sources */,
