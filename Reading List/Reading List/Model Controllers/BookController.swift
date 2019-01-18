@@ -52,7 +52,7 @@ class BookController {
             let booksData = try encoder.encode(books)
             try booksData.write(to: url)
         } catch {
-            print(error)
+            print("Error: Unable to encode")
         }
     }
     
@@ -66,7 +66,7 @@ class BookController {
             books = try decoder.decode([Book].self, from: data)
             
         } catch {
-            print(error)
+            print("Error: Unable to decode")
         }
         
   
