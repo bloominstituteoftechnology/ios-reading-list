@@ -11,18 +11,17 @@ import UIKit
 class BookTableViewCell: UITableViewCell {
     
     func updateViews() {
-        guard let unwrappedBook = book else { return }
-        
-        bookLabel.text = unwrappedBook.title
-        
-        let read = unwrappedBook.hasBeenRead
-        
-        if read {
-            let checked = UIImage(named: "checked")
-            bookButton.setImage(checked, for: .selected)
-        } else {
-            let unchecked = UIImage(named: "unchecked")
-            bookButton.setImage(unchecked, for: .normal)
+        if let book = book {
+            bookLabel.text = book.title
+            let read = book.hasBeenRead
+            
+            if read {
+                let checked = UIImage(named: "checked")
+                bookButton.setImage(checked, for: .selected)
+            } else {
+                let unchecked = UIImage(named: "unchecked")
+                bookButton.setImage(unchecked, for: .normal)
+            }
         }
     }
     
