@@ -13,6 +13,10 @@ class BookController {
     
     var books: [Book] = []
     
+    init() {
+        loadFromPersistentStore()
+    }
+    
     private var readingListURL: URL? {
         let fileManager = FileManager.default
         guard let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
@@ -61,13 +65,10 @@ class BookController {
     }
     
     func updateHasBeenRead(for book: Book) {
-        //book.hasBeenRead.toggle()
-        //book.hasBeenRead = !book.hasBeenRead
-       /* if book.hasBeenRead == false {
-            book.hasBeenRead = true
-        } else {
-            book.hasBeenRead = false
-        }*/
+        guard let index = books.index(of: book) else { return }
+        
+        books[index].hasBeenRead = !books[index].hasBeenRead
+        
     }
     
     func update(book: Book, title: String, reason: String) {
@@ -77,12 +78,18 @@ class BookController {
         
     }
     
-    private var readBooks: [Book] {
-        let read = books.filter { Book.hasBeenRead == true }
+    var readBooks: [Book] {
+        let read = books.filter({ (book) -> Bool in
+            return book.hasBeenRead
+        })
+        return read
     }
     
-    private var unreadBooks: [Book] {
-        let unread = books.filter { }
+    var unreadBooks: [Book] {
+        let unread = books.filter ({ (book) -> Bool in
+            return !book.hasBeenRead
+        })
+        return unread
     }
     
     

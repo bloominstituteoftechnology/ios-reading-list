@@ -21,7 +21,13 @@ class BookTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
+    weak var delegate: BookTableViewCellDelegate?
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -29,7 +35,17 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var checkBox: UIButton!
     
     @IBAction func checkBoxTapped(_ sender: UIButton) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
+    func updateViews() {
+        guard let book = book else { return }
+        
+        titleLabel.text = book.title
+        
+        let checkButton = book.hasBeenRead ? UIImage(named: "checkedbox") : UIImage(named: "uncheckedbox")
+        checkBox.setImage(checkButton, for: .normal)
+        
+    }
 
 }

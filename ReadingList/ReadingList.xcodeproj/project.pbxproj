@@ -16,6 +16,7 @@
 		BB698C5521F11AB800AF6468 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB698C5421F11AB800AF6468 /* BookController.swift */; };
 		BB698C5921F129FD00AF6468 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB698C5821F129FD00AF6468 /* ReadingListTableViewController.swift */; };
 		BB698C5B21F12A0E00AF6468 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB698C5A21F12A0E00AF6468 /* BookTableViewCell.swift */; };
+		BB698C5D21F1319300AF6468 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB698C5C21F1319300AF6468 /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		BB698C5421F11AB800AF6468 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		BB698C5821F129FD00AF6468 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		BB698C5A21F12A0E00AF6468 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		BB698C5C21F1319300AF6468 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				BB698C4421F11A7900AF6468 /* Main.storyboard */,
 				BB698C5821F129FD00AF6468 /* ReadingListTableViewController.swift */,
 				BB698C5A21F12A0E00AF6468 /* BookTableViewCell.swift */,
+				BB698C5C21F1319300AF6468 /* BookTableViewCellDelegate.swift */,
 				BB698C4721F11A7F00AF6468 /* Assets.xcassets */,
 				BB698C4921F11A7F00AF6468 /* LaunchScreen.storyboard */,
 				BB698C4C21F11A7F00AF6468 /* Info.plist */,
@@ -168,6 +171,7 @@
 				BB698C4121F11A7900AF6468 /* AppDelegate.swift in Sources */,
 				BB698C5521F11AB800AF6468 /* BookController.swift in Sources */,
 				BB698C5B21F12A0E00AF6468 /* BookTableViewCell.swift in Sources */,
+				BB698C5D21F1319300AF6468 /* BookTableViewCellDelegate.swift in Sources */,
 				BB698C5321F11AAC00AF6468 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,39 +20,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" rowHeight="70" id="MKU-ZV-gSR" customClass="BookTableViewCell" customModule="ReadingList" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" id="MKU-ZV-gSR" customClass="BookTableViewCell" customModule="ReadingList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MKU-ZV-gSR" id="kV5-0V-nq6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="223" translatesAutoresizingMaskIntoConstraints="NO" id="00i-nm-tjg">
-                                            <rect key="frame" x="16" y="19" width="343" height="32"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rEI-aD-mM6">
+                                            <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51Z-ag-cbC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="88" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51Z-ag-cbC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="283.5" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1x-nL-Pwj">
-                                                    <rect key="frame" x="311" y="0.0" width="32" height="32"/>
+                                                <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1x-nL-Pwj">
+                                                    <rect key="frame" x="291.5" y="0.0" width="43.5" height="43.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="j1x-nL-Pwj" secondAttribute="height" multiplier="1:1" id="oDm-Un-mJ2"/>
+                                                        <constraint firstAttribute="width" secondItem="j1x-nL-Pwj" secondAttribute="height" multiplier="1:1" id="zFi-Le-8St"/>
                                                     </constraints>
+                                                    <state key="normal" image="uncheckedbox"/>
                                                     <connections>
                                                         <action selector="checkBoxTapped:" destination="MKU-ZV-gSR" eventType="touchUpInside" id="yZf-3A-CgF"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="43.5" id="qpe-dE-npW"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="00i-nm-tjg" secondAttribute="trailing" id="HJn-BF-16R"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="00i-nm-tjg" secondAttribute="bottom" constant="8" id="MI9-Oe-NzD"/>
-                                        <constraint firstItem="00i-nm-tjg" firstAttribute="leading" secondItem="kV5-0V-nq6" secondAttribute="leadingMargin" id="N0h-Xu-zH2"/>
-                                        <constraint firstItem="00i-nm-tjg" firstAttribute="top" secondItem="kV5-0V-nq6" secondAttribute="topMargin" constant="8" id="b9J-03-W54"/>
+                                        <constraint firstAttribute="trailing" secondItem="rEI-aD-mM6" secondAttribute="trailing" constant="20" id="AtK-VS-EgP"/>
+                                        <constraint firstAttribute="bottom" secondItem="rEI-aD-mM6" secondAttribute="bottom" id="MtJ-hZ-fg8"/>
+                                        <constraint firstItem="rEI-aD-mM6" firstAttribute="top" secondItem="kV5-0V-nq6" secondAttribute="top" id="PgM-bZ-6Zv"/>
+                                        <constraint firstItem="rEI-aD-mM6" firstAttribute="leading" secondItem="kV5-0V-nq6" secondAttribute="leading" constant="20" id="YD6-YQ-OHX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -86,14 +91,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R5w-JF-2UA">
-                                <rect key="frame" x="8" y="72" width="359" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R5w-JF-2UA">
+                                <rect key="frame" x="8" y="124" width="359" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit l" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kXe-4C-P1X">
-                                <rect key="frame" x="8" y="110" width="359" height="155"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason for reading:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kXe-4C-P1X">
+                                <rect key="frame" x="8" y="162" width="359" height="103"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -132,8 +137,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yGv-CP-bbZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XVE-Jb-Ny4">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="XVE-Jb-Ny4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -146,6 +151,9 @@
             <point key="canvasLocation" x="-498.39999999999998" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="uncheckedbox" width="1600" height="1600"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Pxv-3H-qMl"/>
     </inferredMetricsTieBreakers>
