@@ -38,6 +38,9 @@
                                                 <constraint firstAttribute="width" secondItem="E4o-Fh-3wZ" secondAttribute="height" multiplier="1:1" id="y4T-qE-ysG"/>
                                             </constraints>
                                             <state key="normal" image="unchecked"/>
+                                            <connections>
+                                                <action selector="checkButtonTapped:" destination="tGx-RI-I5G" eventType="touchUpInside" id="Cn8-Xz-5LS"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -50,6 +53,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bookLabel" destination="CoF-CW-IPi" id="O6E-Gl-idf"/>
+                                    <outlet property="checkButton" destination="E4o-Fh-3wZ" id="XXb-4u-abd"/>
                                     <segue destination="QPb-cF-PnE" kind="show" identifier="cellDetailSegue" id="I2Z-8L-T7c"/>
                                 </connections>
                             </tableViewCell>
@@ -71,16 +76,53 @@
             </objects>
             <point key="canvasLocation" x="1060" y="118.29085457271366"/>
         </scene>
-        <!--View Controller-->
+        <!--Add a new book-->
         <scene sceneID="S0c-7J-PTG">
             <objects>
-                <viewController id="QPb-cF-PnE" sceneMemberID="viewController">
+                <viewController id="QPb-cF-PnE" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d4g-jg-3cK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Z4V-p3-x0N">
+                                <rect key="frame" x="14.5" y="116" width="346" height="275.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aTz-MK-5Lw">
+                                        <rect key="frame" x="0.0" y="0.0" width="346" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="752" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6RF-Ee-8Ge">
+                                        <rect key="frame" x="0.0" y="38" width="346" height="237.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Z4V-p3-x0N" firstAttribute="top" secondItem="JeK-Ym-5zk" secondAttribute="top" id="Zj5-cv-8V3"/>
+                            <constraint firstItem="Z4V-p3-x0N" firstAttribute="height" secondItem="JeK-Ym-5zk" secondAttribute="height" multiplier="1/2" id="kQo-Lf-exT"/>
+                            <constraint firstItem="Z4V-p3-x0N" firstAttribute="width" secondItem="d4g-jg-3cK" secondAttribute="width" multiplier="12/13" id="wbe-tD-nC1"/>
+                            <constraint firstItem="Z4V-p3-x0N" firstAttribute="centerX" secondItem="d4g-jg-3cK" secondAttribute="centerX" id="xOI-Fl-RgF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JeK-Ym-5zk"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add a new book" id="PNM-2c-vTo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="VH1-dU-xU8">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="QPb-cF-PnE" id="RoP-w0-24I"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="aTz-MK-5Lw" id="7J2-HO-0bE"/>
+                        <outlet property="textView" destination="6RF-Ee-8Ge" id="JW4-gS-ktq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3GG-jm-7ye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
