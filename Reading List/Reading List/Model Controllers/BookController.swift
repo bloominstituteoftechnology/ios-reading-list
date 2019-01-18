@@ -13,8 +13,24 @@ class BookController {
     init() {
         loadFromPersistentStore()
     }
+    
+    // Mark: - Properties
 
     private(set) var books: [Book] = []
+    
+    // Mark: - Computed Properties
+    
+    func readBooks: [Book] {
+// ??
+        
+    }
+    
+    func unreadBooks: [Book] {
+// ??
+        
+    }
+
+    
     
     func createBook(title: String, reasonToRead: String, hasBeenRead: Bool = false) {
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
