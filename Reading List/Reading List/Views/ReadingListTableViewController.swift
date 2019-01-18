@@ -16,7 +16,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         <#code#>
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
