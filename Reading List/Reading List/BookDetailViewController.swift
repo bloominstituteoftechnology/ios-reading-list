@@ -17,15 +17,14 @@ class BookDetailViewController: UIViewController {
     
     @IBAction func saveTapped(_ sender: Any) {
         guard let title = nameTextField.text, !title.isEmpty,
-        let reasonToRead = reasonTextView.text, !reasonToRead.isEmpty,
-        let book = book else { return }
+        let reasonToRead = reasonTextView.text, !reasonToRead.isEmpty else { return }
         
-        if book.title.isEmpty {
-            bookController?.createBook(title: title, reasonToRead: reasonToRead)
-        } else {
+        if let book = book {
             bookController?.updateBook(book: book, title: title, reasonToRead: reasonToRead)
+        } else {
+            bookController?.createBook(title: title, reasonToRead: reasonToRead)
         }
-        
+        navigationController?.popViewController(animated: true)
     }
     
     private func updateViews() {

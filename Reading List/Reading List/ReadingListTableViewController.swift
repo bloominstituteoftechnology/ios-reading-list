@@ -12,6 +12,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source

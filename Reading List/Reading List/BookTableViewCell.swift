@@ -27,7 +27,11 @@ class BookTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     weak var delegate: BookTableViewCellDelegate?
     
     @IBOutlet weak var bookNameLabel: UILabel!
