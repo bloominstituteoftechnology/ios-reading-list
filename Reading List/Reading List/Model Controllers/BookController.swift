@@ -10,10 +10,25 @@ import Foundation
 
 class BookController {
     
+    init() {
+        loadFromPersistentStore()
+    }
+
     private(set) var books: [Book] = []
     
+    func createBook(title: String, reasonToRead: String, hasBeenRead: Bool = false) {
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        books.append(book)
+        saveToPersistentStore()
+    }
     
+    func deleteBook(book: Book) {
+        guard let index = books.index(of: book) else { return }
+        books.remove(at: index)
+        saveToPersistentStore()
+    }
     
+ 
 
     
     private var readingListURL: URL? {

@@ -13,19 +13,47 @@
         <!--Reading List-->
         <scene sceneID="qsm-R1-3kP">
             <objects>
-                <tableViewController id="ntO-EA-QUE" sceneMemberID="viewController">
+                <tableViewController id="ntO-EA-QUE" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kgF-CB-UYS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="190" id="u81-lL-ugF">
-                                <rect key="frame" x="0.0" y="28" width="375" height="190"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="71" id="u81-lL-ugF" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u81-lL-ugF" id="Xct-uD-Mit">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="189.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Evo-hq-fLQ">
+                                            <rect key="frame" x="8" y="8" width="359" height="54.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JxE-MY-PCA" customClass="Book">
+                                                    <rect key="frame" x="0.0" y="0.0" width="296.5" height="54.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQv-Bg-LF8">
+                                                    <rect key="frame" x="304.5" y="0.0" width="54.5" height="54.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="aQv-Bg-LF8" secondAttribute="height" multiplier="1:1" id="wOZ-0q-cId"/>
+                                                    </constraints>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Evo-hq-fLQ" secondAttribute="trailing" constant="8" id="2Kw-6T-J8a"/>
+                                        <constraint firstItem="Evo-hq-fLQ" firstAttribute="top" secondItem="Xct-uD-Mit" secondAttribute="top" constant="8" id="QOM-0v-KVD"/>
+                                        <constraint firstItem="Evo-hq-fLQ" firstAttribute="leading" secondItem="Xct-uD-Mit" secondAttribute="leading" constant="8" id="e6a-uP-1G8"/>
+                                        <constraint firstAttribute="bottom" secondItem="Evo-hq-fLQ" secondAttribute="bottom" constant="8" id="jML-om-lvE"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="JTi-c7-3Ft" kind="show" identifier="viewCellSegue" id="1l0-iH-6oR"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -36,7 +64,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="rcu-c2-QWz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ltn-t6-VXf">
                             <connections>
-                                <segue destination="JTi-c7-3Ft" kind="show" id="D2e-zC-rlg"/>
+                                <segue destination="JTi-c7-3Ft" kind="show" identifier="addBookSegue" id="D2e-zC-rlg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -53,17 +81,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="o2s-wt-xoG">
-                                <rect key="frame" x="50" y="136" width="275" height="74"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="o2s-wt-xoG">
+                                <rect key="frame" x="20" y="136" width="335" height="68"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bCP-n2-HZi">
-                                        <rect key="frame" x="0.0" y="0.0" width="25" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bCP-n2-HZi">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zIS-eS-brf">
-                                        <rect key="frame" x="0.0" y="44" width="152.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="38" width="152.5" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason to read:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpC-xx-gRj">
                                                 <rect key="frame" x="0.0" y="0.0" width="119.5" height="30"/>
@@ -80,13 +108,17 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bCP-n2-HZi" secondAttribute="trailing" id="0zt-Bx-bRP"/>
+                                    <constraint firstItem="bCP-n2-HZi" firstAttribute="leading" secondItem="o2s-wt-xoG" secondAttribute="leading" id="qsJ-UB-Umq"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="o2s-wt-xoG" firstAttribute="top" secondItem="eGC-Th-1K7" secondAttribute="top" constant="20" id="FQt-DV-TAJ"/>
-                            <constraint firstItem="eGC-Th-1K7" firstAttribute="trailing" secondItem="o2s-wt-xoG" secondAttribute="trailing" constant="50" id="sGF-zP-uBM"/>
-                            <constraint firstItem="o2s-wt-xoG" firstAttribute="leading" secondItem="eGC-Th-1K7" secondAttribute="leading" constant="50" id="t0Z-QX-7jt"/>
+                            <constraint firstItem="eGC-Th-1K7" firstAttribute="trailing" secondItem="o2s-wt-xoG" secondAttribute="trailing" constant="20" id="sGF-zP-uBM"/>
+                            <constraint firstItem="o2s-wt-xoG" firstAttribute="leading" secondItem="eGC-Th-1K7" secondAttribute="leading" constant="20" id="t0Z-QX-7jt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eGC-Th-1K7"/>
                     </view>
@@ -96,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHl-ES-fYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="98"/>
+            <point key="canvasLocation" x="1870" y="93"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F5i-dV-FHq">
@@ -117,4 +149,7 @@
             <point key="canvasLocation" x="180" y="93.103448275862078"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1l0-iH-6oR"/>
+    </inferredMetricsTieBreakers>
 </document>
