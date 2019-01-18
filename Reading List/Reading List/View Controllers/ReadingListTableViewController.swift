@@ -13,6 +13,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -78,9 +83,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     private func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
-            return bookController.books[indexPath.row]
+            return bookController.readBooks[indexPath.row]
         } else {
-            return bookController.books[indexPath.row]
+            return bookController.unreadBooks[indexPath.row]
         }
     }
 

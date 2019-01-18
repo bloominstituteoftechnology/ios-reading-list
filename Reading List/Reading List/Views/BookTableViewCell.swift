@@ -11,9 +11,11 @@ import UIKit
 class BookTableViewCell: UITableViewCell {
     
     func updateViews() {
-        bookLabel.text = book?.title
+        guard let unwrappedBook = book else { return }
         
-        guard let read = book?.hasBeenRead else { return }
+        bookLabel.text = unwrappedBook.title
+        
+        let read = unwrappedBook.hasBeenRead
         
         if read {
             let checked = UIImage(named: "checked")
@@ -31,6 +33,10 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var bookButton: UIButton!
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     weak var delegate: BookTableViewCellDelegate?
 }

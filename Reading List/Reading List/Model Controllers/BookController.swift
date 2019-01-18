@@ -22,7 +22,7 @@ class BookController {
     
     func updateHasBeenRead(for book: Book) {
         guard let index = books.index(of: book) else { return }
-        books[index].hasBeenRead = book.hasBeenRead
+        books[index].hasBeenRead = !books[index].hasBeenRead
         saveToPersistence()
     }
     

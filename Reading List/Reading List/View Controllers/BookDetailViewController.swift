@@ -9,6 +9,11 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViews()
+    }
 
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let title = titleTextField.text else { return }
@@ -39,6 +44,10 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var reasonTextView: UITextView!
     
     var bookController: BookController?
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
 }

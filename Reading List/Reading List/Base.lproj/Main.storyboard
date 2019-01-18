@@ -19,24 +19,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" id="p7h-GH-74M" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" rowHeight="96" id="p7h-GH-74M" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p7h-GH-74M" id="ubX-sy-k1o">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="czt-jM-ace">
-                                            <rect key="frame" x="15" y="15" width="345" height="13.5"/>
+                                            <rect key="frame" x="15" y="15" width="345" height="65.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kg5-SS-3XI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="323.5" height="13.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kg5-SS-3XI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="271.5" height="65.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M03-HS-2uI">
-                                                    <rect key="frame" x="331.5" y="0.0" width="13.5" height="13.5"/>
+                                                    <rect key="frame" x="279.5" y="0.0" width="65.5" height="65.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="M03-HS-2uI" secondAttribute="height" multiplier="1:1" id="CJa-Qx-hLF"/>
                                                     </constraints>
@@ -49,10 +49,10 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="czt-jM-ace" secondAttribute="bottom" constant="15" id="P4G-lH-BWY"/>
+                                        <constraint firstAttribute="bottom" secondItem="czt-jM-ace" secondAttribute="bottom" priority="999" constant="15" id="P4G-lH-BWY"/>
                                         <constraint firstItem="czt-jM-ace" firstAttribute="leading" secondItem="ubX-sy-k1o" secondAttribute="leading" constant="15" id="W55-nb-NbO"/>
                                         <constraint firstAttribute="trailing" secondItem="czt-jM-ace" secondAttribute="trailing" constant="15" id="Yyx-rh-HDG"/>
-                                        <constraint firstItem="czt-jM-ace" firstAttribute="top" secondItem="ubX-sy-k1o" secondAttribute="top" constant="15" id="zqi-as-dyS"/>
+                                        <constraint firstItem="czt-jM-ace" firstAttribute="top" secondItem="ubX-sy-k1o" secondAttribute="top" priority="998" constant="15" id="zqi-as-dyS"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -77,7 +77,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1DP-ZO-mig" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="152"/>
+            <point key="canvasLocation" x="896.79999999999995" y="151.57421289355324"/>
         </scene>
         <!--Add a new book-->
         <scene sceneID="Eom-A6-soa">
