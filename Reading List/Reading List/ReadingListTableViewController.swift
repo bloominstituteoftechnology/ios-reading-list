@@ -23,7 +23,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if section == 0 {
             return bookController.readBooks.count
         } else {
@@ -32,12 +31,10 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let read = bookController.readBooks.isEmpty ? nil : "Read"
+        let unread = bookController.unreadBooks.isEmpty ? nil : "Unread"
         
-        if section == 0 {
-            return "Read"
-        } else {
-            return "Unread"
-        }
+        return section == 0 ? read : unread
     }
     
     private func bookFor(indexPath: IndexPath) -> Book {
