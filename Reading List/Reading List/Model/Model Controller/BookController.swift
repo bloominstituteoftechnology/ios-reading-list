@@ -30,6 +30,9 @@ class BookController {
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
         books.append(book)
         
+        // Sort after adding to array
+        books.sort { $0.title < $1.title }
+        
         saveToPersistentStore()
     }
     
@@ -61,6 +64,9 @@ class BookController {
         
         books.remove(at: index)
         books.insert(book, at: index)
+        
+        // Sort after a change is made
+        books.sort { $0.title < $1.title }
         
         saveToPersistentStore()
     }
