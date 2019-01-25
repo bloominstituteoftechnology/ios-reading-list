@@ -26,38 +26,36 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="263" translatesAutoresizingMaskIntoConstraints="NO" id="zEe-A1-mvf">
-                                            <rect key="frame" x="17" y="16" width="342" height="37"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="224-Ev-bBQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="37"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddo-i5-38i">
-                                                    <rect key="frame" x="305" y="0.0" width="37" height="37"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Ddo-i5-38i" secondAttribute="height" multiplier="1:1" id="I2h-L8-X4F"/>
-                                                    </constraints>
-                                                    <state key="normal" image="checked"/>
-                                                    <connections>
-                                                        <action selector="checkboxButton:" destination="8wx-HE-fgE" eventType="touchUpInside" id="D5i-t2-9D8"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="224-Ev-bBQ">
+                                            <rect key="frame" x="16" y="11" width="294.5" height="48"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddo-i5-38i">
+                                            <rect key="frame" x="322" y="13" width="37" height="42"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Ddo-i5-38i" secondAttribute="height" multiplier="1:1" id="I2h-L8-X4F"/>
+                                            </constraints>
+                                            <state key="normal" image="checked"/>
+                                            <connections>
+                                                <action selector="checkboxButton:" destination="8wx-HE-fgE" eventType="touchUpInside" id="D4O-7j-U0j"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="zEe-A1-mvf" secondAttribute="bottom" constant="16.5" id="GTF-e7-64z"/>
-                                        <constraint firstItem="zEe-A1-mvf" firstAttribute="leading" secondItem="Uym-Do-8zT" secondAttribute="leading" constant="17" id="Oi3-at-kTG"/>
-                                        <constraint firstItem="zEe-A1-mvf" firstAttribute="top" secondItem="Uym-Do-8zT" secondAttribute="top" constant="16" id="XcM-H1-p4U"/>
-                                        <constraint firstAttribute="trailing" secondItem="zEe-A1-mvf" secondAttribute="trailing" constant="16" id="ty0-7c-sZ5"/>
+                                        <constraint firstItem="224-Ev-bBQ" firstAttribute="top" secondItem="Uym-Do-8zT" secondAttribute="topMargin" id="LmJ-yJ-FuU"/>
+                                        <constraint firstItem="Ddo-i5-38i" firstAttribute="leading" secondItem="224-Ev-bBQ" secondAttribute="trailing" constant="8" id="PvD-mA-BT5"/>
+                                        <constraint firstItem="Ddo-i5-38i" firstAttribute="trailing" secondItem="Uym-Do-8zT" secondAttribute="trailingMargin" id="UDT-LT-J5s"/>
+                                        <constraint firstItem="224-Ev-bBQ" firstAttribute="leading" secondItem="Uym-Do-8zT" secondAttribute="leadingMargin" id="eBx-n9-vA5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Ddo-i5-38i" secondAttribute="bottom" constant="4" id="eoW-EZ-lF4"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="224-Ev-bBQ" secondAttribute="bottom" id="sES-Gr-yUN"/>
+                                        <constraint firstItem="Ddo-i5-38i" firstAttribute="centerY" secondItem="Uym-Do-8zT" secondAttribute="centerY" id="xw9-iR-hIY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookLabel" destination="224-Ev-bBQ" id="SpQ-Mq-MXe"/>
-                                    <outlet property="checkboxButton" destination="Ddo-i5-38i" id="HSn-92-nz8"/>
+                                    <outlet property="checkboxButtonLabel" destination="Ddo-i5-38i" id="blq-xZ-i7p"/>
                                     <segue destination="krY-qO-Wku" kind="show" identifier="ShowBookDetail" id="HOb-6Z-hwu"/>
                                 </connections>
                             </tableViewCell>
@@ -77,7 +75,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v3q-Dy-Vjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="454" y="81"/>
+            <point key="canvasLocation" x="453.60000000000002" y="80.50974512743629"/>
         </scene>
         <!--Title-->
         <scene sceneID="ecL-k5-Gfi">

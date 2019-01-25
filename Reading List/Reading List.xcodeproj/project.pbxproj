@@ -14,7 +14,6 @@
 		461CF53121FA84A10027E4F3 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461CF53021FA84A10027E4F3 /* BookDetailViewController.swift */; };
 		461CF53321FA92880027E4F3 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461CF53221FA92880027E4F3 /* BookTableViewCellDelegate.swift */; };
 		466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466941682110E22A00E7FF73 /* AppDelegate.swift */; };
-		4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4669416A2110E22B00E7FF73 /* ViewController.swift */; };
 		4669416E2110E22B00E7FF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4669416C2110E22B00E7FF73 /* Main.storyboard */; };
 		466941702110E22B00E7FF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4669416F2110E22B00E7FF73 /* Assets.xcassets */; };
 		466941732110E22B00E7FF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466941712110E22B00E7FF73 /* LaunchScreen.storyboard */; };
@@ -29,7 +28,6 @@
 		461CF53221FA92880027E4F3 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		466941652110E22A00E7FF73 /* Reading List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466941682110E22A00E7FF73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4669416A2110E22B00E7FF73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4669416D2110E22B00E7FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4669416F2110E22B00E7FF73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		466941722110E22B00E7FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				461CF52621FA308E0027E4F3 /* Book.swift */,
-				461CF52B21FA7EF20027E4F3 /* Model Controller */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -62,6 +59,49 @@
 				461CF52921FA36260027E4F3 /* BookController.swift */,
 			);
 			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		461CF53421FAD7D90027E4F3 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				461CF53221FA92880027E4F3 /* BookTableViewCellDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		461CF53521FAD7E40027E4F3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				461CF52E21FA82A90027E4F3 /* BookTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		461CF53621FAD7FB0027E4F3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				461CF52C21FA82910027E4F3 /* ReadingListTableViewController.swift */,
+				461CF53021FA84A10027E4F3 /* BookDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		461CF53721FAD81A0027E4F3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
+				4669416C2110E22B00E7FF73 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		461CF53821FAD8310027E4F3 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				466941682110E22A00E7FF73 /* AppDelegate.swift */,
+				466941742110E22B00E7FF73 /* Info.plist */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 		4669415C2110E22A00E7FF73 = {
@@ -83,17 +123,14 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
-				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				461CF52821FA361D0027E4F3 /* Model */,
-				4669416A2110E22B00E7FF73 /* ViewController.swift */,
-				461CF52C21FA82910027E4F3 /* ReadingListTableViewController.swift */,
-				461CF52E21FA82A90027E4F3 /* BookTableViewCell.swift */,
-				461CF53221FA92880027E4F3 /* BookTableViewCellDelegate.swift */,
-				461CF53021FA84A10027E4F3 /* BookDetailViewController.swift */,
-				4669416C2110E22B00E7FF73 /* Main.storyboard */,
+				461CF52B21FA7EF20027E4F3 /* Model Controller */,
+				461CF53521FAD7E40027E4F3 /* Views */,
+				461CF53621FAD7FB0027E4F3 /* View Controllers */,
+				461CF53421FAD7D90027E4F3 /* Delegates */,
+				461CF53721FAD81A0027E4F3 /* Storyboards */,
+				461CF53821FAD8310027E4F3 /* SupportFiles */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
-				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
-				466941742110E22B00E7FF73 /* Info.plist */,
 			);
 			path = "Reading List";
 			sourceTree = "<group>";
@@ -169,7 +206,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
 				461CF52D21FA82910027E4F3 /* ReadingListTableViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				461CF53321FA92880027E4F3 /* BookTableViewCellDelegate.swift in Sources */,
@@ -322,7 +358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = "Reading List/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Reading List/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,7 +376,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = "Reading List/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Reading List/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

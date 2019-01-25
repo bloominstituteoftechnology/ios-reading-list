@@ -17,12 +17,11 @@ class BookTableViewCell: UITableViewCell {
     weak var delegate: BookTableViewCellDelegate?
     
     @IBOutlet weak var bookLabel: UILabel!
-    @IBOutlet weak var checkboxButton: UIButton!
+    @IBOutlet weak var checkboxButtonLabel: UIButton!
     
     @IBAction func checkboxButton(_ sender: Any) {
         delegate?.toggleHasBeenRead(for: self)
     }
-    
     
     func updateViews() {
         guard let book = book else { return }
@@ -30,9 +29,9 @@ class BookTableViewCell: UITableViewCell {
         bookLabel.text = book.title
         
         if book.hasBeenRead == true {
-            checkboxButton.setImage(UIImage(named: "checked"), for: .normal)
+            checkboxButtonLabel.setImage(UIImage(named: "checked"), for: .normal)
         } else {
-            checkboxButton.setImage(UIImage(named: "unchecked"), for: .normal)
+            checkboxButtonLabel.setImage(UIImage(named: "unchecked"), for: .normal)
         }
     }
 
