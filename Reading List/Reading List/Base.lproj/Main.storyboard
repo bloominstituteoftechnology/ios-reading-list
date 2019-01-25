@@ -19,16 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="8wx-HE-fgE" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="8wx-HE-fgE" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8wx-HE-fgE" id="Uym-Do-8zT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="263" translatesAutoresizingMaskIntoConstraints="NO" id="zEe-A1-mvf">
-                                            <rect key="frame" x="17" y="3" width="342" height="37"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="263" translatesAutoresizingMaskIntoConstraints="NO" id="zEe-A1-mvf">
+                                            <rect key="frame" x="17" y="16" width="342" height="37"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="224-Ev-bBQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="42" height="37"/>
@@ -49,6 +48,12 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="zEe-A1-mvf" secondAttribute="bottom" constant="16.5" id="GTF-e7-64z"/>
+                                        <constraint firstItem="zEe-A1-mvf" firstAttribute="leading" secondItem="Uym-Do-8zT" secondAttribute="leading" constant="17" id="Oi3-at-kTG"/>
+                                        <constraint firstItem="zEe-A1-mvf" firstAttribute="top" secondItem="Uym-Do-8zT" secondAttribute="top" constant="16" id="XcM-H1-p4U"/>
+                                        <constraint firstAttribute="trailing" secondItem="zEe-A1-mvf" secondAttribute="trailing" constant="16" id="ty0-7c-sZ5"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookLabel" destination="224-Ev-bBQ" id="SpQ-Mq-MXe"/>
@@ -82,9 +87,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2bk-JD-3Yo">
-                                <rect key="frame" x="16" y="122" width="343" height="166"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rw4-Af-Y9U">
+                                <rect key="frame" x="16" y="128" width="343" height="244"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vfI-Co-ors">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -92,10 +96,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v1s-YI-cXt">
-                                        <rect key="frame" x="0.0" y="38" width="343" height="128"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v1s-YI-cXt">
+                                        <rect key="frame" x="0.0" y="38" width="343" height="206"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -103,6 +106,12 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0Xw-XG-eOl" firstAttribute="bottom" secondItem="rw4-Af-Y9U" secondAttribute="bottom" constant="295" id="5dP-1h-eul"/>
+                            <constraint firstItem="0Xw-XG-eOl" firstAttribute="trailing" secondItem="rw4-Af-Y9U" secondAttribute="trailing" constant="16" id="9dX-GB-niQ"/>
+                            <constraint firstItem="rw4-Af-Y9U" firstAttribute="top" secondItem="0Xw-XG-eOl" secondAttribute="top" constant="12" id="DQh-hX-mPn"/>
+                            <constraint firstItem="rw4-Af-Y9U" firstAttribute="leading" secondItem="0Xw-XG-eOl" secondAttribute="leading" constant="16" id="FsR-qH-hLd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0Xw-XG-eOl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="xJl-iL-mAx">

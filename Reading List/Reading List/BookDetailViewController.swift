@@ -9,6 +9,13 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
+    var bookController: BookController?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
     
@@ -16,22 +23,31 @@ class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViews()
     }
-    
+
     @IBAction func save(_ sender: Any) {
+        guard let title = textField.text,
+            let reasonToRead = textView.text else { return }
+        
+        if let book = book {
+            bookController?.update(book: book, title: title, reasonToRead: reasonToRead)
+        } else {
+            bookController?.createBook(withTitle: title, reasonToRead: reasonToRead)
+        }
+        
+        navigationController?.popViewController(animated: true)
     }
     
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateViews() {
+        if let book = book {
+            textField?.text = book.title
+            textView?.text = book.reasonToRead
+            navigationController?.title = book.title
+        } else {
+            navigationController?.title = "Add a new book"
+        }
     }
-    */
 
 }
