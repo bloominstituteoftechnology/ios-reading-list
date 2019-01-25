@@ -9,22 +9,31 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
+    weak var delegate: BookTableViewCellDelegate?
+    
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var checkboxButton: UIButton!
     
     @IBAction func checkboxButton(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func updateViews() {
+        guard let book = book else { return }
+        
+        bookLabel.text = book.title
+        
+        if book.hasBeenRead == true {
+            checkboxButton.setImage(UIImage(named: "checked"), for: .normal)
+        } else {
+            checkboxButton.setImage(UIImage(named: "unchecked"), for: .normal)
+        }
     }
 
 }
