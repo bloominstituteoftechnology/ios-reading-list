@@ -9,7 +9,12 @@
 import Foundation
 
 class BookController {
-    var books: [Book] = []
+    
+    init() {
+        loadFromPersistentStore()
+    }
+    
+    private(set) var books: [Book] = []
     
     // Save and load book data from persistent store
     private var readingListURL: URL? {
@@ -21,8 +26,16 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
-    func saveToPersistentStore() {
+    func addbook(bookTitle title: String, whyReading reasonToRead: String, beenRead hasBeenRead: Bool) {
         
+        // 1. Create a star
+        // 2. Add the star to the list
+        let newBook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        books.append(newBook)
+        saveToPerisitentStore()
+    }
+    
+    func saveToPerisitentStore() {
         // Set up the URL for the save and make sure we are able to access it
         guard let url = readingListURL else { return }
         
@@ -42,17 +55,16 @@ class BookController {
             print("Load failed to find file")
             return
         }
-        
-        //Load then decode the data
+        //Decode then get the data
         do {
             let data = try Data(contentsOf: url)
             let decoder = PropertyListDecoder()
-            let decodedBooks = try decoder.decode([Book].self, from: data)
-            
+            let decodedBooks: [Book] = try decoder.decode([Book].self, from: data)
+            books = decodedBooks
         } catch {
             print("Error loading data from disk: \(error)")
         }
     }
-    
+
     
 }
