@@ -32,10 +32,22 @@ class BookDetailViewController: UIViewController {
         //handle when save button is pressed
         if book == nil {
             guard let title = bookTextField.text, let reasonToRead = textView.text else {return}
+            if reasonToRead == "" {
+                return
+            }
+            if title == "" {
+                return
+            }
             bookController?.addBook(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
             print("book created")
         } else {
             guard let book = book, let title = bookTextField.text, let reasonToRead = textView.text else {return}
+            if title == "" {
+                return
+            }
+            if reasonToRead == "" {
+                return
+            }
             bookController?.updateBookDetails(for: book, reasonToRead: reasonToRead, title: title)
             bookController?.saveToPersistenceStore()
         }
