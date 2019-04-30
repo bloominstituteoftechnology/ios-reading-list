@@ -85,12 +85,13 @@ class BookController {
         saveToPersistantStore()
     }
     
+    var readBooks: [Book] {
+        let readbooks = books.filter { $0.hasBeenRead }
+        return readbooks
+    }
     
-  
-    
-    
-    
-    
-    
-    
+    var unreadBooks: [Book] {
+        let unreadBooks = books.filter { !$0.hasBeenRead }
+        return unreadBooks
+    }
 }
