@@ -39,7 +39,5 @@ class BookDetailViewController: UIViewController {
             bookController?.updateBookDetails(for: book, reasonToRead: reasonToRead, title: title)
             bookController?.saveToPersistenceStore()
         }
-        
-        
     }
 }

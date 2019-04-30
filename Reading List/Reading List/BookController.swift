@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 
 class BookController {
+    
+    init() {
+        loadToPersistentStore()
+    }
+    
     var books: [Book] = []
     
     var readBooks: [Book] {

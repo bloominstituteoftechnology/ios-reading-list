@@ -26,7 +26,7 @@ class BookTableViewCell: UITableViewCell {
         if book.hasBeenRead {
             isReadButton.setImage(UIImage(named: "checked"), for: .normal)
         } else {
-            isReadButton.setImage(UIImage(named: "Unchecked"), for: .normal)
+            isReadButton.setImage(UIImage(named: "unchecked"), for: .normal)
         }
     }
     
