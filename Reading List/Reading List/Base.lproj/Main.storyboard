@@ -74,7 +74,13 @@
                             <outlet property="delegate" destination="1gn-K9-Qa4" id="nR4-c4-T0a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Reading List" id="byG-fv-oVe"/>
+                    <navigationItem key="navigationItem" title="Reading List" id="byG-fv-oVe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vpn-E9-aSj">
+                            <connections>
+                                <segue destination="GRk-eb-T8B" kind="show" identifier="AddBook" id="oay-aS-peE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edJ-7x-TzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,4 +160,7 @@
     <resources>
         <image name="unchecked" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="oay-aS-peE"/>
+    </inferredMetricsTieBreakers>
 </document>

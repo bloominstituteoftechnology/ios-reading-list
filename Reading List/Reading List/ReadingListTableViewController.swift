@@ -16,6 +16,12 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        tableView.reloadData()
+    }
+    
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         
         guard let indexPath = tableView.indexPath(for: cell) else { return }
@@ -82,14 +88,20 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "AddBook" || segue.identifier == "BookDetail" {
+            
+            guard let destinationVC = segue.destination as? BookDetailViewController else { return }
+            destinationVC.bookController = bookController
+            
+            if segue.identifier == "BookDetail" {
+                
+                guard let indexPath = tableView.indexPathForSelectedRow else { return }
+                destinationVC.book = bookFor(indexPath: indexPath)
+            }
+        }
     }
-    */
-
 }
