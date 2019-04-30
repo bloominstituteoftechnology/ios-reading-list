@@ -10,7 +10,7 @@ import Foundation
 
 class BookController {
 	
-	func updateBookInformation(book: Book, title: String?,reasonToRead: String?) {
+	func upDateBookInfo(book: Book, title: String?,reasonToRead: String?) {
 		if let index = getBookIndex(book: book) {
 			if let title = title {
 				books[index].title = title
@@ -104,4 +104,15 @@ extension BookController {
 		print(document)
 		return document
 	}
+}
+
+extension BookController {
+	private var readBooks: [Book] {
+		let read: [Book] = books.filter({
+			$0.hasBeenRead == true
+		})
+		return read
+	}
+	
+	
 }
