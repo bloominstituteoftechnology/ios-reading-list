@@ -9,9 +9,10 @@
 import Foundation
 
 struct Book: Equatable, MyHashCode {
-	let title: String
-	let reasonToRead: String
-	let hasBeenRead: Bool
+	var title: String
+	var reasonToRead: String
+	var hasBeenRead: Bool
+	let uuid: String = UUID().uuidString //allows having "duplicates"
 
 	init(title: String, reasonToRead: String, hasBeenRead: Bool = false) {
 		self.title = title

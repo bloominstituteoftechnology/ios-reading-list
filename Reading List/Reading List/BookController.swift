@@ -12,6 +12,14 @@ import Foundation
 class BookController {
 	private(set) var books = MyOrderedSet<Book>()
 	
+	var readBooks: [Book] {
+		return books.filter{ $0.hasBeenRead }
+	}
+	
+	var unreadBooks: [Book] {
+		return books.filter{ !$0.hasBeenRead }
+	}
+	
 	private var readingListURL: URL? {
 		let fm = FileManager.default
 		guard let documents = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
@@ -26,6 +34,22 @@ class BookController {
 	
 	func delete(book: Book) {
 		books.remove(book)
+		saveToPersistentStore()
+	}
+	
+	func updateHasBeenRead(for book: Book) {
+		guard let index = books.index(of: book) else { return }
+		books[index].hasBeenRead.toggle()
+	}
+	
+	func update(title: String? = nil, reasonToRead reason: String? = nil, forBook book: Book) {
+		guard let index = books.index(of: book) else { return }
+		if let title = title {
+			books[index].title = title
+		}
+		if let reason = reason {
+			books[index].reasonToRead = reason
+		}
 	}
 
 	func saveToPersistentStore() {
