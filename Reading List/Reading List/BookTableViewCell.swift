@@ -9,16 +9,18 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
+    var book: Book?
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func updateViews() {
+        guard let book = book else { return }
+        
+        cellLabel.text = book.title
+        if book.hasBeenRead == true {
+            cellButton.setImage(UIImage(named: "checked"), for: .normal)
+        } else {
+            cellButton.setImage(UIImage(named: "unchecked"), for: .normal)
+        }
     }
     
     @IBOutlet weak var cellLabel: UILabel!
