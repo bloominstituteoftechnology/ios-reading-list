@@ -10,6 +10,10 @@ import Foundation
 
 class BookController {
     
+    init() {
+        loadFromPersistence()
+    }
+    
     // MARK: - Properties
     var books: [Book] = []
     
@@ -26,6 +30,11 @@ class BookController {
         let book = Book(title: title, reasonToRead: reasonToRead)
         
         books.append(book)
+        books.sort { (leftBook, rightBook) -> Bool in
+            return leftBook.title < rightBook.title
+        }
+        
+        saveToPersistence()
     }
     
     func updateBookTitleandReason(book: Book, title: String, reasonToRead: String) {
