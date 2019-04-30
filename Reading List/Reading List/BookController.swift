@@ -30,6 +30,14 @@ class BookController {
         //delete book
     }
     
+    func updateBookHasBeenRead(for book: Book) {
+        //update books has been read property
+    }
+    
+    func updateBookDetails(for book: Book) {
+        //update book title and or reason to read properties
+    }
+    
     
     func saveToPersistenceStore() {
         guard let url = readingListURL else {return}

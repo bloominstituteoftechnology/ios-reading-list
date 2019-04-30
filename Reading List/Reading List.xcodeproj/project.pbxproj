@@ -14,6 +14,8 @@
 		466941732110E22B00E7FF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466941712110E22B00E7FF73 /* LaunchScreen.storyboard */; };
 		571365662278CE4D00F0F88D /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571365652278CE4D00F0F88D /* Book.swift */; };
 		571365682278CF0900F0F88D /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571365672278CF0900F0F88D /* BookController.swift */; };
+		5713656A2278D84600F0F88D /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571365692278D84600F0F88D /* ReadingListTableViewController.swift */; };
+		5713656C2278D88100F0F88D /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5713656B2278D88100F0F88D /* BookTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		466941742110E22B00E7FF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		571365652278CE4D00F0F88D /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		571365672278CF0900F0F88D /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		571365692278D84600F0F88D /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
+		5713656B2278D88100F0F88D /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				466941742110E22B00E7FF73 /* Info.plist */,
 				571365652278CE4D00F0F88D /* Book.swift */,
 				571365672278CF0900F0F88D /* BookController.swift */,
+				571365692278D84600F0F88D /* ReadingListTableViewController.swift */,
+				5713656B2278D88100F0F88D /* BookTableViewCell.swift */,
 			);
 			path = "Reading List";
 			sourceTree = "<group>";
@@ -142,8 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
+				5713656A2278D84600F0F88D /* ReadingListTableViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				571365682278CF0900F0F88D /* BookController.swift in Sources */,
+				5713656C2278D88100F0F88D /* BookTableViewCell.swift in Sources */,
 				571365662278CE4D00F0F88D /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
