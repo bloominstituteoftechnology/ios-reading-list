@@ -8,10 +8,13 @@
 
 import Foundation
 
+//create model and conform to protocols to allow persistence of data
 struct Book: Codable, Equatable {
+    //properites
     var title: String
     var reasonToRead: String
     var hasBeenRead: Bool
+    
     
     init(title: String, reasonToRead: String, hasBeenRead: Bool) {
         self.title = title

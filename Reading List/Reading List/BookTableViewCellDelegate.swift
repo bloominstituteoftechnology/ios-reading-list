@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//delegation
 protocol BookTableViewCellDelegate: class {
     func toggleHasBeenRead(for cell: BookTableViewCell)
 }

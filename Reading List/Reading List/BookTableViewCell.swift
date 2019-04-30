@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
+    //properties
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var isReadButton: UIButton!
     
@@ -20,6 +21,7 @@ class BookTableViewCell: UITableViewCell {
         }
     }
     
+    //setting views for labels in cell
     func updateViews() {
         guard let book = book else {return}
         bookLabel.text = book.title
@@ -30,7 +32,7 @@ class BookTableViewCell: UITableViewCell {
         }
     }
     
-    
+    //delegation pattern 
     @IBAction func isReadButtonPressed(_ sender: Any) {
         //handle when button is pressed
         delegate?.toggleHasBeenRead(for: self)
