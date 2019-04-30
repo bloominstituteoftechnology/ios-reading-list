@@ -14,7 +14,11 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var isReadButton: UIButton!
     
     weak var delegate: BookTableViewCellDelegate?
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
     func updateViews() {
         guard let book = book else {return}

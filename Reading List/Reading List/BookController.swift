@@ -13,23 +13,11 @@ class BookController {
     var books: [Book] = []
     
     var readBooks: [Book] {
-        var array: [Book] = []
-        for book in books {
-            if book.hasBeenRead {
-                array += [book]
-            }
-        }
-        return array
+        return books.filter { $0.hasBeenRead }
     }
     
     var unreadBooks: [Book] {
-        var array: [Book] = []
-        for book in books {
-            if book.hasBeenRead {
-                array += [book]
-            }
-        }
-        return array
+        return books.filter { !$0.hasBeenRead }
     }
     
     
@@ -48,15 +36,22 @@ class BookController {
     }
     
     func deleteBook(book: Book) {
-        //delete book
+        guard let index = books.index(of: book) else {return}
+        books.remove(at: index)
     }
     
     func updateBookHasBeenRead(for book: Book) {
         //update books has been read property
+        guard let index = books.index(of: book) else {return}
+        books[index].hasBeenRead.toggle()
+        saveToPersistenceStore()
     }
     
-    func updateBookDetails(for book: Book) {
+    func updateBookDetails(for book: Book, reasonToRead: String, title: String) {
         //update book title and or reason to read properties
+        guard let index = books.index(of: book) else {return}
+        books[index].title = title
+        books[index].reasonToRead = reasonToRead
     }
     
     

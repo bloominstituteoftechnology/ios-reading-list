@@ -11,7 +11,6 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
     
-    
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else {return}
         let book = bookFor(indexPath: indexPath)
@@ -24,6 +23,12 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,7 +67,21 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //implement prepare 
+        //implement prepare
+        if segue.identifier == "addBook" {
+            if let vc = segue.destination as? BookDetailViewController {
+                    vc.bookController = bookController
+            }
+        } else if segue.identifier == "cellBook" {
+            if let vc = segue.destination as? BookDetailViewController {
+                vc.bookController = bookController
+                
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    vc.book = bookFor(indexPath: indexPath)
+                }
+            }
+            
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
