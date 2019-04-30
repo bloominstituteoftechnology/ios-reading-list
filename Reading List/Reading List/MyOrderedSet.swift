@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol MyType: Hashable, Codable {
+public protocol MyHashCode: Hashable, Codable {
 	
 }
 
-public struct MyOrderedSet<Type: MyType> {
+public struct MyOrderedSet<Type: MyHashCode> {
 	var sequencedContents: [Type]
 	var contents: [Type: Int]
 //	private var sequencedContents = [Type]()
@@ -30,15 +30,15 @@ public struct MyOrderedSet<Type: MyType> {
 		return nil
 	}
 	
-	mutating func append(_ object: Type) {
-		if contents[object] == nil {
-			contents[object] = contents.count
-			sequencedContents.append(object)
+	mutating func append(_ element: Type) {
+		if contents[element] == nil {
+			contents[element] = contents.count
+			sequencedContents.append(element)
 		}
 	}
 	
-	mutating func remove(_ object: Type) {
-		guard let index = contents[object] else { return }
+	mutating func remove(_ element: Type) {
+		guard let index = contents[element] else { return }
 		remove(at: index)
 	}
 	

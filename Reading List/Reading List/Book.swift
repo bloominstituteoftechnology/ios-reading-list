@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Book: Equatable, MyType {
+struct Book: Equatable, MyHashCode {
 	let title: String
 	let reasonToRead: String
 	let hasBeenRead: Bool
