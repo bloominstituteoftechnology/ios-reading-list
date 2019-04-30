@@ -20,13 +20,37 @@ class BookController {
         return document.appendingPathComponent("books.plist")
     }
     
+    func addBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        books.append(book)
+        saveToPersistenceStore()
+    }
+    
+    func deleteBook(book: Book) {
+        //delete book
+    }
+    
     
     func saveToPersistenceStore() {
-        let encoder = PropertyListEncoder()
+        guard let url = readingListURL else {return}
         do {
-            
-            //
-            
+            let encoder = PropertyListEncoder()
+            let booksData = try encoder.encode(books)
+            try booksData.write(to: url)
+        } catch {
+            print(error)
+        }
+    }
+    
+    
+    func loadToPersistentStore() {
+        let fileManager = FileManager.default
+        guard let url = readingListURL, fileManager.fileExists(atPath: url.path) else {return}
+        
+        do {
+            let booksData = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            books = try decoder.decode([Book].self, from: booksData)
         } catch {
             print(error)
         }
