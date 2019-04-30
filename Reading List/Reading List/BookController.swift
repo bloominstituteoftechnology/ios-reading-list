@@ -13,6 +13,17 @@ class BookController {
 	//guard let index = books.firstIndex(of: book) else { return }
 	//
 	
+	private func getBookIndex(book: Book) -> Int? {
+		guard let index = books.firstIndex(of: book) else {
+			return nil
+		}
+		return index
+	}
+	
+	func creatBook(title: String, reasonToRead: String){
+		let book = Book(title: title, reasonToRead: reasonToRead)
+		books.append(book)
+	}
 	
 	
 	func loadFromPersistentStore() {
@@ -28,9 +39,10 @@ class BookController {
 		do {
 			let data = try Data(contentsOf: url)
 			let decoder = PropertyListDecoder()
-			books = try decoder.decode([Book].self, from: data)
+			let decodedBooks = try decoder.decode([Book].self, from: data)
+			books = decodedBooks
 		}catch {
-			NSLog("Error ;padomg book data: \(error)")
+			NSLog("Error loading book data: \(error)")
 		}
 	}
 	
