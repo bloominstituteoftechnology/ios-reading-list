@@ -25,8 +25,7 @@ class BookController {
 	}
 	
 	func delete(book: Book) {
-		guard let index = books.firstIndex(of: book) else { return }
-		delete(bookAtIndex: index)
+		books.remove(book)
 	}
 
 	func saveToPersistentStore() {
