@@ -10,16 +10,52 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Book Detail-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ybM-Uj-JER">
+                                <rect key="frame" x="20" y="140" width="374" height="722"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KIa-dC-zT5">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="asp-WY-e2w">
+                                        <rect key="frame" x="0.0" y="38" width="374" height="684"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ybM-Uj-JER" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LWR-z8-M3a"/>
+                            <constraint firstItem="ybM-Uj-JER" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dEz-Pd-EKF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ybM-Uj-JER" secondAttribute="trailing" constant="20" id="hxb-OR-Vqm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ybM-Uj-JER" secondAttribute="bottom" id="pUA-zY-cg6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Book Detail" id="PbA-cB-uXI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Huh-v9-G0d">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="BYZ-38-t0r" id="JYb-8J-Ya1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookTextField" destination="KIa-dC-zT5" id="0O9-ku-lpJ"/>
+                        <outlet property="textView" destination="asp-WY-e2w" id="85x-sh-CHU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,16 +78,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bMc-D8-iWC">
-                                            <rect key="frame" x="0.0" y="0.0" width="394" height="43.5"/>
+                                            <rect key="frame" x="8" y="0.0" width="398" height="43.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqJ-F3-Irb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="340" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBC-Pv-u32">
-                                                    <rect key="frame" x="344" y="0.0" width="50" height="43.5"/>
+                                                    <rect key="frame" x="348" y="0.0" width="50" height="43.5"/>
                                                     <state key="normal" image="checked"/>
                                                     <connections>
                                                         <action selector="isReadButtonPressed:" destination="iIH-es-J4K" eventType="touchUpInside" id="5zV-Mc-Vzu"/>
@@ -62,9 +98,9 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="bMc-D8-iWC" firstAttribute="top" secondItem="YHb-I4-dUG" secondAttribute="top" id="Kzi-aQ-WuD"/>
-                                        <constraint firstItem="bMc-D8-iWC" firstAttribute="leading" secondItem="YHb-I4-dUG" secondAttribute="leading" id="Wpq-i6-m0Y"/>
+                                        <constraint firstItem="bMc-D8-iWC" firstAttribute="leading" secondItem="YHb-I4-dUG" secondAttribute="leading" constant="8" id="Wpq-i6-m0Y"/>
                                         <constraint firstAttribute="bottom" secondItem="bMc-D8-iWC" secondAttribute="bottom" id="hJg-px-flG"/>
-                                        <constraint firstAttribute="trailing" secondItem="bMc-D8-iWC" secondAttribute="trailing" constant="20" id="hpw-sK-ZQt"/>
+                                        <constraint firstAttribute="trailing" secondItem="bMc-D8-iWC" secondAttribute="trailing" constant="8" id="hpw-sK-ZQt"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
