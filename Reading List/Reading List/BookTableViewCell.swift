@@ -10,8 +10,12 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var bookTitleLabel: UIView!
+    
+    @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var checkmarkButton: UIButton!
+    
+    var book: Book?
+    var delegate: BookTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +27,22 @@ class BookTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func updateViews() {
+        
+        guard let labelString = book?.title else { return }
+        bookTitleLabel.text = labelString
+        
+        guard let shouldBeChecked = book?.hasBeenRead else { return }
+        if shouldBeChecked {
+            checkmarkButton.setImage(UIImage(named: "checked"), for: .normal)
+        } else {
+            checkmarkButton.setImage(UIImage(named: "unchecked"), for: .normal)
+        }
+        
+    }
 
     @IBAction func checkmarkButtonTapped(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
     }
 }

@@ -16,6 +16,7 @@
 		ECFF7E7A2278F85F00901BC4 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFF7E792278F85F00901BC4 /* ReadingListTableViewController.swift */; };
 		ECFF7E7C2278F87900901BC4 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFF7E7B2278F87900901BC4 /* BookTableViewCell.swift */; };
 		ECFF7E7E2278FB7F00901BC4 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFF7E7D2278FB7F00901BC4 /* BookDetailViewController.swift */; };
+		ECFF7E80227902AD00901BC4 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFF7E7F227902AD00901BC4 /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		ECFF7E792278F85F00901BC4 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		ECFF7E7B2278F87900901BC4 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		ECFF7E7D2278FB7F00901BC4 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		ECFF7E7F227902AD00901BC4 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				ECFF7E7B2278F87900901BC4 /* BookTableViewCell.swift */,
+				ECFF7E7F227902AD00901BC4 /* BookTableViewCellDelegate.swift */,
 				ECFF7E792278F85F00901BC4 /* ReadingListTableViewController.swift */,
 				ECFF7E7D2278FB7F00901BC4 /* BookDetailViewController.swift */,
 				ECFF7E752278D45000901BC4 /* Book.swift */,
@@ -153,6 +156,7 @@
 				ECFF7E7E2278FB7F00901BC4 /* BookDetailViewController.swift in Sources */,
 				ECFF7E782278D5BC00901BC4 /* BookController.swift in Sources */,
 				ECFF7E7C2278F87900901BC4 /* BookTableViewCell.swift in Sources */,
+				ECFF7E80227902AD00901BC4 /* BookTableViewCellDelegate.swift in Sources */,
 				ECFF7E762278D45000901BC4 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
