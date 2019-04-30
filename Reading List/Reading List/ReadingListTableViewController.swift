@@ -71,11 +71,18 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        if section == 0 {
-            return "Read Books"
-        } else {
-            return "Unread Books"
+        if self.tableView(tableView, numberOfRowsInSection: section) > 0 {
+            switch section {
+            case 0:
+                return "Read Books"
+            case 1: 
+                return "Unread Books"
+            default:
+                return nil
+            }
         }
+        
+        return nil
     }
 
     // Override to support editing the table view.
