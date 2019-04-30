@@ -69,11 +69,19 @@
 				FF7DE8CD211A2E5B009DB52B /* Cells */,
 				FF7DE8CC211A2E4C009DB52B /* ViewControllers */,
 				FF7DE8CB211A2E21009DB52B /* Storyboards */,
+				FF210F082279019800804F07 /* Resources */,
+			);
+			path = "Reading List";
+			sourceTree = "<group>";
+		};
+		FF210F082279019800804F07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941742110E22B00E7FF73 /* Info.plist */,
 			);
-			path = "Reading List";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		FF7DE8CB211A2E21009DB52B /* Storyboards */ = {
@@ -341,8 +349,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = "Reading List/Info.plist";
+				DEVELOPMENT_TEAM = 2LA5UAXN45;
+				INFOPLIST_FILE = "$(SRCROOT)/Reading List/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -359,8 +368,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = "Reading List/Info.plist";
+				DEVELOPMENT_TEAM = 2LA5UAXN45;
+				INFOPLIST_FILE = "$(SRCROOT)/Reading List/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

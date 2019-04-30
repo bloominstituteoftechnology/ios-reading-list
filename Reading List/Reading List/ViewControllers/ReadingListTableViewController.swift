@@ -10,6 +10,10 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
     
+    // MARK: - Properties
+    let bookController = BookController()
+    
+    // MARK: - View Loading Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         bookController.loadFromPersistence()
@@ -20,13 +24,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         tableView.reloadData()
     }
     
-    func toggleHasBeenReadButton(for cell: ReadingListTableViewCell) {
-        guard let index = tableView.indexPath(for: cell) else { return }
-        let book = bookFor(indexPath: index)
-        bookController.updateHasBeenRead(book: book)
-        tableView.reloadData()
-    }
-    
+    // MARK: - Read/Unread Methods
     func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
             return bookController.readBooks[indexPath.row]
@@ -35,11 +33,14 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
     }
     
-    // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+    func toggleHasBeenReadButton(for cell: ReadingListTableViewCell) {
+        guard let index = tableView.indexPath(for: cell) else { return }
+        let book = bookFor(indexPath: index)
+        bookController.updateHasBeenRead(book: book)
+        tableView.reloadData()
     }
+    
+    // MARK: - TableView Data Source
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
@@ -48,6 +49,10 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             return "Un-Read"
         }
         return "Error"
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,7 +94,4 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             detailVC.bookController = bookController
         }
     }
-    
-    let bookController = BookController()
-    
 }

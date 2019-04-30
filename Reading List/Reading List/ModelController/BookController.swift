@@ -10,6 +10,7 @@ import Foundation
 
 class BookController {
     
+    // MARK: - Properties
     var books: [Book] = []
     
     var readBooks: [Book] {
@@ -20,6 +21,7 @@ class BookController {
         return books.filter({$0.hasBeenRead == false})
     }
     
+    // MARK: - CRUD
     func create(title: String, reasonToRead: String) {
         let book = Book(title: title, reasonToRead: reasonToRead)
         

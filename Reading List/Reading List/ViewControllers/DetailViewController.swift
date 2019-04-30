@@ -10,21 +10,21 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    // MARK: - Properties and Outlets
+    var bookController: BookController?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var reasonToReadTextView: UITextView!
+    
+    // MARK: - View Loading Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-    }
-    
-    @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let title = titleTextField.text,
-            let reasonToRead = reasonToReadTextView.text else { return }
-        
-        if let book = book {
-            bookController?.updateBookTitleandReason(book: book, title: title, reasonToRead: reasonToRead)
-        } else {
-            bookController?.create(title: title, reasonToRead: reasonToRead)
-        }
-        navigationController?.popViewController(animated: true)
     }
     
     func updateViews() {
@@ -38,14 +38,16 @@ class DetailViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var reasonToReadTextView: UITextView!
-    
-    var bookController: BookController?
-    var book: Book? {
-        didSet {
-            updateViews()
+    // MARK: - Action Methods
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let title = titleTextField.text,
+            let reasonToRead = reasonToReadTextView.text else { return }
+        
+        if let book = book {
+            bookController?.updateBookTitleandReason(book: book, title: title, reasonToRead: reasonToRead)
+        } else {
+            bookController?.create(title: title, reasonToRead: reasonToRead)
         }
+        navigationController?.popViewController(animated: true)
     }
-    
 }

@@ -14,26 +14,29 @@ protocol BookTableViewCellDelegate: class {
 
 class ReadingListTableViewCell: UITableViewCell {
     
-    @IBAction func isCompleteButtonTapped(_ sender: Any) {
-        delegate?.toggleHasBeenReadButton(for: self)
-    }
-    
+    // MARK: - Properties and Outlets
     var book: Book? {
         didSet {
             updateViews()
         }
     }
     
+    weak var delegate: BookTableViewCellDelegate?
+    
+    @IBOutlet weak var bookLabel: UILabel!
+    @IBOutlet weak var isCompleteButton: UIButton!
+    
+    // MARK: - Delegate Methods
+    @IBAction func isCompleteButtonTapped(_ sender: Any) {
+        delegate?.toggleHasBeenReadButton(for: self)
+    }
+    
+    // MARK: - View Loading Methods
     func updateViews() {
         guard let book = book else { return }
         bookLabel.text = book.title
         let image = book.hasBeenRead ? UIImage(named: "checked") : UIImage(named: "unchecked")
         isCompleteButton.setImage(image, for: .normal)
     }
-    
-    weak var delegate: BookTableViewCellDelegate?
-    
-    @IBOutlet weak var bookLabel: UILabel!
-    @IBOutlet weak var isCompleteButton: UIButton!
     
 }

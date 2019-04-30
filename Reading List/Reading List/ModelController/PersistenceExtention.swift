@@ -10,24 +10,23 @@ import Foundation
 
 extension BookController {
     
+    // MARK: - Properties
     var readingListURL: URL? {
         guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         let fileName = "Reading List.plist"
         return documentsDirectory.appendingPathComponent(fileName)
     }
     
+    // MARK: - Persistence Methods
     func saveToPersistence() {
-        let plistEncoder = PropertyListEncoder()
+        let encoder = PropertyListEncoder()
         do {
-            //if there is no error, do this
             guard let readingList = readingListURL else { return }
-            let booksArray = try plistEncoder.encode(books)
+            let booksArray = try encoder.encode(books)
             try booksArray.write(to: readingList)
             
         } catch let error {
-            //if there is an error, catch it and do whatever I want in the closure
-            //print there was a problem saving your data
-            print("Error trying to save data! \(error.localizedDescription)")
+            NSLog("Error trying to save data: \(error)")
         }
     }
     
@@ -35,12 +34,12 @@ extension BookController {
         do {
             guard let readingList = readingListURL else { return }
             let booksArray = try Data(contentsOf: readingList)
-            let plistDecoder = PropertyListDecoder()
-            let decodedBooks = try plistDecoder.decode([Book].self, from: booksArray)
+            let decoder = PropertyListDecoder()
+            let decodedBooks = try decoder.decode([Book].self, from: booksArray)
             self.books = decodedBooks
             
         } catch let error {
-            print("Error trying to save data! \(error.localizedDescription)")
+            NSLog("Error trying to load data: \(error)")
         }
     }
     
