@@ -114,7 +114,7 @@ extension BookController {
 		return read
 	}
 	
-	var unReadBooks: [Book] {
+	var unreadBooks: [Book] {
 		let unRead = books.filter({
 			$0.hasBeenRead == false
 		})
