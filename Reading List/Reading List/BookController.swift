@@ -10,7 +10,7 @@ import Foundation
 
 
 class BookController {
-	private(set) var books = [Book]()
+	private(set) var books = MyOrderedSet<Book>()
 	
 	private var readingListURL: URL? {
 		let fm = FileManager.default
@@ -19,6 +19,16 @@ class BookController {
 	}
 	
 	
+	func createBook(titled title: String, because reasonToRead: String) {
+		books.append(Book(title: title, reasonToRead: reasonToRead))
+		saveToPersistentStore()
+	}
+	
+	func delete(book: Book) {
+		guard let index = books.firstIndex(of: book) else { return }
+		delete(bookAtIndex: index)
+	}
+
 	func saveToPersistentStore() {
 		guard let filePath = readingListURL else {
 			print("couldn't get reading list url")
@@ -39,7 +49,7 @@ class BookController {
 		do {
 			let data = try Data(contentsOf: readingListURL)
 			let decoder = PropertyListDecoder()
-			let decodedBooks = try decoder.decode([Book].self, from: data)
+			let decodedBooks = try decoder.decode(MyOrderedSet<Book>.self, from: data)
 			books = decodedBooks
 		} catch {
 			print("Caught error loading data: \(error)")
