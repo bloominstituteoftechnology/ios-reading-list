@@ -26,16 +26,35 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
+    // Add a new book to the book list
     func addbook(bookTitle title: String, whyReading reasonToRead: String, beenRead hasBeenRead: Bool) {
-        
-        // 1. Create a star
-        // 2. Add the star to the list
         let newBook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
         books.append(newBook)
-        saveToPerisitentStore()
+        //Refresh the book list
+        saveToPersistentStore()
     }
     
-    func saveToPerisitentStore() {
+    //Delete a book in the list
+    func deleteBook(for book: Book) {
+        //Make sure we have a book
+        guard let bookAtIndex = books.index(of: book) else { return }
+        books.remove(at: bookAtIndex)
+        
+        //Refresh the book list
+        saveToPersistentStore()
+    }
+    
+    //Update the book's has been read status
+    func updateHasBeenRead(for book: Book) {
+        // Make sure there is a book there
+        guard let bookAtIndex = books.index(of: book) else { return }
+        
+        //Get the book and delete it.  Save the deleted book to a new book instance
+        
+    }
+    
+    
+    func saveToPersistentStore() {
         // Set up the URL for the save and make sure we are able to access it
         guard let url = readingListURL else { return }
         
