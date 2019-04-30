@@ -7,8 +7,25 @@
 //
 
 import UIKit
+import Foundation
 
 class BookTableViewCell: UITableViewCell {
+    
+    var delegate: BookTableViewCellDelegate?
+    
+    var book: Book?
+    
+    func updateViews() {
+        guard let title = book?.title else { return }
+        bookLabel.text = title
+        guard let hasRead = book?.hasBeenRead else { return }
+        
+        if hasRead == true {
+            bookButton.setImage(UIImage(named: "checked.png"), for: .selected)
+        } else {
+            bookButton.setImage(UIImage(named: "unchecked.png"), for: .normal)
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +40,7 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var bookButton: UIButton!
     @IBAction func bookButtonPressed(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: <#T##BookTableViewCell#>)
     }
     
 }
