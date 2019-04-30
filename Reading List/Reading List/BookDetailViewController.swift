@@ -41,9 +41,15 @@ class BookDetailViewController: UIViewController {
     
     func updateViews() {
         
-        guard let book = book else { return }
+        if let book = book  {
+            self.navigationItem.title = book.title
+            bookTitleTextField.text = book.title
+            reasonTextView.text = book.reasonToRead
+        } else {
+            self.navigationItem.title = "Add a new book"
+            reasonTextView.text = "Reason to read: "
+        }
         
-        bookTitleTextField.text = book.title
-        reasonTextView.text = book.reasonToRead
+        
     }
 }
