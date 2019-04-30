@@ -10,10 +10,29 @@ import Foundation
 
 class BookController {
 	
+	//guard let index = books.firstIndex(of: book) else { return }
+	//
 	
 	
 	
-	
+	func loadFromPersistentStore() {
+		//make sure file exist
+		let fileManager = FileManager.default
+		guard let url = readingListURL,
+			fileManager.fileExists(atPath: url.path) else {
+				print("error: loadFromPersistentStore()")
+				return
+		}
+		
+		// load and decoode data
+		do {
+			let data = try Data(contentsOf: url)
+			let decoder = PropertyListDecoder()
+			books = try decoder.decode([Book].self, from: data)
+		}catch {
+			NSLog("Error ;padomg book data: \(error)")
+		}
+	}
 	
 	func saveToPersistentStore() {
 		guard let url = readingListURL else { return }
