@@ -16,9 +16,13 @@ class BookController {
         books.append(book)
         saveToPersistentStore()
     }
-    
-//    func updateHasBeenRead() {
 //
+//    func updateHasBeenRead(for book: Book) {
+//        if book.hasBeenRead == true {
+//            book.hasBeenRead = false
+//        } else {
+//            book.hasBeenRead = true
+//        }
 //    }
 //
 //    func editBook() {

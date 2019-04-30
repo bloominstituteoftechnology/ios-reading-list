@@ -11,7 +11,8 @@ import UIKit
 class BookTableViewCell: UITableViewCell {
     var book: Book?
 
-
+    var delegate: BookTableViewCellDelegate?
+    
     func updateViews() {
         guard let book = book else { return }
         
@@ -26,6 +27,7 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellButton: UIButton!
     @IBAction func cellButtonTapped(_ sender: Any) {
+        //Call delegate property's toggleHasBeenRead(for cell: ) function.
     }
     
 }
