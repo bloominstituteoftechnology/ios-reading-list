@@ -15,7 +15,19 @@ class BookController {
 	
 	
 	
-	
+	func saveToPersistentStore() {
+		guard let url = readingListURL else { return }
+		do {
+			//Create an instance of PropertyListEncoder
+			let encoder = PropertyListEncoder()
+			//encode books data
+			let data = try encoder.encode(books)
+			//encode the books array into Data
+			try data.write(to: url)
+		} catch {
+			NSLog("Error saving book data: \(error)")
+		}
+	}
 	
 	private var readingListURL: URL? {
 		//Get the user's document directory using the FileManager class.
