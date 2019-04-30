@@ -9,7 +9,7 @@
 import Foundation
 
 class BookController {
-    var books: [Book] = []
+    private(set) var books: [Book] = []
     
     func createBook(title: String, reasonToRead: String) {
         let book = Book(title: title, reasonToRead: reasonToRead)
@@ -24,6 +24,13 @@ class BookController {
 //    func editBook() {
 //
 //    }
+    
+    func deleteBook(book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        
+        books.remove(at: index)
+        saveToPersistentStore()
+    }
     
     func saveToPersistentStore() {
         guard let url = readingListURL else { return }
@@ -59,6 +66,14 @@ class BookController {
         print("Documents: \(documents.path)")
         return documents.appendingPathComponent("ReadingList.plist")
     }
+    
+//    var readBooks: [Book] {
+    //  books.filter({ $0.hasBeenRead })
+//    }
+//
+//    var unreadBooks: [Book] {
+    // books.filter({ !$0.hasBeenRead })
+//    }
 }
 
 
