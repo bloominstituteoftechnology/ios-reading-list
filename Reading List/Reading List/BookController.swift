@@ -10,7 +10,30 @@ import Foundation
 
 class BookController {
 	
+	func updateBookInformation(book: Book, title: String?,reasonToRead: String?) {
+		if let index = getBookIndex(book: book) {
+			if let title = title {
+				books[index].title = title
+			}
+			
+			if let reasonToRead = reasonToRead {
+				books[index].reasonToRead = reasonToRead
+			}
+		}
+	}
 	
+	func updateHasBeenRead(for book: Book) {
+		if let index = getBookIndex(book: book) {
+			books[index].hasBeenRead.toggle()
+		}
+	}
+	
+	func deleteBook(book: Book) {
+		if let index = getBookIndex(book: book){
+			books.remove(at: index)
+			saveToPersistentStore()
+		}
+	}
 	
 	func creatBook(title: String, reasonToRead: String){
 		let book = Book(title: title, reasonToRead: reasonToRead)
