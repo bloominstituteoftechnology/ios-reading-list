@@ -55,7 +55,7 @@ class BookController {
             guard let url = readingListURL else { return }
             let booksData = try encoder.encode(books)
             try booksData.write(to: url)
-        } catch { fatalError("Error saving to disk: \(error)") }
+        } catch { print("Error saving to disk: \(error.localizedDescription)") }
     }
     
     func loadFromPersistentStore() {
@@ -70,6 +70,6 @@ class BookController {
             let data = try Data(contentsOf: url)
             let decoder = PropertyListDecoder()
             books = try decoder.decode([Book].self, from: data)
-        } catch { fatalError("Error reading from disk: \(error)") }
+        } catch { print("Error reading from disk: \(error.localizedDescription)") }
     }
 }
