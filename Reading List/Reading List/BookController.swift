@@ -107,12 +107,18 @@ extension BookController {
 }
 
 extension BookController {
-	private var readBooks: [Book] {
+	var readBooks: [Book] {
 		let read: [Book] = books.filter({
 			$0.hasBeenRead == true
 		})
 		return read
 	}
 	
+	var unReadBooks: [Book] {
+		let unRead = books.filter({
+			$0.hasBeenRead == false
+		})
+		return unRead
+	}
 	
 }
