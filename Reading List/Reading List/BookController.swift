@@ -12,6 +12,27 @@ import UIKit
 class BookController {
     var books: [Book] = []
     
+    var readBooks: [Book] {
+        var array: [Book] = []
+        for book in books {
+            if book.hasBeenRead {
+                array += [book]
+            }
+        }
+        return array
+    }
+    
+    var unreadBooks: [Book] {
+        var array: [Book] = []
+        for book in books {
+            if book.hasBeenRead {
+                array += [book]
+            }
+        }
+        return array
+    }
+    
+    
     var readingListURL: URL? {
         let fileManager = FileManager.default
         guard let document = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
