@@ -18,9 +18,9 @@ class BookController {
         return documents.appendingPathComponent("books.plist")
     }
     
-    var readBooks: [Book] { return books.filter({ $0.hasBeenRead }) }
+    var readBooks: [Book] { return books.filter({ $0.hasBeenRead }).sorted(by: { $0.title < $1.title }) }
     
-    var unreadBooks: [Book] { return books.filter({ !$0.hasBeenRead }) }
+    var unreadBooks: [Book] { return books.filter({ !$0.hasBeenRead }).sorted(by: { $0.title < $1.title }) }
     
     init() { loadFromPersistentStore() }
     
