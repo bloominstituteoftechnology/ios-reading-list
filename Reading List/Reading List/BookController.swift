@@ -10,22 +10,21 @@ import Foundation
 
 class BookController {
 	
-	//guard let index = books.firstIndex(of: book) else { return }
-	//
 	
-	private func getBookIndex(book: Book) -> Int? {
-		guard let index = books.firstIndex(of: book) else {
-			return nil
-		}
-		return index
-	}
 	
 	func creatBook(title: String, reasonToRead: String){
 		let book = Book(title: title, reasonToRead: reasonToRead)
 		books.append(book)
+		
+		saveToPersistentStore()
 	}
 	
-	
+	private(set) var books: [Book] = []
+}
+
+
+extension BookController {
+	///will load data from Persistent if it exist
 	func loadFromPersistentStore() {
 		//make sure file exist
 		let fileManager = FileManager.default
@@ -46,6 +45,7 @@ class BookController {
 		}
 	}
 	
+	///will save data to persistent store
 	func saveToPersistentStore() {
 		guard let url = readingListURL else { return }
 		do {
@@ -58,6 +58,13 @@ class BookController {
 		} catch {
 			NSLog("Error saving book data: \(error)")
 		}
+	}
+	
+	private func getBookIndex(book: Book) -> Int? {
+		guard let index = books.firstIndex(of: book) else {
+			return nil
+		}
+		return index
 	}
 	
 	private var readingListURL: URL? {
@@ -74,6 +81,4 @@ class BookController {
 		print(document)
 		return document
 	}
-	
-	private(set) var books: [Book] = []
 }
