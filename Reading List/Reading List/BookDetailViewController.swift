@@ -24,10 +24,15 @@ class BookDetailViewController: UIViewController, BookControllerProtocol {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		updateViews()
+	}
 
 	func updateViews() {
 		navigationItem.title = "Add a new book"
-		guard let book = book else { return }
+		guard let book = book, isViewLoaded else { return }
 		navigationItem.title = book.title
 		bookTitleTextField.text = book.title
 		reasonToReadTextView.text = book.reasonToRead
