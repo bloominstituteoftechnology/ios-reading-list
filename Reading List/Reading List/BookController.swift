@@ -13,11 +13,15 @@ class BookController {
 	private(set) var books = MyOrderedSet<Book>()
 	
 	var readBooks: [Book] {
-		return books.filter{ $0.hasBeenRead }
+		return books.filter{ $0.hasBeenRead }.sorted(by: { (a, b) -> Bool in
+			a.title < b.title
+		})
 	}
 	
 	var unreadBooks: [Book] {
-		return books.filter{ !$0.hasBeenRead }
+		return books.filter{ !$0.hasBeenRead }.sorted(by: { (a, b) -> Bool in
+			a.title < b.title
+		})
 	}
 	
 	private var readingListURL: URL? {
