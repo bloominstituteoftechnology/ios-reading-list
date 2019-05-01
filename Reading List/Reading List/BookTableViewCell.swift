@@ -9,7 +9,20 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
+    
+    
+    @IBOutlet var bookTitleLabel: UILabel!
+    @IBOutlet var bookReadButton: UIButton!
+    
+    weak var delegate: BookTableViewCellDelegate?
 
+    var book: Book? {
+        didSet {
+            updateViews()
+            
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +33,22 @@ class BookTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    @IBAction func bookReadButtonTapped(_ sender: Any) {
+        
+        guard let cell = sender as? BookTableViewCell else { return }
+        delegate?.toggleHasBeenRead(for: cell)
+    }
+    
+    func updateViews() {
+        guard let book = book else { return }
+        bookTitleLabel.text = book.title
+        
+        switch book.hasBeenRead {
+        case true:
+            bookReadButton.setImage(UIImage(named: "checked"), for: .selected)
+        case false:
+            bookReadButton.setImage(UIImage(named: "unchecked"), for: .selected)
+        }
+    }
 }

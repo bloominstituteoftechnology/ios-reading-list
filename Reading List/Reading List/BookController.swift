@@ -9,7 +9,17 @@
 import Foundation
 
 class BookController {
-    var books: [Book] = []
+    private(set) var books: [Book] = []
+    
+    var readBooks: [Book] {
+        let readbooks = books.filter { $0.hasBeenRead }
+        return readbooks
+    }
+    
+    var unreadBooks: [Book] {
+        let unreadBooks = books.filter { !$0.hasBeenRead }
+        return unreadBooks
+    }
     
     var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -17,6 +27,10 @@ class BookController {
         let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let location = documentDirectory.appendingPathComponent(fileName)
         return location
+    }
+    
+    init() {
+        loadFromPersistantStore()
     }
     
     func saveToPersistantStore() {
@@ -73,7 +87,7 @@ class BookController {
         saveToPersistantStore()
     }
     
-    func toggleRead(of book: Book) {
+    func updateHasBeenRead(of book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
         switch books[index].hasBeenRead {
         case true:
@@ -85,13 +99,4 @@ class BookController {
         saveToPersistantStore()
     }
     
-    var readBooks: [Book] {
-        let readbooks = books.filter { $0.hasBeenRead }
-        return readbooks
-    }
-    
-    var unreadBooks: [Book] {
-        let unreadBooks = books.filter { !$0.hasBeenRead }
-        return unreadBooks
-    }
 }
