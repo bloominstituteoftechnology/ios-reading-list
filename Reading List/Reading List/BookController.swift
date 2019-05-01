@@ -26,6 +26,9 @@ class BookController {
 		return documents.appendingPathComponent("ReadingList.plist")
 	}
 	
+	init() {
+		loadFromPersistentStore()
+	}
 	
 	func createBook(titled title: String, because reasonToRead: String) {
 		books.append(Book(title: title, reasonToRead: reasonToRead))
@@ -40,6 +43,7 @@ class BookController {
 	func updateHasBeenRead(for book: Book) {
 		guard let index = books.index(of: book) else { return }
 		books[index].hasBeenRead.toggle()
+		saveToPersistentStore()
 	}
 	
 	func update(title: String? = nil, reasonToRead reason: String? = nil, forBook book: Book) {
@@ -50,6 +54,7 @@ class BookController {
 		if let reason = reason {
 			books[index].reasonToRead = reason
 		}
+		saveToPersistentStore()
 	}
 
 	func saveToPersistentStore() {
@@ -58,7 +63,7 @@ class BookController {
 			return
 		}
 		let encoder = PropertyListEncoder()
-		encoder.outputFormat = .openStep
+//		encoder.outputFormat = .openStep
 		do {
 			let booksData = try encoder.encode(books)
 			try booksData.write(to: filePath)
