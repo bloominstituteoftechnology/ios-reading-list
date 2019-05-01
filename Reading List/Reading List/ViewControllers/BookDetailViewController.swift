@@ -20,7 +20,14 @@ class BookDetailViewController: UIViewController {
 	
 	}
 	
+	func setupviews(){
+		guard let book = book else { return }
+		bookTitleTextField.text = book.title
+		reasonToReadTextView.text = book.reasonToRead
+		
+	}
+	
 	@IBOutlet var bookTitleTextField: UITextField!
 	@IBOutlet var reasonToReadTextView: UITextView!
-	
+	var book: Book?
 }

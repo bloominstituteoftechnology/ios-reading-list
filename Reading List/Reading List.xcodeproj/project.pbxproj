@@ -17,6 +17,7 @@
 		E87A0A2A2279105900951B3B /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A0A292279105900951B3B /* BookTableViewCell.swift */; };
 		E87A0A2C227935BE00951B3B /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A0A2B227935BE00951B3B /* BookDetailViewController.swift */; };
 		E87A0A3022793C9900951B3B /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A0A2F22793C9900951B3B /* BookTableViewCellDelegate.swift */; };
+		E87A0A3222795D7D00951B3B /* BookControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A0A3122795D7D00951B3B /* BookControllerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		E87A0A292279105900951B3B /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		E87A0A2B227935BE00951B3B /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		E87A0A2F22793C9900951B3B /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		E87A0A3122795D7D00951B3B /* BookControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookControllerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				E87A0A2F22793C9900951B3B /* BookTableViewCellDelegate.swift */,
+				E87A0A3122795D7D00951B3B /* BookControllerProtocol.swift */,
 				E87A0A292279105900951B3B /* BookTableViewCell.swift */,
 				E87A0A272279103600951B3B /* ReadingListTableViewController.swift */,
 				E87A0A2B227935BE00951B3B /* BookDetailViewController.swift */,
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E87A0A3222795D7D00951B3B /* BookControllerProtocol.swift in Sources */,
 				E87A0A282279103600951B3B /* ReadingListTableViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				E87A0A2C227935BE00951B3B /* BookDetailViewController.swift in Sources */,

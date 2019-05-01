@@ -22,26 +22,43 @@ class ReadingListTableViewController: UITableViewController {
 		
 		
     }
+	
+	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		
+		if section == 1 {
+			return "unread books"
+		}
+		return "read books"
+	}
 	override func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+		return 2
 	}
 	
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		//pick correct section
-		
-		return bookController.books.count
+		if section == 2 {
+			return bookController.unreadBooks.count
+		}
+		return bookController.readBooks.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
 		guard let bookCell = cell as? BookTableViewCell else { return cell }
-		let book = bookController.books[indexPath.row]
+		
+		if indexPath.section == 2 {
+			bookCell.book = BookController().unreadBooks[indexPath.row]
+		} else {
+			bookCell.book = BookController().readBooks[indexPath.row]
+		}
+		
 		bookCell.delegate = self
-		bookCell.book = book 
+		
 		return bookCell
     }
 
-	var bookController = BookController()
+	
+	let bookController = BookController()
 }
 
 extension ReadingListTableViewController: BookTableViewCellDelegate {
@@ -52,5 +69,10 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
 		tableView.reloadData()
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "showBookCell" {
+			guard let vc = segue.destination as? BookDetailViewController else { return }
+		}
+	}
 	
 }
