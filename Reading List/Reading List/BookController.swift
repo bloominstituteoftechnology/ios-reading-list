@@ -40,10 +40,11 @@ class BookController {
 		saveToPersistentStore()
 	}
 	
-	func updateHasBeenRead(for book: Book) {
-		guard let index = books.index(of: book) else { return }
+	@discardableResult func updateHasBeenRead(for book: Book) -> Book? {
+		guard let index = books.index(of: book) else { return nil }
 		books[index].hasBeenRead.toggle()
 		saveToPersistentStore()
+		return books[index]
 	}
 	
 	func update(title: String? = nil, reasonToRead reason: String? = nil, forBook book: Book) {

@@ -19,4 +19,12 @@ struct Book: Equatable, Hashable, Codable {
 		self.reasonToRead = reasonToRead
 		self.hasBeenRead = hasBeenRead
 	}
+	
+	static func == (lhs: Book, rhs: Book) -> Bool {
+		return lhs.uuid == rhs.uuid
+	}
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(uuid)
+	}
 }

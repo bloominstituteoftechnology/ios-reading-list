@@ -57,12 +57,17 @@ public struct MyOrderedSet<Type: Codable & Hashable> {
 		}
 		set {
 			var index = index
-			if let oldIndex = contents[newValue] {
+			var removedElement = false
+			if let oldIndex = contents[newValue], oldIndex != index {
 				//remove existing value (coalesce to the rest of the stuff)
 				remove(newValue)
+				removedElement = true
 				if oldIndex < index {
 					index -= 1
 				}
+			}
+			if removedElement && index == sequencedContents.count {
+				append(newValue)
 			}
 			if sequencedContents[index] != newValue {
 				contents.removeValue(forKey: sequencedContents[index])

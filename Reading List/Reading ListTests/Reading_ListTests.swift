@@ -51,7 +51,6 @@ class Reading_ListTests: XCTestCase {
 		
 		
 		// append existing
-		(testingOrderedSet, sideArray) = defaultValues()
 		testingOrderedSet.append(1)
 		sideArray.append(1)
 		sideArray.removeFirst()
@@ -73,7 +72,6 @@ class Reading_ListTests: XCTestCase {
 		var (testingOrderedSet, sideArray) = defaultValues()
 
 		// set existing, moving down
-		(testingOrderedSet, sideArray) = defaultValues()
 		testingOrderedSet[5] = 10
 		sideArray.remove(at: 9)
 		sideArray.remove(at: 5)
@@ -95,12 +93,11 @@ class Reading_ListTests: XCTestCase {
 
 		
 		// set existing, moving up
-		(testingOrderedSet, sideArray) = defaultValues()
 		testingOrderedSet[4] = 1
 		sideArray.remove(at: 4)
 		sideArray.insert(1, at: 4)
 		sideArray.remove(at: 0)
-		XCTAssert(testingOrderedSet.contents.count == testingOrderedSet.sequencedContents.count)
+		XCTAssert(testingOrderedSet.contents.count == testingOrderedSet.sequencedContents.count, "\(testingOrderedSet.contents.count) and \( testingOrderedSet.sequencedContents.count)")
 		XCTAssert(sideArray.count == testingOrderedSet.sequencedContents.count)
 		for index in sideArray.indices {
 			XCTAssert(sideArray[index] == testingOrderedSet[index], "\(sideArray) != \(testingOrderedSet)")
@@ -116,7 +113,6 @@ class Reading_ListTests: XCTestCase {
 		var (testingOrderedSet, sideArray) = defaultValues()
 
 		//set new
-		(testingOrderedSet, sideArray) = defaultValues()
 		testingOrderedSet[4] = 15
 		sideArray[4] = 15
 		XCTAssert(testingOrderedSet.contents.count == testingOrderedSet.sequencedContents.count)
@@ -131,13 +127,49 @@ class Reading_ListTests: XCTestCase {
 		}
 	}
 	
+	func testSetReplaceWithSame() {
+		var (testingOrderedSet, sideArray) = defaultValues()
+//		var (originalSet, _) = defaultValues()
+		
+		testingOrderedSet[0] = 1
+		XCTAssert(testingOrderedSet.contents.count == testingOrderedSet.sequencedContents.count)
+		XCTAssert(sideArray.count == testingOrderedSet.sequencedContents.count)
+		for index in sideArray.indices {
+			XCTAssert(sideArray[index] == testingOrderedSet[index], "\(sideArray) != \(testingOrderedSet)")
+		}
+		
+		//should be run after every edit
+		for (index, element) in testingOrderedSet.sequencedContents.enumerated() {
+			XCTAssert(testingOrderedSet.contents[element] == index, "\(testingOrderedSet.contents)")
+		}
+	}
+	
+	func testSetEndValue() {
+		var (testingOrderedSet, sideArray) = defaultValues()
+		
+		let endValue = sideArray.count - 1
+		testingOrderedSet[endValue] = 15
+		sideArray[endValue] = 15
+		XCTAssert(testingOrderedSet.contents.count == testingOrderedSet.sequencedContents.count)
+		XCTAssert(sideArray.count == testingOrderedSet.sequencedContents.count)
+		for index in sideArray.indices {
+			XCTAssert(sideArray[index] == testingOrderedSet[index], "\(sideArray) != \(testingOrderedSet)")
+		}
+		
+		//should be run after every edit
+		for (index, element) in testingOrderedSet.sequencedContents.enumerated() {
+			XCTAssert(testingOrderedSet.contents[element] == index, "\(testingOrderedSet.contents)")
+		}
+
+	}
+	
+
 
 	
 	func testRemoving() {
 		var (testingOrderedSet, sideArray) = defaultValues()
 
 		// removing inside
-		(testingOrderedSet, sideArray) = defaultValues()
 		testingOrderedSet.remove(at: 8)
 		sideArray.remove(at: 8)
 		XCTAssert(testingOrderedSet.contents.count == testingOrderedSet.sequencedContents.count)

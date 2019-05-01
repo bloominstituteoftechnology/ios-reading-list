@@ -54,6 +54,21 @@ class ReadingListTableViewController: UITableViewController {
 			return bookController.unreadBooks[indexPath.row]
 		}
 	}
+	
+	func indexPath(for book: Book?) -> IndexPath? {
+		guard let book = book else { return nil }
+		let index: Int?
+		let section: Int
+		if book.hasBeenRead {
+			section = 0
+			index = bookController.readBooks.firstIndex(of: book)
+		} else {
+			section = 1
+			index = bookController.unreadBooks.firstIndex(of: book)
+		}
+		guard let theIndex = index else { return nil }
+		return IndexPath(row: theIndex, section: section)
+	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -86,16 +101,19 @@ class ReadingListTableViewController: UITableViewController {
 extension ReadingListTableViewController: BookTableViewCellDelegate {
 	func toggleHasBeenRead(for cell: BookTableViewCell) {
 		if let book = cell.book {
-			bookController.updateHasBeenRead(for: book)
-			tableView.reloadData()
-//			guard let indexPath = tableView.indexPath(for: cell) else { return }
-////				tableView.reloadRows(at: [indexPath], with: .automatic)
-//			tableView.deleteRows(at: [indexPath], with: .automatic)
-//			if book.hasBeenRead {
-//				tableView.reloadSections(IndexSet([1]), with: .automatic)
-//			} else {
-//				tableView.reloadSections(IndexSet([0]), with: .automatic)
-//			}
+			guard let theIndexPath = tableView.indexPath(for: cell) else { return }
+			tableView.beginUpdates()
+			tableView.deleteRows(at: [theIndexPath], with: .left)
+//			print(theIndexPath)
+			let updatedBook = bookController.updateHasBeenRead(for: book)
+			guard let newIndexPath = indexPath(for: updatedBook) else { return }
+//			print(newIndexPath)
+			tableView.insertRows(at: [newIndexPath], with: .left)
+			tableView.endUpdates()
+//			tableView.reloadSections(IndexSet([0,1]), with: .fade)
+//
+//			tableView.reloadData()
+
 		}
 	}
 }
