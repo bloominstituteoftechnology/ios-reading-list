@@ -13,7 +13,7 @@
         <!--Reading List-->
         <scene sceneID="g8w-YH-H6w">
             <objects>
-                <tableViewController id="na0-6K-UKB" sceneMemberID="viewController">
+                <tableViewController id="na0-6K-UKB" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="N7g-y5-nve">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,17 +82,16 @@
         <!--Books Title-->
         <scene sceneID="ZfL-Eg-8Og">
             <objects>
-                <viewController id="WAi-Z6-oxq" sceneMemberID="viewController">
+                <viewController id="WAi-Z6-oxq" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ckz-xk-mt4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4F9-ix-gdH">
-                                <rect key="frame" x="8" y="134" width="398" height="720"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4F9-ix-gdH">
+                                <rect key="frame" x="8" y="134" width="398" height="398"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f4m-LZ-SwQ">
                                 <rect key="frame" x="8" y="96" width="398" height="30"/>
@@ -104,7 +103,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YZT-RF-tGS" firstAttribute="trailing" secondItem="4F9-ix-gdH" secondAttribute="trailing" constant="8" id="7W2-ct-bRd"/>
-                            <constraint firstItem="YZT-RF-tGS" firstAttribute="bottom" secondItem="4F9-ix-gdH" secondAttribute="bottom" constant="8" id="DYR-8e-JBn"/>
+                            <constraint firstItem="YZT-RF-tGS" firstAttribute="bottom" secondItem="4F9-ix-gdH" secondAttribute="bottom" constant="330" id="DYR-8e-JBn"/>
                             <constraint firstItem="4F9-ix-gdH" firstAttribute="top" secondItem="f4m-LZ-SwQ" secondAttribute="bottom" constant="8" id="L4a-N3-kon"/>
                             <constraint firstItem="4F9-ix-gdH" firstAttribute="top" secondItem="f4m-LZ-SwQ" secondAttribute="bottom" constant="8" id="P4A-gq-c8D"/>
                             <constraint firstItem="f4m-LZ-SwQ" firstAttribute="top" secondItem="YZT-RF-tGS" secondAttribute="top" constant="8" id="Pgm-7z-TfC"/>
@@ -115,8 +114,16 @@
                         <viewLayoutGuide key="safeArea" id="YZT-RF-tGS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Books Title" id="qEs-0L-MmQ">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="dOe-ab-BDP"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="dOe-ab-BDP">
+                            <connections>
+                                <action selector="saveBarButtonPressed:" destination="WAi-Z6-oxq" id="KPy-0B-Skh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookTitleTextField" destination="f4m-LZ-SwQ" id="Pdn-C3-acb"/>
+                        <outlet property="reasonToReadTextView" destination="4F9-ix-gdH" id="5Cu-8v-Tt4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qe1-30-iAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,6 +152,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rNz-LR-RnO"/>
+        <segue reference="azG-7M-PtJ"/>
     </inferredMetricsTieBreakers>
 </document>
