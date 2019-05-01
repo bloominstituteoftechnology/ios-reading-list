@@ -6,6 +6,7 @@
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
@@ -54,8 +55,8 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let bookCell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
+        let bookCell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as! BookTableViewCell 
+//        guard let bookCell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
         
         bookCell.delegate = self
         let book = bookFor(indexPath: indexPath)

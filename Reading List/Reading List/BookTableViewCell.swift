@@ -36,8 +36,7 @@ class BookTableViewCell: UITableViewCell {
     
     @IBAction func bookReadButtonTapped(_ sender: Any) {
         
-        guard let cell = sender as? BookTableViewCell else { return }
-        delegate?.toggleHasBeenRead(for: cell)
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     func updateViews() {
