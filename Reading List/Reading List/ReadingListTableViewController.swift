@@ -16,6 +16,22 @@ class ReadingListTableViewController: UITableViewController {
         super.viewDidLoad()
 		
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		tableView.reloadData()
+	}
+	
+	//MARK: Nav
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let dest = segue.destination as? BookDetailViewController else { return }
+		dest.bookController = bookController
+		
+		if segue.identifier == "EditBook" {
+			guard let cell = sender as? BookTableViewCell else { return }
+			dest.book = cell.book
+		}
+	}
 
     // MARK: - Table view data source
 
@@ -70,6 +86,15 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
 	func toggleHasBeenRead(for cell: BookTableViewCell) {
 		if let book = cell.book {
 			bookController.updateHasBeenRead(for: book)
+			tableView.reloadData()
+//			guard let indexPath = tableView.indexPath(for: cell) else { return }
+////				tableView.reloadRows(at: [indexPath], with: .automatic)
+//			tableView.deleteRows(at: [indexPath], with: .automatic)
+//			if book.hasBeenRead {
+//				tableView.reloadSections(IndexSet([1]), with: .automatic)
+//			} else {
+//				tableView.reloadSections(IndexSet([0]), with: .automatic)
+//			}
 		}
 	}
 }

@@ -63,7 +63,6 @@ class BookController {
 			return
 		}
 		let encoder = PropertyListEncoder()
-//		encoder.outputFormat = .openStep
 		do {
 			let booksData = try encoder.encode(books)
 			try booksData.write(to: filePath)
