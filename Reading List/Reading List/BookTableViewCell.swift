@@ -9,9 +9,29 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-
-    @IBAction func checkButtonPressed(_ sender: Any) {
+    
+    var delegate: BookTableViewCellDelegate?
+    
+    var book: Book?
+    
+    // sets the title of the book to label and the appropriate image if its been read
+    func updateViews(book:Book){
+         bookLabel.text = book.title
+        
+        if book.hasBeenRead == true{
+            checkButton.setImage(UIImage(named: "checked"), for: .normal)
+        } else{
+            checkButton.setImage(UIImage(named: "unchecked"), for: .normal)
+        }
     }
+    
+    
+    @IBAction func checkButtonPressed(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: )
+        
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,4 +45,6 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookLabel: UILabel!
     
     @IBOutlet weak var checkButton: UIButton!
+    
+    
 }
