@@ -16,9 +16,14 @@ class BookDetailViewController: UIViewController {
     }
 	
 	@IBAction func saveBarButtonPressed(_ sender: UIBarButtonItem) {
-		print("save")
-		
-		guard let book = book else { return }
+		guard let bookcontroller = bookController else { return }
+		if let book = book {
+			guard let title = bookTitleTextField.text,
+				let reasonToRead = reasonToReadTextView.text else { return }
+			
+			print("save")
+			bookcontroller.upDateBookInfo(book: book, title: title, reasonToRead: reasonToRead)
+		}
 		
 		
 //		bookController?.creatBook(title: title, reasonToRead: reasonToReadTextView)

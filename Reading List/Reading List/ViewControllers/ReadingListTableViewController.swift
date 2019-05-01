@@ -12,6 +12,7 @@ class ReadingListTableViewController: UITableViewController {
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
+		tableView.reloadData()
 	}
 	
     override func viewDidLoad() {
@@ -88,7 +89,7 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
 			
 			guard let vc = segue.destination as? BookDetailViewController,
 				let cell = sender as? BookTableViewCell else { return }
-			
+			vc.bookController = bookController
 			vc.book = cell.book
 		}
 	}
