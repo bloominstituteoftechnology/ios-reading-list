@@ -24,11 +24,13 @@ class ReadingListTableViewController: UITableViewController {
     }
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		
 		if section == 0 {
-			return "read books"
+			
+			return bookController.readBooks.count == 0 ? "" : "read books"
 		}
 		if section == 1 {
-			return "unread books"
+			return bookController.unreadBooks.count == 0 ? "" : "unread books"
 		}
 		return nil
 	}
@@ -62,10 +64,8 @@ class ReadingListTableViewController: UITableViewController {
 			bookCell.book = bookController.unreadBooks[indexPath.row]
 		}
 		return bookCell
-		
 	}
 
-	
 	let bookController = BookController()
 }
 

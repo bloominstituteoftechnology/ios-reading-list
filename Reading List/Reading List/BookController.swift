@@ -44,7 +44,9 @@ class BookController {
 	}
 	
 	init() {
-		books.append(Book(title: "Swift Basics", reasonToRead: "Text is needed for class."))
+		books.append(Book(title: "Swift4.2 Basics", reasonToRead: "Text is needed for class."))
+		books.append(Book(title: "Swift5 Basics", reasonToRead: "Text is needed for class."))
+		saveToPersistentStore()
 	}
 	
 	private(set) var books: [Book] = []
