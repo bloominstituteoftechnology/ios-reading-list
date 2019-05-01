@@ -45,7 +45,7 @@ class BookTableViewCell: UITableViewCell {
         
         switch book.hasBeenRead {
         case true:
-            bookReadButton.setImage(UIImage(named: "checked"), for: .selected)
+            bookReadButton.setImage(UIImage(named: "checked"), for: .normal)
         case false:
             bookReadButton.setImage(UIImage(named: "unchecked"), for: .selected)
         }

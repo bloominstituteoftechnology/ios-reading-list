@@ -76,6 +76,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         bookController.updateHasBeenRead(of: bookFor(indexPath: indexPath))
+        tableView.reloadData()
         
     }
 
