@@ -124,6 +124,7 @@
                     <connections>
                         <outlet property="bookTitleTextField" destination="f4m-LZ-SwQ" id="Pdn-C3-acb"/>
                         <outlet property="reasonToReadTextView" destination="4F9-ix-gdH" id="5Cu-8v-Tt4"/>
+                        <outlet property="saveEditButton" destination="dOe-ab-BDP" id="mnU-ym-FYB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qe1-30-iAb" userLabel="First Responder" sceneMemberID="firstResponder"/>

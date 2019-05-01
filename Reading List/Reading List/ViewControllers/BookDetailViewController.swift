@@ -16,26 +16,31 @@ class BookDetailViewController: UIViewController {
     }
 	
 	@IBAction func saveBarButtonPressed(_ sender: UIBarButtonItem) {
-		guard let bookcontroller = bookController else { return }
-		if let book = book {
-			guard let title = bookTitleTextField.text,
-				let reasonToRead = reasonToReadTextView.text else { return }
+		guard let book = book  else { return }
+		
+		if saveEdittitle == "Edit" {
+			if let title = bookTitleTextField.text {
+				bookController?.upDateBookInfo(book: book, title: title, reasonToRead: nil)
+			}
+			if let reasonToRead = reasonToReadTextView.text {
+				bookController?.upDateBookInfo(book: book, title: nil, reasonToRead: reasonToRead)
+			}
 			
-			print("save")
-			bookcontroller.upDateBookInfo(book: book, title: title, reasonToRead: reasonToRead)
+		} else if saveEdittitle == "Save" {
+			let title = bookTitleTextField.text ?? ""
+			let reasonToRead = reasonToReadTextView.text ?? ""
+			bookController?.creatBook(title: title, reasonToRead: reasonToRead)
 		}
-		
-		
-//		bookController?.creatBook(title: title, reasonToRead: reasonToReadTextView)
 	}
 	
 	func setupviews(){
 		guard let book = book else { return }
 		bookTitleTextField?.text = book.title
 		reasonToReadTextView?.text = book.reasonToRead
-		
+		saveEditButton.title = saveEdittitle
 	}
 	
+	@IBOutlet var saveEditButton: UIBarButtonItem!
 	@IBOutlet var bookTitleTextField: UITextField!
 	@IBOutlet var reasonToReadTextView: UITextView!
 	var book: Book? {
@@ -44,6 +49,6 @@ class BookDetailViewController: UIViewController {
 		}
 	}
 	
-	
+	var saveEdittitle: String?
 	var bookController: BookController?
 }
