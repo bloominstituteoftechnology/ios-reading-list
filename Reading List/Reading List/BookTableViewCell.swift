@@ -9,7 +9,8 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-
+	@IBOutlet weak var hasBeenReadButtonOutlet: UIButton!
+	
 	@IBOutlet weak var bookTitleLabel: UILabel!
 	
 	@IBAction func hasBeenReadButton(_ sender: Any) {

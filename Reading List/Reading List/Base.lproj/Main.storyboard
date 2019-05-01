@@ -19,24 +19,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="HOs-EK-naO" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="HOs-EK-naO" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HOs-EK-naO" id="S7o-Hj-pSD">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sxJ-8o-nH1">
-                                            <rect key="frame" x="8" y="0.0" width="398" height="69.5"/>
+                                            <rect key="frame" x="8" y="0.0" width="360" height="69.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Leg-ln-Bug">
-                                                    <rect key="frame" x="0.0" y="0.0" width="340" height="69.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="302" height="69.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQr-m2-Gv3">
-                                                    <rect key="frame" x="348" y="0.0" width="50" height="69.5"/>
+                                                    <rect key="frame" x="310" y="0.0" width="50" height="69.5"/>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
                                                         <action selector="hasBeenReadButton:" destination="HOs-EK-naO" eventType="touchUpInside" id="X5v-Q4-3Tb"/>
@@ -57,7 +57,8 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookTitleLabel" destination="Leg-ln-Bug" id="nrP-Ml-RT2"/>
-                                    <segue destination="WAi-Z6-oxq" kind="show" identifier="showBookCell" id="azG-7M-PtJ"/>
+                                    <outlet property="hasBeenReadButtonOutlet" destination="DQr-m2-Gv3" id="3Dj-Jx-l5g"/>
+                                    <segue destination="WAi-Z6-oxq" kind="push" identifier="showBookCell" id="azG-7M-PtJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -69,7 +70,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="87N-xV-7lN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9Fr-VS-kFE">
                             <connections>
-                                <segue destination="WAi-Z6-oxq" kind="show" identifier="addToReadingList" id="rNz-LR-RnO"/>
+                                <segue destination="WAi-Z6-oxq" kind="push" identifier="addToReadingList" id="rNz-LR-RnO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -78,16 +79,44 @@
             </objects>
             <point key="canvasLocation" x="707.24637681159425" y="369.64285714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Books Title-->
         <scene sceneID="ZfL-Eg-8Og">
             <objects>
                 <viewController id="WAi-Z6-oxq" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ckz-xk-mt4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4F9-ix-gdH">
+                                <rect key="frame" x="8" y="134" width="398" height="720"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f4m-LZ-SwQ">
+                                <rect key="frame" x="8" y="96" width="398" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YZT-RF-tGS" firstAttribute="trailing" secondItem="4F9-ix-gdH" secondAttribute="trailing" constant="8" id="7W2-ct-bRd"/>
+                            <constraint firstItem="YZT-RF-tGS" firstAttribute="bottom" secondItem="4F9-ix-gdH" secondAttribute="bottom" constant="8" id="DYR-8e-JBn"/>
+                            <constraint firstItem="4F9-ix-gdH" firstAttribute="top" secondItem="f4m-LZ-SwQ" secondAttribute="bottom" constant="8" id="L4a-N3-kon"/>
+                            <constraint firstItem="4F9-ix-gdH" firstAttribute="top" secondItem="f4m-LZ-SwQ" secondAttribute="bottom" constant="8" id="P4A-gq-c8D"/>
+                            <constraint firstItem="f4m-LZ-SwQ" firstAttribute="top" secondItem="YZT-RF-tGS" secondAttribute="top" constant="8" id="Pgm-7z-TfC"/>
+                            <constraint firstItem="f4m-LZ-SwQ" firstAttribute="leading" secondItem="YZT-RF-tGS" secondAttribute="leading" constant="8" id="fsn-tq-oMH"/>
+                            <constraint firstItem="4F9-ix-gdH" firstAttribute="leading" secondItem="YZT-RF-tGS" secondAttribute="leading" constant="8" id="q80-zb-GZb"/>
+                            <constraint firstItem="YZT-RF-tGS" firstAttribute="trailing" secondItem="f4m-LZ-SwQ" secondAttribute="trailing" constant="8" id="t7E-NZ-2er"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YZT-RF-tGS"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Books Title" id="qEs-0L-MmQ">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="dOe-ab-BDP"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qe1-30-iAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,6 +145,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="azG-7M-PtJ"/>
+        <segue reference="rNz-LR-RnO"/>
     </inferredMetricsTieBreakers>
 </document>
