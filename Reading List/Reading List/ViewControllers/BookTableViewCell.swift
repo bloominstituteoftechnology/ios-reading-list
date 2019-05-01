@@ -9,12 +9,27 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-	@IBOutlet weak var hasBeenReadButtonOutlet: UIButton!
 	
-	@IBOutlet weak var bookTitleLabel: UILabel!
+	private func updateViews() {
+		guard let book = book else { return }
+		let imgStr = book.hasBeenRead ? "checked" : "uncheked"
+		hasBeenReadButtonOutlet.imageView?.image = UIImage(named: imgStr)
+		bookTitleLabel.text = "Reason to read: " + book.reasonToRead
+		
+	}
 	
 	@IBAction func hasBeenReadButton(_ sender: Any) {
+		//delegate work 
 		print("pressed")
+	}
+	
+	@IBOutlet weak var hasBeenReadButtonOutlet: UIButton!
+	@IBOutlet weak var bookTitleLabel: UILabel!
+	
+	var book: Book? {
+		didSet {
+			updateViews()
+		}
 	}
 	
 }

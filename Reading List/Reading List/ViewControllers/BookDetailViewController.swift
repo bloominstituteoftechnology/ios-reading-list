@@ -12,7 +12,7 @@ class BookDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
     }
 	
 	@IBAction func saveBarButtonPressed(_ sender: UIBarButtonItem) {
