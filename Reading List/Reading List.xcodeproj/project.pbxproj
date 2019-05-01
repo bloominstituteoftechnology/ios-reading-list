@@ -16,6 +16,7 @@
 		E87A0A282279103600951B3B /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A0A272279103600951B3B /* ReadingListTableViewController.swift */; };
 		E87A0A2A2279105900951B3B /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A0A292279105900951B3B /* BookTableViewCell.swift */; };
 		E87A0A2C227935BE00951B3B /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A0A2B227935BE00951B3B /* BookDetailViewController.swift */; };
+		E87A0A3022793C9900951B3B /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A0A2F22793C9900951B3B /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		E87A0A272279103600951B3B /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		E87A0A292279105900951B3B /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		E87A0A2B227935BE00951B3B /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		E87A0A2F22793C9900951B3B /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		E87A0A2D227935C700951B3B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E87A0A2F22793C9900951B3B /* BookTableViewCellDelegate.swift */,
 				E87A0A292279105900951B3B /* BookTableViewCell.swift */,
 				E87A0A272279103600951B3B /* ReadingListTableViewController.swift */,
 				E87A0A2B227935BE00951B3B /* BookDetailViewController.swift */,
@@ -170,6 +173,7 @@
 				E87A0A2C227935BE00951B3B /* BookDetailViewController.swift in Sources */,
 				E87A0A252278E43300951B3B /* BookController.swift in Sources */,
 				E87A0A2A2279105900951B3B /* BookTableViewCell.swift in Sources */,
+				E87A0A3022793C9900951B3B /* BookTableViewCellDelegate.swift in Sources */,
 				E87A0A232278DF9300951B3B /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
