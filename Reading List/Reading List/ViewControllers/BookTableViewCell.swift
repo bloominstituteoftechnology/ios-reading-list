@@ -10,19 +10,28 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
 	
+	
+	
+	
 	private func updateViews() {
-		guard let book = book else { return }
-		let imgStr = book.hasBeenRead ? "checked" : "uncheked"
-		hasBeenReadButtonOutlet.imageView?.image = UIImage(named: imgStr)
-		bookTitleLabel.text = "Reason to read: " + book.reasonToRead
+		guard let book = book  else {
+				
+				
+				return
+		}
+		let imgStr = book.hasBeenRead ? "checked" : "unchecked"
+		let image = UIImage(named: imgStr)
+		
+		hasBeenReadButtonOutlet?.setImage(image, for: .normal)
+		
+		bookTitleLabel.text = book.title
 		
 	}
-	
-	@IBAction func hasBeenReadButton(_ sender: Any) {
-		//delegate work
+	@IBAction func hasBeenReadButtonPressed(_ sender: UIButton) {
 		delegate?.toggleHasBeenRead(for: self)
-		print("pressed")
+		//updateViews()
 	}
+
 	
 	@IBOutlet weak var hasBeenReadButtonOutlet: UIButton!
 	@IBOutlet weak var bookTitleLabel: UILabel!

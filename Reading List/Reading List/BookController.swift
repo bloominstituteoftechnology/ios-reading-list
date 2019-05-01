@@ -24,6 +24,7 @@ class BookController {
 	
 	func updateHasBeenRead(for book: Book) {
 		if let index = getBookIndex(book: book) {
+			print("toggle")
 			books[index].hasBeenRead.toggle()
 		}
 	}
@@ -40,6 +41,10 @@ class BookController {
 		books.append(book)
 		
 		saveToPersistentStore()
+	}
+	
+	init() {
+		books.append(Book(title: "Swift Basics", reasonToRead: "Text is needed for class."))
 	}
 	
 	private(set) var books: [Book] = []

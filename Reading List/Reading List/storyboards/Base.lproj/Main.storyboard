@@ -19,33 +19,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="HOs-EK-naO" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="HOs-EK-naO" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HOs-EK-naO" id="S7o-Hj-pSD">
-                                    <rect key="frame" x="0.0" y="0.0" width="376" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sxJ-8o-nH1">
-                                            <rect key="frame" x="8" y="0.0" width="360" height="69.5"/>
+                                            <rect key="frame" x="8" y="0.0" width="398" height="69.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Leg-ln-Bug">
-                                                    <rect key="frame" x="0.0" y="0.0" width="302" height="69.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="340" height="69.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQr-m2-Gv3">
-                                                    <rect key="frame" x="310" y="0.0" width="50" height="69.5"/>
+                                                    <rect key="frame" x="348" y="0.0" width="50" height="69.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="69.5" id="Qos-za-4zG"/>
+                                                        <constraint firstAttribute="width" constant="50" id="zye-ZZ-UhB"/>
+                                                    </constraints>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
-                                                        <action selector="hasBeenReadButton:" destination="HOs-EK-naO" eventType="touchUpInside" id="X5v-Q4-3Tb"/>
+                                                        <action selector="hasBeenReadButtonPressed:" destination="HOs-EK-naO" eventType="touchUpInside" id="eBT-dh-soL"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Leg-ln-Bug" firstAttribute="height" secondItem="DQr-m2-Gv3" secondAttribute="height" id="9NC-iS-3gA"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -57,7 +58,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookTitleLabel" destination="Leg-ln-Bug" id="nrP-Ml-RT2"/>
-                                    <outlet property="hasBeenReadButtonOutlet" destination="DQr-m2-Gv3" id="3Dj-Jx-l5g"/>
+                                    <outlet property="hasBeenReadButtonOutlet" destination="DQr-m2-Gv3" id="qKU-gs-BL9"/>
                                     <segue destination="WAi-Z6-oxq" kind="push" identifier="showBookCell" id="azG-7M-PtJ"/>
                                 </connections>
                             </tableViewCell>
