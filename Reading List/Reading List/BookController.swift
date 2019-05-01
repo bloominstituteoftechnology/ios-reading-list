@@ -6,7 +6,7 @@
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 class BookController {
@@ -34,8 +34,10 @@ class BookController {
 		loadFromPersistentStore()
 	}
 	
-	func createBook(titled title: String, because reasonToRead: String) {
-		books.append(Book(title: title, reasonToRead: reasonToRead))
+	func createBook(titled title: String, because reasonToRead: String, image: UIImage? = nil) {
+		var newBook = Book(title: title, reasonToRead: reasonToRead)
+		newBook.image = image
+		books.append(newBook)
 		saveToPersistentStore()
 	}
 	
@@ -51,13 +53,16 @@ class BookController {
 		return books[index]
 	}
 	
-	func update(title: String? = nil, reasonToRead reason: String? = nil, forBook book: Book) {
+	func update(title: String? = nil, reasonToRead reason: String? = nil, image: UIImage? = nil, forBook book: Book) {
 		guard let index = books.index(of: book) else { return }
 		if let title = title {
 			books[index].title = title
 		}
 		if let reason = reason {
 			books[index].reasonToRead = reason
+		}
+		if let image = image {
+			books[index].image = image
 		}
 		saveToPersistentStore()
 	}
