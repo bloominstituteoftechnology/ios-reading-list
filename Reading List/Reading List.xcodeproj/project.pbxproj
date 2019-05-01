@@ -101,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				33AAA7F92278D93C006A0EEF /* Book.swift */,
+				33AAA7FB2278DB6F006A0EEF /* BookController.swift */,
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				33AAA80D2279135B006A0EEF /* ReadingListTableViewController.swift */,
 				33AAA80F227913A1006A0EEF /* BookTableViewCell.swift */,
@@ -111,7 +112,6 @@
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
 				466941742110E22B00E7FF73 /* Info.plist */,
-				33AAA7FB2278DB6F006A0EEF /* BookController.swift */,
 				33AAA7FD2278E120006A0EEF /* MyOrderedSet.swift */,
 			);
 			path = "Reading List";

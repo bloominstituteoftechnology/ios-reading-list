@@ -8,7 +8,15 @@
 
 import UIKit
 
-class BookDetailViewController: UIViewController {
+class BookDetailViewController: UIViewController, BookControllerProtocol {
+	
+	var bookController: BookController?
+	var book: Book? {
+		didSet {
+			updateViews()
+		}
+	}
+	
 	@IBOutlet var bookTitleTextField: UITextField!
 	@IBOutlet var reasonToReadTextView: UITextView!
 	
@@ -17,12 +25,22 @@ class BookDetailViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	func updateViews() {
+		navigationItem.title = "Add a new book"
+		guard let book = book else { return }
+		navigationItem.title = book.title
+		bookTitleTextField.text = book.title
+		reasonToReadTextView.text = book.reasonToRead
+	}
 
 	@IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+		if let book = book {
+			bookController?.update(title: bookTitleTextField.text, reasonToRead: reasonToReadTextView.text, forBook: book)
+		} else {
+			guard let title = bookTitleTextField.text, let reason = reasonToReadTextView.text else { return }
+			bookController?.createBook(titled: title, because: reason)
+		}
+		navigationController?.popViewController(animated: true)
 	}
 	
 }

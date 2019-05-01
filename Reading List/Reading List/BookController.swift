@@ -79,3 +79,8 @@ class BookController {
 		}
 	}
 }
+
+
+protocol BookControllerProtocol {
+	var bookController: BookController? {get set}
+}
