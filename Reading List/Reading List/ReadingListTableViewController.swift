@@ -70,6 +70,7 @@ class ReadingListTableViewController: UITableViewController {
 			guard let cell = tableView.cellForRow(at: indexPath) as? BookTableViewCell else { return }
 			guard let book = cell.book else { return }
 			bookController.delete(book: book)
+			tableView.deleteRows(at: [indexPath], with: .automatic)
 		}
 	}
 	
