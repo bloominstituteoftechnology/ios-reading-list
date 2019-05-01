@@ -40,29 +40,29 @@ class ReadingListTableViewController: UITableViewController {
 		//pick correct section
 		
 		if section == 0 {
-			return 3
+			return bookController.readBooks.count
+		} else if section == 1 {
+			return bookController.unreadBooks.count
 		}
-		return 2
+		return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
 
-		//
-				print(indexPath.section)
+		print(indexPath.section)
 		
-		//		guard let bookCell = cell as? BookTableViewCell else { return cell }
-//
-//		if indexPath.section == 1 {
-//			bookCell.book = BookController().unreadBooks[indexPath.row] ?? nil
-//		} else {
-//			bookCell.book = BookController().readBooks[indexPath.row] ?? nil
-//		}
-//
-//		bookCell.delegate = self
-//
-//		return bookCell
-		return cell
+		guard let bookCell = cell as? BookTableViewCell else { return cell }
+		bookCell.delegate = self
+
+		if indexPath.section == 0{
+			bookCell.book = bookController.readBooks[indexPath.row]
+			
+		} else if indexPath.section == 1{
+			bookCell.book = bookController.unreadBooks[indexPath.row]
+		}
+		return bookCell
+		
 	}
 
 	
