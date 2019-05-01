@@ -104,16 +104,10 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
 			guard let theIndexPath = tableView.indexPath(for: cell) else { return }
 			tableView.beginUpdates()
 			tableView.deleteRows(at: [theIndexPath], with: .left)
-//			print(theIndexPath)
 			let updatedBook = bookController.updateHasBeenRead(for: book)
 			guard let newIndexPath = indexPath(for: updatedBook) else { return }
-//			print(newIndexPath)
 			tableView.insertRows(at: [newIndexPath], with: .left)
 			tableView.endUpdates()
-//			tableView.reloadSections(IndexSet([0,1]), with: .fade)
-//
-//			tableView.reloadData()
-
 		}
 	}
 }
