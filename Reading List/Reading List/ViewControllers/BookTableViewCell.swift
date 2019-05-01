@@ -9,30 +9,18 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-	
-	
-	
-	
 	private func updateViews() {
-		guard let book = book  else {
-				
-				
-				return
-		}
+		guard let book = book  else { return }
 		let imgStr = book.hasBeenRead ? "checked" : "unchecked"
 		let image = UIImage(named: imgStr)
-		
 		hasBeenReadButtonOutlet?.setImage(image, for: .normal)
-		
 		bookTitleLabel.text = book.title
-		
 	}
+	
 	@IBAction func hasBeenReadButtonPressed(_ sender: UIButton) {
 		delegate?.toggleHasBeenRead(for: self)
-		//updateViews()
 	}
 
-	
 	@IBOutlet weak var hasBeenReadButtonOutlet: UIButton!
 	@IBOutlet weak var bookTitleLabel: UILabel!
 	
@@ -43,7 +31,4 @@ class BookTableViewCell: UITableViewCell {
 			updateViews()
 		}
 	}
-	
-	
-	
 }

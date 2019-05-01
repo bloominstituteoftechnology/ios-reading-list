@@ -70,6 +70,8 @@
 			children = (
 				E87A0A222278DF9300951B3B /* Book.swift */,
 				E87A0A242278E43300951B3B /* BookController.swift */,
+				E87A0A2F22793C9900951B3B /* BookTableViewCellDelegate.swift */,
+				E87A0A3122795D7D00951B3B /* BookControllerProtocol.swift */,
 				E87A0A2D227935C700951B3B /* ViewControllers */,
 				E87A0A2E2279361700951B3B /* storyboards */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
@@ -82,8 +84,6 @@
 		E87A0A2D227935C700951B3B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E87A0A2F22793C9900951B3B /* BookTableViewCellDelegate.swift */,
-				E87A0A3122795D7D00951B3B /* BookControllerProtocol.swift */,
 				E87A0A292279105900951B3B /* BookTableViewCell.swift */,
 				E87A0A272279103600951B3B /* ReadingListTableViewController.swift */,
 				E87A0A2B227935BE00951B3B /* BookDetailViewController.swift */,

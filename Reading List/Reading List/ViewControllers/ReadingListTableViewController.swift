@@ -14,32 +14,29 @@ class ReadingListTableViewController: UITableViewController {
 		super.viewDidAppear(animated)
 		print(bookController.books.count)
 		tableView.reloadData()
-		
 	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		
     }
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		
-		if section == 0 {
+		if section == 0{
 			
 			return bookController.readBooks.count == 0 ? "" : "read books"
-		}
-		if section == 1 {
+		}else if section == 1{
 			return bookController.unreadBooks.count == 0 ? "" : "unread books"
 		}
+		
 		return nil
 	}
+	
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 2
 	}
 	
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
 		return booksFor(section: section).count
     }
 	
@@ -70,7 +67,9 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
 		bookController.updateHasBeenRead(for: book)
 		tableView.reloadData()
 	}
-	
+}
+
+extension ReadingListTableViewController {
 	func booksFor(section: Int) -> [Book] {
 		if section == 0 {
 			return bookController.readBooks
@@ -82,8 +81,6 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "addToReadingList" {
-			
-			
 			guard let vc = segue.destination as? BookDetailViewController,
 				let cell = sender as? BookTableViewCell else { return }
 			vc.bookController = bookController
