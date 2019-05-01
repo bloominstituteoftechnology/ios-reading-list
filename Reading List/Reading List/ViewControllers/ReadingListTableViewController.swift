@@ -42,6 +42,14 @@ class ReadingListTableViewController: UITableViewController {
 
 		return booksFor(section: section).count
     }
+	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			let book = booksFor(section: indexPath.section)[indexPath.row]
+			bookController.deleteBook(book: book)
+		}
+		tableView.reloadData()
+	}
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
