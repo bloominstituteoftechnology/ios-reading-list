@@ -35,7 +35,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyi-Vk-WaU">
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyi-Vk-WaU" customClass="CheckButton" customModule="Reading_List" customModuleProvider="target">
                                                     <rect key="frame" x="336.5" y="0.0" width="45.5" height="45.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Hyi-Vk-WaU" secondAttribute="height" id="mIv-U5-nuI"/>
