@@ -12,9 +12,6 @@ class ReadingListTableViewController: UITableViewController {
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		for b in bookController.books {
-			print(b)
-		}
 	}
 	
     override func viewDidLoad() {
@@ -78,6 +75,22 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
 			return bookController.unreadBooks
 		}
 		return []
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "addToReadingList" {
+			
+			guard let vc = segue.destination as? BookDetailViewController else { return }
+			
+			vc.bookController = bookController
+			
+		} else if segue.identifier == "showBookCell" {
+			
+			guard let vc = segue.destination as? BookDetailViewController,
+				let cell = sender as? BookTableViewCell else { return }
+			
+			vc.book = cell.book
+		}
 	}
 	
 }
