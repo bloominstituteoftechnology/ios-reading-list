@@ -46,8 +46,8 @@ class BookController: Codable {
 		}
 	}
 	
-	func create(title: String, reasonToRead: String, hasBeenRead: Bool) {
-		let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+	func create(title: String, reasonToRead: String) {
+		let book = Book(title: title, reasonToRead: reasonToRead)
 		books.append(book)
 		saveToPersistentStore()
 	}
@@ -86,4 +86,8 @@ class BookController: Codable {
 	
 	
 	
+}
+
+protocol BookControllerProtocol {
+	var bookController: BookController? {get set}
 }

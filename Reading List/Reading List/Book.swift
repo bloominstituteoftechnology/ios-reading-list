@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 struct Book: Equatable, Codable {
 	
 	var title: String

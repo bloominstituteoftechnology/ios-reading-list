@@ -8,18 +8,44 @@
 
 import UIKit
 
-class BookDetailViewController: UIViewController {
+class BookDetailViewController: UIViewController, BookControllerProtocol {
 
+	var bookController: BookController?
+	var book: Book? {
+		didSet {
+			updateViews()
+		}
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
+		updateViews()
 
     }
-    
-	@IBAction func saveButton(_ sender: Any) {
-	}
-	@IBOutlet weak var textView: UITextView!
 	
-	@IBAction func textField(_ sender: Any) {
+	private func updateViews() {
+		guard let book = book, isViewLoaded else { return}
+		
+		title = book.title
+		textField.text = book.title
+		textView.text = book.reasonToRead
 	}
+    
+	@IBAction func saveButton(_ sender: UIBarButtonItem) {
+		guard let tile = textField.text,
+			let reasonToRead = textView.text else { return }
+		if book == nil {
+			bookController?.create(title: title!, reasonToRead: reasonToRead)
+		} else {
+			if let book = book {
+				bookController?.updatedTitleAndOrReasonToRead(book: book, title: title!, reasonToRead: reasonToRead)
+			}
+			
+		}
+		navigationController?.popViewController(animated: true)
+	}
+	
+	@IBOutlet weak var textView: UITextView!
+	@IBOutlet weak var textField: UITextField!
 	
 }
