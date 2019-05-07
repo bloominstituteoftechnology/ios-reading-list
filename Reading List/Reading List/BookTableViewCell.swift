@@ -20,10 +20,26 @@ class BookTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func updateViews() {
+        guard let bookTitle = book?.title else { return }
+        bookLabel.text = bookTitle
+        if book?.hasBeenRead == true {
+            readStatusButton.setImage(UIImage(named: "checked"), for: .normal)
+        }   else {
+            readStatusButton.setImage(UIImage(named: "unchecked"), for: .normal)
+        }
+    }
+    
+    
+    
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var readStatusButton: UIButton!
     @IBAction func readStatusButtonPressed(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
+    var book: Book?
+    var delegate: BookTableViewCellDelegate?
     
 }

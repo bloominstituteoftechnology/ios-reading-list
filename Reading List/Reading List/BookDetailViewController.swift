@@ -16,7 +16,11 @@ class BookDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBOutlet weak var bookTitleTextField: UITextField!
+    @IBOutlet weak var reasonsTextView: UITextView!
+    @IBAction func saveButtonPressed(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 
