@@ -19,8 +19,22 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var reasonsTextView: UITextView!
     @IBAction func saveButtonPressed(_ sender: Any) {
+        if book == nil {
+            bookController!.createBook()
+        }   else if book != nil {
+            updateViews()
+        }
     }
     
+    var bookController: BookController?
+    var book: Book?
+    
+    func updateViews() {
+        guard let bookTitle = book?.title else { return }
+        bookTitleTextField.text = bookTitle
+        guard let reasons = book?.title else { return }
+        reasonsTextView.text = reasons
+    }
     /*
     // MARK: - Navigation
 

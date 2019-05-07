@@ -26,6 +26,16 @@ class ReadingListTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch (section) {
+        case 0:
+            return "Read Books"
+        default:
+            return "Unread Books"
+        }
+    }
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
