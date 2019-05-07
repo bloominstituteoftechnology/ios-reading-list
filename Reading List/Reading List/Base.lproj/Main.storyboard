@@ -79,18 +79,43 @@
         <!--Add a New Book-->
         <scene sceneID="aQ3-U9-arJ">
             <objects>
-                <viewController id="dsf-r4-mvC" sceneMemberID="viewController">
+                <viewController id="dsf-r4-mvC" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vjb-Nt-zb9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="huy-r4-f6V">
+                                <rect key="frame" x="16" y="104" width="382" height="358"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the book's title here:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r2C-mb-Q90">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="35"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="256" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Reason to read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qbB-or-rFU">
+                                        <rect key="frame" x="0.0" y="43" width="382" height="315"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="huy-r4-f6V" firstAttribute="leading" secondItem="ZIK-TN-0cs" secondAttribute="leading" constant="16" id="2Y7-ZZ-roJ"/>
+                            <constraint firstItem="ZIK-TN-0cs" firstAttribute="bottom" secondItem="huy-r4-f6V" secondAttribute="bottom" constant="400" id="Cbk-mR-L73"/>
+                            <constraint firstItem="ZIK-TN-0cs" firstAttribute="trailing" secondItem="huy-r4-f6V" secondAttribute="trailing" constant="16" id="Nfl-yw-NVB"/>
+                            <constraint firstItem="huy-r4-f6V" firstAttribute="top" secondItem="ZIK-TN-0cs" secondAttribute="top" constant="16" id="h0B-Zw-fPz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZIK-TN-0cs"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a New Book" id="SWX-zc-LJh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QJZ-a8-sOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2048" y="188"/>
+            <point key="canvasLocation" x="2047.826086956522" y="187.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6w3-5d-odk">
