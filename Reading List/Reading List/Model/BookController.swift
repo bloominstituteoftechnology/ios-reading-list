@@ -16,13 +16,13 @@ func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
         saveToPersistentStore()
 }
 
-    func deleteBook(book: Book) {
+    func deleteBook(for book: Book) {
         guard let bookIndex = books.firstIndex(of: book) else { return }
         books.remove(at: bookIndex)
         saveToPersistentStore()
     }
 
-    func updateHasBeenRead(book: Book) {
+    func updateHasBeenRead(for book: Book) {
         guard let bookIndex = books.firstIndex(of: book) else { return }
         var updatedBook = books[bookIndex]
         if updatedBook.hasBeenRead == false {
@@ -33,7 +33,7 @@ func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
         saveToPersistentStore()
 
     }
-    func updateBook(book: Book, withTitle title:String, reasonToRead: String) {
+    func updateBook(for book: Book, withTitle title:String, reasonToRead: String) {
         guard let bookIndex = books.firstIndex(of: book) else { return }
         var book = books[bookIndex]
         book.title = title
