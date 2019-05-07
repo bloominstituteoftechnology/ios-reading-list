@@ -25,16 +25,21 @@ class BookController {
         //code that will check to see if a book matches in the array (maybe using first index of)
         //removes the book once we find the match
         //save to persistent store
+        guard let deletedBookIndex = books.firstIndex(of: book) else { return }
+        books.remove(at: deletedBookIndex)
+        saveToPersistentStore()
     }
     
     func updateHasBeenRead(for book: Book) {
         var toggleRead = book.hasBeenRead
         toggleRead.toggle()
+        saveToPersistentStore()
     }
     
-    func updateTitleOrReason() {
-        //code
-        
+    func updateTitleOrReason(title: String, reason: String) {
+       
+        //code that updates book title and reason.
+        //save to presistent store
     }
     
     func loadFromPersistentStore() {
