@@ -40,5 +40,23 @@ class BookController {
         } catch {
             print("Error loading data from disk: \(error)")
         }
-    }
+    } // end of load data function
+    
+    func createBook(title: String, reasonToRead: String) {
+        let newBook = Book(title: title, reasonToRead: reasonToRead)
+        books.append(newBook)
+        saveToPersistentStore()
+    } // end of create function
+    
+    func deleteBook(book: Book) {
+        books.remove(at: book.Index)
+        saveToPersistentStore()
+    } // end of delete function
+    
+    func updateHasBeenRead(for book: Book) {
+        
+        saveToPersistentStore()
+    } // end of status update function
+    
+    func update
 }
