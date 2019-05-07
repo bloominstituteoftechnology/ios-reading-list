@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reading List Table View Controller-->
+        <!--Reading List-->
         <scene sceneID="ktb-pf-uVs">
             <objects>
                 <tableViewController id="Ekn-WM-Z4L" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,20 +41,18 @@
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lcR-oQ-1Cv">
                                             <rect key="frame" x="30" y="11" width="50" height="50"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3Y-tF-Ozc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <state key="normal" image="unchecked"/>
-                                                    <connections>
-                                                        <action selector="hasBeenReadButtonPressed:" destination="s1l-1l-oxF" eventType="touchUpInside" id="oDD-Yp-Q8I"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
                                         </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3Y-tF-Ozc">
+                                            <rect key="frame" x="344" y="11" width="50" height="50"/>
+                                            <state key="normal" image="unchecked"/>
+                                            <connections>
+                                                <action selector="hasBeenReadButtonPressed:" destination="s1l-1l-oxF" eventType="touchUpInside" id="oDD-Yp-Q8I"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9W-FN-ULQ">
-                                            <rect key="frame" x="104" y="11" width="290" height="50"/>
+                                            <rect key="frame" x="20" y="11" width="290" height="50"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="290" id="UG9-gJ-5dz"/>
+                                                <constraint firstAttribute="width" constant="290" id="W8x-9t-ZtU"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -62,12 +60,16 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="q9W-FN-ULQ" firstAttribute="trailing" secondItem="545-i6-fwN" secondAttribute="trailingMargin" id="2F3-ib-Hek"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="lcR-oQ-1Cv" secondAttribute="bottom" constant="7" id="Il9-WV-IvV"/>
-                                        <constraint firstItem="q9W-FN-ULQ" firstAttribute="leading" secondItem="lcR-oQ-1Cv" secondAttribute="trailing" constant="24" id="Mnq-gf-S7x"/>
-                                        <constraint firstItem="lcR-oQ-1Cv" firstAttribute="top" secondItem="q9W-FN-ULQ" secondAttribute="top" id="Stz-vN-q3G"/>
-                                        <constraint firstItem="lcR-oQ-1Cv" firstAttribute="bottom" secondItem="q9W-FN-ULQ" secondAttribute="bottom" id="da4-4y-Z4B"/>
-                                        <constraint firstItem="lcR-oQ-1Cv" firstAttribute="top" secondItem="545-i6-fwN" secondAttribute="topMargin" id="vI5-ai-SDk"/>
+                                        <constraint firstItem="q9W-FN-ULQ" firstAttribute="bottom" secondItem="m3Y-tF-Ozc" secondAttribute="bottom" id="3TL-3o-qIT"/>
+                                        <constraint firstItem="m3Y-tF-Ozc" firstAttribute="leading" secondItem="q9W-FN-ULQ" secondAttribute="trailing" constant="34" id="7Yc-bL-TNu"/>
+                                        <constraint firstItem="q9W-FN-ULQ" firstAttribute="bottom" secondItem="lcR-oQ-1Cv" secondAttribute="bottom" id="7u2-MD-CtO"/>
+                                        <constraint firstItem="q9W-FN-ULQ" firstAttribute="leading" secondItem="545-i6-fwN" secondAttribute="leadingMargin" id="Bw3-Tn-71K"/>
+                                        <constraint firstItem="lcR-oQ-1Cv" firstAttribute="leading" secondItem="545-i6-fwN" secondAttribute="leadingMargin" constant="10" id="Iqj-Ys-6Rd"/>
+                                        <constraint firstAttribute="trailing" secondItem="lcR-oQ-1Cv" secondAttribute="trailing" constant="334" id="QO5-67-AFQ"/>
+                                        <constraint firstItem="q9W-FN-ULQ" firstAttribute="top" secondItem="545-i6-fwN" secondAttribute="topMargin" id="ecr-eh-pob"/>
+                                        <constraint firstItem="q9W-FN-ULQ" firstAttribute="top" secondItem="m3Y-tF-Ozc" secondAttribute="top" id="egP-ta-rnD"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="q9W-FN-ULQ" secondAttribute="bottom" constant="7" id="rJ7-1B-E0h"/>
+                                        <constraint firstItem="q9W-FN-ULQ" firstAttribute="top" secondItem="lcR-oQ-1Cv" secondAttribute="top" id="vv9-Ye-QhF"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -83,14 +85,14 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="VfG-aZ-oh3"/>
+                    <navigationItem key="navigationItem" title="Reading List" id="VfG-aZ-oh3"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q94-NT-mIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="-2.0089285714285712"/>
         </scene>
-        <!--Title-->
+        <!--Book Detail View Controller-->
         <scene sceneID="SvI-29-9Kx">
             <objects>
                 <viewController id="caA-5Q-Dyu" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +109,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLz-Ls-HZV">
                                 <rect key="frame" x="0.0" y="96" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="pun-lA-qcH">
+                                    <navigationItem title="Book Detail" id="pun-lA-qcH">
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="yhw-k3-urF">
                                             <connections>
                                                 <action selector="saveButtonPressed:" destination="caA-5Q-Dyu" id="Scr-hU-0F4"/>
@@ -142,7 +144,7 @@
                         <viewLayoutGuide key="safeArea" id="WcL-JY-1Yl"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="iJr-Ze-dq3"/>
+                    <navigationItem key="navigationItem" id="iJr-Ze-dq3"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bookTitleField" destination="ewr-eB-vSp" id="icV-if-pKM"/>

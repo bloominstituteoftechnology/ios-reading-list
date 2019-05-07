@@ -12,11 +12,8 @@ protocol BookTableViewCellDelegate: AnyObject {
     func toggleHasBeenRead(for cell:BookTableViewCell)
 }
 
-
-
 class BookTableViewCell: UITableViewCell {
 
-    
     weak var delegate: BookTableViewCellDelegate?
     
     @IBOutlet weak var bookTitleLabel: UILabel!
@@ -25,8 +22,6 @@ class BookTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    
     
     var book: Book? {
         didSet {
@@ -45,7 +40,6 @@ class BookTableViewCell: UITableViewCell {
         }
     }
     
-
     @IBAction func hasBeenReadButtonPressed(_ sender: Any) {
         delegate?.toggleHasBeenRead(for: self)
     }

@@ -43,13 +43,11 @@ class BookDetailViewController: UIViewController {
             self.navigationItem.title = book.title
             bookTitleField.text = book.title
             reasonToReadView.text = book.reasonToRead
-        } else {
-            self.navigationItem.title = "Add a new book"
-            reasonToReadView.text = "Reason to read: "
+        } else { return
+//            self.navigationItem.title = "Add a new book"
+//            reasonToReadView.text = "Reason to read: "
+            }
         }
-        
-        
-    }
     }
     
 
