@@ -58,7 +58,7 @@
                                 <connections>
                                     <outlet property="bookTitleLabel" destination="BMX-Bl-ZdS" id="xFr-Ey-3Sn"/>
                                     <outlet property="readStatusButton" destination="OMU-18-7mr" id="pZ0-VI-tsW"/>
-                                    <segue destination="KCN-Jj-z4X" kind="show" identifier="showDetail" id="5Ox-oP-dnU"/>
+                                    <segue destination="KCN-Jj-z4X" kind="show" identifier="ShowBookDetail" id="5Ox-oP-dnU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,7 +70,7 @@
                     <navigationItem key="navigationItem" title="ReadingList" id="qus-FV-3uf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="piu-MK-Lmq">
                             <connections>
-                                <segue destination="KCN-Jj-z4X" kind="show" identifier="showAdd" id="Ol3-HX-iss"/>
+                                <segue destination="KCN-Jj-z4X" kind="show" identifier="AddBook" id="Ol3-HX-iss"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -96,7 +96,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to Read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CHy-ZR-P5a">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to Read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CHy-ZR-P5a">
                                         <rect key="frame" x="0.0" y="56" width="382" height="702"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -153,6 +153,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ol3-HX-iss"/>
+        <segue reference="5Ox-oP-dnU"/>
     </inferredMetricsTieBreakers>
 </document>

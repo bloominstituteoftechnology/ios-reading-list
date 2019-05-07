@@ -14,7 +14,11 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var readStatusButton: UIButton!
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     weak var delegate: BookTableViewCellDelegate?
     
     @IBAction func toggleReadStatus(_ sender: Any) {
@@ -24,6 +28,7 @@ class BookTableViewCell: UITableViewCell {
     private func updateViews() {
         guard let book = book else { return }
         bookTitleLabel.text = book.title
+        
         
         var image: UIImage!
         

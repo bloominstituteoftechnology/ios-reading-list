@@ -55,8 +55,8 @@ class BookController {
         }
     }
     
-    func createBook(withTitle title: String, and reansonToRead: String) {
-        let book = Book(title: title, reasonToRead: reansonToRead)
+    func createBook(withTitle title: String, reasonToRead: String) {
+        let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistentStore()
     }
