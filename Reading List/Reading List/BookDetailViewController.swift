@@ -34,7 +34,8 @@ class BookDetailViewController: UIViewController {
         }
         
         navigationController?.popViewController(animated: true)
-        print("Button Was Pushed")
+        //for debug
+        //print("Button Was Pushed")
     }
     
     func updateViews() {
@@ -43,10 +44,7 @@ class BookDetailViewController: UIViewController {
             self.navigationItem.title = book.title
             bookTitleField.text = book.title
             reasonToReadView.text = book.reasonToRead
-        } else { return
-//            self.navigationItem.title = "Add a new book"
-//            reasonToReadView.text = "Reason to read: "
-            }
+        } else { return }
         }
     }
     
