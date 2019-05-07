@@ -35,5 +35,16 @@ class BookController: Codable {
 		
 	}
 	
+	func loadFromPersistenStore() {
+		do {
+			guard let url = readingListURL else { return }
+			let data = try Data(contentsOf: url)
+			let decodedBooks = PropertyListDecoder()
+			books = try decodedBooks.decode([Book].self, from: data)
+		} catch {
+			print("Error loading data from disk: \(error)")
+		}
+	}
+	
 	
 }
