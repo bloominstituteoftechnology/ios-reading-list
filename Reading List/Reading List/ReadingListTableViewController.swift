@@ -29,16 +29,16 @@ class ReadingListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
-    }
-
-    private func bookFor(indexPath: IndexPath) -> Book {
-        if indexPath.section == 0 {
-            return bookController.readBooks[indexPath.row]
-        } else {
-            return bookController.unreadBooks[indexPath.row]
+        switch (section) {
+        case 0:
+            return bookController.readBooks.count
+        default:
+            return bookController.unreadBooks.count
         }
     }
+    
+    var delegate: BookTableViewCellDelegate?
+    toggleHasBeenRead(for cell: self)
     
     
     /*
@@ -59,17 +59,14 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView(UITableView, titleForHeaderInSection: <#T##Int#>)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+ 
 
     /*
     // Override to support rearranging the table view.

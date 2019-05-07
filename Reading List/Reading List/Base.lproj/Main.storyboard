@@ -64,7 +64,7 @@
                             <outlet property="delegate" destination="bSH-YL-ng3" id="VsD-HS-isg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Reading LIst" id="I3u-Vf-fhB">
+                    <navigationItem key="navigationItem" title="Reading List" id="I3u-Vf-fhB">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="BPz-fj-4Yt">
                             <connections>
                                 <segue destination="dsf-r4-mvC" kind="show" identifier="AddBookSegue" id="akQ-7j-JKd"/>
