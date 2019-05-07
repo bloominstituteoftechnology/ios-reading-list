@@ -22,13 +22,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
-                                <navigationItem id="JYH-g2-veJ">
-                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="KxF-P6-LbR">
-                                        <connections>
-                                            <segue destination="caA-5Q-Dyu" kind="show" identifier="AddBook" id="HxJ-6L-IlD"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
+                                <navigationItem id="JYH-g2-veJ"/>
                             </items>
                         </navigationBar>
                         <prototypes>
@@ -85,7 +79,13 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Reading List" id="VfG-aZ-oh3"/>
+                    <navigationItem key="navigationItem" title="Reading List" id="VfG-aZ-oh3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KxF-P6-LbR">
+                            <connections>
+                                <segue destination="caA-5Q-Dyu" kind="show" identifier="AddBook" id="HxJ-6L-IlD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q94-NT-mIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -101,7 +101,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Reason to Read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T7N-Gf-rey">
-                                <rect key="frame" x="16" y="150" width="382" height="100"/>
+                                <rect key="frame" x="16" y="194" width="382" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -118,8 +118,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ewr-eB-vSp">
-                                <rect key="frame" x="20" y="112" width="382" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ewr-eB-vSp">
+                                <rect key="frame" x="16" y="156" width="382" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>

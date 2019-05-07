@@ -29,18 +29,18 @@ class BookTableViewCell: UITableViewCell {
         }
     }
     
-    func updateViews() {
-        guard  let book = book else { return }
-        
-        bookTitleLabel.text = book.title
-        if book.hasBeenRead == false {
-        hasBeenReadButton.imageView?.image = UIImage.init(named: "unchecked")
-        } else {
-            hasBeenReadButton.imageView?.image = UIImage.init(named: "checked")
-        }
+    
+        func updateViews(){
+            bookTitleLabel.text = book?.title
+            if book?.hasBeenRead == true{
+                hasBeenReadButton.setImage(UIImage(named: "checked"), for: .normal)
+            } else{
+                hasBeenReadButton.setImage(UIImage(named: "unchecked"), for: .normal)
+            }
     }
     
     @IBAction func hasBeenReadButtonPressed(_ sender: Any) {
         delegate?.toggleHasBeenRead(for: self)
     }
 }
+
