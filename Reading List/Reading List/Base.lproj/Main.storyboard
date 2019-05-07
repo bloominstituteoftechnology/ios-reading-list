@@ -13,13 +13,13 @@
         <!--Reading List-->
         <scene sceneID="kzy-Y1-nFr">
             <objects>
-                <tableViewController id="sfF-3e-JqD" sceneMemberID="viewController">
+                <tableViewController id="sfF-3e-JqD" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f8x-KZ-htO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="z1R-Gh-YtC">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="z1R-Gh-YtC" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z1R-Gh-YtC" id="hR4-k3-ZuE">
@@ -38,6 +38,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNn-PC-nIq">
                                                     <rect key="frame" x="328" y="0.0" width="70" height="43.5"/>
                                                     <state key="normal" image="unchecked"/>
+                                                    <connections>
+                                                        <action selector="cellButtonTapped:" destination="z1R-Gh-YtC" eventType="touchUpInside" id="P8H-s4-Ayv"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -50,6 +53,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="cellButton" destination="uNn-PC-nIq" id="Kr1-qd-IyB"/>
+                                    <outlet property="cellLabel" destination="nAu-Eo-awm" id="Wt6-aR-5Yl"/>
                                     <segue destination="xnb-XQ-ece" kind="show" identifier="FromCell" id="g5v-M1-cas"/>
                                 </connections>
                             </tableViewCell>
@@ -71,16 +76,53 @@
             </objects>
             <point key="canvasLocation" x="809" y="187"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="QXY-Oh-iMZ">
             <objects>
-                <viewController id="xnb-XQ-ece" sceneMemberID="viewController">
+                <viewController id="xnb-XQ-ece" customClass="DetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kH6-bC-aGq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Kn5-qE-nhq">
+                                <rect key="frame" x="16" y="104" width="382" height="358"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZb-BN-uVv">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L92-WP-vZ4">
+                                        <rect key="frame" x="0.0" y="48" width="382" height="310"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Kn5-qE-nhq" firstAttribute="leading" secondItem="EhO-of-rV3" secondAttribute="leading" constant="16" id="Kcm-qA-hCl"/>
+                            <constraint firstItem="Kn5-qE-nhq" firstAttribute="top" secondItem="EhO-of-rV3" secondAttribute="top" constant="16" id="U1z-tn-OLg"/>
+                            <constraint firstItem="EhO-of-rV3" firstAttribute="trailing" secondItem="Kn5-qE-nhq" secondAttribute="trailing" constant="16" id="xTS-xm-gPo"/>
+                            <constraint firstItem="EhO-of-rV3" firstAttribute="bottom" secondItem="Kn5-qE-nhq" secondAttribute="bottom" constant="400" id="zKP-Df-Ptg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="EhO-of-rV3"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="7CP-n6-2d5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JWJ-O8-tkR">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="xnb-XQ-ece" id="TTn-mx-egD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="detailTextField" destination="JZb-BN-uVv" id="gA8-ru-blZ"/>
+                        <outlet property="detailTextView" destination="L92-WP-vZ4" id="5Of-db-xIU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpA-ct-GP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
