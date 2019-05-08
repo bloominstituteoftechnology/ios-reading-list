@@ -38,6 +38,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEU-XB-knI">
                                                     <rect key="frame" x="348" y="0.0" width="50" height="27.5"/>
                                                     <state key="normal" image="checked"/>
+                                                    <connections>
+                                                        <action selector="boxButtonTapped:" destination="7Wk-r0-efg" eventType="touchUpInside" id="NCf-ay-pMC"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -49,6 +52,10 @@
                                         <constraint firstAttribute="trailing" secondItem="q7S-Kx-U3u" secondAttribute="trailing" constant="8" id="ywq-I4-TSG"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bookLabel" destination="dxy-us-8ZZ" id="f5a-wG-CBS"/>
+                                    <outlet property="boxButton" destination="HEU-XB-knI" id="Dfr-bb-L2y"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
