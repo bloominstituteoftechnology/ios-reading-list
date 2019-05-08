@@ -9,9 +9,12 @@
 import Foundation
 
 class BookController {
+    init() {
+        loadFromPersistentStore()
+    }
 
-func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
-        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenread: hasBeenRead)
+func createBook(title: String, reasonToRead: String) {
+        let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistentStore()
 }
@@ -23,24 +26,14 @@ func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
     }
 
     func updateHasBeenRead(for book: Book) {
-        guard let bookIndex = books.firstIndex(of: book) else { return }
-        var updatedBook = books[bookIndex]
-        if updatedBook.hasBeenRead == false {
-            updatedBook.hasBeenRead = true
-        } else {
-            updatedBook.hasBeenRead = false
-        }
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].hasBeenRead = !books[index].hasBeenRead
         saveToPersistentStore()
-
     }
     func updateBook(for book: Book, withTitle title:String, reasonToRead: String) {
-        guard let bookIndex = books.firstIndex(of: book) else { return }
-        var book = books[bookIndex]
-        book.title = title
-        book.reasonToRead = reasonToRead
-        books.remove(at: bookIndex)
-        books.insert(book, at: bookIndex)
-
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].title = title
+        books[index].reasonToRead = reasonToRead
         saveToPersistentStore()
     }
 

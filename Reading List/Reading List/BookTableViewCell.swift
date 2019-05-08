@@ -30,7 +30,11 @@ class BookTableViewCell: UITableViewCell {
     }
 
 
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     var delegate: BookTableViewCellDelegate?
 
     @IBOutlet weak var titleLabel: UILabel!

@@ -15,6 +15,7 @@ class BookDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
 
         // Do any additional setup after loading the view.
     }
@@ -28,11 +29,17 @@ class BookDetailViewController: UIViewController {
         self.navigationItem.title = book.title
     }
     @IBAction func saveButtonPressed(_ sender: Any) {
-        guard let book = book else {
-            bookController?.createBook(title: bookTitleTextField.text!, reasonToRead: reasontoReadTextView.text, hasBeenRead: false)
-            return
+        guard let bookTitle = bookTitleTextField.text,
+        !bookTitle.isEmpty,
+        let reasonToRead = reasontoReadTextView.text,
+        !reasonToRead.isEmpty else { return }
+
+        if let book = book {
+            bookController?.updateBook(for: book, withTitle: bookTitle, reasonToRead: reasonToRead)
+        } else {
+            bookController?.createBook(title: bookTitle, reasonToRead: reasonToRead)
         }
-        bookController?.updateBook(for: book, withTitle: bookTitleTextField.text!, reasonToRead: reasontoReadTextView.text)
+        navigationController?.popViewController(animated: true)
     }
     
     /*
