@@ -20,7 +20,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var reasonsTextView: UITextView!
     @IBAction func saveButtonPressed(_ sender: Any) {
         if book == nil {
-            bookController!.createBook()
+            bookController!.createBook(title: bookTitleTextField.text!, reasonToRead: reasonsTextView.text)
         }   else if book != nil {
             updateViews()
         }

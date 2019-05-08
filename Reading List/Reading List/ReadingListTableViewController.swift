@@ -47,8 +47,6 @@ class ReadingListTableViewController: UITableViewController {
         }
     }
     
-    var delegate: BookTableViewCellDelegate?
-    toggleHasBeenRead(for cell: self)
     
     
     /*
@@ -68,14 +66,6 @@ class ReadingListTableViewController: UITableViewController {
         return true
     }
     */
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableView(UITableView, titleForHeaderInSection: <#T##Int#>)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
  
 
     /*
