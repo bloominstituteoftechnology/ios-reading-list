@@ -17,7 +17,6 @@ class BookDetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
 
-        // Do any additional setup after loading the view.
     }
     func updateViews() {
         guard let book = book else {
@@ -41,16 +40,7 @@ class BookDetailViewController: UIViewController {
         }
         navigationController?.popViewController(animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var reasontoReadTextView: UITextView!
     

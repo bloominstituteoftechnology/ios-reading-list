@@ -46,7 +46,7 @@ func createBook(title: String, reasonToRead: String) {
             let data = try encoder.encode(books)
             try data.write(to: url)
         } catch {
-            print("Error saving peole: \(error)")
+            print("Error saving book : \(error)")
         }
     }
 
