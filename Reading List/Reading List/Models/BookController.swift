@@ -8,7 +8,7 @@
 
 import Foundation
 
-class bookController {
+class BookController {
     
     init() {
         loadFromPersistentStore()

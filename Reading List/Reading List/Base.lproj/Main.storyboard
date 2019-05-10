@@ -29,14 +29,14 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="294" translatesAutoresizingMaskIntoConstraints="NO" id="J6O-Ka-BYl">
                                             <rect key="frame" x="20" y="20" width="374" height="50"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3p9-Mp-5PV" userLabel="Book Title Label">
-                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="50"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3p9-Mp-5PV" userLabel="Book Title Label">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6m-fL-lgd">
-                                                    <rect key="frame" x="324" y="0.0" width="50" height="50"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6m-fL-lgd">
+                                                    <rect key="frame" x="336" y="0.0" width="38" height="50"/>
                                                     <state key="normal" image="checked"/>
                                                     <connections>
                                                         <action selector="checkUncheckedButtonPressed:" destination="MgP-sQ-b4N" eventType="touchUpInside" id="RCv-F0-pbO"/>
