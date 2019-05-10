@@ -13,11 +13,32 @@ class bookController {
     init() {
         loadFromPersistentStore()
     }
-    
-    func addBook(titled title: String, withReason reasonToRead: String, with hasBeenRead: Bool) {
+
+    func createBook(title: String, reasonToRead: String) {
         let book = Book(title: title, reasonToRead: title)
-        
         books.append(book)
+        
+        saveToPersistentStore()
+    }
+    
+    func deleteBook(book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
+        
+        saveToPersistentStore()
+    }
+    
+    func updateHasBeenRead(book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].hasBeenRead.toggle()
+        
+        saveToPersistentStore()
+    }
+    
+    func updateBook(book: Book, title: String, reasonToRead: String) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].title = title
+        books[index].reasonToRead = reasonToRead
         
         saveToPersistentStore()
     }
@@ -47,14 +68,12 @@ class bookController {
         do {
             let data = try Data(contentsOf: url)
             let decoder = PropertyListDecoder()
-            books = try decoder.decode([Book].self, from: data)
+            let decodedBooks = try decoder.decode([Book].self, from: data)
+            books = decodedBooks
         } catch {
             print("Error loading data from disk: \(error)")
         }
     }
-    
-    
-    
     
     //MARK: -Properties
     
@@ -64,6 +83,16 @@ class bookController {
         
         print("Documents: \(documents.path)")
         return documents.appendingPathComponent("ReadingList.plist")
+    }
+    
+    var readBooks: [Book] {
+        let read = books.filter { $0.hasBeenRead == true }
+        return read
+    }
+    
+    var unreadBooks: [Book] {
+        let unread = books.filter { $0.hasBeenRead == false }
+        return unread
     }
     
     private(set) var books: [Book] = []
