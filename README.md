@@ -1,3 +1,4 @@
+05/12/2019
 # Reading List
 
 A student that completes this project shows that they can:
