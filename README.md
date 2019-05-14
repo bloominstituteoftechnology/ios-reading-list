@@ -87,10 +87,10 @@ The layout of this application uses a simple master-detail interface.
 
 Now we'll set up the detail view controller. This view controller will serve two purposes. First, it will be used to add new books to the reading list. The second is to view an existing book's information and potentially edit it.
 
-5. Add a text field and a text view to the detail view controller scene. They will be used to show, create, and edit a `Book`'s `title` and `reasonToRead` strings respectively. Constrain them with the keyboard in mind so that they won't get covered by it when editing the fields.
-6. Add a navigation item to the detail view controller, then add a bar button item to the top-right corner of the view controller. Set its "System Item" to "Save"
-7. Create a Cocoa Touch Subclass of `UIViewController` called `BookDetailViewController` and set this view controller's class to it in the Identity Inspector.
-8. Add outlets from the text field and text view, and an action from the save button.
+7. Add a text field and a text view to the detail view controller scene. They will be used to show, create, and edit a `Book`'s `title` and `reasonToRead` strings respectively. Constrain them with the keyboard in mind so that they won't get covered by it when editing the fields.
+8. Add a navigation item to the detail view controller, then add a bar button item to the top-right corner of the view controller. Set its "System Item" to "Save"
+9. Create a Cocoa Touch Subclass of `UIViewController` called `BookDetailViewController` and set this view controller's class to it in the Identity Inspector.
+10. Add outlets from the text field and text view, and an action from the save button.
 
 ### Part 3 - Wiring Everything Up
 
@@ -104,7 +104,7 @@ Now we'll set up the detail view controller. This view controller will serve two
 This custom cell will follow the delegate pattern in order to let the table view controller know that the user just tapped the checkbox button indicating they have or haven't read a book.
 
 4. Create a new Swift file called "BookTableViewCellDelegate.swift", and create a protocol with the same name (minus the ".swift", of course).
-5. Add a function called `func toggleHasBeenRead(for cell: BookTableViewCell)`
+5. Add a function called `func toggleHasBeenRead(for cell: BookTableViewCell)` to your `ReadingListTableViewController.swift`
 6. Back in the `BookTableViewCell` class, add a `weak var delegate: BookTableViewCellDelegate?` variable.
 7. Call the `delegate` property's `toggleHasBeenRead(for cell: ...)` function in the action of the button.
 
