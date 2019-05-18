@@ -31,7 +31,7 @@ class BookController {
         return self.books.filter { ($0.hasBeenRead == false) }
     }
        
-    // CRUD
+    // CRUD (Create, Read, Update, Delete)
     func createBook(withTitle title: String, withReasonToRead reasonToRead: String) {
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
