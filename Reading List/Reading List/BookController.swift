@@ -11,8 +11,6 @@ import Foundation
 class BookController {
     
     private(set) var books: [Book] = []
-    private(set) var readBooks: [Book] = []
-    private(set) var unreadBooks: [Book] = []
     
     
     // Creating computed property.
@@ -22,6 +20,22 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
+    private var readBooks: [Book] {
+        get {
+            return BookController().books.filter() {
+            $0.hasBeenRead == true
+        }
+    }
+    }
+    
+    var unreadBooks: [Book] {
+        get {
+        return BookController().books.filter() {
+            $0.hasBeenRead == false
+            }
+        }
+        
+    }
     // MARK: - CRUD Methods
     
     // Creates a book and appends it to the array.
@@ -61,16 +75,7 @@ class BookController {
             }
     }
     
-    // Filtering read books.
-    
-    func filterBooks(filter array: [Book]) {
-        readBooks = array.filter() {
-            $0.hasBeenRead == true
-        }
-        unreadBooks = array.filter() {
-            $0.hasBeenRead == false
-        }
-    }
+  
     
     // MARK: - Computing functions
         

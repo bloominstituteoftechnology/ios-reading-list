@@ -11,7 +11,11 @@ import UIKit
 class ReadingListTableViewController: UITableViewController {
 
     // MARK: - Outlets and Properties
+    var bookController = BookController()
     
+//    let sections = ["Read", "Unread"]
+//
+//    let sectionContents = [BookController().readBooks, BookController().unreadBooks]
     
     
     override func viewDidLoad() {
@@ -25,26 +29,44 @@ class ReadingListTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//
+//        return
+//
+//    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        if bookController.books.count < 1 {
+            return 1
+        } else {
+            return 2
+        }
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if section == 0 {
+            return bookController.books.count
+        }
+        if section == 1 {
+            
+        }
+        
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
+        
+    
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
