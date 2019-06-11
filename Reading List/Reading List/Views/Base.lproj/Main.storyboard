@@ -13,13 +13,13 @@
         <!--Reading List-->
         <scene sceneID="Pm0-V6-CfX">
             <objects>
-                <tableViewController title="Reading List" id="oOq-MP-Bhg" sceneMemberID="viewController">
+                <tableViewController title="Reading List" id="oOq-MP-Bhg" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OIu-aF-90y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="bzL-wZ-moY">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="bzL-wZ-moY" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bzL-wZ-moY" id="dlF-q0-oH9">
@@ -55,6 +55,9 @@
                                         <constraint firstItem="hdt-zn-0Yf" firstAttribute="top" secondItem="dlF-q0-oH9" secondAttribute="top" constant="5" id="UKk-Ap-gQb"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="mjM-qn-7RB" kind="show" identifier="EditSegue" id="nl5-Xe-4S5"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -62,7 +65,13 @@
                             <outlet property="delegate" destination="oOq-MP-Bhg" id="np1-Mu-D1T"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Muq-vQ-oNY"/>
+                    <navigationItem key="navigationItem" id="Muq-vQ-oNY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pDS-cn-wJ3">
+                            <connections>
+                                <segue destination="mjM-qn-7RB" kind="show" identifier="AddSegue" id="8yx-lf-fmd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7L6-QR-7rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,4 +114,7 @@
     <resources>
         <image name="unchecked" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nl5-Xe-4S5"/>
+    </inferredMetricsTieBreakers>
 </document>
