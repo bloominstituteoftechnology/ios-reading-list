@@ -82,7 +82,7 @@
             </objects>
             <point key="canvasLocation" x="1873.913043478261" y="138.61607142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Book-->
         <scene sceneID="m8s-I7-s6q">
             <objects>
                 <viewController id="mjM-qn-7RB" sceneMemberID="viewController">
@@ -133,6 +133,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Byk-in-ylK"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Book" id="gOl-ul-ed4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XSx-ox-8g7"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hx-xZ-pTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
