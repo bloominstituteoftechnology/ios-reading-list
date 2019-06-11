@@ -26,6 +26,10 @@ class BookController {
         return books.filter { (book) -> Bool in book.hasBeenRead == true }
     }
     
+    private var unreadBooks: [Book] {
+        return books.filter { (book) -> Bool in book.hasBeenRead == false }
+    }
+    
     // MARK: - Methods manipulating Books
     func createBook(named name: String, why reason: String, _ hasBeenRead: Bool) {
         let book = Book(title: name, reasonToRead: reason, hasBeenRead: hasBeenRead)
