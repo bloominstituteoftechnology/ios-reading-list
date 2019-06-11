@@ -24,12 +24,12 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
-    private var readBooks: [Book]? {
+    var readBooks: [Book] {
        let readBooksArray = books.filter {$0.hasBeenRead == true}
         return readBooksArray
     }
     
-    private var unreadBooks: [Book]? {
+    var unreadBooks: [Book] {
         let unreadBooksArray = books.filter {$0.hasBeenRead == false}
         return unreadBooksArray
     }
