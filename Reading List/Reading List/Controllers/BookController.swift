@@ -21,6 +21,32 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
+    func createBook(named name: String, why reason: String, _ hasBeenRead: Bool) {
+        let book = Book(title: name, reasonToRead: reason, hasBeenRead: hasBeenRead)
+        books.append(book)
+        saveToPersistentStore()
+    }
+    
+    func deleteBook(book: Book) {
+        for index in 0..<books.count {
+            if book.title == books[index].title {
+                books.remove(at: index)
+            }
+        }
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        for index in 0..<books.count {
+            if book.title == books[index].title {
+                books[index].hasBeenRead = !books[index].hasBeenRead
+            }
+        }
+    }
+    
+    func updateTitleOrReason(for book: Book) {
+        // COME BACK AND EDIT THIS
+    }
+    
     func saveToPersistentStore() {
         guard let url = readingListURL else { return }
         
