@@ -32,4 +32,17 @@ class BookController {
             print("Error saving books data: \(error)")
         }
     }
+    
+    func loadToPersistentStore() {
+        
+        do {
+            guard let url = readingListURL else { return }
+            let data = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            let decodedBooks = try decoder.decode([Book].self, from: data)
+            books = decodedBooks
+        } catch {
+            print("Error loading books data: \(error)")
+        }
+    }
 }
