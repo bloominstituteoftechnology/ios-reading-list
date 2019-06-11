@@ -41,6 +41,9 @@
                                                         <constraint firstAttribute="width" secondItem="6Os-Fh-Bq3" secondAttribute="height" multiplier="1:1" id="pmK-Je-6uf"/>
                                                     </constraints>
                                                     <state key="normal" image="unchecked"/>
+                                                    <connections>
+                                                        <action selector="checkedButtonPressed:" destination="bzL-wZ-moY" eventType="touchUpInside" id="pna-Ql-Xba"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -56,6 +59,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="checkedButtonOutlet" destination="6Os-Fh-Bq3" id="JCG-Ok-g4N"/>
+                                    <outlet property="labelOutlet" destination="jgK-fn-siS" id="wLf-NO-EBx"/>
                                     <segue destination="mjM-qn-7RB" kind="show" identifier="EditSegue" id="nl5-Xe-4S5"/>
                                 </connections>
                             </tableViewCell>
