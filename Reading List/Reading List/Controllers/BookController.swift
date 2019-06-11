@@ -9,6 +9,7 @@
 import Foundation
 
 class BookController {
+    // MARK: - properties
     var books: [Book] = []
     private var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -21,6 +22,11 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
+    private var readBooks: [Book] {
+        return books.filter { (book) -> Bool in book.hasBeenRead == true }
+    }
+    
+    // MARK: - Methods manipulating Books
     func createBook(named name: String, why reason: String, _ hasBeenRead: Bool) {
         let book = Book(title: name, reasonToRead: reason, hasBeenRead: hasBeenRead)
         books.append(book)
@@ -47,6 +53,7 @@ class BookController {
         // COME BACK AND EDIT THIS
     }
     
+    // MARK: - Persistence storing/updating data methods
     func saveToPersistentStore() {
         guard let url = readingListURL else { return }
         
