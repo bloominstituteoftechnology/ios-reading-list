@@ -89,7 +89,48 @@
                     <view key="view" contentMode="scaleToFill" id="y1d-rw-Pm1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vIH-fX-Hg9">
+                                <rect key="frame" x="20" y="104" width="374" height="187"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qit-Z5-8sx">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="51"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZRq-k5-zam">
+                                        <rect key="frame" x="0.0" y="59" width="374" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ZRq-k5-zam" secondAttribute="trailing" id="0fL-yi-ol5"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qit-Z5-8sx" secondAttribute="trailing" id="4O1-Bj-yYu"/>
+                                    <constraint firstItem="ZRq-k5-zam" firstAttribute="leading" secondItem="vIH-fX-Hg9" secondAttribute="leading" id="6mu-Dh-sSS"/>
+                                    <constraint firstItem="Qit-Z5-8sx" firstAttribute="leading" secondItem="vIH-fX-Hg9" secondAttribute="leading" id="6vz-xz-ZQv"/>
+                                    <constraint firstItem="ZRq-k5-zam" firstAttribute="top" secondItem="Qit-Z5-8sx" secondAttribute="bottom" constant="8" id="Nwu-pu-CEF"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZRq-k5-zam" secondAttribute="trailing" id="Org-sa-1F1"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZRq-k5-zam" secondAttribute="bottom" id="SZn-m8-IZM"/>
+                                    <constraint firstItem="ZRq-k5-zam" firstAttribute="top" secondItem="Qit-Z5-8sx" secondAttribute="bottom" constant="8" id="Tx6-QW-C6v"/>
+                                    <constraint firstItem="Qit-Z5-8sx" firstAttribute="leading" secondItem="vIH-fX-Hg9" secondAttribute="leading" id="cWf-VS-1Rb"/>
+                                    <constraint firstItem="Qit-Z5-8sx" firstAttribute="top" secondItem="vIH-fX-Hg9" secondAttribute="top" id="khn-Ba-uXC"/>
+                                    <constraint firstItem="ZRq-k5-zam" firstAttribute="leading" secondItem="vIH-fX-Hg9" secondAttribute="leading" id="vox-GU-wSH"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qit-Z5-8sx" secondAttribute="trailing" id="xRe-vc-OJF"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Byk-in-ylK" firstAttribute="trailing" secondItem="vIH-fX-Hg9" secondAttribute="trailing" constant="20" id="XE3-Pf-Zhn"/>
+                            <constraint firstItem="Byk-in-ylK" firstAttribute="bottom" secondItem="vIH-fX-Hg9" secondAttribute="bottom" constant="571" id="dVx-wT-6y4"/>
+                            <constraint firstItem="vIH-fX-Hg9" firstAttribute="centerX" secondItem="y1d-rw-Pm1" secondAttribute="centerX" id="piF-p2-oKT"/>
+                            <constraint firstItem="vIH-fX-Hg9" firstAttribute="top" secondItem="Byk-in-ylK" secondAttribute="top" constant="16" id="v1A-00-UD9"/>
+                            <constraint firstItem="vIH-fX-Hg9" firstAttribute="leading" secondItem="Byk-in-ylK" secondAttribute="leading" constant="20" id="y4g-bz-IAU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Byk-in-ylK"/>
                     </view>
                 </viewController>
