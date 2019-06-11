@@ -9,16 +9,36 @@
 import UIKit
 
 class ReadingListTableViewCell: UITableViewCell {
+    
+    //
+    // MARK: - Outlets and Properties
+    //
+    
+    @IBOutlet weak var bookTitleLabel: UILabel!
+    @IBOutlet weak var readUnreadButton: UIButton!
+    
+    var book: Book?
+    weak var delegate: ReadingListTableViewCellDelegate?
+    
+    //
+    // MARK: - Actions
+    //
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBAction func readUnreadButtonTapped(_ sender: UIButton) {
+        self.delegate?.toggleHasBeenRead(for: self)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    //
+    // MARK: - Methods
+    //
+    
+    func updateViews() {
+        bookTitleLabel.text = book?.title
+        if book?.hasBeenRead == true {
+            readUnreadButton.imageView?.image = UIImage(named: "checked")
+        } else {
+            readUnreadButton.imageView?.image = UIImage(named: "unchecked")
+        }
     }
 
 }

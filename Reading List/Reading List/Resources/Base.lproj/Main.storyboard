@@ -42,6 +42,9 @@
                                                         <constraint firstAttribute="width" constant="30" id="6V3-1L-MWu"/>
                                                     </constraints>
                                                     <state key="normal" image="unchecked"/>
+                                                    <connections>
+                                                        <action selector="readUnreadButtonTapped:" destination="Qbc-aB-nyR" eventType="touchUpInside" id="5K7-hu-9h1"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -53,6 +56,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bookTitleLabel" destination="PdF-Uc-TBj" id="6dr-p7-l2h"/>
+                                    <outlet property="readUnreadButton" destination="yM8-Xq-6Ut" id="NDQ-kd-Blq"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="DetailSegue" id="ZLl-gD-RAq"/>
                                 </connections>
                             </tableViewCell>
@@ -74,20 +79,48 @@
             </objects>
             <point key="canvasLocation" x="209" y="106"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="gqC-B7-bYm">
+                                <rect key="frame" x="16" y="150" width="382" height="412"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mfd-d3-Owr">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Reason to Read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6rc-NL-chx">
+                                        <rect key="frame" x="0.0" y="48" width="382" height="364"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gqC-B7-bYm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="JER-3D-z7c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gqC-B7-bYm" secondAttribute="trailing" constant="16" id="Qed-ua-5v6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gqC-B7-bYm" secondAttribute="bottom" constant="300" id="bTk-AG-rsz"/>
+                            <constraint firstItem="gqC-B7-bYm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="zFz-UC-vZX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="UqK-F5-qPe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="la3-HG-f86"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="106"/>
+            <point key="canvasLocation" x="1034.7826086956522" y="105.80357142857143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="W8K-L5-QKn">
