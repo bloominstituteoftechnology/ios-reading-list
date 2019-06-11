@@ -24,9 +24,53 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
+    init() {
+        loadToPersistantStore()
+    }
+    
     //
     // MARK: - Methods
     //
+    
+    func createBook (named name: String, reason reasonToRead: String, hasBeenRead: Bool = false) {
+        let newBook = Book(title: name, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        books.append(newBook)
+        saveToPersistantStore()
+    }
+    
+    func deleteBook (bookToDelete: Book) {
+        var index = 0
+        for book in books {
+            if book.title == bookToDelete.title {
+                books.remove(at: index)
+            }else{
+            index += 1
+            }
+        }
+    }
+    
+    func updateHasBeenRead(for bookToUpdate: Book) {
+        var index = 0
+        for book in books {
+            if book.title == bookToUpdate.title {
+                books[index].hasBeenRead.toggle()
+            }else {
+                index += 1
+            }
+        }
+    }
+    
+    func updateBook(for bookToUpdate: Book, newName name:String, newReason reasonToRead: String) {
+        var index = 0
+        for book in books {
+            if book.title == bookToUpdate.title {
+                books[index].title = name
+                books[index].reasonToRead = reasonToRead
+            } else {
+                index += 1
+            }
+        }
+    }
     
     func saveToPersistantStore() {
         guard let url = readingListURL else { return }
