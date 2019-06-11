@@ -15,6 +15,7 @@
 		A25AF11522B0389200F982D1 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25AF11422B0389200F982D1 /* BookController.swift */; };
 		A25AF11B22B060D900F982D1 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25AF11A22B060D900F982D1 /* BookTableViewCell.swift */; };
 		A26EC99E22B0628800463DC1 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26EC99D22B0628800463DC1 /* ReadingListTableViewController.swift */; };
+		A26EC9A022B0671600463DC1 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26EC99F22B0671600463DC1 /* BookDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A25AF11422B0389200F982D1 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		A25AF11A22B060D900F982D1 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		A26EC99D22B0628800463DC1 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
+		A26EC99F22B0671600463DC1 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +93,9 @@
 		A25AF11322B037A800F982D1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A26EC99D22B0628800463DC1 /* ReadingListTableViewController.swift */,
 				A25AF11422B0389200F982D1 /* BookController.swift */,
+				A26EC99D22B0628800463DC1 /* ReadingListTableViewController.swift */,
+				A26EC99F22B0671600463DC1 /* BookDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			files = (
 				A25AF11B22B060D900F982D1 /* BookTableViewCell.swift in Sources */,
 				A26EC99E22B0628800463DC1 /* ReadingListTableViewController.swift in Sources */,
+				A26EC9A022B0671600463DC1 /* BookDetailViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				A25AF11522B0389200F982D1 /* BookController.swift in Sources */,
 				A25AF10F22B035AA00F982D1 /* Book.swift in Sources */,
