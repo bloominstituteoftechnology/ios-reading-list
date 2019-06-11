@@ -23,11 +23,11 @@ class BookController {
     }
     
     private var readBooks: [Book] {
-        return books.filter({ (book) -> Bool in book.hasBeenRead == true })
+        return books.filter({ (book: Book) -> Bool in book.hasBeenRead == true })
     }
     
     private var unreadBooks: [Book] {
-        return books.filter({ (book) -> Bool in book.hasBeenRead == false })
+        return books.filter({ (book: Book) -> Bool in book.hasBeenRead == false })
     }
     
     // MARK: - Methods manipulating Books
