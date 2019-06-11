@@ -24,12 +24,23 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
+    private var readBooks: [Book]? {
+       let readBooksArray = books.filter {$0.hasBeenRead == true}
+        return readBooksArray
+    }
+    
+    private var unreadBooks: [Book]? {
+        let unreadBooksArray = books.filter {$0.hasBeenRead == false}
+        return unreadBooksArray
+    }
+    
+    
     init() {
         loadToPersistantStore()
     }
     
     //
-    // MARK: - Methods
+    // MARK: - Create and Delete Methods
     //
     
     func createBook (named name: String, reason reasonToRead: String, hasBeenRead: Bool = false) {
@@ -48,6 +59,10 @@ class BookController {
             }
         }
     }
+    
+    //
+    // MARK: - Updated Book Methods
+    //
     
     func updateHasBeenRead(for bookToUpdate: Book) {
         var index = 0
@@ -71,6 +86,10 @@ class BookController {
             }
         }
     }
+    
+    //
+    // MARK: - Persistant Store Methods
+    //
     
     func saveToPersistantStore() {
         guard let url = readingListURL else { return }
