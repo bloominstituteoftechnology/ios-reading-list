@@ -12,7 +12,7 @@ class BookController {
     
     private(set) var books: [Book] = []
     private(set) var readBooks: [Book] = []
-        
+    private(set) var unreadBooks: [Book] = []
     
     
     // Creating computed property.
@@ -46,20 +46,34 @@ class BookController {
     
     // Allows updating of book title or reason to read.
     func editBookInfo(edit book: Book) {
-//        if let index = books.index(of: book) {
-//            var newTitle: String
-//            books[index].title = newTitle
-//        }
+        if let index = books.index(of: book) {
+            var newTitle: String?
+            if let newInputTitle = newTitle {
+                if newTitle != "" {
+                    books[index].title = newTitle ?? books[index].title
+                }
+            }
+            var newReason: String?
+            if let newInputReason = newReason {
+                if newReason != "" {
+                    books[index].reasonToRead = newReason ?? books[index].reasonToRead
+                }
+            }
     }
     
     // Filtering read books.
-    func filterBooks() {
-        
+    
+    func filterBooks(filter array: [Book]) {
+        readBooks = array.filter() {
+            $0.hasBeenRead == true
+        }
+        unreadBooks = array.filter() {
+            $0.hasBeenRead == false
+        }
     }
     
-    
-    
-    
+    // MARK: - Computing functions
+        
     // Saving to computed property.
     func saveToPersistentStore() {
         guard let url = readingListURL else { return }
@@ -92,3 +106,4 @@ class BookController {
     
 }
 
+}
