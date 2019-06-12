@@ -9,6 +9,6 @@
 import Foundation
 
 protocol BookTableViewCellDelegate: class {
-    func toggleHasBeenRead(for cell: BooksTableViewCell)
+    func toggleHasBeenRead(for cell: BookTableViewCell)
     
 }

@@ -17,10 +17,14 @@ class BookController {
     private var readingListURL: URL? {
         let fileManager = FileManager.default
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        return documents.appendingPathComponent("ReadingList.plist")
+        return documents.appendingPathComponent("readingList.plist")
     }
     
-    private var readBooks: [Book] {
+    init() {
+        loadFromPersistentStore()
+    }
+    
+    var readBooks: [Book] {
         get {
             return BookController().books.filter() {
             $0.hasBeenRead == true
@@ -42,37 +46,35 @@ class BookController {
     func createBook(named title: String, withReason reason: String) {
         let book = Book(title: title, reasonToRead: reason)
         books.append(book)
+        saveToPersistentStore()
     }
     
     // Removes a book from the array.
     func deleteBook(remove book: Book) {
         if let index = books.firstIndex(of: book) {
             books.remove(at: index)
+            saveToPersistentStore()
         }
     }
     
     // Updates the hasBeenRead value on the book in the array.
     func updateHasBeenRead(for book: Book) {
-        if let index = books.index(of: book) {
-            books[index].hasBeenRead.toggle()
-        }
+        var updatedReadBook = book
+        updatedReadBook.hasBeenRead = !book.hasBeenRead
+        
+        deleteBook(remove: book)
+        books.append(updatedReadBook)
+        saveToPersistentStore()
+
     }
     
     // Allows updating of book title or reason to read.
-    func editBookInfo(edit book: Book) {
-        if let index = books.index(of: book) {
-            var newTitle: String?
-            if let newInputTitle = newTitle {
-                if newTitle != "" {
-                    books[index].title = newTitle ?? books[index].title
-                }
-            }
-            var newReason: String?
-            if let newInputReason = newReason {
-                if newReason != "" {
-                    books[index].reasonToRead = newReason ?? books[index].reasonToRead
-                }
-            }
+    func editBookInfo(edit book: Book, title: String, reasonToRead: String) {
+        deleteBook(remove: book)
+        let updatedBook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
+        books.append(updatedBook)
+        saveToPersistentStore()
+
     }
     
   
@@ -109,6 +111,6 @@ class BookController {
         }
     }
     
-}
+
 
 }

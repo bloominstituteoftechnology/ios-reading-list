@@ -11,16 +11,45 @@ import UIKit
 class BookDetailViewController: UIViewController {
     
     // MARK: - Properties And Outlets
-    @IBOutlet var movieNameTextField: UITextField!
+    @IBOutlet var bookNameTextField: UITextField!
     @IBOutlet var reasonTextView: UITextView!
+    
+    var bookController: BookController?
+    var book: Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateViews()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        updateViews()
     }
     
 
+    // MARK: - IBActions
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        if book == nil {
+            bookController?.createBook(named: bookNameTextField.text!, withReason: reasonTextView.text)
+        } else {
+            bookController?.editBookInfo(edit: book!, title: bookNameTextField.text!, reasonToRead: reasonTextView.text)
+        }
+        self.navigationController?.popViewController(animated: true)
+        print(bookController?.books)
+    }
+    
+    // MARK: - Functions
+    func updateViews() {
+        if book != nil {
+            bookNameTextField.text = book?.title
+            reasonTextView.text = book?.reasonToRead
+            self.title = book?.title
+        } else {
+            self.title = "Add a new book"
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
