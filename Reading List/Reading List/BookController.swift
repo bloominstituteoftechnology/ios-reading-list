@@ -25,7 +25,7 @@ class BookController {
         }
     }
     
-    @discardableResult func createBooks(withName title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
+    func createBooks(withName title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistenceStore()
@@ -33,8 +33,11 @@ class BookController {
         return book
     }
     
-    @discardableResult func deleteBooks(withName title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
-        let delete = 
+        func deleteBooks(book: Book) {
+        
+            guard let bookToBeDeletedIndex = books.firstIndex(of: book) else { return }
+            books.remove(at: bookToBeDeletedIndex)
+            saveToPersistenceStore()
         
     }
     
