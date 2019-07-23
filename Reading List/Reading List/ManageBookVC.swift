@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ManageBookVC.swift
 //  Reading List
 //
 //  Created by Spencer Curtis on 7/31/18.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ManageBookVC: UIViewController {
 
-    override func viewDidLoad() {
+	@IBOutlet weak var titleTextfield: UITextField!
+	@IBOutlet weak var reasonTextView: UITextView!
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+	@IBAction func saveBtnAction(_ sender: Any) {
+	}
+	
 }
 
