@@ -30,6 +30,14 @@ class BookController: Codable {
 		saveToPersistentStore()
 	}
 	
+	func titleAndReasonToRead(book: Book, title: String, reasonToRead: String) {
+		guard let index = books.firstIndex(of: book) else { return }
+		if (books[index].title != title) || (books[index].reasonToRead != reasonToRead) {
+			books[index].title = title
+			books[index].reasonToRead = reasonToRead
+		}
+	}
+	
 	// MARK: - Persistence
 	
 	func saveToPersistentStore() {
