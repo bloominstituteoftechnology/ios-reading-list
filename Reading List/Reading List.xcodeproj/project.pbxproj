@@ -17,6 +17,7 @@
 		75B4D38A22E7BE6700438A7A /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D38922E7BE6700438A7A /* BookTableViewCell.swift */; };
 		75B4D38C22E7BE8000438A7A /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D38B22E7BE8000438A7A /* ReadingListTableViewController.swift */; };
 		75B4D38E22E7C0B300438A7A /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D38D22E7C0B300438A7A /* BookDetailsViewController.swift */; };
+		75B4D39022E7C23900438A7A /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4D38F22E7C23900438A7A /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		75B4D38922E7BE6700438A7A /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		75B4D38B22E7BE8000438A7A /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		75B4D38D22E7C0B300438A7A /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
+		75B4D38F22E7C23900438A7A /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				75B4D38922E7BE6700438A7A /* BookTableViewCell.swift */,
 				75B4D38D22E7C0B300438A7A /* BookDetailsViewController.swift */,
 				75B4D38B22E7BE8000438A7A /* ReadingListTableViewController.swift */,
+				75B4D38F22E7C23900438A7A /* BookTableViewCellDelegate.swift */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
 				466941742110E22B00E7FF73 /* Info.plist */,
@@ -153,6 +156,7 @@
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
 				75B4D38E22E7C0B300438A7A /* BookDetailsViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
+				75B4D39022E7C23900438A7A /* BookTableViewCellDelegate.swift in Sources */,
 				75B4D38822E7A87C00438A7A /* BookController.swift in Sources */,
 				75B4D38A22E7BE6700438A7A /* BookTableViewCell.swift in Sources */,
 				75B4D38C22E7BE8000438A7A /* ReadingListTableViewController.swift in Sources */,
