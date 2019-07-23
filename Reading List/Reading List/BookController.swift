@@ -15,7 +15,7 @@ class BookController {
     
     
     func saveToPersistenceStore() {
-        //let encoder = PropertyListEncoder()
+        guard let url = readListURL else { return }
         do {
             let encoder = PropertyListEncoder()
             let booksData = try encoder.encode(books)
@@ -23,7 +23,24 @@ class BookController {
         } catch {
             print("Error loading books data: \(error)")
         }
-}
+    }
+    
+    @discardableResult func createBooks(withName title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        books.append(book)
+        saveToPersistenceStore()
+        
+        return book
+    }
+    
+    @discardableResult func deleteBooks(withName title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
+        let delete = 
+        
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        
+    }
     
     func loadFromPersistenStore() {
         do {
