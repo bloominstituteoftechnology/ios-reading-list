@@ -12,6 +12,16 @@ class BookController: Codable {
 	
 	private(set) var books = [Book]()
 	
+	var readBooks: [Book] {
+		let beenRead = books.filter { $0.hasBeenRead == true }
+		return beenRead
+	}
+	
+	var unReadBooks: [Book] {
+		let notBeenRead = books.filter { $0.hasBeenRead == false }
+		return notBeenRead
+	}
+	
 	func create(withTitle title: String, reasonToBeRead: String, hasBeenRead: Bool) {
 		let book = Book(title: title, reasonToRead: reasonToBeRead, hasBeenRead: hasBeenRead)
 		books.append(book)
