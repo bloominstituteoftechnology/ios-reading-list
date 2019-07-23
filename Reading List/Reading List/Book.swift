@@ -9,7 +9,13 @@
 import Foundation
 
 struct Book: Equatable, Codable {
-    let name: String
+    
+    var name: String
     var reasonToRead: String
-    var hasBeenRead: Bool = false
+    var hasBeenRead: Bool 
+    init(name:String, reasonToRead: String) {
+        self.name = name
+        self.reasonToRead = reasonToRead
+        self.hasBeenRead = false
+    }
 }
