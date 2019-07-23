@@ -30,10 +30,15 @@ class BookController {
 	}
 	
 	func createBook(title: String, reason: String) {
-		let newBook = Book(title: title, reason: reason)
+		let latestIndex = allBooks.count + 1
+		let newBook = Book(index: latestIndex, title: title, reason: reason)
 		allBooks.append(newBook)
-		print("Book added.....")
 		saveToPersistentStore()
+	}
+	
+	func toggleReadStatus(for book: Book) {
+		guard let index = allBooks.firstIndex(where: {$0.index == book.index}) else { return }
+		allBooks[index].isRead.toggle()
 	}
 	
 	//MARK: - Persistence
@@ -45,7 +50,6 @@ class BookController {
 			let encoder = PropertyListEncoder()
 			let data = try encoder.encode(allBooks)
 			try data.write(to: url)
-			print("Book saved.....")
 		} catch {
 			print("Error saving books data: \(error.localizedDescription)")
 		}

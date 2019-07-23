@@ -32,7 +32,6 @@ class ReadingListVC: UIViewController {
 
 extension ReadingListVC: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		print("#Book Sections: \(bookController.filteredBooks.count)")
 		return bookController.filteredBooks.count
 	}
 	
@@ -41,16 +40,15 @@ extension ReadingListVC: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		print("#Books: \(bookController.filteredBooks[section].books.count)")
 		return bookController.filteredBooks[section].books.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookCell else { return UITableViewCell() }
-		print("Books: \(bookController.filteredBooks[indexPath.section].books)")
 		let books = bookController.filteredBooks[indexPath.section].books
 		let book = books[indexPath.row]
 		
+		cell.delegate = self
 		cell.book = book
 		return cell
 	}
@@ -62,4 +60,12 @@ extension ReadingListVC: ManageBookVCDelegate {
 		tableView.reloadData()
 		navigationController?.popViewController(animated: true)
 	}
+}
+
+extension ReadingListVC: BookCellDelegate {
+	func toggleReadStatus(for book: Book) {
+		bookController.toggleReadStatus(for: book)
+		tableView.reloadData()
+	}
+	
 }

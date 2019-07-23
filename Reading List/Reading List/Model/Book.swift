@@ -9,11 +9,13 @@
 import Foundation
 
 struct Book: Codable {
+	var index: Int
 	var title: String
 	var reasonRead: String
-	var isRead: Bool
+	var isRead = false
 	
-	init(title: String, reason: String) {
+	init(index: Int, title: String, reason: String) {
+		self.index = index
 		self.title = title
 		self.reasonRead = reason
 		isRead = false
