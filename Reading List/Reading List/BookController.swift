@@ -12,6 +12,12 @@ class BookController: Codable {
 	
 	private(set) var books = [Book]()
 	
+	func create(withTitle title: String, reasonToBeRead: String, hasBeenRead: Bool) -> Book {
+		let book = Book(title: title, reasonToRead: reasonToBeRead, hasBeenRead: hasBeenRead)
+		books.append(book)
+		return book
+	}
+	
 	// MARK: - Persistence
 	
 	func saveToPersistentStore() {
