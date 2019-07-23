@@ -12,10 +12,16 @@ class BookController: Codable {
 	
 	private(set) var books = [Book]()
 	
-	func create(withTitle title: String, reasonToBeRead: String, hasBeenRead: Bool) -> Book {
+	func create(withTitle title: String, reasonToBeRead: String, hasBeenRead: Bool) {
 		let book = Book(title: title, reasonToRead: reasonToBeRead, hasBeenRead: hasBeenRead)
 		books.append(book)
-		return book
+		saveToPersistentStore()
+	}
+	
+	func delete(book: Book) {
+		guard let index = books.firstIndex(of: book) else { return }
+		books.remove(at: index)
+		saveToPersistentStore()
 	}
 	
 	// MARK: - Persistence
