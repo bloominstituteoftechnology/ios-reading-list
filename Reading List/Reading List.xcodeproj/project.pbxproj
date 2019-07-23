@@ -16,6 +16,7 @@
 		F51DCDE322E7CAA600A2AE64 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCDE222E7CAA600A2AE64 /* BookTableViewCell.swift */; };
 		F51DCDE522E7CAC000A2AE64 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCDE422E7CAC000A2AE64 /* ReadingListTableViewController.swift */; };
 		F51DCDE722E7CCE500A2AE64 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCDE622E7CCE500A2AE64 /* BookDetailViewController.swift */; };
+		F51DCDE922E7CF8B00A2AE64 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCDE822E7CF8B00A2AE64 /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F51DCDE222E7CAA600A2AE64 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		F51DCDE422E7CAC000A2AE64 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		F51DCDE622E7CCE500A2AE64 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		F51DCDE822E7CF8B00A2AE64 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				F51DCDE622E7CCE500A2AE64 /* BookDetailViewController.swift */,
 				F51DCDE422E7CAC000A2AE64 /* ReadingListTableViewController.swift */,
 				F51DCDDE22E7BB9400A2AE64 /* Book.swift */,
+				F51DCDE822E7CF8B00A2AE64 /* BookTableViewCellDelegate.swift */,
 				F51DCDE022E7BC6500A2AE64 /* BookController.swift */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 				F51DCDE722E7CCE500A2AE64 /* BookDetailViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				F51DCDE122E7BC6500A2AE64 /* BookController.swift in Sources */,
+				F51DCDE922E7CF8B00A2AE64 /* BookTableViewCellDelegate.swift in Sources */,
 				F51DCDDF22E7BB9400A2AE64 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

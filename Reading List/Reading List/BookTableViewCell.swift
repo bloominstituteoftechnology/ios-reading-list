@@ -12,10 +12,13 @@ class BookTableViewCell: UITableViewCell {
 	
 	var book: Book?
 	
+	weak var delegate: BookTableViewCellDelegate?
+	
 	@IBOutlet weak var title: UILabel!
 	@IBOutlet weak var readButton: UIButton!
 	
 	@IBAction func checkReadButton(_ sender: UIButton) {
+		delegate?.toggleHasBeenRead(for: self)
 	}
 	
 	private func updateViews() {
