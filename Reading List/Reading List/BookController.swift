@@ -24,6 +24,12 @@ class BookController: Codable {
 		saveToPersistentStore()
 	}
 	
+	func hasBeenRead(for book: Book) {
+		guard let index = books.firstIndex(of: book) else { return }
+		books[index].hasBeenRead = !books[index].hasBeenRead
+		saveToPersistentStore()
+	}
+	
 	// MARK: - Persistence
 	
 	func saveToPersistentStore() {
