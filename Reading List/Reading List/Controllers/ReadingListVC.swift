@@ -19,22 +19,20 @@ class ReadingListVC: UIViewController {
 
         tableView.dataSource = self
     }
-    
-
-    /*
+	
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+	
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+		if let manageBookVC = segue.destination as? ManageBookVC {
+			manageBookVC.delegate = self
+		}
     }
-    */
 
 }
 
 extension ReadingListVC: UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
+		print("#Book Sections: \(bookController.filteredBooks.count)")
 		return bookController.filteredBooks.count
 	}
 	
@@ -43,15 +41,25 @@ extension ReadingListVC: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		print("#Books: \(bookController.filteredBooks[section].books.count)")
 		return bookController.filteredBooks[section].books.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell") as? BookCell else { return UITableViewCell() }
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookCell else { return UITableViewCell() }
+		print("Books: \(bookController.filteredBooks[indexPath.section].books)")
 		let books = bookController.filteredBooks[indexPath.section].books
 		let book = books[indexPath.row]
 		
 		cell.book = book
 		return cell
+	}
+}
+
+extension ReadingListVC: ManageBookVCDelegate {
+	func passBookDetails(title: String, reasonRead reason: String) {
+		bookController.createBook(title: title, reason: reason)
+		tableView.reloadData()
+		navigationController?.popViewController(animated: true)
 	}
 }

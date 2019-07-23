@@ -10,13 +10,9 @@ import Foundation
 
 class BookController {
 	private(set) var allBooks = [Book]()
-	var readBooks: [Book] {
-		return allBooks.filter{$0.isRead}
-	}
-	var unreadBooks: [Book] {
-		return allBooks.filter{!$0.isRead}
-	}
 	var filteredBooks: [(category: String, books: [Book])] {
+		let readBooks = allBooks.filter{$0.isRead}
+		let unreadBooks = allBooks.filter{!$0.isRead}
 		var books = [(category: String, books: [Book])]()
 		
 		if !readBooks.isEmpty {
@@ -36,6 +32,8 @@ class BookController {
 	func createBook(title: String, reason: String) {
 		let newBook = Book(title: title, reason: reason)
 		allBooks.append(newBook)
+		print("Book added.....")
+		saveToPersistentStore()
 	}
 	
 	//MARK: - Persistence
@@ -47,6 +45,7 @@ class BookController {
 			let encoder = PropertyListEncoder()
 			let data = try encoder.encode(allBooks)
 			try data.write(to: url)
+			print("Book saved.....")
 		} catch {
 			print("Error saving books data: \(error.localizedDescription)")
 		}

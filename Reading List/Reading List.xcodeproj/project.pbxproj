@@ -16,6 +16,7 @@
 		B531AF6122E798EB00098BA2 /* ReadingListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531AF6022E798EB00098BA2 /* ReadingListVC.swift */; };
 		B531AF6322E7A21000098BA2 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531AF6222E7A21000098BA2 /* Book.swift */; };
 		B531AF6822E7A3C900098BA2 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531AF6722E7A3C900098BA2 /* BookController.swift */; };
+		B531AF6B22E7AF9C00098BA2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531AF6A22E7AF9C00098BA2 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B531AF6022E798EB00098BA2 /* ReadingListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListVC.swift; sourceTree = "<group>"; };
 		B531AF6222E7A21000098BA2 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B531AF6722E7A3C900098BA2 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		B531AF6A22E7AF9C00098BA2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
+				B531AF6922E7AF8B00098BA2 /* Helpers */,
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				B531AF6422E7A2A700098BA2 /* Controllers */,
 				B531AF6522E7A2B900098BA2 /* Views */,
@@ -98,6 +101,14 @@
 				B531AF6222E7A21000098BA2 /* Book.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B531AF6922E7AF8B00098BA2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B531AF6A22E7AF9C00098BA2 /* Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 				4669416B2110E22B00E7FF73 /* ManageBookVC.swift in Sources */,
 				B531AF6322E7A21000098BA2 /* Book.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
+				B531AF6B22E7AF9C00098BA2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
