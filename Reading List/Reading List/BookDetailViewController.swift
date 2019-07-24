@@ -15,8 +15,18 @@ class BookDetailViewController: UIViewController {
     
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        
     }
     
+    var bookController: BookController?
+    var book: Book?
+    
+    func updateViews() {
+        guard let book = book else { return }
+        
+        bookTitleTextField.text = book.title
+        reasonForReadingTextView.text = book.reasonToRead
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
