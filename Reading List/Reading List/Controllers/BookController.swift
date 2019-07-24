@@ -11,8 +11,12 @@ import Foundation
 class BookController {
 	private(set) var allBooks = [Book]()
 	var filteredBooks: [(category: String, books: [Book])] {
-		let readBooks = allBooks.filter{$0.isRead}
-		let unreadBooks = allBooks.filter{!$0.isRead}
+		let readBooks = allBooks.filter{$0.isRead}.sorted { (book1, book2) -> Bool in
+			book1.title < book2.title
+		}
+		let unreadBooks = allBooks.filter{!$0.isRead}.sorted { (book1, book2) -> Bool in
+			book1.title < book2.title
+		}
 		var books = [(category: String, books: [Book])]()
 		
 		if !readBooks.isEmpty {
