@@ -9,6 +9,7 @@
 import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+	
 	func toggleHasBeenRead(for cell: BookTableViewCell) {
 		guard let indexPath = tableView.indexPath(for: cell) else { return }
 		let book = bookFor(indexPath: indexPath)
@@ -58,7 +59,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { fatalError("Can't reuse") }
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReadingListCell", for: indexPath) as? BookTableViewCell else { fatalError("Can't reuse") }
 		
 		cell.delegate = self
 		let book = bookFor(indexPath: indexPath)
@@ -77,6 +78,24 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 	}
 	
 	//MARK: - Navigation
+	
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "AddShowSegue" {
+			guard let destVC = segue.destination as? BookDetailViewController else { return }
+			destVC.bookController = bookController
+			destVC.title = "Add new book"
+		}
+		
+		if segue.identifier == "ReadingListShowSegue" {
+			guard let destVC = segue.destination as? BookDetailViewController else { return }
+			destVC.bookController = bookController
+			guard let indexPath = tableView.indexPathForSelectedRow else { return }
+			destVC.book = bookFor(indexPath: indexPath )
+			
+		}
+		
+	}
 	
 	
 	

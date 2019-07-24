@@ -40,7 +40,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="2k5-Oy-T31" secondAttribute="height" multiplier="11:10" id="cmj-N9-STD"/>
                                                     </constraints>
-                                                    <state key="normal" image="checked"/>
                                                     <connections>
                                                         <action selector="checkReadButton:" destination="aUg-WU-rKv" eventType="touchUpInside" id="4KP-Wt-v0z"/>
                                                     </connections>
@@ -87,10 +86,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CVk-gU-q5H">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CVk-gU-q5H">
                                 <rect key="frame" x="20" y="113" width="374" height="166"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxU-5V-YDf">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxU-5V-YDf">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -106,10 +106,6 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="CVk-gU-q5H" firstAttribute="leading" secondItem="3h1-eE-7By" secondAttribute="leading" constant="20" id="Rtx-6I-mNX"/>
-                            <constraint firstItem="3h1-eE-7By" firstAttribute="trailing" secondItem="CVk-gU-q5H" secondAttribute="trailing" constant="20" id="u6k-e4-o3i"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3h1-eE-7By"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="7LS-8P-9cU">
@@ -147,10 +143,7 @@
             <point key="canvasLocation" x="352.17391304347831" y="93.75"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="checked" width="50" height="50"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MsK-BJ-0S7"/>
+        <segue reference="Cbg-xd-7WC"/>
     </inferredMetricsTieBreakers>
 </document>
