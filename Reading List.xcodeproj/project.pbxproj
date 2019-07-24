@@ -13,6 +13,7 @@
 		466941702110E22B00E7FF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4669416F2110E22B00E7FF73 /* Assets.xcassets */; };
 		466941732110E22B00E7FF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466941712110E22B00E7FF73 /* LaunchScreen.storyboard */; };
 		866A1EBD22E7C8BF00B001C1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1EBC22E7C8BF00B001C1 /* Book.swift */; };
+		866A1EBF22E7DBA700B001C1 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866A1EBE22E7DBA700B001C1 /* BookController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		466941722110E22B00E7FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		466941742110E22B00E7FF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		866A1EBC22E7C8BF00B001C1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		866A1EBE22E7DBA700B001C1 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				866A1EBC22E7C8BF00B001C1 /* Book.swift */,
+				866A1EBE22E7DBA700B001C1 /* BookController.swift */,
 				466941672110E22A00E7FF73 /* Reading List */,
 				466941662110E22A00E7FF73 /* Products */,
 			);
@@ -140,6 +143,7 @@
 			files = (
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
+				866A1EBF22E7DBA700B001C1 /* BookController.swift in Sources */,
 				866A1EBD22E7C8BF00B001C1 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
