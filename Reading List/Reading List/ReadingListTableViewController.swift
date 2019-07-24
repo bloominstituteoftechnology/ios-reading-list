@@ -8,14 +8,30 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
-	
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+	func toggleHasBeenRead(for cell: BookTableViewCell) {
+		guard let indexPath = tableView.indexPath(for: cell) else { return }
+		let book = bookFor(indexPath: indexPath)
+		bookController.hasBeenRead(for: book)
+		tableView.reloadData()
+	}
+
 	let bookController = BookController()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		bookController.loadToPersistentStore()
+	}
+	
+	private func bookFor(indexPath: IndexPath) -> Book {
+		if indexPath.section == 0 {
+			return bookController.readBooks[indexPath.row]
+		} else {
+			return bookController.unReadBooks[indexPath.row]
+		}
+	}
+	
 
     // MARK: - Table view data source
 
@@ -41,7 +57,27 @@ class ReadingListTableViewController: UITableViewController {
 		}
 	}
 	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { fatalError("Can't reuse") }
+		
+		cell.delegate = self
+		let book = bookFor(indexPath: indexPath)
+		cell.book = book
+		
+		return cell
+		
+	}
 
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		if section == 0 {
+			return "Read Books"
+		} else {
+			return "Unread Books"
+		}
+	}
+	
+	//MARK: - Navigation
+	
 	
 	
 }
