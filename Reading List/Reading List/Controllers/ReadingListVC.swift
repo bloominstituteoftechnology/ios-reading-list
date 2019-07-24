@@ -18,6 +18,7 @@ class ReadingListVC: UIViewController {
         super.viewDidLoad()
 
         tableView.dataSource = self
+		tableView.delegate = self
     }
 	
     // MARK: - Navigation
@@ -25,12 +26,15 @@ class ReadingListVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let manageBookVC = segue.destination as? ManageBookVC {
 			manageBookVC.delegate = self
+			if let indexPath = tableView.indexPathForSelectedRow {
+				manageBookVC.book = bookController.filteredBooks[indexPath.section].books[indexPath.row]
+			}
 		}
     }
 
 }
 
-extension ReadingListVC: UITableViewDataSource {
+extension ReadingListVC: UITableViewDataSource, UITableViewDelegate {
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return bookController.filteredBooks.count
 	}
@@ -55,8 +59,13 @@ extension ReadingListVC: UITableViewDataSource {
 }
 
 extension ReadingListVC: ManageBookVCDelegate {
-	func passBookDetails(title: String, reasonRead reason: String) {
-		bookController.createBook(title: title, reason: reason)
+	
+	func passBookDetails(existingBookIndex index: Int?, title: String, reasonRead reason: String) {
+		if let index = index {
+			bookController.updateBook(at: index, title: title, reason: reason)
+		} else {
+			bookController.createBook(title: title, reason: reason)
+		}
 		tableView.reloadData()
 		navigationController?.popViewController(animated: true)
 	}

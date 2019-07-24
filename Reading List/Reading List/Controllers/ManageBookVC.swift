@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ManageBookVCDelegate {
-	func passBookDetails(title: String, reasonRead reason: String)
+	func passBookDetails(existingBookIndex index: Int?, title: String, reasonRead reason: String)
 }
 
 class ManageBookVC: UIViewController {
@@ -18,16 +18,24 @@ class ManageBookVC: UIViewController {
 	@IBOutlet weak var reasonTextView: UITextView!
 	
 	var delegate: ManageBookVCDelegate?
+	var book: Book?
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+		
+		updateViews()
     }
 
 	@IBAction func saveBtnAction(_ sender: Any) {
 		guard let title = titleTextfield.optionalText, let reason = reasonTextView.text else { return }
 		
-		delegate?.passBookDetails(title: title, reasonRead: reason)
+		delegate?.passBookDetails(existingBookIndex: book?.index, title: title, reasonRead: reason)
+	}
+	
+	private func updateViews() {
+		guard let book = book else { return }
+		titleTextfield.text = book.title
+		reasonTextView.text = book.reasonRead
 	}
 	
 }

@@ -40,9 +40,16 @@ class BookController {
 		saveToPersistentStore()
 	}
 	
+	func updateBook(at index: Int, title: String, reason: String) {
+		allBooks[index].title = title
+		allBooks[index].reasonRead = reason
+		saveToPersistentStore()
+	}
+	
 	func toggleReadStatus(for book: Book) {
 		guard let index = allBooks.firstIndex(where: {$0.index == book.index}) else { return }
 		allBooks[index].isRead.toggle()
+		saveToPersistentStore()
 	}
 	
 	//MARK: - Persistence

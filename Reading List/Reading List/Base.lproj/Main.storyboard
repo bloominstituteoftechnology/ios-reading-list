@@ -79,6 +79,7 @@
                                         <connections>
                                             <outlet property="titleLbl" destination="MdF-c1-ti0" id="qTH-bS-UUu"/>
                                             <outlet property="toggleReadBtn" destination="Z41-Yt-c3W" id="zAa-VK-281"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="g61-NM-2xv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -202,4 +203,7 @@
     <resources>
         <image name="unchecked" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rYD-PI-Dum"/>
+    </inferredMetricsTieBreakers>
 </document>
