@@ -17,7 +17,5 @@ struct Book: Equatable, Codable {
         self.title = title
         self.reasonToRead = reasonToRead
         self.hasBeenRead = false
-    }
-    
-    
+    }    
 }

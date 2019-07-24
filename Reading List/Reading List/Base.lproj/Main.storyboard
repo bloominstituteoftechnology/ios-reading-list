@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ePl-pK-MWQ" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="ePl-pK-MWQ" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ePl-pK-MWQ" id="F3i-Fk-11R">
@@ -81,7 +81,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="wFv-iv-gy8" secondAttribute="height" multiplier="1:1" id="yvP-Hf-YUD"/>
                                             </constraints>
-                                            <state key="normal" image="checked"/>
+                                            <state key="normal" image="unchecked"/>
                                             <connections>
                                                 <action selector="buttonTapped:" destination="ePl-pK-MWQ" eventType="touchUpInside" id="7r9-eF-KU6"/>
                                             </connections>
@@ -105,7 +105,7 @@
                                 <connections>
                                     <outlet property="button" destination="wFv-iv-gy8" id="El4-Dk-HHB"/>
                                     <outlet property="titleLabel" destination="inU-Uy-mNp" id="3BG-QE-rrk"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="CellSegue" id="6pq-c8-j9i"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="BookDetailSegue" id="6pq-c8-j9i"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -146,7 +146,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checked" width="50" height="50"/>
+        <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6pq-c8-j9i"/>

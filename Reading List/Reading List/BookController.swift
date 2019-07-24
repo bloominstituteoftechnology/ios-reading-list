@@ -34,7 +34,7 @@ class BookController {
         bookHBR.hasBeenRead.toggle()
     }
     
-    func updateTitleAndOrReasonToRead(for book: Book) {
+    func updateBook(for book: Book) {
         var bookAndOr = book
         bookAndOr.title = ""
         bookAndOr.reasonToRead = ""
