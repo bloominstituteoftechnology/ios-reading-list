@@ -9,6 +9,8 @@
 import UIKit
 
 class ReadingListTableViewController: UITableViewController {
+	
+	let bookController = BookController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,13 +20,28 @@ class ReadingListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+		
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+		if section == 0 {
+			return bookController.readBooks.count
+		} else {
+			return bookController.unReadBooks.count
+		}
     }
+	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			let book = bookController.books[indexPath.row]
+			bookController.delete(book: book)
+			// Delete the row from the data source
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		}
+	}
+	
 
+	
+	
 }
