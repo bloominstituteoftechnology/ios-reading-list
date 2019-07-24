@@ -14,9 +14,19 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookReadButton: UIButton!
     
     @IBAction func bookReadAction(_ sender: Any) {
+        toggleHasBeenRead(for: BookTableViewCell)
     }
     
+    var book: Book?
     
+    func updateViews() {
+        guard let book = book else { return }
+        
+        bookLabel.text = book.title
+        bookReadButton.isSelected = bookReadButton.setImage(selectedImage, for: UIControl.State.normal)
+    }
+    
+    weak var delegate: BookTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
