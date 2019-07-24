@@ -42,8 +42,23 @@ class BookController {
     }
     
     func updateHasBeenRead(for book: Book) {
+        guard let books = books else { return }
+        updateHasBeenRead(for: books) = true
+        
+        updateHasBeenRead(for: book)
+    }
+    func updateBook(for book: Book) {
+        guard let book = book else { return }
+        
+        title.text = book.title
+        reason.text = book.reasonToRead
         
     }
+    
+    func readBooks: [Book] {
+        
+    }
+    
     
     func loadFromPersistenStore() {
         do {
