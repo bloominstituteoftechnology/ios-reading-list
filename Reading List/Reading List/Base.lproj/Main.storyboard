@@ -75,16 +75,52 @@
             </objects>
             <point key="canvasLocation" x="1636.2318840579712" y="61.607142857142854"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="7un-WH-gHD">
             <objects>
-                <viewController id="Mue-N1-NxK" sceneMemberID="viewController">
+                <viewController id="Mue-N1-NxK" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jKo-X1-aDM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XyE-jT-ZJG">
+                                <rect key="frame" x="20" y="108" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3wn-JJ-63y">
+                                <rect key="frame" x="20" y="148" width="240" height="129"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XyE-jT-ZJG" firstAttribute="top" secondItem="Lx1-Vb-Ppk" secondAttribute="top" constant="20" id="72i-fc-9gh"/>
+                            <constraint firstItem="Lx1-Vb-Ppk" firstAttribute="trailing" secondItem="XyE-jT-ZJG" secondAttribute="trailing" constant="20" id="8iJ-N3-p4d"/>
+                            <constraint firstItem="3wn-JJ-63y" firstAttribute="leading" secondItem="Lx1-Vb-Ppk" secondAttribute="leading" constant="20" id="OGr-Ya-Aq7"/>
+                            <constraint firstItem="Lx1-Vb-Ppk" firstAttribute="trailing" secondItem="3wn-JJ-63y" secondAttribute="trailing" constant="154" id="QVi-kA-OHb"/>
+                            <constraint firstItem="3wn-JJ-63y" firstAttribute="top" secondItem="XyE-jT-ZJG" secondAttribute="bottom" constant="10" id="VgP-G9-qrg"/>
+                            <constraint firstItem="XyE-jT-ZJG" firstAttribute="top" secondItem="Lx1-Vb-Ppk" secondAttribute="top" constant="20" id="X3Z-mq-auA"/>
+                            <constraint firstItem="XyE-jT-ZJG" firstAttribute="leading" secondItem="Lx1-Vb-Ppk" secondAttribute="leading" constant="20" id="jEZ-xq-Pyx"/>
+                            <constraint firstItem="Lx1-Vb-Ppk" firstAttribute="bottom" secondItem="3wn-JJ-63y" secondAttribute="bottom" constant="585" id="wST-Af-pOh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Lx1-Vb-Ppk"/>
                     </view>
+                    <navigationItem key="navigationItem" id="HPq-We-MRg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1Jj-Ih-96w">
+                            <connections>
+                                <action selector="saveButton:" destination="Mue-N1-NxK" id="nUW-aO-xlI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookTitleTextField" destination="XyE-jT-ZJG" id="ouU-N7-O5K"/>
+                        <outlet property="reasonForReadingTextView" destination="3wn-JJ-63y" id="QHu-LO-XvW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVI-1D-ZCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
