@@ -25,6 +25,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 		bookController.loadToPersistentStore()
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		tableView.reloadData()
+	}
+	
 	private func bookFor(indexPath: IndexPath) -> Book {
 		if indexPath.section == 0 {
 			return bookController.readBooks[indexPath.row]
