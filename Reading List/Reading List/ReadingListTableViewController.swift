@@ -33,7 +33,7 @@ class ReadingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else {return UITableViewCell()}
             let book = bookController.books[indexPath.row]
-     
+        cell.nameLabel.text = book.title
         return cell
     }
 
@@ -51,11 +51,19 @@ class ReadingListTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddBookShowSegue" {
-            let tableview = tableView.indexPathForSelectedRow
-            guard let addBookVC = segue.destination as? AddBookViewController else {return}
-            
+        if segue.identifier == "ShowBookDetailSegue" {
+            guard let addBookVC = segue.destination as? AddBookViewController,
+            let indexPath = tableView.indexPathForSelectedRow else {return}
+        let book = bookController.books[indexPath.row]
+            addBookVC.book = book
+            addBookVC.bookController = bookController
+        
+        } else if segue.identifier == "AddBookShowSegue" {
+            guard let addBookVC = segue.destination as? AddBookViewController
+                else {return}
+            addBookVC.bookController = bookController
         }
+        
     }
 
 

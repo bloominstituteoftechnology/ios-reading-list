@@ -28,7 +28,6 @@
 		DD43134022E7A9C800C7A24D /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		DD43134222E7AA5D00C7A24D /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		DD43134422E7AAC700C7A24D /* BookeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookeController.swift; sourceTree = "<group>"; };
-		DDD742F622E8074F006E7202 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		DDD742F722E8134F006E7202 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		DDD742F922E8254A006E7202 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,10 +66,9 @@
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,
 				DD43134422E7AAC700C7A24D /* BookeController.swift */,
 				DDD742F922E8254A006E7202 /* AddBookViewController.swift */,
+				DD43134022E7A9C800C7A24D /* ReadingListTableViewController.swift */,
 				DDD742F722E8134F006E7202 /* BookTableViewCell.swift */,
 				DD43134222E7AA5D00C7A24D /* Book.swift */,
-				DDD742F622E8074F006E7202 /* MyPlayground.playground */,
-				DD43134022E7A9C800C7A24D /* ReadingListTableViewController.swift */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
 				466941742110E22B00E7FF73 /* Info.plist */,

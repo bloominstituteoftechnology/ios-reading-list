@@ -10,7 +10,8 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
 
-   
+    @IBOutlet weak var CheckedBUtton: UIButton!
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     var book: Book? {

@@ -9,7 +9,8 @@
 import UIKit
 
 class AddBookViewController: UIViewController {
-
+    
+    var bookController: BookController?
     override func viewDidLoad() {
         super.viewDidLoad()
         reasonToReadTextView.text = "Reason to Read:"
@@ -22,8 +23,8 @@ class AddBookViewController: UIViewController {
     @IBAction func SaveBookButton(_ sender: UIBarButtonItem) {
         guard let book = BookTextField.text,
             let description = reasonToReadTextView.text else {return}
-        var bookInfo = Book(title: book, reasonToRead: description, hasbeenRead: false)
-        
+        bookController?.createNewBook(Title: book, reasonToRead: description, hasBeenRead: false)
+        navigationController?.popViewController(animated: true)
         
     }
     
