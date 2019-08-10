@@ -13,12 +13,16 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var hasBeenReadButton: UIButton!
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
     weak var delegate: BookTableViewCellDelegate?
     
     @IBAction func hasBeenReadButtonTapped(_ sender: Any) {
-        toggleHasBeenRead(for: <#T##BookTableViewCell#>)
+        toggleHasBeenRead(for: self)
     }
     
     func updateViews() {
@@ -38,7 +42,8 @@ class BookTableViewCell: UITableViewCell {
 extension BookTableViewCell: BookTableViewCellDelegate {
     
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-        
+        guard let book = book else { return }
+        cell.book?.hasBeenRead = !cell.book!.hasBeenRead
     }
     
 }

@@ -18,6 +18,7 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -30,6 +31,7 @@ class BookDetailViewController: UIViewController {
                 !reasonToReadText.isEmpty else { return }
             bookController?.createBook(withTitle: bookTitleText, reasonToRead: reasonToReadText)
         }
+        navigationController?.popViewController(animated: true)
     }
     
     func updateViews() {

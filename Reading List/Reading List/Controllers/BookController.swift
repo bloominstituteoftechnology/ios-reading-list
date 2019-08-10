@@ -12,6 +12,10 @@ class BookController {
     
     private(set) var books = [Book]()
     
+    init() {
+        loadFromPersistentStore()
+    }
+    
     private var readingListURL: URL? {
         let fileManager = FileManager.default
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
@@ -28,7 +32,7 @@ class BookController {
         return unreadBooks
     }
     
-    @discardableResult func createBook(withTitle title: String, reasonToRead: String) -> Book {
+    func createBook(withTitle title: String, reasonToRead: String) -> Book {
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistentStore()
@@ -41,7 +45,8 @@ class BookController {
     }
     
     func updateHasBeenRead(for book: Book) {
-        
+        var book = book
+        book.hasBeenRead = !book.hasBeenRead
         saveToPersistentStore()
     }
     

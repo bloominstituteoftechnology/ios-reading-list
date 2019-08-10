@@ -47,20 +47,30 @@ class ReadingListTableViewController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddBookSegue" {
+            guard let destinationVC = segue.destination as? BookDetailViewController else { return }
+            destinationVC.bookController = bookController
+        } else if segue.identifier == "ShowBookDetailSegue" {
+            guard let destinationVC = segue.destination as? BookDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow else { return }
+            destinationVC.bookController = bookController
+            destinationVC.book = bookController.books[indexPath.row]
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            bookController.delete(at: indexPath)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
             return bookController.readBooks[indexPath.row]
         } else {
             return bookController.unreadBooks[indexPath.row]
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .delete:
-            bookController.delete(at: indexPath)
-        default:
-            return
         }
     }
 
