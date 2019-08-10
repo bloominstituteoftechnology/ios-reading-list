@@ -18,6 +18,16 @@ class BookController {
         return documents.appendingPathComponent("readingList.plist")
     }
     
+    var readBooks: [Book] {
+        let readBooks = books.filter { $0.hasBeenRead == true }
+        return readBooks
+    }
+    
+    var unreadBooks: [Book] {
+        let unreadBooks = books.filter { $0.hasBeenRead == false }
+        return unreadBooks
+    }
+    
     @discardableResult func createBook(withTitle title: String, reasonToRead: String) -> Book {
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
@@ -32,10 +42,12 @@ class BookController {
     
     func updateHasBeenRead(for book: Book) {
         
+        saveToPersistentStore()
     }
     
     func updateBookDetails(for book: Book) {
         
+        saveToPersistentStore()
     }
     
     func saveToPersistentStore() {
