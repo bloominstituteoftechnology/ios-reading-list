@@ -35,7 +35,7 @@ class BookController {
         return book
     }
     
-    func delete(book: Book, at indexPath: IndexPath) {
+    func delete(at indexPath: IndexPath) {
         books.remove(at: indexPath.row)
         saveToPersistentStore()
     }
