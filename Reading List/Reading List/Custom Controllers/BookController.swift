@@ -12,13 +12,13 @@ class BookController {
     
     private(set) var books: [Book] = []
     
-//    var readBooks: [Book] = [] {
-//        // return an array of Book's using a .filter method
-//    }
+    var readBooks: [Book] {
+        return books.filter { $0.hasBeenRead == true }
+    }
     
-//    var unreadBooks: [Book] = [] {
-//        //return an array of unread books using the .filter method
-//    }
+    var unreadBooks: [Book] {
+        return books.filter { $0.hasBeenRead == false }
+    }
     
     private var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -65,19 +65,47 @@ class BookController {
         return newBook
     }
     
+    
     func delete(book: Book) {
-        // delete a book from array
-        // save
+        if readBooks.contains(book) {
+            if let index = readBooks.firstIndex(of: book) {
+                readBooks.remove(at: index)
+            }
+        } else if unreadBooks.contains(book) {
+            if let index = unreadBooks.firstIndex(of: book) {
+                unreadBooks.remove(at: index)
+            }
+        }
     }
     
     func updateHasBeenRead(for book: Book) {
-        // update book read status
-        // save
+        var newBook = book
+        if readBooks.contains(book) {
+            if let index = readBooks.firstIndex(of: book) {
+                readBooks.remove(at: index)
+            }
+            newBook.hasBeenRead = false
+            unreadBooks.append(newBook)
+        } else if unreadBooks.contains(book) {
+            if let index = unreadBooks.firstIndex(of: book) {
+                unreadBooks.remove(at: index)
+            }
+            newBook.hasBeenRead = true
+            readBooks.append(newBook)
+        }
     }
     
     func editBook(book: Book) {
-        // edit books title or reason to read properties
-        // save
+//        var newBook = book
+        if readBooks.contains(book) {
+            if let index = readBooks.firstIndex(of: book) {
+                readBooks[index] = Book(title: "Edited", reasonToRead: "testing")
+            }
+        } else if unreadBooks.contains(book) {
+            if let index = unreadBooks.firstIndex(of: book) {
+                unreadBooks[index] = Book(title: "Edited", reasonToRead: "testing")
+            }
+        }
     }
     
     
