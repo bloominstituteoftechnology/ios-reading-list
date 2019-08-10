@@ -45,8 +45,8 @@ class BookController {
     }
     
     func updateHasBeenRead(for book: Book) {
-        var book = book
-        book.hasBeenRead = !book.hasBeenRead
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].hasBeenRead = !books[index].hasBeenRead
         saveToPersistentStore()
     }
     

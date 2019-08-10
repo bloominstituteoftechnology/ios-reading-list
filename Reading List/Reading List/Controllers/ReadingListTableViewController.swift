@@ -14,6 +14,12 @@ class ReadingListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        bookController.loadFromPersistentStore()
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -79,11 +85,11 @@ class ReadingListTableViewController: UITableViewController {
 extension ReadingListTableViewController: BookTableViewCellDelegate {
     
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
         
-        let book = bookController.books[indexPath.row]
-        
+        var book = bookController.books[indexPath.row]
         bookController.updateHasBeenRead(for: book)
+        
         tableView.reloadData()
     }
     

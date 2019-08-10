@@ -22,7 +22,8 @@ class BookTableViewCell: UITableViewCell {
     weak var delegate: BookTableViewCellDelegate?
     
     @IBAction func hasBeenReadButtonTapped(_ sender: Any) {
-        toggleHasBeenRead(for: self)
+        guard let delegate = delegate else { return }
+        delegate.toggleHasBeenRead(for: self)
     }
     
     func updateViews() {
@@ -31,19 +32,19 @@ class BookTableViewCell: UITableViewCell {
         bookTitleLabel.text = book.title
         
         if book.hasBeenRead {
-            hasBeenReadButton.imageView?.image = UIImage(named: "checked")
+            hasBeenReadButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         } else {
-            hasBeenReadButton.imageView?.image = UIImage(named: "unchecked")
+            hasBeenReadButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
         }
     }
     
 }
 
 extension BookTableViewCell: BookTableViewCellDelegate {
-    
+
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-        guard let book = book else { return }
         cell.book?.hasBeenRead = !cell.book!.hasBeenRead
+        updateViews()
     }
-    
+
 }
