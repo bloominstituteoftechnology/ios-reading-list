@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BooksViewController.swift
 //  Reading List
 //
 //  Created by Spencer Curtis on 7/31/18.
@@ -8,7 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BookDetailViewController: UIViewController {
+    
+    @IBOutlet weak var bookTitleTextField: UITextField!
+    @IBOutlet weak var reasonToReadTextView: UITextView!
+    @IBAction func saveTapped(_ sender: Any) {
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
