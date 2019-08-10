@@ -65,7 +65,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="qAl-PF-I7M">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="g3M-U7-bX8">
                             <connections>
-                                <segue destination="IgE-rw-svA" kind="presentation" identifier="AddBookModalSegue" id="Y04-eW-pBi"/>
+                                <segue destination="IgE-rw-svA" kind="show" identifier="AddBookDetailSegue" id="ZAL-m8-0Hb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -74,20 +74,55 @@
             </objects>
             <point key="canvasLocation" x="702.89855072463774" y="61.607142857142854"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="9ld-hM-hLH">
             <objects>
-                <viewController id="IgE-rw-svA" sceneMemberID="viewController">
+                <viewController id="IgE-rw-svA" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lKB-dl-65M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kG0-jP-p4J">
+                                <rect key="frame" x="8" y="156" width="398" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NwB-zL-Bju">
+                                <rect key="frame" x="8" y="194" width="398" height="228"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="t1d-8T-C3x" firstAttribute="bottom" secondItem="NwB-zL-Bju" secondAttribute="bottom" constant="440" id="AyL-5X-b9N"/>
+                            <constraint firstItem="kG0-jP-p4J" firstAttribute="leading" secondItem="t1d-8T-C3x" secondAttribute="leading" constant="8" id="KfJ-3Z-N9P"/>
+                            <constraint firstItem="t1d-8T-C3x" firstAttribute="trailing" secondItem="kG0-jP-p4J" secondAttribute="trailing" constant="8" id="LRL-uD-LPo"/>
+                            <constraint firstItem="NwB-zL-Bju" firstAttribute="top" secondItem="kG0-jP-p4J" secondAttribute="bottom" constant="8" id="Mjs-oN-oFG"/>
+                            <constraint firstItem="kG0-jP-p4J" firstAttribute="top" secondItem="t1d-8T-C3x" secondAttribute="top" constant="16" id="OgK-N1-Zsu"/>
+                            <constraint firstItem="NwB-zL-Bju" firstAttribute="leading" secondItem="t1d-8T-C3x" secondAttribute="leading" constant="8" id="Raa-KC-iTv"/>
+                            <constraint firstItem="t1d-8T-C3x" firstAttribute="trailing" secondItem="NwB-zL-Bju" secondAttribute="trailing" constant="8" id="c6v-Dc-oB3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="t1d-8T-C3x"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="MvQ-Kh-14i">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yx0-Uu-Org">
+                            <connections>
+                                <action selector="saveTappedWithSender:" destination="IgE-rw-svA" id="OWh-Re-9sF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookNameTextField" destination="kG0-jP-p4J" id="Pgg-iq-nkx"/>
+                        <outlet property="reasonToReadTextView" destination="NwB-zL-Bju" id="BrI-cP-wWA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XjC-Lk-c3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478" y="62"/>
+            <point key="canvasLocation" x="1476.8115942028987" y="61.607142857142854"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WzW-VH-sah">
@@ -112,6 +147,6 @@
         <image name="checked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y04-eW-pBi"/>
+        <segue reference="d0Q-yq-pk9"/>
     </inferredMetricsTieBreakers>
 </document>
