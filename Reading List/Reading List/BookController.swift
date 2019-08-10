@@ -18,6 +18,13 @@ class BookController {
         return documents.appendingPathComponent("readingList.plist")
     }
     
+    @discardableResult func createBook(withTitle title: String, reasonToRead: String) -> Book {
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        books.append(book)
+        saveToPersistentStore()
+        return book
+    }
+    
     func saveToPersistentStore() {
         guard let url = readingListURL else { return }
         
