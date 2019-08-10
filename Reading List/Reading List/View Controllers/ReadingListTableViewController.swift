@@ -11,7 +11,7 @@ import UIKit
 class ReadingListTableViewController: UITableViewController {
 
     
-    let bookController = BookController()
+    var bookController = BookController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class ReadingListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        var rows: Int
+        var rows: Int = 0
         if section == 0 {
             let readBooksCount = bookController.readBooks.count
             rows = readBooksCount
@@ -56,25 +56,46 @@ class ReadingListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        //
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            let book = bookFor(indexPath: indexPath)
+            bookController.delete(book: book)
+        }
+        tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        tableView.reloadData()
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Read Books"
+        } else {
+            return "Unread Books"
+        }
+    }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddBookDetailSegue" {
+            guard let addBookVC = segue.destination as? BookDetailViewController else { return }
+            addBookVC.bookController = bookController
+            addBookVC.delegate = self
+        } else if segue.identifier == "ShowBookDetailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow, let detailBookVC = segue.destination as? BookDetailViewController {
+                let book = bookFor(indexPath: indexPath)
+                detailBookVC.book = book
+                detailBookVC.bookController = bookController
+                detailBookVC.delegate = self
+            }
+        }
     }
-    */
+    
     
     
     private func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
             return bookController.readBooks[indexPath.row]
-        } else if indexPath.section == 1 {
+        } else {
             return bookController.unreadBooks[indexPath.row]
         }
     }
@@ -82,10 +103,18 @@ class ReadingListTableViewController: UITableViewController {
     
 }
 
+
 extension ReadingListTableViewController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let book = bookFor(indexPath: indexPath)
         bookController.updateHasBeenRead(for: book)
+    }
+}
+
+extension ReadingListTableViewController: AddBookDelegate {
+    func bookWasAdded() {
+        navigationController?.popViewController(animated: true)
+        tableView.reloadData()
     }
 }

@@ -67,46 +67,34 @@ class BookController {
     
     
     func delete(book: Book) {
-        if readBooks.contains(book) {
-            if let index = readBooks.firstIndex(of: book) {
-                readBooks.remove(at: index)
-            }
-        } else if unreadBooks.contains(book) {
-            if let index = unreadBooks.firstIndex(of: book) {
-                unreadBooks.remove(at: index)
-            }
+        if let index = books.firstIndex(of: book) {
+            books.remove(at: index)
         }
+        saveToPersistentStore()
     }
     
     func updateHasBeenRead(for book: Book) {
         var newBook = book
-        if readBooks.contains(book) {
-            if let index = readBooks.firstIndex(of: book) {
-                readBooks.remove(at: index)
+        if let index = books.firstIndex(of: book) {
+            if newBook.hasBeenRead == true {
+                newBook.hasBeenRead = false
+            } else if newBook.hasBeenRead == false {
+                newBook.hasBeenRead = true
             }
-            newBook.hasBeenRead = false
-            unreadBooks.append(newBook)
-        } else if unreadBooks.contains(book) {
-            if let index = unreadBooks.firstIndex(of: book) {
-                unreadBooks.remove(at: index)
-            }
-            newBook.hasBeenRead = true
-            readBooks.append(newBook)
+            books[index] = newBook
         }
+        saveToPersistentStore()
     }
+
     
-    func editBook(book: Book) {
-//        var newBook = book
-        if readBooks.contains(book) {
-            if let index = readBooks.firstIndex(of: book) {
-                readBooks[index] = Book(title: "Edited", reasonToRead: "testing")
-            }
-        } else if unreadBooks.contains(book) {
-            if let index = unreadBooks.firstIndex(of: book) {
-                unreadBooks[index] = Book(title: "Edited", reasonToRead: "testing")
-            }
+    func editBook(book: Book, with title: String, reasonToRead: String) {
+        var editedBook = book
+        if let index = books.firstIndex(of: book) {
+            editedBook.title = title
+            editedBook.reasonToRead = reasonToRead
+            books[index] = editedBook
         }
+        saveToPersistentStore()
     }
-    
     
 }

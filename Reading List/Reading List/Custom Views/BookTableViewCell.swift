@@ -17,12 +17,12 @@ class BookTableViewCell: UITableViewCell {
     
     var book: Book? {
         didSet {
-            
+            updateViews()
         }
     }
     
     
-    @IBAction func statusButtonTapped(_ sender: UIButton) {
+    @IBAction func statusButtonTapped(_ sender: Any) {
         delegate?.toggleHasBeenRead(for: BookTableViewCell())
     }
     

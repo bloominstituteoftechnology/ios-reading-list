@@ -8,10 +8,18 @@
 
 import UIKit
 
+protocol AddBookDelegate {
+    func bookWasAdded()
+}
+
 class BookDetailViewController: UIViewController {
 
     @IBOutlet weak var bookNameTextField: UITextField!
     @IBOutlet weak var reasonToReadTextView: UITextView!
+    
+    var bookController: BookController?
+    var book: Book?
+    var delegate: AddBookDelegate?
     
     
     
@@ -33,6 +41,30 @@ class BookDetailViewController: UIViewController {
     */
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
+        guard let bookName = bookNameTextField.text,
+            !bookName.isEmpty,
+            let reason = reasonToReadTextView.text,
+            !reason.isEmpty else { return }
+        
+        if book == nil {
+            bookController?.createBook(named: bookName, forReason: reason, beenRead: false)
+        }
+        
+        guard let book = book else { return }
+        bookController?.editBook(book: book, with: bookName, reasonToRead: reason)
+        updateViews()
+        delegate?.bookWasAdded()
+        
+    }
+    
+    func updateViews() {
+        if let book = book {
+            bookNameTextField.text = book.title
+            reasonToReadTextView.text = book.reasonToRead
+            super.title = book.title
+        } else {
+            super.title = "Add a new book"
+        }
         
     }
 
