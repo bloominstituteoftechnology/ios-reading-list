@@ -15,8 +15,10 @@ class BookTableViewCell: UITableViewCell {
     
     var book: Book?
     
+    weak var delegate: BookTableViewCellDelegate?
+    
     @IBAction func hasBeenReadButtonTapped(_ sender: Any) {
-        
+        toggleHasBeenRead(for: <#T##BookTableViewCell#>)
     }
     
     func updateViews() {
@@ -29,6 +31,14 @@ class BookTableViewCell: UITableViewCell {
         } else {
             hasBeenReadButton.imageView?.image = UIImage(named: "unchecked")
         }
+    }
+    
+}
+
+extension BookTableViewCell: BookTableViewCellDelegate {
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        
     }
     
 }
