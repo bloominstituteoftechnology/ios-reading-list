@@ -25,6 +25,11 @@ class BookController {
         return book
     }
     
+    func delete(book: Book, at indexPath: IndexPath) {
+        books.remove(at: indexPath.row)
+        saveToPersistentStore()
+    }
+    
     func saveToPersistentStore() {
         guard let url = readingListURL else { return }
         
