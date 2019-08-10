@@ -66,20 +66,18 @@ class BookController {
     }
     
     func delete(book: Book) {
-        
+        // delete a book from array
+        // save
     }
     
     func updateHasBeenRead(for book: Book) {
-        
-        if book.hasBeenRead == true {
-            // book.hasBeenRead = false
-        } else if book.hasBeenRead == false {
-            // book.hasBeenRead = true
-        }
+        // update book read status
+        // save
     }
     
     func editBook(book: Book) {
         // edit books title or reason to read properties
+        // save
     }
     
     
