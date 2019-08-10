@@ -39,12 +39,3 @@ class BookTableViewCell: UITableViewCell {
     }
     
 }
-
-//extension BookTableViewCell: BookTableViewCellDelegate {
-//
-//    func toggleHasBeenRead(for cell: BookTableViewCell) {
-//        cell.book?.hasBeenRead = !cell.book!.hasBeenRead
-//        updateViews()
-//    }
-//
-//}
