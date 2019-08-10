@@ -39,8 +39,9 @@ class BookController {
         return book
     }
     
-    func delete(at indexPath: IndexPath) {
-        books.remove(at: indexPath.row)
+    func delete(book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
         saveToPersistentStore()
     }
     
@@ -50,7 +51,12 @@ class BookController {
         saveToPersistentStore()
     }
     
-    func updateBookDetails(for book: Book) {
+    func updateBookDetails(for book: Book, title: String, reasonToRead: String) {
+        guard let index = books.firstIndex(of: book) else { return }
+        if (books[index].title != title) || (books[index].reasonToRead != reasonToRead) {
+            books[index].title = title
+            books[index].reasonToRead = reasonToRead
+        }
         
         saveToPersistentStore()
     }

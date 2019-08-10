@@ -61,14 +61,15 @@ class ReadingListTableViewController: UITableViewController {
             guard let destinationVC = segue.destination as? BookDetailViewController,
                 let indexPath = tableView.indexPathForSelectedRow else { return }
             destinationVC.bookController = bookController
-            destinationVC.book = bookController.books[indexPath.row]
+            destinationVC.book = bookFor(indexPath: indexPath)
         }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            bookController.delete(at: indexPath)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            let book = bookController.books[indexPath.row]
+            bookController.delete(book: book)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
@@ -87,7 +88,7 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         
-        var book = bookController.books[indexPath.row]
+        let book = bookFor(indexPath: indexPath)
         bookController.updateHasBeenRead(for: book)
         
         tableView.reloadData()

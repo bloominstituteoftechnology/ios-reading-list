@@ -22,15 +22,19 @@ class BookDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        if let book = book {
-            bookController?.updateBookDetails(for: book)
-        } else {
-            guard let bookTitleText = bookTitleTextField.text,
-                let reasonToReadText = reasonToReadTextView.text,
-                !bookTitleText.isEmpty,
-                !reasonToReadText.isEmpty else { return }
+        guard let bookTitleText = bookTitleTextField.text,
+            let reasonToReadText = reasonToReadTextView.text,
+            !bookTitleText.isEmpty,
+            !reasonToReadText.isEmpty else { return }
+        
+        if book == nil {
             bookController?.createBook(withTitle: bookTitleText, reasonToRead: reasonToReadText)
+        } else {
+            if let book = book {
+                bookController?.updateBookDetails(for: book, title: bookTitleText, reasonToRead: reasonToReadText)
+            }
         }
+        
         navigationController?.popViewController(animated: true)
     }
     
