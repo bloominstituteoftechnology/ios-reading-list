@@ -26,9 +26,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M35-e3-BYh">
-                                            <rect key="frame" x="20" y="6" width="61.5" height="31.5"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M35-e3-BYh">
+                                            <rect key="frame" x="20" y="11.5" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -40,9 +40,12 @@
                                             <state key="normal" image="unchecked"/>
                                             <connections>
                                                 <action selector="hasBeenReadTapped:" destination="4GU-gx-FgC" eventType="touchUpInside" id="MXg-SQ-Rk6"/>
-                                                <segue destination="e6Q-cx-OaW" kind="show" identifier="SegueShowBookDetail" id="Mwm-hq-Akl"/>
                                             </connections>
                                         </button>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V9l-gc-Dsw">
+                                            <rect key="frame" x="287" y="6" width="49" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </switch>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="M35-e3-BYh" firstAttribute="leading" secondItem="eW5-f2-fan" secondAttribute="leading" constant="20" id="5a5-5U-I44"/>
@@ -55,6 +58,8 @@
                                 <connections>
                                     <outlet property="btnHasBeenRead" destination="wle-be-Di3" id="CFQ-gH-Djo"/>
                                     <outlet property="lblBookTitle" destination="M35-e3-BYh" id="WuK-FF-vpQ"/>
+                                    <outlet property="swHasBeenRead" destination="V9l-gc-Dsw" id="5U8-ji-DR6"/>
+                                    <segue destination="e6Q-cx-OaW" kind="show" identifier="SegueShowBookDetail" id="2lS-qo-9Y7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -154,6 +159,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U24-nH-XBh"/>
+        <segue reference="2lS-qo-9Y7"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,6 +17,7 @@
 		5DFA87AD22FF425400DF0758 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA87AC22FF425400DF0758 /* ReadingListTableViewController.swift */; };
 		5DFA87AF22FF427100DF0758 /* ReadingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA87AE22FF427100DF0758 /* ReadingListTableViewCell.swift */; };
 		5DFA87B122FF49AB00DF0758 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA87B022FF49AB00DF0758 /* BookDetailViewController.swift */; };
+		5DFA87B322FF4C3C00DF0758 /* ReadingListTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFA87B222FF4C3C00DF0758 /* ReadingListTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5DFA87AC22FF425400DF0758 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		5DFA87AE22FF427100DF0758 /* ReadingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewCell.swift; sourceTree = "<group>"; };
 		5DFA87B022FF49AB00DF0758 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		5DFA87B222FF4C3C00DF0758 /* ReadingListTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				5DFA87A622FF239E00DF0758 /* Book.swift */,
+				5DFA87B222FF4C3C00DF0758 /* ReadingListTableViewCellDelegate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
 				5DFA87AD22FF425400DF0758 /* ReadingListTableViewController.swift in Sources */,
 				5DFA87AF22FF427100DF0758 /* ReadingListTableViewCell.swift in Sources */,
+				5DFA87B322FF4C3C00DF0758 /* ReadingListTableViewCellDelegate.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				5DFA87B122FF49AB00DF0758 /* BookDetailViewController.swift in Sources */,
 				5DFA87AA22FF24CE00DF0758 /* BookController.swift in Sources */,

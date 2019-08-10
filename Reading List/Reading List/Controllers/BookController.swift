@@ -41,10 +41,11 @@ class BookController {
         return newBook
     }
     
-    func updateRead(for book: Book) {
-        guard let i = books.firstIndex(of: book) else { return }
+    func updateRead(for book: Book) -> Book {
+        guard let i = books.firstIndex(of: book) else { return book }
         books[i].hasBeenRead.toggle()
         saveToPersistentStore()
+        return books[i]
     }
     
     func updateBook(for book: Book, newTitle: String, newReason: String) -> Book? {
