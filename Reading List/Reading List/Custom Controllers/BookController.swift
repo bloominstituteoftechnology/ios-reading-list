@@ -12,13 +12,13 @@ class BookController {
     
     private(set) var books: [Book] = []
     
-    var readBooks: [Book] = [] {
-        // return an array of Book's using a .filter method
-    }
+//    var readBooks: [Book] = [] {
+//        // return an array of Book's using a .filter method
+//    }
     
-    var unreadBooks: [Book] = [] {
-        //return an array of unread books using the .filter method
-    }
+//    var unreadBooks: [Book] = [] {
+//        //return an array of unread books using the .filter method
+//    }
     
     private var readingListURL: URL? {
         let fileManager = FileManager.default
