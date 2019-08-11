@@ -65,10 +65,12 @@ class ReadingListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        if section == 0, bookController.readBooks.count != 0 {
             return "Read Books"
-        } else {
+        } else if section == 1, bookController.unreadBooks.count != 0 {
             return "Unread Books"
+        } else {
+            return nil
         }
     }
 

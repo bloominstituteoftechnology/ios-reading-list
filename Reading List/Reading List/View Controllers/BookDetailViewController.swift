@@ -25,7 +25,7 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
         // Do any additional setup after loading the view.
     }
     
@@ -48,12 +48,13 @@ class BookDetailViewController: UIViewController {
         
         if book == nil {
             bookController?.createBook(named: bookName, forReason: reason, beenRead: false)
+            delegate?.bookWasAdded()
+        } else if book != nil {
+            if let book = book {
+                bookController?.editBook(book: book, with: bookName, reasonToRead: reason)
+                delegate?.bookWasAdded()
+            }
         }
-        
-        guard let book = book else { return }
-        bookController?.editBook(book: book, with: bookName, reasonToRead: reason)
-        updateViews()
-        delegate?.bookWasAdded()
         
     }
     
@@ -61,9 +62,9 @@ class BookDetailViewController: UIViewController {
         if let book = book {
             bookNameTextField.text = book.title
             reasonToReadTextView.text = book.reasonToRead
-            super.title = book.title
+            self.title = book.title
         } else {
-            super.title = "Add a new book"
+            self.title = "Add a new book"
         }
         
     }
