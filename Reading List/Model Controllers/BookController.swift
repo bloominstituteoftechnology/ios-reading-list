@@ -63,18 +63,19 @@ class BookController {
     func deleteBook(_ book: Book) {
         guard let index = books.index(of: book) else { return }
         books.remove(at: index)
+        saveToPersistentStore()
     }
     
     func updateHasBeenRead(_ book: Book) {
-        var book = book
-        book.hasBeenRead.toggle()
+        guard let index = books.index(of: book) else { return }
+        books[index].hasBeenRead.toggle()
         saveToPersistentStore()
     }
     
     func updateBookInfo(for book: Book, newTitle: String, newReasonToRead: String) {
-        var book = book
-        book.title = newTitle
-        book.reasonToRead = newReasonToRead
+        guard let index = books.index(of: book) else { return }
+        books[index].title = newTitle
+        books[index].reasonToRead = newReasonToRead
         saveToPersistentStore()
     }
 }
