@@ -92,7 +92,7 @@ class ReadingListTableViewController: UITableViewController {
 extension ReadingListTableViewController: ReadingListTableViewCellDelegate {
     func toggleHasBeenRead(for cell: ReadingListTableViewCell) {
         guard let book = cell.book else { return }
-        cell.book = bookController.updateRead(for: book)
+        bookController.updateRead(for: book)
         tableView.reloadData()
     }
     

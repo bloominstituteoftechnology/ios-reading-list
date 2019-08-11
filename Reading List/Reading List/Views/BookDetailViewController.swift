@@ -19,6 +19,7 @@ class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        txtBookTitle.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -45,6 +46,7 @@ class BookDetailViewController: UIViewController {
             self.book = bookController?.updateBook(for: book, newTitle: title, newReason: reason)
         } else {
             self.book = bookController?.addBook(named: title, reasonToRead: reason)
+            txtBookTitle.becomeFirstResponder()
         }
         
         navigationController?.popViewController(animated: true)
@@ -57,5 +59,17 @@ class BookDetailViewController: UIViewController {
         } else {
             title = "Add a new book"
         }
+    }
+}
+
+extension BookDetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text?.trimmingCharacters(in: .whitespaces), !text.isEmpty else {
+            return false
+        }
+        if textField == txtBookTitle {
+            txtvReasonToRead.becomeFirstResponder()
+        }
+        return true
     }
 }

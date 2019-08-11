@@ -32,6 +32,7 @@ class BookController {
     // MARK: - CRUD methods
     
     @discardableResult func addBook(named: String, reasonToRead: String) -> Book? {
+        let named = named.trimmingCharacters(in: .whitespaces)
         for book in books {
             if book.title == named {
                 return nil
@@ -43,7 +44,7 @@ class BookController {
         return newBook
     }
     
-    func updateRead(for book: Book) -> Book {
+    @discardableResult func updateRead(for book: Book) -> Book {
         guard let i = books.firstIndex(of: book) else { return book }
         books[i].hasBeenRead.toggle()
         saveToPersistentStore()
