@@ -28,7 +28,7 @@ Please fork and clone this repository. This repository comes with a started Xcod
     - A `title` String
     - A `reasonToRead` String
     - A `hasBeenRead` Bool
-3. Create an initializer for the struct so that you can give a default value of `false` to the `hasBeenRead` parameter.
+3. Create an initializer for where dthe struct so that you can give a default value of `false` to the `hasBeenRead` parameter.
 4. Adopt both the `Equatable`, and `Codable` protocols.
 
 #### BookController
