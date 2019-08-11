@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class BookTableViewCell: UITableViewCell {
     
     var book: Book?
@@ -15,14 +16,21 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var bookButton: UIButton!
     @IBAction func bookButtonTapped(_ sender: Any) {
+        //number 7 on the book table view cell.
+        delegate?.toggleHasBeenRead(for: <#T##BookTableViewCell#>)
     }
     
     func updateViews() {
         guard let book = book else { return }
         bookTitleLabel.text = book.title
        //Need to set the image to either checked or unchecked
-        
     }
+    
+    //Number 6 on the book table view cell.
+    weak var delegate: BookTableViewCellDelegate?
+    
+    
+    
     
     
     
