@@ -16,10 +16,12 @@ class BookController {
         return documents.appendingPathComponent("books.plist")
     }
     var readBooks: [Book] {
-        return books.filter { $0.hasBeenRead == true }
+        let rbooks = books.filter { $0.hasBeenRead == true }
+        return rbooks.sorted()
     }
     var unreadBooks: [Book] {
-        return books.filter { $0.hasBeenRead == false }
+        let ubooks = books.filter { $0.hasBeenRead == false }
+        return ubooks.sorted()
     }
     
     init() {

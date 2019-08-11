@@ -34,10 +34,6 @@ class ReadingListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-//        var sections = bookController.readBooks.count > 0 ? 1 : 0
-//        sections += bookController.unreadBooks.count > 0 ? 1 : 0
-//        return sections
         return 2
     }
 
@@ -73,12 +69,9 @@ class ReadingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
             bookController.deleteBook(bookFor(indexPath: indexPath))
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }
     }
 
 
@@ -99,11 +92,8 @@ class ReadingListTableViewController: UITableViewController {
 extension ReadingListTableViewController: ReadingListTableViewCellDelegate {
     func toggleHasBeenRead(for cell: ReadingListTableViewCell) {
         guard let book = cell.book else { return }
-        print("Before update: \(book.hasBeenRead)")
         cell.book = bookController.updateRead(for: book)
-        print("After update: \(book.hasBeenRead)")
         tableView.reloadData()
-        print("After reload: \(cell.book?.hasBeenRead)")
     }
     
     

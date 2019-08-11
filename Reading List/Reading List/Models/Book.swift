@@ -19,3 +19,9 @@ struct Book: Equatable, Codable {
         hasBeenRead = false
     }
 }
+
+extension Book: Comparable {
+    static func < (lhs: Book, rhs: Book) -> Bool {
+        return lhs.title.lowercased() < rhs.title.lowercased()
+    }
+}
