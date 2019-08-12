@@ -114,12 +114,14 @@ class ReadingListTableViewController: UITableViewController {
         if segue.identifier == "addSegue" {
             if let addVC = segue.destination as? BookDetailViewController {
                 addVC.bookController = bookController
+                addVC.title = "Add a new book"
             }
         } else if segue.identifier == "detailSegue" {
             if let detailVC = segue.destination as? BookDetailViewController {
                 guard let indexPath = tableView.indexPathForSelectedRow else { return }
                 detailVC.bookController = bookController
                 detailVC.book = bookFor(indexPath: indexPath)
+                detailVC.title = detailVC.book?.name
             }
         }
     }
