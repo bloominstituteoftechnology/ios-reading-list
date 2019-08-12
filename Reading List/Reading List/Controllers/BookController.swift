@@ -9,6 +9,7 @@
 import Foundation
 
 class BookController {
+    // MARK: Properties
     // initialize an empty array of books
     private(set) var books: [Book] = []
     // create a computed property where the list will be saved on the device
@@ -25,9 +26,15 @@ class BookController {
     private var unreadBooks: [Book] {
         return books.filter({$0.hasBeenRead == false})
     }
+    
+    init() {
+        loadFromPersistentStore()
+    }
+    
+    // MARK: Helper Methods
     // method to create a book and store it
     @discardableResult func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
-        var book = Book(title: title, reasonToRead: reasonToRead)
+        let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistentStore()
         return book
@@ -44,10 +51,11 @@ class BookController {
         if !books[index].hasBeenRead {
             books[index].hasBeenRead = true
         } else {
-            //book.hasBeenRead = false
+            books[index].hasBeenRead = false
         }
         saveToPersistentStore()
     }
+
     // method to edit the book's title and/or reason to read property
     func updateTitleOrReason(for book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
@@ -55,6 +63,8 @@ class BookController {
         books[index].reasonToRead = book.reasonToRead
         saveToPersistentStore()
     }
+    
+    // MARK: Persistent Store
     // method to save data to the url created above
     private func saveToPersistentStore() {
         guard let url = readingListURL else { return }
