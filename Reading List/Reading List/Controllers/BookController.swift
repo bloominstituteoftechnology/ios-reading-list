@@ -19,7 +19,7 @@ class BookController {
     }
     // method to create a book and store it
     @discardableResult func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
-        let book = Book(title: title, reasonToRead: reasonToRead)
+        var book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistentStore()
         return book
@@ -28,8 +28,25 @@ class BookController {
     func deleteBook(book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
         books.remove(at: index)
+        saveToPersistentStore()
     }
-    
+    // method to update the hasBeenRead property
+    func updateHasBeenRead(for book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        if !books[index].hasBeenRead {
+            books[index].hasBeenRead = true
+        } else {
+            //book.hasBeenRead = false
+        }
+        saveToPersistentStore()
+    }
+    // method to edit the book's title and/or reason to read property
+    func updateTitleOrReason(for book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].title = book.title
+        books[index].reasonToRead = book.reasonToRead
+        saveToPersistentStore()
+    }
     // method to save data to the url created above
     private func saveToPersistentStore() {
         guard let url = readingListURL else { return }
