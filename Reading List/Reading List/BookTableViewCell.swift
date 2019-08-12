@@ -8,25 +8,34 @@
 
 import UIKit
 
-class BookTableViewCell: UITableViewCell {
 
+
+class BookTableViewCell: UITableViewCell {
+    
+    
     @IBOutlet weak var bookNameLabel: UILabel!
     @IBOutlet weak var checkListButton: UIButton!
-    //    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
-
+  
+    weak var delegate: BookTableViewCellDelegate?
+    
+    var book: Book? {
+        didSet{
+            updateViews()
+        }
+    }
     
     @IBAction func checkListPressed(_ sender: UIButton) {
-        
+       delegate?.toggleHasBeenRead(for: self)
     }
+    
+    func updateViews() {
+        guard let book = book else {return}
+        bookNameLabel.text = book.title
+        let image = book.hasBeenRead ? UIImage(named: "checked") : UIImage(named: "unchecked")
+        checkListButton.setImage(image, for: .normal)
+    }
+    
+  
     
     
 }
