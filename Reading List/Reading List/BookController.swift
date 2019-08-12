@@ -9,7 +9,7 @@
 import Foundation
 
 class BookController {
-    var books: [Book] = []
+    private(set) var books: [Book] = []
     
     var readBooks: [Book] {
         return books.filter { (book) -> Bool in
@@ -34,7 +34,7 @@ class BookController {
         loadFromPersistentStore()
     }
     
-    @discardableResult func create(named name: String, reasoned reasonToRead: String, readStatus hasBeenRead: Bool ) -> Book {
+    @discardableResult func createBook(named name: String, reasoned reasonToRead: String, readStatus hasBeenRead: Bool ) -> Book {
         
         let book = Book(name: name, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
         books.append(book)
@@ -42,7 +42,7 @@ class BookController {
         return book
     }
     
-    func delete(book: Book) {
+    func deleteBook(book: Book) {
         guard let index = books.index(of: book) else { return }
         let offset = books.distance(from: books.startIndex, to: index)
         books.remove(at: offset)
@@ -50,17 +50,16 @@ class BookController {
     }
     
     func updateHasBeenRead(for book: Book) {
-        var book = book
-        book.hasBeenRead.toggle()
+        guard let index = books.index(of: book) else { return }
+        books[index].hasBeenRead.toggle()
+        saveToPersistentStore()
     }
     
-    func edit(book: Book) {
-//        var book = book
-        //text field
-//        book.name =
-//        book.reasonToRead =
-//        self.saveToPersistentStore()
-
+    func editBook(book: Book, newName: String, newReason: String) {
+        guard let index = books.index(of: book) else { return }
+        books[index].name = newName
+        books[index].reasonToRead = newReason
+        saveToPersistentStore()
     }
     
     // responsible for saving any changes to any Book object so that the changes will still be there when the user comes back into the application

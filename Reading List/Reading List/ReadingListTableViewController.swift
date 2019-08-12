@@ -11,6 +11,11 @@ import UIKit
 class ReadingListTableViewController: UITableViewController {
     
     let bookController = BookController()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+        print(bookController.books.count)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +61,15 @@ class ReadingListTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch (section) {
+        case 0:
+            return "Read Books"
+        default:
+            return "Unread Books"
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -72,7 +86,7 @@ class ReadingListTableViewController: UITableViewController {
             // Delete the row from the data source
             
             let book = bookFor(indexPath: indexPath)
-            bookController.delete(book: book)
+            bookController.deleteBook(book: book)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -93,16 +107,22 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "addSegue" {
+            if let addVC = segue.destination as? BookDetailViewController {
+                addVC.bookController = bookController
+            }
+        } else if segue.identifier == "detailSegue" {
+            if let detailVC = segue.destination as? BookDetailViewController {
+                guard let indexPath = tableView.indexPathForSelectedRow else { return }
+                detailVC.bookController = bookController
+                detailVC.book = bookFor(indexPath: indexPath)
+            }
+        }
     }
-    */
-
 }
 
 extension ReadingListTableViewController: BookTableViewCellDelegate {
