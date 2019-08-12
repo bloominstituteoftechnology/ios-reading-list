@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b81-Lv-BXX">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="ng0-4H-HdC" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="80" id="ng0-4H-HdC" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ng0-4H-HdC" id="tXO-Is-6Q3">
@@ -54,7 +54,7 @@
                                 <connections>
                                     <outlet property="hasBeenReadButton" destination="SLp-Bs-vlg" id="qxp-0R-XKc"/>
                                     <outlet property="titleLabel" destination="WPO-AT-i9j" id="8My-Qb-Hdw"/>
-                                    <segue destination="fcI-E5-rWJ" kind="show" identifier="BookDetailShowSegue" id="Xks-Gt-JIS"/>
+                                    <segue destination="fcI-E5-rWJ" kind="show" identifier="BookDetailSegue" id="Xks-Gt-JIS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -66,7 +66,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="j2J-bA-kBH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="30U-ig-tHx">
                             <connections>
-                                <segue destination="fcI-E5-rWJ" kind="presentation" identifier="AddBookModalSegue" id="mGt-y1-XPb"/>
+                                <segue destination="fcI-E5-rWJ" kind="show" identifier="AddBookSegue" id="mGt-y1-XPb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -110,7 +110,11 @@
                         <viewLayoutGuide key="safeArea" id="EZO-O8-tCQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="i6e-83-jIc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ng5-8J-RiD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ng5-8J-RiD">
+                            <connections>
+                                <action selector="saveTapped:" destination="fcI-E5-rWJ" id="a2F-RX-Iga"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="reasonToReadTextView" destination="P9W-As-mFx" id="Yt2-cW-yJG"/>
