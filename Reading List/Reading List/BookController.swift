@@ -46,6 +46,7 @@ class BookController {
         guard let index = books.index(of: book) else { return }
         let offset = books.distance(from: books.startIndex, to: index)
         books.remove(at: offset)
+        saveToPersistentStore()
     }
     
     func updateHasBeenRead(for book: Book) {

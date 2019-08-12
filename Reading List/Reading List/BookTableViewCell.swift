@@ -12,6 +12,27 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var statusButton: UIButton!
     
+    weak var delegate: BookTableViewCellDelegate?
+    
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    func updateViews() {
+        guard let book = book else { return }
+        
+        titleLabel.text = book.name
+        if book.hasBeenRead == true {
+            let image = UIImage(named: "checked")
+            statusButton.setImage(image, for: .normal)
+        } else if book.hasBeenRead == false {
+            let image = UIImage(named: "unchecked")
+            statusButton.setImage(image, for: .normal)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,6 +45,7 @@ class BookTableViewCell: UITableViewCell {
     }
     
     @IBAction func statusPressed(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
 }
