@@ -17,6 +17,14 @@ class BookController {
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         return documents.appendingPathComponent("ReadingList.plist")
     }
+    // method to create a book and store it
+    @discardableResult func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        books.append(book)
+        saveToPersistentStore()
+        return book
+    }
+    
     // method to save data to the url created above
     private func saveToPersistentStore() {
         guard let url = readingListURL else { return }
@@ -29,7 +37,7 @@ class BookController {
             print("Error saving books data: \(error)")
         }
     }
-    
+    // method to load data from the url created when saving the data - this method also checks if the file exists
     private func loadFromPersistentStore() {
         let fileManager = FileManager.default
         
@@ -42,4 +50,5 @@ class BookController {
             print("Error loading/decoding list of books: \(error)")
         }
     }
+    
 }
