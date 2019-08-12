@@ -16,6 +16,7 @@
 		955962A62300F48900FBCC6C /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955962A52300F48900FBCC6C /* BookController.swift */; };
 		955962AA23010C1500FBCC6C /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955962A923010C1500FBCC6C /* ReadingListTableViewController.swift */; };
 		955962AC23010C2A00FBCC6C /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955962AB23010C2A00FBCC6C /* BookTableViewCell.swift */; };
+		955962AE2301111400FBCC6C /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955962AD2301111400FBCC6C /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		955962A52300F48900FBCC6C /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		955962A923010C1500FBCC6C /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		955962AB23010C2A00FBCC6C /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		955962AD2301111400FBCC6C /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				955962AB23010C2A00FBCC6C /* BookTableViewCell.swift */,
+				955962AD2301111400FBCC6C /* BookTableViewCellDelegate.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				955962A62300F48900FBCC6C /* BookController.swift in Sources */,
 				955962AC23010C2A00FBCC6C /* BookTableViewCell.swift in Sources */,
+				955962AE2301111400FBCC6C /* BookTableViewCellDelegate.swift in Sources */,
 				955962A32300F2F400FBCC6C /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
