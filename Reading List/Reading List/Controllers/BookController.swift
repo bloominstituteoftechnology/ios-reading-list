@@ -17,7 +17,7 @@ class BookController {
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         return documents.appendingPathComponent("ReadingList.plist")
     }
-    
+    // method to save data to the url created above
     private func saveToPersistentStore() {
         guard let url = readingListURL else { return }
         
@@ -27,6 +27,19 @@ class BookController {
             try booksData.write(to: url)
         } catch {
             print("Error saving books data: \(error)")
+        }
+    }
+    
+    private func loadFromPersistentStore() {
+        let fileManager = FileManager.default
+        
+        do {
+            guard let url = readingListURL, fileManager.fileExists(atPath: url.path) else { return }
+            let decodedBooks = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            books = try decoder.decode([Book].self, from: decodedBooks)
+        } catch {
+            print("Error loading/decoding list of books: \(error)")
         }
     }
 }
