@@ -9,7 +9,22 @@
 import Foundation
 
 class BookController {
+    
+    init() {
+        loadFromPersistentStore()
+    }
+    
     private(set) var books: [Book] = []
+    
+    var readBooks: [Book] {
+        let readBooks = books.filter { $0.hasBeenRead == true }
+        return readBooks
+    }
+    
+    var unreadBooks: [Book] {
+        let unreadBooks = books.filter { $0.hasBeenRead == false }
+        return unreadBooks
+    }
     
     
     private var readingListURL: URL? {
@@ -24,27 +39,37 @@ class BookController {
     
     
     
-    @discardableResult func CreateBook(named title: String, with reasonToRead: String, that hasBeenRead: Bool) -> Book {
+    func createBook(named title: String, with reasonToRead: String) {
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistentStore()
-        return book
     }
     
     
-    // Unsure about how to create this delete book method.
-    func DeleteBook(named title: String, with reasonToRead: String) {
-        let book = Book(title: title, reasonToRead: reasonToRead)
-        books.append(book)
+   
+    func deleteBook(for book: Book) {
+        if let index = books.firstIndex(of: book) {
+            books.remove(at: index)
+            saveToPersistentStore()
+        }
     }
     
-    func updateHasBeenRead(for book: Book){
-        // Not sure how to update the has been read functionality
+    func updateHasBeenRead(for book: Book) {
+        if let index = books.firstIndex(of: book) {
+            books[index].hasBeenRead = !books[index].hasBeenRead
+            saveToPersistentStore()
+        }
     }
     
-    func updateBook(for book: Book){
-        //Not sure how to update title and reasonToRead properties
+    func updateBook(for book: Book, with title: String, and reasonToRead: String) {
+        if let index = books.firstIndex(of: book) {
+            books[index].title = title
+            books[index].reasonToRead = reasonToRead
+            saveToPersistentStore()
+        }
     }
+    
+    
     
     
     
@@ -58,7 +83,7 @@ class BookController {
             let booksData = try encoder.encode(books)
             try booksData.write(to: url)
         } catch {
-            print("Error saving stars data: \(error)")
+            print("Error saving books data: \(error)")
         }
         
     }
@@ -73,7 +98,7 @@ class BookController {
             let decoder = PropertyListDecoder()
             books = try decoder.decode([Book].self, from: data)
         } catch {
-            print("Error loading stars data: \(error)")
+            print("Error loading books data: \(error)")
         }
         
     }

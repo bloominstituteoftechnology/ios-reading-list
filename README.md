@@ -22,6 +22,7 @@ Please fork and clone this repository. This repository comes with a started Xcod
 ### Part 1 - Book and BookController
 
 #### Book
+// FINISHED
 
 1. Create a "Book.swift" file. Create a struct called `Book`
 2. This struct should have the following properties:
@@ -32,6 +33,7 @@ Please fork and clone this repository. This repository comes with a started Xcod
 4. Adopt both the `Equatable`, and `Codable` protocols.
 
 #### BookController
+// NEED TO WORK ON METHODS
 
 Up until now, the model controllers you've made have been more or less the same, where they just have CRUD methods, and an array of your model object. Now however since you will be implementing a form of persistence, the model controller gets another responsibility which is to make sure that when a `Book` changes (whether by creating a new one, deleting once, or changing one), those changes are saved and persisted. It would be weird if the user deletes a `Book`, then the next time they open the app, the book is magically there again.
 
@@ -59,21 +61,17 @@ Let's prepare the `BookController` to handle saving and loading from the persist
 6. Like always, we will need to make CRUD methods. As we're using a form of persistence, **be sure to call `saveToPersistentStore()` at the end of each of these or the changes will not persist**:
     - Add a "Create" method that initializes a new `Book` object. In order to persist the newly created `Book`, call the `saveToPersistentStore()` method at the end of this function.
     - Add a "Delete" method that passes in a `Book` object as a parameter, and removes it from the `books` array.
-    
-    //CONFUSED ABOUT WHAT IS BEING ASKED ON THE ABOVE LINE.
-    
     - We'll need two "Update" methods: 
       -  One is to update a `Book` object's `hasBeenRead` property. Call it `updateHasBeenRead(for book: Book)`. It should simply swap the `hasBeenRead` value from `false` to `true` and vice-versa. 
       - The other is to edit the `Book`'s `title` and/or `reasonToRead` properties.
 
 You may have noticed from the screen recording that the table view is going to have more than one section. In order to facilitate the implementation of this multi-section table view, we're going to add a couple computed properties to the `BookController`:
 
-// NEED TO LOOK INTO THIS IN MORE DETAIL.
-
 7. Create a computed property called `readBooks: [Book]`. Inside of the closure of the computed property, you will need to return an array of all of the `Book` objects from the `books` array whose `hasBeenRead` property is true. The easiest way to do that is by using the `.filter` higher-order function. If you are unfamiliar with this function, read the part of [this article](https://useyourloaf.com/blog/swift-guide-to-map-filter-reduce/) titled "Filter". If you still have questions, please ask in the help channel for your cohort, and a PM will explain it to you in more depth.
 8. Create a similar computed property called `unreadBooks: [Book]` that does the same thing, except it returns an array of `Book`s whose `hasBeenRead` property is `false`.
 
 ### Part 2 - Storyboard Scenes
+
 
 The layout of this application uses a simple master-detail interface.
 
@@ -101,11 +99,12 @@ Now we'll set up the detail view controller. This view controller will serve two
 
 #### BookTableViewCell
 
+
 1. Add a `var book: Book?` variable to the `BookTableViewCell` class.
 2. If you haven't done so already, create outlets from the label and button, and an action from the button from the storyboard.
 3. Create an `updateViews()` function that takes the values in the `book` property and sets its `title` in the label, and set the button's image to either the checked or unchecked image that are in the assets folder. 
 
-//NOT SURE HOW TO DO THIS PART
+
     - **NOTE:** You may either use image literals or the `UIImage(named: String)` initializer to get access to the checkbox images from the assets folder.
 
 This custom cell will follow the delegate pattern in order to let the table view controller know that the user just tapped the checkbox button indicating they have or haven't read a book.
@@ -116,6 +115,7 @@ This custom cell will follow the delegate pattern in order to let the table view
 7. Call the `delegate` property's `toggleHasBeenRead(for cell: ...)` function in the action of the button.
 
 #### ReadingListTableViewController
+//STILL WORKING
 
 This table view controller is going to set the table view up to use two sections; one to group all of the read books, and one to group all of the unread books. This is potentially the first time you have used with multiple sections. As always when setting up a table view, we need to use the `numberOfRowsInSection` and `cellForRowAt` methods. However since we want a table view with more than one section, we also need to implement the `numberOfSections(in tableView: ...)` method. Another useful `UITableViewDataSource` method to use when your table view has more than one section is the `titleForHeaderInSection` method that allows us to give a title to each section in order to let the user know how the table view is grouping its cells.
 
@@ -162,8 +162,11 @@ Another function that we can use to help the user know why we have split the dat
 7. Fill out the `titleForHeaderInSection` function, giving each section a unique title.
 
 #### BookDetailViewController
+//ALMOST FINISHED THIS SECTION
 
 As stated before, the `BookDetailViewController` will function as a way to create a new `Book` or to view/update an existing one, depending on the segue that is triggered.
+
+
 
 1. Add a `var bookController: BookController?` variable. Whether the user is creating a new `Book` or updating an existing one, this view controller will need access to the `BookController` to do so.
 2. Add a `var book: Book?` variable. This is going to be nil if the user taps on the plus button to create a new `Book`, or it will actually hold a `Book` object if they are trying to view/update one by segueing when tapping on a cell in the table view.

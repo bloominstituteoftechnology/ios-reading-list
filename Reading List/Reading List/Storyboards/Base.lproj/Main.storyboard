@@ -64,7 +64,7 @@
                             <outlet property="delegate" destination="89T-g3-ANi" id="A4D-cn-dmT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="fs9-xe-s33">
+                    <navigationItem key="navigationItem" title="Reading List" id="fs9-xe-s33">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mTh-ff-02T">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" identifier="addBookSegue" id="7Ie-dq-VaT"/>
@@ -85,13 +85,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m51-Ew-eTX">
-                                <rect key="frame" x="20" y="137" width="374" height="676"/>
+                                <rect key="frame" x="20" y="189" width="374" height="624"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OqL-fX-lqV">
-                                <rect key="frame" x="20" y="99" width="374" height="30"/>
+                                <rect key="frame" x="20" y="151" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -132,8 +132,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Me6-zV-Yb8" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aRB-Z8-AqG">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="aRB-Z8-AqG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

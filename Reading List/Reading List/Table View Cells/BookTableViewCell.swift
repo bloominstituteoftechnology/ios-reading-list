@@ -10,43 +10,33 @@ import UIKit
 
 
 class BookTableViewCell: UITableViewCell {
+  
+    var delegate: BookTableViewCellDelegate?
     
-    var book: Book?
+    
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var bookButton: UIButton!
     @IBAction func bookButtonTapped(_ sender: Any) {
-        //number 7 on the book table view cell.
-        delegate?.toggleHasBeenRead(for: <#T##BookTableViewCell#>)
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     func updateViews() {
-        guard let book = book else { return }
+        guard let book = book else { print ("no book")
+            return }
         bookTitleLabel.text = book.title
-       //Need to set the image to either checked or unchecked
-    }
-    
-    //Number 6 on the book table view cell.
-    weak var delegate: BookTableViewCellDelegate?
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        if book.hasBeenRead {
+            let image = UIImage(named: "checked")
+            bookButton.setImage(image!, for: .normal)
+        } else {
+            let image = UIImage(named: "unchecked")
+            bookButton.setImage(image!, for: .normal)
+        }
     }
 
 }

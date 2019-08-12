@@ -8,10 +8,22 @@
 
 import Foundation
 
-struct Book: Equatable, Codable {
-    let title: String
-    let reasonToRead: String
-    let hasBeenRead: Bool = true
+struct Book: Codable, Equatable {
+    var title: String
+    var reasonToRead: String
+    var hasBeenRead: Bool = false
+    
+    init(title: String, reasonToRead: String) {
+        self.title = title
+        self.reasonToRead = reasonToRead
+    }
 }
+
+
+
+
+
+
+
 
 
