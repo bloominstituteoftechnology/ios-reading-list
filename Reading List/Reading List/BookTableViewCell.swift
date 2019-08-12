@@ -16,7 +16,7 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookNameLabel: UILabel!
     @IBOutlet weak var checkListButton: UIButton!
   
-    weak var delegate: BookTableViewCellDelegate?
+     var delegate: BookTableViewCellDelegate?
     
     var book: Book? {
         didSet{
