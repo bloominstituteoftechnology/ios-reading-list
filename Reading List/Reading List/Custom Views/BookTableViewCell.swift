@@ -14,6 +14,8 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var readStatusButton: UIButton!
     
     var delegate: BookTableViewCellDelegate?
+    var index: IndexPath?
+    let bookController = BookController()
     
     var book: Book? {
         didSet {
@@ -22,8 +24,8 @@ class BookTableViewCell: UITableViewCell {
     }
     
     
-    @IBAction func statusButtonTapped(_ sender: Any) {
-        delegate?.toggleHasBeenRead(for: BookTableViewCell())
+    @IBAction func statusButtonTapped(_ sender: UIButton) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     
@@ -31,13 +33,13 @@ class BookTableViewCell: UITableViewCell {
         guard let book = book else { return }
         bookNameLabel.text = book.title
         if book.hasBeenRead == true {
-            if let checkedImage = UIImage(named: "checked") {
-                readStatusButton.setImage(checkedImage, for: .normal)
-            }
+            let checkedImage = UIImage(named: "checked")
+            readStatusButton.setImage(checkedImage, for: .normal)
+            
         } else if book.hasBeenRead == false {
-            if let uncheckedImage = UIImage(named: "unchecked") {
-                readStatusButton.setImage(uncheckedImage, for: .normal)
-            }
+            let uncheckedImage = UIImage(named: "unchecked")
+            readStatusButton.setImage(uncheckedImage, for: .normal)
+            
         }
     }
     

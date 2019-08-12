@@ -111,6 +111,7 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let book = bookFor(indexPath: indexPath)
         bookController.updateHasBeenRead(for: book)
+        tableView.reloadData()
     }
 }
 
