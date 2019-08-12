@@ -20,13 +20,11 @@ class BookController {
     }
     
     var readBooks: [Book] {
-        let array = books.filter { $0.hasBeenRead == true }
-        return array
+        return books.filter { $0.hasBeenRead == true }
     }
     
     var unreadBooks: [Book] {
-        let array = books.filter { $0.hasBeenRead == false }
-        return array
+        return books.filter { $0.hasBeenRead == false }
     }
     
     init() {
