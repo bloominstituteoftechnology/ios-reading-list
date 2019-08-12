@@ -52,7 +52,7 @@ class BookController {
     }
     
     func addBook() {
-        var newBook = Book(title: <#T##String#>, reasonToRead: <#T##String#>, hasBeenRead: <#T##Bool#>)
+        let newBook = Book(title: <#T##String#>, reasonToRead: <#T##String#>, hasBeenRead: <#T##Bool#>)
         books.append(newBook)
         
         saveToPersistentStore()
