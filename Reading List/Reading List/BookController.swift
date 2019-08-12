@@ -12,15 +12,17 @@ class BookController {
     private(set) var books: [Book] = []
     
     var readBooks: [Book] {
-        return books.filter { (book) -> Bool in
+        let filter =  books.filter { (book) -> Bool in
             return book.hasBeenRead
         }
+        return sortedBook(book: filter)
     }
     
     var unreadBooks: [Book] {
-        return books.filter { (book) -> Bool in
+        let filter = books.filter { (book) -> Bool in
             return book.hasBeenRead == false
         }
+        return sortedBook(book: filter)
     }
     
     private var readingListURL: URL? {
@@ -60,6 +62,12 @@ class BookController {
         books[index].name = newName
         books[index].reasonToRead = newReason
         saveToPersistentStore()
+    }
+    
+    func sortedBook(book: [Book]) -> [Book] {
+        return book.sorted(by: { (firstBook, secondBook) -> Bool in
+            return firstBook.name < secondBook.name
+        })
     }
     
     // responsible for saving any changes to any Book object so that the changes will still be there when the user comes back into the application
