@@ -24,6 +24,11 @@ class BookController {
         saveToPersistentStore()
         return book
     }
+    // method to delete a book and store the resulting array
+    func deleteBook(book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
+    }
     
     // method to save data to the url created above
     private func saveToPersistentStore() {
