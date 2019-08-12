@@ -65,9 +65,9 @@ class ReadingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch (section) {
         case 0:
-            return "Read Books"
+            return (bookController.readBooks.count >= 1) ? "Read Books" : ""
         default:
-            return "Unread Books"
+            return (bookController.unreadBooks.count >= 1) ? "Unread Books" : ""
         }
     }
 

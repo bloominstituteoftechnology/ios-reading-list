@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XND-C2-QeL">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,33 +14,35 @@
         <!--Reading List-->
         <scene sceneID="IcC-RT-ic7">
             <objects>
-                <tableViewController id="sql-5w-Epb" sceneMemberID="viewController">
+                <tableViewController id="sql-5w-Epb" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1yC-MW-FcL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="a5f-yB-B2n" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="60" id="a5f-yB-B2n" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a5f-yB-B2n" id="qbq-Yw-JVU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="292" translatesAutoresizingMaskIntoConstraints="NO" id="x1i-s3-C1E">
-                                            <rect key="frame" x="19.5" y="-3.5" width="375.5" height="50.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1i-s3-C1E">
+                                            <rect key="frame" x="26" y="10" width="323" height="40"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeA-U3-mlk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="33.5" height="50.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="283" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDP-Xg-f6C">
-                                                    <rect key="frame" x="325.5" y="0.0" width="50" height="50.5"/>
+                                                    <rect key="frame" x="283" y="0.0" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="eDP-Xg-f6C" secondAttribute="height" multiplier="1:1" id="F9v-hq-nDK"/>
+                                                        <constraint firstAttribute="width" constant="40" id="ufj-vE-aBF"/>
                                                     </constraints>
+                                                    <viewLayoutGuide key="safeArea" id="dp9-78-Ph0"/>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
                                                         <action selector="statusPressed:" destination="a5f-yB-B2n" eventType="touchUpInside" id="dZH-bC-Z5R"/>
@@ -50,8 +52,9 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="x1i-s3-C1E" firstAttribute="centerX" secondItem="qbq-Yw-JVU" secondAttribute="centerX" id="Nea-HH-gze"/>
-                                        <constraint firstItem="x1i-s3-C1E" firstAttribute="centerY" secondItem="qbq-Yw-JVU" secondAttribute="centerY" id="ldP-fY-hRA"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="x1i-s3-C1E" secondAttribute="trailing" constant="10" id="EQq-kf-TnL"/>
+                                        <constraint firstItem="x1i-s3-C1E" firstAttribute="centerY" secondItem="qbq-Yw-JVU" secondAttribute="centerY" id="o63-oN-uml"/>
+                                        <constraint firstItem="x1i-s3-C1E" firstAttribute="leading" secondItem="qbq-Yw-JVU" secondAttribute="leadingMargin" constant="10" id="xJZ-QP-iVm"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -83,23 +86,23 @@
             <objects>
                 <viewController id="AD3-Jf-eZS" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KBs-oy-mTZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Cjx-hG-yfs">
-                                <rect key="frame" x="20" y="108" width="374" height="754"/>
+                                <rect key="frame" x="20" y="108" width="335" height="670"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lay-OD-PHN">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="187.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lay-OD-PHN">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="68"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqI-Az-C9h">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dJZ-hI-0vq">
-                                                <rect key="frame" x="0.0" y="28.5" width="374" height="159"/>
+                                                <rect key="frame" x="0.0" y="38" width="335" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -113,16 +116,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PnM-nu-5Bi">
-                                        <rect key="frame" x="0.0" y="207.5" width="374" height="546.5"/>
+                                        <rect key="frame" x="0.0" y="88" width="335" height="582"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason to read" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhE-nG-JRz">
-                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason to Read" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhE-nG-JRz">
+                                                <rect key="frame" x="0.0" y="0.0" width="124" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Required pre-reading" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="98l-48-9Bs">
-                                                <rect key="frame" x="0.0" y="28.5" width="374" height="518"/>
+                                                <rect key="frame" x="0.0" y="28.333333333333314" width="335" height="553.66666666666674"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -173,7 +176,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XND-C2-QeL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="woc-Ou-8zh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
