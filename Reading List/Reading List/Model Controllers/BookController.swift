@@ -23,12 +23,18 @@ class BookController {
     }
     
     var readBooks: [Book] {
-        let readBooks = books.filter { $0.hasBeenRead == true }
+        var readBooks = books.filter { $0.hasBeenRead == true }
+        readBooks = readBooks.sorted {
+            $0.title < $1.title
+        }
         return readBooks
     }
     
     var unreadBooks: [Book] {
-        let unreadBooks = books.filter {$0.hasBeenRead == false}
+        var unreadBooks = books.filter {$0.hasBeenRead == false}
+        unreadBooks = unreadBooks.sorted {
+            $0.title < $1.title
+        }
         return unreadBooks
     }
     
