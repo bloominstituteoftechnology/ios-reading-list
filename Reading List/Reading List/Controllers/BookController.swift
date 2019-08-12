@@ -17,6 +17,14 @@ class BookController {
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         return documents.appendingPathComponent("ReadingList.plist")
     }
+    
+    private var readBooks: [Book] {
+        return books.filter({$0.hasBeenRead == true})
+    }
+    
+    private var unreadBooks: [Book] {
+        return books.filter({$0.hasBeenRead == false})
+    }
     // method to create a book and store it
     @discardableResult func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
         var book = Book(title: title, reasonToRead: reasonToRead)
