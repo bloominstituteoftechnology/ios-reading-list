@@ -10,6 +10,8 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController {
 
+    let bookController = BookController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,15 +26,23 @@ class ReadingListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        if section == 0 {
+            return bookController.readBooks.count
+            
+        } else if section == 1 {
+            return bookController.unreadBooks.count
+        }
     }
 
-    /*
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        <#code#>
+//    }
+//
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -40,7 +50,6 @@ class ReadingListTableViewController: UITableViewController {
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
