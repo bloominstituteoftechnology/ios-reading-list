@@ -10,9 +10,11 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
 
+    //Outlets for user interaction
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reasonToReadTextView: UITextView!
     
+    //Variables to hold BookController and Book optional objects
     var bookController: BookController?
     var book: Book?
     
@@ -21,6 +23,7 @@ class BookDetailViewController: UIViewController {
         updateViews()
     }
     
+    //Updates the view depending on presence of value for Book variable
     func updateViews() {
         guard let book = book else {
             title = "Add a new book"
@@ -31,6 +34,7 @@ class BookDetailViewController: UIViewController {
         title = book.title
     }
     
+    //Actions to complete when Save button is tapped to edit or add new book.
     @IBAction func saveTapped(_ sender: Any) {
         if let title = titleTextField.text,
             let reasonToRead = reasonToReadTextView.text {
