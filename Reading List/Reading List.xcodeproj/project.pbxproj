@@ -14,6 +14,8 @@
 		466941732110E22B00E7FF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466941712110E22B00E7FF73 /* LaunchScreen.storyboard */; };
 		843920E6230C7E3500FF8BCB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843920E5230C7E3500FF8BCB /* Book.swift */; };
 		843920E8230C803800FF8BCB /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843920E7230C803800FF8BCB /* BookController.swift */; };
+		843920EA230C8C8B00FF8BCB /* ReadlingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843920E9230C8C8B00FF8BCB /* ReadlingListTableViewController.swift */; };
+		843920EC230C8CB800FF8BCB /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843920EB230C8CB800FF8BCB /* BookTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		466941742110E22B00E7FF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843920E5230C7E3500FF8BCB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		843920E7230C803800FF8BCB /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		843920E9230C8C8B00FF8BCB /* ReadlingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadlingListTableViewController.swift; sourceTree = "<group>"; };
+		843920EB230C8CB800FF8BCB /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 			children = (
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				4669416A2110E22B00E7FF73 /* ViewController.swift */,
+				843920E9230C8C8B00FF8BCB /* ReadlingListTableViewController.swift */,
+				843920EB230C8CB800FF8BCB /* BookTableViewCell.swift */,
 				843920E5230C7E3500FF8BCB /* Book.swift */,
 				843920E7230C803800FF8BCB /* BookController.swift */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,
@@ -141,9 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843920EA230C8C8B00FF8BCB /* ReadlingListTableViewController.swift in Sources */,
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				843920E8230C803800FF8BCB /* BookController.swift in Sources */,
+				843920EC230C8CB800FF8BCB /* BookTableViewCell.swift in Sources */,
 				843920E6230C7E3500FF8BCB /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
