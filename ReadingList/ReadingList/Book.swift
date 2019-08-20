@@ -8,9 +8,11 @@
 
 import Foundation
 
-struct Book {
+struct Book: Codable {
+    
     var title: String
     var reasonToRead: String
-    var hasBeenRead: Bool
+    var hasBeenRead = false
     
+   
 }
