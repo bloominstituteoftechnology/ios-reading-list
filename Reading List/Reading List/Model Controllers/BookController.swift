@@ -19,6 +19,15 @@ class BookController {
 			directory.appendingPathComponent("ReadingList.plist")
 	}
 
+
+	var readBooks: [Book] {
+		return books.filter{ $0.hasBeenRead }
+	}
+
+	var unreadBooks: [Book] {
+		return books.filter{ !$0.hasBeenRead}
+	}
+
 	private func saveToPersistentStore() {
 		guard let url = readingListURL else { return }
 
@@ -58,11 +67,22 @@ class BookController {
 		saveToPersistentStore()
 	}
 
-	func updateHasBeenRead(for book: Book) -> <#return type#> {
-		<#function body#>
+	func updateHasBeenRead(for book: Book) {
+		guard let index = books.index(of: book) else { return }
+		books[index].hasBeenRead.toggle()
 	}
 
-	func 
+	func updateRest(title: String?, reasonToRead reason: String?, book: Book) {
+		guard let index = books.index(of: book) else { return }
+		if let title = title {
+			books[index].title = title
+		}
+		if let reason = reason {
+			books[index].reasonToRead = reason
+		}
+	}
+
+
 
 
 
