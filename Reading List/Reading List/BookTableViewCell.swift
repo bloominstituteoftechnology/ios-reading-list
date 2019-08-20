@@ -15,28 +15,16 @@ class BookTableViewCell: UITableViewCell {
     
     var book: Book?
     
+    var delegate: BookTableViewCellDelegate?
+    
     private func updateViews() {
         guard let book = book else { return }
         
         titleLabel.text = book.title
-        hasBeenReadButton.isSelected = book.hasBeenRead
+        if book.hasBeenRead == true {
+            hasBeenReadButton.setImage(UIImage(named: "checked"), for: .normal)
+        } else {
+            hasBeenReadButton.setImage(UIImage(named: "unchecked"), for: .selected)
+        }
     }
-    
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    @IBAction func addBook(_ sender: UIBarButtonItem) {
-        
-    }
-    
-
 }

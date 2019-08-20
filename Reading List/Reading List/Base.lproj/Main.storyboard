@@ -66,7 +66,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bcz-21-hZI">
                             <connections>
                                 <action selector="addBook:" destination="DTm-lo-F78" id="c6k-pk-UQn"/>
-                                <segue destination="4N9-CD-q3S" kind="show" identifier="AddBookSegue" id="joO-Jg-xG2"/>
+                                <segue destination="4N9-CD-q3S" kind="show" identifier="AddBookSegue" id="Tl6-iY-3mc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -113,6 +113,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="joO-Jg-xG2"/>
+        <segue reference="Tl6-iY-3mc"/>
     </inferredMetricsTieBreakers>
 </document>
