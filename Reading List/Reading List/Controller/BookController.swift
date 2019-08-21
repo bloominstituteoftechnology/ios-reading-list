@@ -11,23 +11,11 @@ import Foundation
 class BookController {
     private(set) var books: [Book] = []
     var readBooks: [Book] {
-        var read:[Book] = []
-        for index in 0 ... books.count - 1 {
-            if books[index].hasBeenRead {
-                read.append (books[index])
-            }
-        }
-        return read
+        return books.filter({$0.hasBeenRead == true})
     }
     
     var unreadBooks: [Book] {
-        var unread:[Book] = []
-        for index in 0 ... books.count - 1 {
-            if !books[index].hasBeenRead {
-                unread.append (books[index])
-            }
-        }
-        return unread
+        return books.filter({$0.hasBeenRead == false})
     }
     
     @discardableResult func create(titled title: String, withReason reason: String, _ beenRead: Bool = false) -> Book {
