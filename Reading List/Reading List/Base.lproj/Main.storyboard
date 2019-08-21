@@ -75,16 +75,52 @@
             </objects>
             <point key="canvasLocation" x="1071.0144927536232" y="33.482142857142854"/>
         </scene>
-        <!--View Controller-->
+        <!--Add a New Book-->
         <scene sceneID="Zum-rb-6pA">
             <objects>
-                <viewController id="4N9-CD-q3S" sceneMemberID="viewController">
+                <viewController title="Add a New Book" id="4N9-CD-q3S" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1aX-4a-ikq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ONU-BA-3PA">
+                                <rect key="frame" x="20" y="108" width="374" height="204"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gP5-8c-wfY">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="46"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to Read" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AtP-Xx-AYT">
+                                        <rect key="frame" x="0.0" y="76" width="374" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ONU-BA-3PA" firstAttribute="top" secondItem="1qA-uo-q43" secondAttribute="top" constant="20" id="HK2-QW-Lwl"/>
+                            <constraint firstItem="ONU-BA-3PA" firstAttribute="leading" secondItem="1qA-uo-q43" secondAttribute="leading" constant="20" id="S2R-F0-kd0"/>
+                            <constraint firstItem="1qA-uo-q43" firstAttribute="trailing" secondItem="ONU-BA-3PA" secondAttribute="trailing" constant="20" id="XEP-wq-Ma8"/>
+                            <constraint firstItem="1qA-uo-q43" firstAttribute="bottom" secondItem="ONU-BA-3PA" secondAttribute="bottom" constant="550" id="lAv-46-SI3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1qA-uo-q43"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="R7f-9K-utz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="C5x-k3-PFx">
+                            <connections>
+                                <action selector="saveButton:" destination="4N9-CD-q3S" id="tNu-uK-Lbf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookTitleTextField" destination="gP5-8c-wfY" id="0ER-PC-jFR"/>
+                        <outlet property="reasonToReadTextField" destination="AtP-Xx-AYT" id="4Oe-gw-6FI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="COS-il-ncm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

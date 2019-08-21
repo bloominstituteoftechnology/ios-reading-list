@@ -17,6 +17,7 @@
 		843920EA230C8C8B00FF8BCB /* ReadlingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843920E9230C8C8B00FF8BCB /* ReadlingListTableViewController.swift */; };
 		843920EC230C8CB800FF8BCB /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843920EB230C8CB800FF8BCB /* BookTableViewCell.swift */; };
 		843920EE230C923E00FF8BCB /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843920ED230C923E00FF8BCB /* BookTableViewCellDelegate.swift */; };
+		843920F0230CB5E500FF8BCB /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843920EF230CB5E500FF8BCB /* BookDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		843920E9230C8C8B00FF8BCB /* ReadlingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadlingListTableViewController.swift; sourceTree = "<group>"; };
 		843920EB230C8CB800FF8BCB /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		843920ED230C923E00FF8BCB /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		843920EF230CB5E500FF8BCB /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				4669416A2110E22B00E7FF73 /* ViewController.swift */,
 				843920E9230C8C8B00FF8BCB /* ReadlingListTableViewController.swift */,
+				843920EF230CB5E500FF8BCB /* BookDetailViewController.swift */,
 				843920EB230C8CB800FF8BCB /* BookTableViewCell.swift */,
 				843920E5230C7E3500FF8BCB /* Book.swift */,
 				843920E7230C803800FF8BCB /* BookController.swift */,
@@ -156,6 +159,7 @@
 				843920E8230C803800FF8BCB /* BookController.swift in Sources */,
 				843920EC230C8CB800FF8BCB /* BookTableViewCell.swift in Sources */,
 				843920EE230C923E00FF8BCB /* BookTableViewCellDelegate.swift in Sources */,
+				843920F0230CB5E500FF8BCB /* BookDetailViewController.swift in Sources */,
 				843920E6230C7E3500FF8BCB /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,9 +41,15 @@ class ReadlingListTableViewController: UITableViewController {
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
+        
+//        let book = bookController.books[indexPath.row]
+        if indexPath.section == 0 {
+            let book = bookController.readBooks[indexPath.row]
+        } else {
+            let book = bookController.unreadBooks[indexPath.row]
+        }
+        cell.book = book
 
         return cell
     }
@@ -57,7 +63,7 @@ class ReadlingListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -67,7 +73,7 @@ class ReadlingListTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
