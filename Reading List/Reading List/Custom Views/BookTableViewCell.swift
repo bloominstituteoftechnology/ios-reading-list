@@ -9,10 +9,15 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
+    var delegate: BookTableViewCellDelegate?
+    var book: Book?
     
     @IBOutlet weak var bookTitleLabel: UILabel!
-    
     @IBOutlet weak var hasBeenReadButton: UIButton!
+    
+    @IBAction func readOrNotTapped(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,8 +26,15 @@ class BookTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
+    func updateViews() {
+        guard let book = book else { return }
+        bookTitleLabel.text = book.title
+        if book.hasBeenRead {
+            hasBeenReadButton.setImage(UIImage(named: "checked.png"), for: .normal)
+        } else {
+            hasBeenReadButton.setImage(UIImage(named: "unchecked.png"), for: .normal)
+        }
+    }
 }

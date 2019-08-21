@@ -17,6 +17,7 @@
 		77423464230CCF4900746F60 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77423463230CCF4900746F60 /* ReadingListTableViewController.swift */; };
 		77423466230CCF6E00746F60 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77423465230CCF6E00746F60 /* BookTableViewCell.swift */; };
 		77423468230CD4C800746F60 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77423467230CD4C800746F60 /* BookDetailViewController.swift */; };
+		7742346A230CE13000746F60 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77423469230CE13000746F60 /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		77423463230CCF4900746F60 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		77423465230CCF6E00746F60 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		77423467230CD4C800746F60 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		77423469230CE13000746F60 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				77423465230CCF6E00746F60 /* BookTableViewCell.swift */,
+				77423469230CE13000746F60 /* BookTableViewCellDelegate.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
 				77423464230CCF4900746F60 /* ReadingListTableViewController.swift in Sources */,
 				77423466230CCF6E00746F60 /* BookTableViewCell.swift in Sources */,
+				7742346A230CE13000746F60 /* BookTableViewCellDelegate.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				77423468230CD4C800746F60 /* BookDetailViewController.swift in Sources */,
 				77423462230C957900746F60 /* BookController.swift in Sources */,
