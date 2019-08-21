@@ -26,7 +26,11 @@ class BookDetailViewController: UIViewController {
     
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        
+        if book == nil {
+            bookController?.createBook(titled: <#T##String#>, withReasonRead: <#T##String#>, withHasBeenRead: <#T##Bool#>)
+        } else {
+            updateViews()
+        }
     }
     
     func updateViews() {
@@ -35,7 +39,7 @@ class BookDetailViewController: UIViewController {
         if book.title == book.title {
             bookTitleTextField.text = book.title
         } else {
-            bookTitleTextField.text = "Add a book"
+            bookTitleTextField.text = "Add a new book"
         }
         reasonToReadTextField.text = "Reason to read: \(book.reasonToRead)"
         
