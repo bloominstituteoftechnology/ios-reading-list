@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="45" id="pCN-9a-i6n" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="45" id="pCN-9a-i6n" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pCN-9a-i6n" id="sGL-LJ-ASh">
@@ -70,6 +70,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="lcY-Nl-aLv">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MBE-BV-7GQ">
                             <connections>
+                                <action selector="addBook:" destination="Jbd-dS-Nm7" id="v5l-Dv-zgv"/>
                                 <segue destination="0zI-NK-DFC" kind="show" identifier="AddBookSegue" id="JOE-by-c41"/>
                             </connections>
                         </barButtonItem>
