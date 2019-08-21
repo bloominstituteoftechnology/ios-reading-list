@@ -18,6 +18,7 @@ class BookTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    var delegate: BookTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +42,6 @@ class BookTableViewCell: UITableViewCell {
     }
     
     @IBAction func beenReadButtonTapped(_ sender: UIButton) {
-        
+        delegate?.toggleHasBeenRead(for: self)
     }
 }

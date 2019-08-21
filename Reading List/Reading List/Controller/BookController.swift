@@ -8,6 +8,15 @@
 
 import Foundation
 
+protocol manageBookDelegate {
+    func updateBook (book: Book, title: String?, reason: String?)
+    func createBook (title: String, reason: String)
+}
+
+protocol createBookDelegate {
+    
+}
+
 class BookController {
     private(set) var books: [Book] = []
     var readBooks: [Book] {

@@ -47,6 +47,7 @@ class ReadingListTableViewController: UITableViewController {
 
         // Configure the cell...
         let book = bookFor(indexPath: indexPath)
+        cell.delegate = self
         cell.book = book
         return cell
     }
@@ -76,7 +77,9 @@ class ReadingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+            bc.delete(which: bc.books[indexPath.row])
+            tableView.reloadData()
         }
     }
     
@@ -91,6 +94,7 @@ class ReadingListTableViewController: UITableViewController {
         case "AddBook":
             if let vc = segue.destination as? BookDetailViewController {
                 vc.bc = bc
+                vc.delegate = self
             }
             break
         case "ShowBook":
@@ -98,21 +102,32 @@ class ReadingListTableViewController: UITableViewController {
                 vc.bc = bc
                 if let row = tableView.indexPathForSelectedRow?.row {
                     vc.book = bc.books[row]
+                    vc.delegate = self
                 }
             }
-            break
         default:
             break
         }
     }
-
-
 }
 
 extension ReadingListTableViewController:BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-        
+        if let book = cell.book {
+            bc.toggleHasBeenRead(which: book)
+            tableView.reloadData()
+        }
+    }
+}
+
+extension ReadingListTableViewController:manageBookDelegate {
+    func createBook(title: String, reason: String) {
+        bc.create(titled: title, withReason: reason)
+        tableView.reloadData()
     }
     
-    
+    func updateBook(book: Book, title: String?, reason: String?) {
+        bc.update(which: book, title, reason)
+        tableView.reloadData()
+    }
 }
