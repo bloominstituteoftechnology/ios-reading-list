@@ -93,15 +93,14 @@ class ReadingListTableViewController: UITableViewController {
             
         case "AddBook":
             if let vc = segue.destination as? BookDetailViewController {
-                vc.bc = bc
                 vc.delegate = self
             }
             break
         case "ShowBook":
             if let vc = segue.destination as? BookDetailViewController {
                 vc.bc = bc
-                if let row = tableView.indexPathForSelectedRow?.row {
-                    vc.book = bc.books[row]
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    vc.book = bookFor(indexPath: indexPath)
                     vc.delegate = self
                 }
             }

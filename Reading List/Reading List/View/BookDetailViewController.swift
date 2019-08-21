@@ -13,12 +13,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reasonTextView: UITextView!
     
-    var book: Book?//{
-//        didSet{
-//            updateViews()
-//        }
-  // }
-    var bc: BookController?
+    var book: Book?
     var delegate: manageBookDelegate?
     
     func updateViews () {
@@ -34,8 +29,10 @@ class BookDetailViewController: UIViewController {
     
     @IBAction func saveTapped(_ sender: Any) {
         if let book = book {
-            let title = titleTextField.text
-            let reason = reasonTextView.text
+            guard let title = titleTextField.text,
+                let reason = reasonTextView.text,
+                !title.isEmpty,
+                !reason.isEmpty else {return}
             delegate?.updateBook(book: book, title: title, reason: reason)
 //            dismiss(animated: true, completion: nil)
             navigationController?.popViewController(animated: true)
