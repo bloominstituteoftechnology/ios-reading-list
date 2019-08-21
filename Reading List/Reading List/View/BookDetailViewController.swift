@@ -28,38 +28,17 @@ class BookDetailViewController: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: Any) {
+        guard let title = titleTextField.text,
+            let reason = reasonTextView.text,
+            !title.isEmpty,
+            !reason.isEmpty else {return}
         if let book = book {
-            guard let title = titleTextField.text,
-                let reason = reasonTextView.text,
-                !title.isEmpty,
-                !reason.isEmpty else {return}
             delegate?.updateBook(book: book, title: title, reason: reason)
-//            dismiss(animated: true, completion: nil)
             navigationController?.popViewController(animated: true)
         } else {
-            guard let title = titleTextField.text,
-                let reason = reasonTextView.text,
-                !title.isEmpty,
-                !reason.isEmpty else {return}
             delegate?.createBook(title: title, reason: reason)
-            //bc.create(titled: title, withReason: reason)
             dismiss(animated: true, completion: nil)
         }
         
     }
-    
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if let vc = segue.destination as? ReadingListTableViewController {
-            vc.tableView.reloadData()
-        }
-        
-    }
-
-
 }

@@ -98,7 +98,6 @@ class ReadingListTableViewController: UITableViewController {
             break
         case "ShowBook":
             if let vc = segue.destination as? BookDetailViewController {
-                vc.bc = bc
                 if let indexPath = tableView.indexPathForSelectedRow {
                     vc.book = bookFor(indexPath: indexPath)
                     vc.delegate = self
