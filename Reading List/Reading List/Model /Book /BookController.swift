@@ -11,6 +11,14 @@ class BookController  {
     
     //MARK: - Properties
    private(set) var books: [Book] = []
+    var readBooks:[Book] {
+        var readBooks = books.filter({$0.hasBeenRead == true})
+        return readBooks
+    }
+    var unreadBooks:[Book] {
+        var unreadBooks = books.filter({$0.hasBeenRead == false})
+        return unreadBooks
+    }
     
     init() {
         loadFromPersistentStore()
@@ -23,7 +31,20 @@ class BookController  {
         saveToPersistentStore()
     }
     
+    func updateHasBeenRead(for book: Book) {
+            var updateBook = book
+        updateBook.hasBeenRead = !updateBook.hasBeenRead
+    }
     
+    func updateBook(withTitle title: String, reasonToRead reason: String) {
+        var updateBook: Book?
+        updateBook?.reasonToRead = reason
+        updateBook?.title = title
+    }
+    
+    func deleteBook(_ indexPath:Int) {
+        books.remove(at: indexPath)
+    }
 }
 
 // created extension for persistance
@@ -43,7 +64,7 @@ extension BookController {
             let data = try encoder.encode(books)
             try data.write(to: url)
         } catch {
-            print("Error saving stars data: \(error)")
+            print("Error saving books data: \(error)")
         }
     }
     
@@ -56,7 +77,7 @@ extension BookController {
             let decoder = PropertyListDecoder()
             books = try decoder.decode([Book].self, from: data)
         } catch {
-            print("Error loading stars data: \(error)")
+            print("Error loading books data: \(error)")
         }
     }
     
