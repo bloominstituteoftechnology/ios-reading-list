@@ -7,7 +7,8 @@
 //
 
 import Foundation
-
+    //this structure creates a Book, which is codable and equatable. it has a title, a reason to read, and a hasBeenRead property which is a bool.
+    //It also has an init that gives us a default value of FALSE fo our hasBeenRead Bool. 
 struct Book: Codable, Equatable {
     var title: String
     var reasonToRead: String
