@@ -16,6 +16,7 @@
 		FA1D044A2331804F002AECCE /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D04492331804F002AECCE /* ReadingListTableViewController.swift */; };
 		FA1D044C23318076002AECCE /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D044B23318076002AECCE /* BookTableViewCell.swift */; };
 		FA1D044E2331864A002AECCE /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D044D2331864A002AECCE /* BookDetailViewController.swift */; };
+		FA1D0450233190DB002AECCE /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D044F233190DB002AECCE /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FA1D04492331804F002AECCE /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		FA1D044B23318076002AECCE /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		FA1D044D2331864A002AECCE /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		FA1D044F233190DB002AECCE /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				FA1D044723314CE6002AECCE /* BookController.swift */,
 				FA1D04492331804F002AECCE /* ReadingListTableViewController.swift */,
 				FA1D044B23318076002AECCE /* BookTableViewCell.swift */,
+				FA1D044F233190DB002AECCE /* BookTableViewCellDelegate.swift */,
 				FA1D044D2331864A002AECCE /* BookDetailViewController.swift */,
 				FA1D044523314B36002AECCE /* Book.swift */,
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
@@ -152,6 +155,7 @@
 				FA1D044E2331864A002AECCE /* BookDetailViewController.swift in Sources */,
 				FA1D044823314CE6002AECCE /* BookController.swift in Sources */,
 				FA1D044C23318076002AECCE /* BookTableViewCell.swift in Sources */,
+				FA1D0450233190DB002AECCE /* BookTableViewCellDelegate.swift in Sources */,
 				FA1D044623314B36002AECCE /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

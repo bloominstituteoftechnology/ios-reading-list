@@ -54,7 +54,7 @@ class BookController {
     }
     
     
-    // TODO - : Itirate through the array an find the correct book to delete
+    
     @discardableResult func deleteBook(book: Book) {
         
         guard let index = books.firstIndex(of: book) else { return }
@@ -73,28 +73,31 @@ class BookController {
    // As of now, book, which is in the initializer for the function is a constant, so we can’t edit that.
     func updateHasBeenRead(for book: Book) {
         
-//        guard let index = books.firstIndex(of: book) else { return }
-//        
-//        
-//        for book in books[index] {
-//            
-//            if book.hasBeenRead == true {
-//                book.hasBeenRead = false
-//            } else {
-//                book.hasBeenRead = true
-//            }
-//        }
-//      
+       
+            guard let index = books.firstIndex(of: book) else { return }
+            if books[index].hasBeenRead == false {
+                books[index].hasBeenRead = true
+            } else if books[index].hasBeenRead == true {
+                books[index].hasBeenRead = false
+            }
+            saveToPersistentStore()
         
     }
     
     
-    // TODO: - Edit the Book's title and/or reasonToRead properties.
-    func updateTitleAndReasonToRead(for book: Book) {
-        
+//    // TODO: - Edit the Book's title and/or reasonToRead properties.
+//    func updateTitleAndReasonToRead(for book: Book) {
+    
         // code here
         
-    }
+        func updateTitleOrReasonToRead(book: Book, title: String, reasonToRead: String) {
+            guard let index = books.firstIndex(of: book) else { return }
+            books[index].title = title
+            books[index].reasonToRead = reasonToRead
+            saveToPersistentStore()
+        }
+        
+
     
     
     

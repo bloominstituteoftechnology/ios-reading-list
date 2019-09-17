@@ -9,24 +9,42 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
+    
+    var book: Book?
+    
+    var checkedImage = UIImage(named: "checked") //as UIImage?
+    var uncheckedImage = UIImage(named: "unchecked") //as UIImage?
+    
+    
+    weak var delegate: BookTableViewCellDelegate?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var checkButton: UIButton!
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
     
-    
+
     
     @IBAction func checkButtonTapped(_ sender: UIButton) {
+        
+        delegate?.toggleHasBeenRead(for: <#T##BookTableViewCell#>)
+        
     }
     
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
+    
+    private func updateViews() {
+        guard let book = book else { return }
+        
+        titleLabel.text = book.title
+        
+        switch book.hasBeenRead {
+        case true:
+            checkButton.setImage(checkedImage, for: .normal)
+        case false:
+            checkButton.setImage(uncheckedImage, for: .normal)
+        }
+        
+//        distanceLabel.text = star.distanceDescription
+    }
+    
 
 }
