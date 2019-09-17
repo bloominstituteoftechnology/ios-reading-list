@@ -42,6 +42,7 @@ class BookController {
         var editReason = reasontoRead
         editReason = ""
     }
+    //  TODO: Will have to fix later.
     
     var readBooks: [Book] {
         let readFilter = books.filter { $0.hasBeenRead == true }

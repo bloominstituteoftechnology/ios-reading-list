@@ -17,6 +17,8 @@ class BookTableViewCell: UITableViewCell {
         }
     }
     
+    var delegate: BookTableViewCellDelegate?
+    
     // MARK: - Methods
     private func updateViews() {
         guard let book = book else { return }
@@ -36,6 +38,7 @@ class BookTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @IBAction func checkBoxButtonAction(_ sender: UIButton) {
-        
+        let book = BookTableViewCell()
+        delegate?.toggleHasBeenRead(for: book)
     }
 }
