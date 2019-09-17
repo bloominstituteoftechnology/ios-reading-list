@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol BookDetailDelegate {
+    func bookWasSaved()
+}
+
 class BookDetailViewController: UIViewController {
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -15,6 +19,7 @@ class BookDetailViewController: UIViewController {
     
     var book: Book?
     var bookController: BookController?
+    var delegate: BookDetailDelegate?
     
     override func viewDidLoad() {
         updateViews()
@@ -41,5 +46,6 @@ class BookDetailViewController: UIViewController {
         } else {
             bookController?.create(name: title, reasonToRead: reasonToRead)
         }
+        delegate?.bookWasSaved()
     }
 }

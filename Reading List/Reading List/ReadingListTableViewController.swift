@@ -109,10 +109,12 @@ class ReadingListTableViewController: UITableViewController {
         if let bookDetailVC = segue.destination as? BookDetailViewController {
             if segue.identifier == "AddBookShowSegue" {
                 bookDetailVC.bookController = bookController
+                bookDetailVC.delegate = self
             } else if segue.identifier == "EditBookShowSegue",
                 let indexPath = tableView.indexPathForSelectedRow {
                 bookDetailVC.book = bookFor(indexPath: indexPath)
                 bookDetailVC.bookController = bookController
+                bookDetailVC.delegate = self
             }
         }
     }
@@ -124,6 +126,13 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
         // The readme says to get the IndexPath for the cell, then get the book based on that index path, but this should be a much simpler solution
         guard let book = cell.book else { return }
         bookController.updateHasBeenRead(for: book)
+        tableView.reloadData()
+    }
+}
+
+extension ReadingListTableViewController: BookDetailDelegate {
+    func bookWasSaved() {
+        navigationController?.popViewController(animated: true)
         tableView.reloadData()
     }
 }
