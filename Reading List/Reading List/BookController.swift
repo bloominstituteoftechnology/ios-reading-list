@@ -12,11 +12,33 @@ class BookController {
     
     var books: [Book] = []
     
+    var readBooks: [Book] {
+        return books.filter { $0.hasBeenRead == true }
+    }
+    
+    var unreadBooks: [Book] {
+        return books.filter { $0.hasBeenRead == false }
+    }
+    
     var readingListURL: URL? {
         let fileManager = FileManager.default
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         
         return documents.appendingPathComponent("ReadingList.plist")
+    }
+    
+    func createBook(named title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        books.append(book)
+        saveToPersistentStore()
+        return book
+    }
+    
+    func deleteBook(book: Book) {
+        if let index = books.firstIndex(of: book) {
+            books.remove(at: index)
+            saveToPersistentStore()
+        }
     }
     
     func saveToPersistentStore() {
