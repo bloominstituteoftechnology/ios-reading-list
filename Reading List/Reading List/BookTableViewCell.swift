@@ -14,14 +14,14 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var readButton: UIButton!
     
 
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
     var delegate: BookTableViewCellDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     func updateViews() {
         guard let book = book else { return }
