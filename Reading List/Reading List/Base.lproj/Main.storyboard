@@ -39,6 +39,9 @@
                                                         <constraint firstAttribute="width" secondItem="YNr-NQ-Q7v" secondAttribute="height" multiplier="1:1" id="yN2-fy-RMB"/>
                                                     </constraints>
                                                     <state key="normal" image="checked"/>
+                                                    <connections>
+                                                        <action selector="isReadButton:" destination="mjB-md-rfX" eventType="touchUpInside" id="cJ2-tN-LCV"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -59,6 +62,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="readButton" destination="YNr-NQ-Q7v" id="kN6-6K-nGw"/>
+                                    <outlet property="titleLabel" destination="Qpu-pz-MLk" id="zpz-MM-4lD"/>
                                     <segue destination="TzA-hn-CiN" kind="show" identifier="DetailViewControllerSegue" id="5YJ-YP-c3T"/>
                                 </connections>
                             </tableViewCell>
@@ -80,21 +85,60 @@
             </objects>
             <point key="canvasLocation" x="1108.6956521739132" y="172.76785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="d29-qj-X3H">
             <objects>
-                <viewController id="TzA-hn-CiN" sceneMemberID="viewController">
+                <viewController id="TzA-hn-CiN" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BOV-yN-G04">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="Gty-N0-gDc">
+                                <rect key="frame" x="8" y="132" width="398" height="352"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Njy-Lq-NxG">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NDh-gA-fTb">
+                                        <rect key="frame" x="0.0" y="61" width="398" height="291"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="NDh-gA-fTb" firstAttribute="leading" secondItem="Gty-N0-gDc" secondAttribute="leading" id="7VC-TX-IEI"/>
+                                    <constraint firstAttribute="bottom" secondItem="NDh-gA-fTb" secondAttribute="bottom" id="ACT-oI-oA5"/>
+                                    <constraint firstAttribute="height" constant="352" id="JHe-JR-xNQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="NDh-gA-fTb" secondAttribute="trailing" id="jzR-dn-TMt"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Gty-N0-gDc" firstAttribute="centerY" secondItem="BOV-yN-G04" secondAttribute="centerY" constant="-140" id="Fjo-ub-aoR"/>
+                            <constraint firstItem="Gty-N0-gDc" firstAttribute="centerX" secondItem="BOV-yN-G04" secondAttribute="centerX" id="t9r-qx-CN1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DDX-Of-JeQ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4O7-Ox-c90"/>
+                    <navigationItem key="navigationItem" id="fGJ-Db-Vlh">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="WUv-Xy-aRK">
+                            <connections>
+                                <action selector="saveButton:" destination="TzA-hn-CiN" id="FOU-za-oTu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="reasonToReadTextView" destination="NDh-gA-fTb" id="e6x-vr-ciL"/>
+                        <outlet property="titleTextField" destination="Njy-Lq-NxG" id="mYe-4f-JPv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsu-sL-tyj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2041" y="173"/>
+            <point key="canvasLocation" x="2040.5797101449277" y="172.76785714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zj7-cb-6aP">
