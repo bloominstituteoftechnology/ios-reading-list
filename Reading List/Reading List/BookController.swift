@@ -9,7 +9,12 @@
 import Foundation
 
 class BookController {
-    var books: [Book] = [Book(title: "The Checklist Manifesto", reasonToRead: "is cool")]
+    
+    init() {
+        loadFromPersistentStore()
+    }
+    
+    var books: [Book] = []
     
     var readBooks: [Book] {
         return books.filter {$0.hasBeenRead}
@@ -45,6 +50,7 @@ class BookController {
 //            books[index] = newBook
             // The above seemed a bit too verbose, but I'm not sure exactly which would be better.
             books[index].hasBeenRead.toggle()
+            saveToPersistentStore()
         }
     }
     
@@ -54,6 +60,7 @@ class BookController {
             newBook.title = newTitle
             newBook.reasonToRead = newReasonToRead
             books[index] = newBook
+            saveToPersistentStore()
         }
     }
     
