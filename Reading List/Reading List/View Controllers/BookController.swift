@@ -29,12 +29,32 @@ class BookController {
             saveToPersistentStore()
             return book
     }
+    
     //MARK: Delete a book method
     func deleteBook(book: Book) {
     guard let index = books.firstIndex(of: book) else { return }
     books.remove(at: index)
         saveToPersistentStore()
     }
+    
+    //MARK: two methods for updating: one to update hasBeenRead status and one to update title and reasonToRead
+    func updateHasBeenRead(for book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        if books[index].hasBeenRead == false {
+            books[index].hasBeenRead = true
+        } else if books[index].hasBeenRead == true {
+            books[index].hasBeenRead = false
+        }
+        saveToPersistentStore()
+    }
+    
+    func updateTitleOrReasonToRead(book: Book, title: String, reasonToRead: String) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].title = title
+        books[index].reasonToRead = reasonToRead
+        saveToPersistentStore()
+    }
+    
     
     //MARK: function responsible for saving any changes to any book object so that the changes will still be there when the user comes back into the app
     func saveToPersistentStore() {
@@ -44,8 +64,7 @@ class BookController {
         do {
             let encoder = PropertyListEncoder()
             let booksData = try encoder.encode(books)
-            try booksData.write(to: url)
-            
+            try booksData.write(to: url)            
        // writing data to readingList.plist
         } catch {
             print("Error saving books data: \(error)")
@@ -68,6 +87,14 @@ class BookController {
         }
     }
     
+    //MARK: Computed property to return an array of books based on their hasBeenRead status
+       var readBooks: [Book] {
+        let readBooks: [Book] = books.filter({ $0.hasBeenRead })
+        return readBooks
+    }
     
-    
+    var unReadBooks: [Book] {
+        let unReadBooks: [Book] = books.filter({!$0.hasBeenRead})
+        return unReadBooks
+    }
 }
