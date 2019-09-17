@@ -10,6 +10,8 @@ import Foundation
 
 class BookController {
     
+    
+    
     var books: [Book] = []
     
     var readBooks: [Book] {
@@ -18,6 +20,11 @@ class BookController {
     
     var unreadBooks: [Book] {
         return books.filter { $0.hasBeenRead == false }
+        
+    }
+    
+    init() {
+        loadFromPersistentStore()
     }
     
     var readingListURL: URL? {
@@ -28,15 +35,20 @@ class BookController {
     }
     
     func updateHasBeenRead(for book: Book) {
-        if book.hasBeenRead == false {
-            book.hasBeenRead = true
-        } else {
-            book.hasBeenRead = false
-        }
+        var newBook = book
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index] = newBook
+        newBook.hasBeenRead.toggle()
     }
     
-    func updateBook(for book: Book) {
-        
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        guard let book = cell.book else { return }
+        updateHasBeenRead(for: book)
+        if book.hasBeenRead == true {
+            cell.readButton.setImage(#imageLiteral(resourceName: "checked"), for: .selected)
+        } else {
+            cell.readButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
+        }
         
     }
     
