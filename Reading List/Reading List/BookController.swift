@@ -17,10 +17,18 @@ class BookController {
     var books: [Book] = []
     
     var readBooks: [Book] {
-        return books.filter {$0.hasBeenRead}
+        var readBooks = books.filter {$0.hasBeenRead}
+        readBooks.sort {
+            $0.title < $1.title
+        }
+        return readBooks
     }
     var unreadBooks: [Book] {
-        return books.filter {!$0.hasBeenRead}
+        var unreadBooks = books.filter {!$0.hasBeenRead}
+        unreadBooks.sort {
+            $0.title < $1.title
+        }
+        return unreadBooks
     }
     
     var readingListURL: URL? {
