@@ -57,6 +57,10 @@ class BookController {
     // TODO - : Itirate through the array an find the correct book to delete
     @discardableResult func deleteBook(book: Book) {
         
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
+        saveToPersistentStore()
+        
         // books.remove(at: )
 
     }
@@ -69,11 +73,18 @@ class BookController {
    // As of now, book, which is in the initializer for the function is a constant, so we can’t edit that.
     func updateHasBeenRead(for book: Book) {
         
-//        if book.hasBeenRead == true {
-//            book.hasBeenRead = false
-//        } else {
-//            book.hasBeenRead = true
+//        guard let index = books.firstIndex(of: book) else { return }
+//        
+//        
+//        for book in books[index] {
+//            
+//            if book.hasBeenRead == true {
+//                book.hasBeenRead = false
+//            } else {
+//                book.hasBeenRead = true
+//            }
 //        }
+//      
         
     }
     
