@@ -9,6 +9,10 @@
 import UIKit
 
 class ReadingListTableViewController: UITableViewController {
+    
+    var bookController = BookController()
+    
+    var delegate: BookTableViewCellDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,26 +25,49 @@ class ReadingListTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    private func bookFor(indexPath: IndexPath) -> Book {
+        if indexPath.section == 0 {
+            return bookController.unreadBooks[indexPath.row]
+        } else {
+            return bookController.readBooks[indexPath.row]
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
-
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            guard bookController.unreadBooks.count > 0 else { return nil }
+            return "Unread Book"
+        } else {
+            guard bookController.readBooks.count > 0 else { return nil }
+            return "Read Books"
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if section == 0 {
+            return bookController.unreadBooks.count
+        } else {
+            return bookController.readBooks.count
+        }
     }
+    
 
-    /*
+
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
 
-        // Configure the cell...
+        cell.book = bookFor(indexPath: indexPath)
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -50,17 +77,26 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        
+        switch indexPath.section {
+            case 0:
+            if editingStyle == UITableViewCell.EditingStyle.delete {
+                bookController.books.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+                bookController.saveToPersistentStore()}
+            case 1:
+            if editingStyle == UITableViewCell.EditingStyle.delete{
+                bookController.books.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+                bookController.saveToPersistentStore()}
+            default:
+            return
+        }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -77,14 +113,21 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddBookSegue" {
+            guard let destinationVC = segue.destination as? BookDetailViewController else { return }
+            destinationVC.bookController = bookController
+        } else if segue.identifier == "BookDetailViewSegue" {
+            guard let destinationVC = segue.destination as? BookDetailViewController,
+            let indexPath = tableView.indexPathForSelectedRow else { return }
+            destinationVC.bookController = bookController
+            destinationVC.book = bookController.books[indexPath.row]
+        }
     }
-    */
+    
 
 }

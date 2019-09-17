@@ -13,15 +13,30 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var reasonToReadTextView: UITextView!
     
+    var bookController: BookController?
+    
+    var book: Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViews()
+    }
+    
+    func updateViews() {
+        if let aBook = book {
+            bookTitleTextField.text = aBook.title
+            reasonToReadTextView.text = aBook.reasonToRead
+            
+        }
     }
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        
+        guard let title = bookTitleTextField.text, !title.isEmpty,
+            let reason = reasonToReadTextView.text, !reason.isEmpty else { return }
+        bookController?.createBook(named: title, reasonToRead: reason, hasBeenRead: false)
+        bookController?.saveToPersistentStore()
+        navigationController?.popViewController(animated: true)
     }
     
     
