@@ -13,18 +13,17 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reasonToReadTextView: UITextView!
     
-    var bookController: BookController? {
-        didSet {
-            updateViews()
-        }
-    }
     var book: Book?
+    var bookController: BookController?
+    
+    override func viewDidLoad() {
+        updateViews()
+    }
     
     func updateViews() {
-        if let book: Book = book{
-            print(book.title)
-                    titleTextField.text = "test"
-                    //reasonToReadTextView.text = book.reasonToRead
+        if let book = book {
+            titleTextField.text = book.title
+            reasonToReadTextView.text = book.reasonToRead
             navigationItem.title = book.title
         } else {
             navigationItem.title = "Add a new book"
@@ -32,5 +31,15 @@ class BookDetailViewController: UIViewController {
     }
 
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
+        guard let title = titleTextField.text,
+            let reasonToRead = reasonToReadTextView.text,
+            !title.isEmpty,
+            !reasonToRead.isEmpty else { return }
+        
+        if let book = book {
+            bookController?.updateBook(book: book, newTitle: title, newReasonToRead: reasonToRead)
+        } else {
+            bookController?.create(name: title, reasonToRead: reasonToRead)
+        }
     }
 }

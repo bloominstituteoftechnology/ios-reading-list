@@ -46,8 +46,13 @@ class ReadingListTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else {
             return UITableViewCell()
         }
+        
+        if indexPath.section == 0 {
+            cell.book = bookController.readBooks[indexPath.row]
+        } else {
+            cell.book = bookController.unreadBooks[indexPath.row]
+        }
 
-        cell.book = bookFor(indexPath: indexPath)
         cell.delegate = self
         
         return cell
