@@ -27,6 +27,19 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
+    func updateHasBeenRead(for book: Book) {
+        if book.hasBeenRead == false {
+            book.hasBeenRead = true
+        } else {
+            book.hasBeenRead = false
+        }
+    }
+    
+    func updateBook(for book: Book) {
+        
+        
+    }
+    
     func createBook(named title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
         books.append(book)
