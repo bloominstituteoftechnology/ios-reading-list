@@ -9,10 +9,14 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
-
+    
+    
+    // MARK: - Outlets
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reasonTextView: UITextView!
     
+    
+    // Mark: - Properties
     var bookController: BookController?
     var book: Book?
     

@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol BookTableViewCellDelegate {
+protocol BookTableViewCellDelegate: AnyObject {
     
     
     

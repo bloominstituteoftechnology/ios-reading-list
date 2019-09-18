@@ -11,7 +11,7 @@ import Foundation
 
 class BookController {
     
-    private var books: [Book] = []
+    private(set) var books: [Book] = []
     
     var readingListURL: URL? {
 
@@ -44,11 +44,14 @@ class BookController {
     
     
     
+    // MARK: - Creating a new Book & apending it to the books array
     
     @discardableResult func createBook(title: String, reasonToRead: String) -> Book {
+        
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistentStore()
+        //tableView.reloadData()
         
         return book
     }
