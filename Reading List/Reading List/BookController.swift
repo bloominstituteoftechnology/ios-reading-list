@@ -73,6 +73,7 @@ class BookController {
             }
         }
         books.append(book)
+        books.sort(by: <)
         saveToPersistentStore()
         delegate?.tableView.reloadData()
     }
@@ -104,6 +105,7 @@ class BookController {
             if books[i] == book {
                 books[i].title = title
                 books[i].reasonToRead = reasonToRead
+                books.sort(by: <)
                 saveToPersistentStore()
                 delegate?.tableView.reloadData()
                 break

@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct Book: Equatable, Codable {
+struct Book: Equatable, Codable, Comparable {
+    static func < (lhs: Book, rhs: Book) -> Bool {
+        return lhs.title < rhs.title
+    }
+    
     var title: String
     var reasonToRead: String
     var hasBeenRead: Bool

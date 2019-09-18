@@ -61,6 +61,7 @@ class ReadingListTableViewController: UITableViewController {
                 if bookController.books[i] == bookFor(indexPath: indexPath) {
                     bookController.delete(book: bookController.books[i])
                     tableView.reloadData()
+                    break
                 }
             }
         }
