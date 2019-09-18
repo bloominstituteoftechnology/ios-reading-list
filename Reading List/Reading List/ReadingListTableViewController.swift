@@ -14,7 +14,7 @@ class ReadingListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        bookController.delegate = self
     }
 
     // MARK: - Table view data source
@@ -28,6 +28,7 @@ class ReadingListTableViewController: UITableViewController {
             if let bookDetailVC = segue.destination as? BookDetailViewController,
                 let indexPath = tableView.indexPathForSelectedRow {
                 bookDetailVC.book = bookFor(indexPath: indexPath)
+                bookDetailVC.bookController = bookController
             }
         }
     }

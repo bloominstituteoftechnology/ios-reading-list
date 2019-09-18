@@ -27,7 +27,7 @@ class BookTableViewCell: UITableViewCell {
         titleLabel.text = book.title
         switch book.hasBeenRead {
         case true:
-            checkBoxButton.setImage(UIImage(named: "checked"), for: .selected)
+            checkBoxButton.setImage(UIImage(named: "checked"), for: .normal)
         case false:
             checkBoxButton.setImage(UIImage(named: "unchecked"), for: .normal)
         }

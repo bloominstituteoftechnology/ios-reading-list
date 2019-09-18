@@ -8,23 +8,28 @@
 
 import UIKit
 
+protocol BookDetailDelegate {
+    func bookUpdated(_ book: Book)
+}
+
 class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var reasonToReadTextView: UITextView!
+    
+    var delegate: BookDetailDelegate?
     
     var bookController: BookController?
     var book: Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateViews()
     }
-    
+   
     private func updateViews() {
         if let book = book {
             bookTitleTextField.text = book.title
-            reasonToReadTextView.text += " " + book.reasonToRead
+            reasonToReadTextView.text = book.reasonToRead
             navigationItem.title = book.title
         } else {
             navigationItem.title = "Add a new book"

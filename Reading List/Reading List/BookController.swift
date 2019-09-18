@@ -10,6 +10,11 @@ import Foundation
 
 class BookController {
     // MARK: properties
+    
+    init() {
+        loadFromPersistentStore()
+    }
+    
     private(set) var books: [Book] = []
     
     private var readingListURL: URL? {
@@ -26,6 +31,8 @@ class BookController {
     var unreadBooks: [Book] {
         return books.filter { $0.hasBeenRead == false }
     }
+    
+    var delegate: ReadingListTableViewController?
     
     // MARK: methods
     func saveToPersistentStore() {
@@ -59,7 +66,7 @@ class BookController {
         let book = Book(title: title, reasonToRead: reasonToRead)
         if books.count > 0 {
             for i in 0...books.count-1 {
-                if  books[i] == book {
+                if  books[i].title == book.title {
                     print("\(book.title) is already in the list")
                     return
                 }
@@ -67,6 +74,7 @@ class BookController {
         }
         books.append(book)
         saveToPersistentStore()
+        delegate?.tableView.reloadData()
     }
     
     func delete(book: Book) {
@@ -74,6 +82,8 @@ class BookController {
             if  books[i] == book {
                 books.remove(at: i)
                 saveToPersistentStore()
+                delegate?.tableView.reloadData()
+                break
             }
         }
     }
@@ -83,6 +93,8 @@ class BookController {
             if books[i] == book {
                 books[i].hasBeenRead = !book.hasBeenRead
                 saveToPersistentStore()
+                delegate?.tableView.reloadData()
+                break
             }
         }
     }
@@ -93,6 +105,8 @@ class BookController {
                 books[i].title = title
                 books[i].reasonToRead = reasonToRead
                 saveToPersistentStore()
+                delegate?.tableView.reloadData()
+                break
             }
         }
     }
