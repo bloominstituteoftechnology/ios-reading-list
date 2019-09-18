@@ -13,14 +13,37 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var bookReasonTextView: UITextView!
     
+    var bookController: BookController?
+    var book: Book?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func saveBarButtonTapped(_ sender: UIBarButtonItem) {
+        if let book = book {
+            bookController?.editBook(book: book, newTitle: book.title, newReason: book.reasonToRead)
+        } else {
+            if let createdTitle = bookTitleTextField.text, let createdReason = bookReasonTextView.text  {
+            bookController?.createBook(title: createdTitle, reasonToRead: createdReason)
+        }
     }
+}
     
+    func updateViews() {
+        if let book = book {
+            bookTitleTextField.text = book.title
+            bookReasonTextView.text = book.reasonToRead
+            
+            self.title = book.title
+        } else {
+            self.title = "Add a new book"
+        }
+    }
+}
+
+
 
     /*
     // MARK: - Navigation
@@ -32,4 +55,4 @@ class BookDetailViewController: UIViewController {
     }
     */
 
-}
+

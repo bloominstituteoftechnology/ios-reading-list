@@ -46,9 +46,11 @@ class ReadingListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell()}
         
-        // Configure the cell...
+        let book = bookFor(indexPath: indexPath)
+        cell.titleLabel.text = book.title
+        cell.delegate = self
         
         return cell
     }
@@ -74,8 +76,25 @@ class ReadingListTableViewController: UITableViewController {
         }
 
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddDetailViewSegue" {
+            if let addBookVC = segue.destination as? BookDetailViewController {
+                addBookVC.bookController = bookController
+                
+            }
+            
+        } else if segue.identifier == "DetailViewSegue" {
+            guard let path = tableView.indexPathForSelectedRow else { return }
+            
+            if let detailBookVC = segue.destination as? BookDetailViewController {
+                detailBookVC.bookController = bookController
+                detailBookVC.book = bookFor(indexPath: path)
+            }
+        
+    }
 }
-
+}
 
 extension ReadingListTableViewController: BookTableViewCellDelegate {
 func toggleHasBeenRead(for cell: BookTableViewCell) {
