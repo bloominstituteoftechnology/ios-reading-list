@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="a3Q-hs-jEm" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="a3Q-hs-jEm" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a3Q-hs-jEm" id="sN1-0M-5Xq">
@@ -58,7 +58,7 @@
                                 <connections>
                                     <outlet property="checkButton" destination="6Dh-8E-sq6" id="Dfc-6L-rgX"/>
                                     <outlet property="titleLabel" destination="tEI-A7-wE5" id="Zf4-7s-hdf"/>
-                                    <segue destination="FNj-8J-TtS" kind="show" identifier="CellToDetailViewController" id="fvz-Rb-qwY"/>
+                                    <segue destination="FNj-8J-TtS" kind="show" identifier="ShowUpdateSegue" id="fvz-Rb-qwY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,7 +70,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="CDI-O4-HUc">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MeZ-EO-CYR">
                             <connections>
-                                <segue destination="FNj-8J-TtS" kind="show" identifier="AddToDetailViewController" id="kh8-Co-F2M"/>
+                                <segue destination="FNj-8J-TtS" kind="show" identifier="AddBookSegue" id="kh8-Co-F2M"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -157,6 +157,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kh8-Co-F2M"/>
+        <segue reference="fvz-Rb-qwY"/>
     </inferredMetricsTieBreakers>
 </document>

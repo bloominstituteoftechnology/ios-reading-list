@@ -43,15 +43,43 @@ class ReadingListTableViewController: UITableViewController {
         
     }
 
-    /*
+    
+    
+    // MARK: - Creating new Cell
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
+        
+        let book = bookFor(indexPath: indexPath)
+        cell.book = book
 
-        // Configure the cell...
-
+        
         return cell
+      
     }
-    */
+    
+    // MARK - bookfor(indexPath) func
+    private func bookFor(indexPath: IndexPath) -> Book {
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+        } else {
+            return bookController.unreadBooks[indexPath.row]
+        }
+    }
+    
+    
+    // MARK: - Configuring Titles for Header in Sections
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Read Books"
+        } else {
+            return "Unread Books"
+        }
+    }
+    
+    
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -61,18 +89,21 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
+    
+    // TODO: - You only need to worry about the .delete case.
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
-
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -88,14 +119,50 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
+    
+    // MARK: - Navigation  ->  Prepare for Segue
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddBookSegue" {
+            if let addBookVC = segue.destination as? BookDetailViewController {
+                //addBookVC.delegate = self
+            }
+        }
+        // TODO: - do the same thing as step 1, and also pass a Book object that was selected in the table view to the destination view controller's book property as well.
+        else if segue.identifier == "ShowUpdateSegue" {
+            
+            if let detailBookVC = segue.destination as? BookDetailViewController {
+             detailBookVC.book =
+            }
+            
+//            if let indexPath = tableView.indexPathForSelectedRow,
+//                let friendDetailVC = segue.destination as? FriendDetailViewController {
+//                friendDetailVC.friend = friends[indexPath.row]
+//            }
+        }
     }
-    */
+    
 
 }
+
+
+
+// MARK: - Conforming to the BookTableViewDelegate protocol
+
+extension ReadingListTableViewController: BookTableViewCellDelegate {
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        
+        // TODO: - You will need an instance of Book to pass in to this function.
+        bookController.updateHasBeenRead(for: )
+        tableView.reloadData()
+    }
+
+    
+}
+
+//extension ReadingListTableViewController: UITableViewDataSource {
+//
+//}

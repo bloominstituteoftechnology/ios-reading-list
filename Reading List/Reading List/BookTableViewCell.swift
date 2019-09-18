@@ -22,7 +22,6 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var checkButton: UIButton!
     
     
-
     
     @IBAction func checkButtonTapped(_ sender: UIButton) {
         
