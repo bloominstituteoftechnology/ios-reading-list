@@ -10,6 +10,13 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
     
+    var bookController: BookController?
+    var book: Book?
+    
+    func updateView() {
+        
+    }
+    
     // MARK: - Outlets
     
     @IBOutlet weak var bookTextField: UITextField!
@@ -17,7 +24,6 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {

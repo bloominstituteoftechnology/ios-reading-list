@@ -8,9 +8,22 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        BookController.updateHasBeenRead()
+        tableView.reloadData()
+    }
+    
     
     let bookController = BookController()
+    
+    private func bookFor(indexPath: IndexPath) -> Book {
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+        } else {
+            return bookController.unreadBooks[indexPath.row]
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +42,20 @@ class ReadingListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        
-        return 0
+        if section == 0 {
+            return bookController.readBooks.count
+        } else {
+            return bookController.unreadBooks.count
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let readSection = section
+        if readSection == 0 {
+            return "Read Books"
+        } else {
+            return "Unread Books"
+        }
     }
 
     
