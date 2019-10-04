@@ -35,6 +35,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uh-nd-qaB">
                                                 <rect key="frame" x="0.0" y="0.0" width="182" height="30"/>
                                                 <state key="normal" title="Print Stars"/>
+                                                <connections>
+                                                    <action selector="printStars:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jBb-Fs-UZZ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s7q-LB-Ba6">
                                                 <rect key="frame" x="202" y="0.0" width="182" height="30"/>
@@ -95,6 +98,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="distanceTextField" destination="1Pm-zB-moh" id="0X7-gw-Ssa"/>
+                        <outlet property="nameTextField" destination="23j-B5-kKc" id="zUm-s0-9kc"/>
+                        <outlet property="tableView" destination="bow-nq-jyV" id="1hL-dW-zu9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

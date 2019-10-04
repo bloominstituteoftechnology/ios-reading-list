@@ -10,9 +10,19 @@ import UIKit
 
 class StarsViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var distanceTextField: UITextField!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    @IBAction func printStars(_ sender: UIButton) {
+        print("Tapped on Print Stars")
     }
 
     override func didReceiveMemoryWarning() {
