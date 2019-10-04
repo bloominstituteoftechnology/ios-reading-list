@@ -25,6 +25,10 @@ class StarsViewController: UIViewController {
         print("Tapped on Print Stars")
     }
 
+       @IBAction func createStar(_ sender: UIButton) {
+         print("Tapped on Create A Star")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
