@@ -23,11 +23,24 @@ class BookDetailViewController: UIViewController {
     }
     
     func updateViews() {
+        guard let book = book else {return}
+        detailTextField.text = book.title
+        detailTextView.text = book.reasonToRead
         
+        if book.title != "" {
+            self.title = book.title
+        } else {
+            self.title = "Add a new book"
+        }
     }
     
     @IBAction func saveTapped(_ sender: Any) {
-      
+        if book == nil {
+            bookController?.createBook(named: book!.title, withReasonToRead: book!.reasonToRead)
+        } else {
+            bookController?.updateBook(for: book!, newTitle: book?.title ?? "Error fetching name for book", newReason: book?.reasonToRead ?? "Error fetching a reason to read book.")
+        }
+        
     }
     
     /*

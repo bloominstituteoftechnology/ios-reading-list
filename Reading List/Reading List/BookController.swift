@@ -14,7 +14,7 @@ class BookController {
     //creating a fileURL to be able to set a destination on the file manager. There could possibly be no destination so this value is optional and unwrapped.
     //Creating a file path for the data that conforms to Codable (arrays) to be saved to the users home directory (.userDomainMask).
     //returned the URL with the plist file path, creating the full path to the user home directory.
-    private var persistentFileURL: URL? {
+    private var readingListURL: URL? {
         let fileManager = FileManager.default
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {return nil}
         return documents.appendingPathComponent("ReadingList.plist")
@@ -30,7 +30,7 @@ class BookController {
         saveToPersistentStore()
         return book
     }
-    //this is a computed property that filters out and books that have been read. hasbeenread is set to false in the Book initilizer. So this is inversing the operation
+    //this is a computed property that filters out books that have been read. hasbeenread is set to false in the Book initilizer. So this is inversing the operation
     var readBooks: [Book] {
             let booksReadArray = books.filter {!$0.hasBeenRead}
             return booksReadArray
@@ -45,6 +45,7 @@ class BookController {
     func deleteBook(book: Book){
         if let index = books.firstIndex(of: book) {
             books.remove(at: index)
+            saveToPersistentStore()
         }
     }
     
@@ -54,7 +55,7 @@ class BookController {
         saveToPersistentStore()
     }
     
-    func updateBook(for book: Book, newTitle: String, newReason: String) -> Book?{
+     @discardableResult func updateBook(for book: Book, newTitle: String, newReason: String) -> Book?{
         guard let i = books.firstIndex(of: book) else {return createBook(named: book.title, withReasonToRead: book.reasonToRead)}
         books[i].title = newTitle
         books[i].reasonToRead = newReason
@@ -65,7 +66,7 @@ class BookController {
     //if the url is valid, create an encoder that can encode the data using codable that specializes in property listing. encode our array of books to our persistent file URL
     //then attempt to write the data to a specified destination, which is unwrapped to make sure we have a value in the beginning of the function, and if so to write the data. If not catch it, and throw the error to the console.
     func saveToPersistentStore() {
-        guard let url = persistentFileURL else {return}
+        guard let url = readingListURL else {return}
         do {
             let encoder = PropertyListEncoder()
             let data = try encoder.encode(books)
@@ -78,7 +79,7 @@ class BookController {
     //to get our data back out, first we unwrap the file manager. Then we unwrap the url of the data, by using .fileExists, if it works, we assign out data property to the contents of the URL, we assign our decoder to the same as our encoder, and assign our books array to the data within the home directory file path we saved it to. else we throw another error.
     func loadFromPersistentStore() {
         let fileManager = FileManager.default
-        guard let url = persistentFileURL, fileManager.fileExists(atPath: url.path) else {return}
+        guard let url = readingListURL, fileManager.fileExists(atPath: url.path) else {return}
         
         do {
             let data = try Data(contentsOf: url)

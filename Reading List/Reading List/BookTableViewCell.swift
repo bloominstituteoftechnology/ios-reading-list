@@ -17,7 +17,7 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var checkListButton: UIButton!
   
      var delegate: BookTableViewCellDelegate?
-    
+    //this is giving us an instance of book within the cell.
     var book: Book? {
         didSet{
             updateViews()
