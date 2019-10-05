@@ -19,6 +19,13 @@ class BookController {
     
     }
     
+    func createNewBook(titled title: String, reasonsToRead reasonToRead: String, hasItBeenRead hasBeenRead: Bool = false) -> Book {
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
+        
+        return book
+    }
+    
+    
     func saveToPersistentStore() {
         guard let url = readingListURL else { return }
         
@@ -31,7 +38,7 @@ class BookController {
         }
     }
     
-    
+//Mark: - Check this code. ASking for decodeBooks as constant, and setting value by calling the decode Method.
     func loadFromPersistentStore() {
         guard let url = readingListURL else { return }
         
