@@ -19,19 +19,20 @@ class BookController {
     
     }
     
-    func createNewBook(titled title: String, reasonsToRead reasonToRead: String, hasItBeenRead hasBeenRead: Bool = false) -> Book {
-        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
+    func createNewBook(title: String, reasonToRead: String){
+        let book = Book(title: title, reasonToRead: reasonToRead)
         
         books.append(book)
         saveToPersistentStore()
         
-        return book
     }
     
  //Mark: - Deleting Books method.
     func removeBook(title: Book) {
         if let index = books.index(of: title) {
             books.remove(at: index)
+            
+            saveToPersistentStore()
         }
     }
     
@@ -39,18 +40,17 @@ class BookController {
 //Mark: - Updating methods for hasBeenRead:
     
     func updatehasBeenRead(for book: Book) {
-        var myBookHasBeenRead: Bool
+        guard let index = books.index(of: book)else {return}
+        books[index].hasBeenRead.toggle()
+        //books[index].hasBeenRead = !books[index].hasBeenRead
         
-        if book.hasBeenRead == false {
-            myBookHasBeenRead = false
-        }else {
-             myBookHasBeenRead = true
-        }
+        saveToPersistentStore()
+        
+
+        
     }
     
-//Mark: - Editing Books:
-    
-    
+
     
     
     
@@ -65,6 +65,8 @@ class BookController {
             print("Error saving book: \(error)")
         }
     }
+    
+    
     
 //Mark: - Check this code. ASking for decodeBooks as constant, and setting value by calling the decode Method.
     func loadFromPersistentStore() {
