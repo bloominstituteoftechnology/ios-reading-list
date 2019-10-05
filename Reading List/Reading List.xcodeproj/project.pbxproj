@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F0509BA2348FC1A005E8BE1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0509B92348FC1A005E8BE1 /* Book.swift */; };
-		1F0509BC2348FC58005E8BE1 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0509BB2348FC58005E8BE1 /* BookViewController.swift */; };
+		1F0509BC2348FC58005E8BE1 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0509BB2348FC58005E8BE1 /* BookController.swift */; };
+		1F0509BE23490A7C005E8BE1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1F0509BD23490A7C005E8BE1 /* README.md */; };
 		466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466941682110E22A00E7FF73 /* AppDelegate.swift */; };
 		4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4669416A2110E22B00E7FF73 /* ViewController.swift */; };
 		4669416E2110E22B00E7FF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4669416C2110E22B00E7FF73 /* Main.storyboard */; };
@@ -18,7 +19,8 @@
 
 /* Begin PBXFileReference section */
 		1F0509B92348FC1A005E8BE1 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		1F0509BB2348FC58005E8BE1 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		1F0509BB2348FC58005E8BE1 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		1F0509BD23490A7C005E8BE1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		466941652110E22A00E7FF73 /* Reading List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466941682110E22A00E7FF73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4669416A2110E22B00E7FF73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
+				1F0509BD23490A7C005E8BE1 /* README.md */,
 				466941672110E22A00E7FF73 /* Reading List */,
 				466941662110E22A00E7FF73 /* Products */,
 			);
@@ -60,7 +63,7 @@
 			children = (
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				1F0509B92348FC1A005E8BE1 /* Book.swift */,
-				1F0509BB2348FC58005E8BE1 /* BookViewController.swift */,
+				1F0509BB2348FC58005E8BE1 /* BookController.swift */,
 				4669416A2110E22B00E7FF73 /* ViewController.swift */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
@@ -130,6 +133,7 @@
 			files = (
 				466941732110E22B00E7FF73 /* LaunchScreen.storyboard in Resources */,
 				466941702110E22B00E7FF73 /* Assets.xcassets in Resources */,
+				1F0509BE23490A7C005E8BE1 /* README.md in Resources */,
 				4669416E2110E22B00E7FF73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
-				1F0509BC2348FC58005E8BE1 /* BookViewController.swift in Sources */,
+				1F0509BC2348FC58005E8BE1 /* BookController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				1F0509BA2348FC1A005E8BE1 /* Book.swift in Sources */,
 			);

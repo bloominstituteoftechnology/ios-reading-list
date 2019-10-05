@@ -8,15 +8,8 @@
 
 import UIKit
 
-class BookViewController: UIViewController {
-    
-    override func viewDidLoad() {
-            super.viewDidLoad()
-
-        }
-    }
-    
-    var books: [Book] = []
+class BookController {
+    private(set)var books: [Book] = []
     
     private var readingListURL: URL? {
     let fileManager = FileManager.default
@@ -25,15 +18,14 @@ class BookViewController: UIViewController {
     return documents.appendingPathComponent("ReadingList.plist")
     
     }
-    
-    func createNewBook(titled title: String, reasonsToRead reasonToRead: String, hasItBeenRead hasItBeenRead: Bool = false) -> Book {
+
+    func createNewBook(title: String, reasonToRead: String) {
         
-        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
+        let book = Book(title: title, reasonToRead: reasonToRead)
         
         books.append(book)
         saveToPersistentStore()
         
-        return book
     }
     
     func removeBook(title: Book) {
@@ -45,13 +37,12 @@ class BookViewController: UIViewController {
     }
     
     func updateHasBeenRead(for book: Book) {
-        var myBookHasBeenRead: Bool
+        guard let index = books.index(of: book) else {return}
+        books[index].hasBeenRead.toggle()
+//        books[index].hasBeenRead = !books[index].hasBeenRead
+        saveToPersistentStore()
         
-        if book.hasBeenRead == false {
-            myBookHasBeenRead = false
-        } else {
-            myBookHasBeenRead = true
-        }
+        
     }
     
     func saveToPersistentStore() {
@@ -62,9 +53,10 @@ class BookViewController: UIViewController {
             let data = try encoder.encode(books)
             try data.write(to: url)
         } catch {
-            print("Errot saving book: \(error)")
+            print("Error saving book: \(error)")
         }
     }
+    
 
 func loadFromPersistentStore() {
     guard let url = readingListURL else {return}
@@ -75,7 +67,7 @@ func loadFromPersistentStore() {
         books = try decoder.decode([Book].self, from: data)
     } catch {
         print("Error loading book data: \(error)")
+        }
     }
 }
-
 
