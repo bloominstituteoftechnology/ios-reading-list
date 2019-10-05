@@ -1,7 +1,7 @@
-# Reading List
+# Reading List special
 
 A student that completes this project shows that they can:
-
+nothing
 - understand and explain the role of model objects and model controllers in MVC
 - make a class or struct conform to Codable
 - use FileManager to find system directories (e.g. documents directory)
