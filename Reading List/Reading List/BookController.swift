@@ -22,8 +22,36 @@ class BookController {
     func createNewBook(titled title: String, reasonsToRead reasonToRead: String, hasItBeenRead hasBeenRead: Bool = false) -> Book {
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
         
+        books.append(book)
+        saveToPersistentStore()
+        
         return book
     }
+    
+ //Mark: - Deleting Books method.
+    func removeBook(title: Book) {
+        if let index = books.index(of: title) {
+            books.remove(at: index)
+        }
+    }
+    
+    
+//Mark: - Updating methods for hasBeenRead:
+    
+    func updatehasBeenRead(for book: Book) {
+        var myBookHasBeenRead: Bool
+        
+        if book.hasBeenRead == false {
+            myBookHasBeenRead = false
+        }else {
+             myBookHasBeenRead = true
+        }
+    }
+    
+//Mark: - Editing Books:
+    
+    
+    
     
     
     func saveToPersistentStore() {
