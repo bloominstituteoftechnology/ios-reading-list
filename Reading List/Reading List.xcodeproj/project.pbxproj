@@ -12,6 +12,11 @@
 		4669416E2110E22B00E7FF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4669416C2110E22B00E7FF73 /* Main.storyboard */; };
 		466941702110E22B00E7FF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4669416F2110E22B00E7FF73 /* Assets.xcassets */; };
 		466941732110E22B00E7FF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466941712110E22B00E7FF73 /* LaunchScreen.storyboard */; };
+		83616096234A890F00E6272D /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83616092234A890F00E6272D /* BookDetailViewController.swift */; };
+		83616098234A890F00E6272D /* ReadingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83616094234A890F00E6272D /* ReadingListTableViewCell.swift */; };
+		83616099234A890F00E6272D /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83616095234A890F00E6272D /* ReadingListTableViewController.swift */; };
+		8361609C234A896400E6272D /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361609B234A896400E6272D /* BookController.swift */; };
+		8361609F234A898200E6272D /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361609E234A898200E6272D /* Book.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		4669416F2110E22B00E7FF73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		466941722110E22B00E7FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		466941742110E22B00E7FF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83616092234A890F00E6272D /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookDetailViewController.swift; path = "../../../../../../../../../../Downloads/ios-reading-list-master/Reading List/Reading List/Views/BookDetailViewController.swift"; sourceTree = "<group>"; };
+		83616094234A890F00E6272D /* ReadingListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadingListTableViewCell.swift; path = "../../../../../../../../../../Downloads/ios-reading-list-master/Reading List/Reading List/Views/ReadingListTableViewCell.swift"; sourceTree = "<group>"; };
+		83616095234A890F00E6272D /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadingListTableViewController.swift; path = "../../../../../../../../../../Downloads/ios-reading-list-master/Reading List/Reading List/Views/ReadingListTableViewController.swift"; sourceTree = "<group>"; };
+		8361609B234A896400E6272D /* BookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookController.swift; path = "../../../../../../../../../../Downloads/ios-reading-list-master/Reading List/Reading List/Controllers/BookController.swift"; sourceTree = "<group>"; };
+		8361609E234A898200E6272D /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Book.swift; path = "../../../../../../../../../../Downloads/ios-reading-list-master/Reading List/Reading List/Models/Book.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,9 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
+				8361609D234A897700E6272D /* Models */,
+				8361609A234A895C00E6272D /* Controllers */,
+				83616091234A88FD00E6272D /* Views */,
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				4669416A2110E22B00E7FF73 /* ViewController.swift */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,
@@ -62,6 +75,32 @@
 				466941742110E22B00E7FF73 /* Info.plist */,
 			);
 			path = "Reading List";
+			sourceTree = "<group>";
+		};
+		83616091234A88FD00E6272D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				83616092234A890F00E6272D /* BookDetailViewController.swift */,
+				83616094234A890F00E6272D /* ReadingListTableViewCell.swift */,
+				83616095234A890F00E6272D /* ReadingListTableViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8361609A234A895C00E6272D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8361609B234A896400E6272D /* BookController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8361609D234A897700E6272D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8361609E234A898200E6272D /* Book.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +135,7 @@
 				TargetAttributes = {
 					466941642110E22A00E7FF73 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -135,8 +175,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8361609C234A896400E6272D /* BookController.swift in Sources */,
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
+				8361609F234A898200E6272D /* Book.swift in Sources */,
+				83616098234A890F00E6272D /* ReadingListTableViewCell.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
+				83616099234A890F00E6272D /* ReadingListTableViewController.swift in Sources */,
+				83616096234A890F00E6272D /* BookDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,9 +332,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.LambdaSchool.Reading-List";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JoeRogers.Reading-List";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -305,9 +350,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.LambdaSchool.Reading-List";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.JoeRogers.Reading-List";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

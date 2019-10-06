@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Reading List
 //
-//  Created by Spencer Curtis on 7/31/18.
+//  Created by Joe Rogers 10/6/2019.
 //  Copyright © 2018 Lambda School. All rights reserved.
 //
 
