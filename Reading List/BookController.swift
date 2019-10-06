@@ -10,12 +10,22 @@ import Foundation
 
 class BookController {
   
-   // init() {
-     //   loadFromPersistentStore()
-    // }
+    init() {
+        loadFromPersistentStore()
+    }
     
-    // Set up array to store books in.
+    // Set up an array to store books in.
     private var books: [Book] = []
+    
+    // Set up an array of all the books that have been read.
+    var readBooks: [Book] {
+       books.filter { $0.hasBeenRead == true }
+    }
+    
+    // Set up an array of all the books that have not been read.
+    var unreadBooks: [Book] {
+        books.filter { $0.hasBeenRead == false}
+    }
    
     // Create location for saving data
     private var readingListURL: URL? {
