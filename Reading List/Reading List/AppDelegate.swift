@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Reading List
 //
-//  Created by Spencer Curtis on 7/31/18.
+//  Created by Joe Rogers 10/6/2019.
 //  Copyright © 2018 Lambda School. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
