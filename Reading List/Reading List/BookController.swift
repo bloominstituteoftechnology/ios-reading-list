@@ -18,14 +18,14 @@ class BookController {
     var books: [Book] = []
     
     var readBooks: [Book] {
-        var readBooks = books.filter {$0.hasBeenRead}
+        var readBooks = books.filter {$0.hasBeenRead == true}
         readBooks.sort {
             $0.title < $1.title
         }
         return readBooks
     }
     var unreadBooks: [Book] {
-        var unreadBooks = books.filter {!$0.hasBeenRead}
+        var unreadBooks = books.filter {!$0.hasBeenRead == false}
         unreadBooks.sort {
             $0.title < $1.title
         }
@@ -79,15 +79,15 @@ class BookController {
     }
     
 
-func loadFromPersistentStore() {
-    guard let url = readingListURL else {return}
+    func loadFromPersistentStore() {
+        guard let url = readingListURL else {return}
     
-    do {
-        let data = try Data(contentsOf: url)
-        let decoder = PropertyListDecoder()
-        books = try decoder.decode([Book].self, from: data)
-    } catch {
-        print("Error loading book data: \(error)")
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            books = try decoder.decode([Book].self, from: data)
+        } catch {
+            print("Error loading book data: \(error)")
         }
     }
 }
