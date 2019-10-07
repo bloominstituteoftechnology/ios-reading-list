@@ -83,7 +83,7 @@
         <!--Detail View Controller-->
         <scene sceneID="RpV-Au-xUs">
             <objects>
-                <viewController title="Detail View Controller" id="lwL-Ik-6mG" sceneMemberID="viewController">
+                <viewController title="Detail View Controller" id="lwL-Ik-6mG" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kcc-U9-yzR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,8 +117,16 @@
                         <viewLayoutGuide key="safeArea" id="jUV-wX-4jj"/>
                     </view>
                     <navigationItem key="navigationItem" id="R8V-eg-2uP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lUA-zz-B3i"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lUA-zz-B3i">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="lwL-Ik-6mG" id="SyF-CE-fO9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookReasonsTextView" destination="ilR-91-SPL" id="3Uq-3d-ObO"/>
+                        <outlet property="bookTitleTextField" destination="9ks-VH-6bG" id="itf-aQ-1sP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDH-IE-kAR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
