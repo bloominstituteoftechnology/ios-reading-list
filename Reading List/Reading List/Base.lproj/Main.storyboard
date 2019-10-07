@@ -112,7 +112,11 @@
                         <viewLayoutGuide key="safeArea" id="la5-IP-noA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a New Book" id="Kcb-Ie-gez">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Twp-f8-goK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Twp-f8-goK">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="PXW-fo-Wll" id="6eJ-Er-EEx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bookTextField" destination="a7F-yx-cB5" id="lhR-DR-0cu"/>
