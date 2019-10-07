@@ -19,14 +19,19 @@ class BookController {
     
     // Set up an array of all the books that have been read.
     var readBooks: [Book] {
-       books.filter { $0.hasBeenRead == true }
+        books.filter { $0.hasBeenRead == true }
+    }
+    var sortedReadBooks: [Book] {
+        readBooks.sorted { $0.title < $1.title }
     }
     
     // Set up an array of all the books that have not been read.
     var unreadBooks: [Book] {
         books.filter { $0.hasBeenRead == false}
     }
-   
+   var sortedUnreadBooks: [Book] {
+       unreadBooks.sorted { $0.title < $1.title }
+   }
     // Create location for saving data
     private var readingListURL: URL? {
         let fileManager = FileManager.default

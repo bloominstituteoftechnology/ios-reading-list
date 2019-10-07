@@ -19,8 +19,7 @@ class BookDetailViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateViews()
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
@@ -28,11 +27,14 @@ class BookDetailViewController: UIViewController {
             let title = bookTitleTextField.text ?? ""
             let reason = bookReasonsTextView.text ?? ""
             bookController.create(book: Book(title: title, reasonToRead: reason))
+            navigationController?.popToRootViewController(animated: true)
             return
         }
         let title = bookTitleTextField.text
         let reason = bookReasonsTextView.text
         bookController.updateBookText(for: book!, newTitle: title, newReason: reason)
+        navigationController?.popToRootViewController(animated: true)
+        
     }
     
     func updateViews() {

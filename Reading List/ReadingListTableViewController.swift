@@ -13,11 +13,10 @@ class ReadingListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -33,11 +32,11 @@ class ReadingListTableViewController: UITableViewController {
         
         if section == 0 {
             
-            return bookController.readBooks.count == 0 ? "" : "Read Books"
+            return bookController.sortedReadBooks.count == 0 ? "" : "Read Books"
             
         } else if section == 1 {
             
-            return bookController.unreadBooks.count == 0 ? "" : "Unread Books"
+            return bookController.sortedUnreadBooks.count == 0 ? "" : "Unread Books"
         }
         
         return nil
@@ -57,15 +56,7 @@ class ReadingListTableViewController: UITableViewController {
         
         return bookCell
     }
-    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
 
     // Override to support editing the table view.
@@ -94,24 +85,33 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        if segue.identifier == "addBookSegue" {
+                guard let vc = segue.destination as? BookDetailViewController else { return }
+                vc.bookController = bookController
+                
+            } else if segue.identifier == "showBookSegue" {
+                
+                guard let vc = segue.destination as? BookDetailViewController,
+                    let cell = sender as? BookTableViewCell else { return }
+                vc.bookController = bookController
+                vc.book = cell.book
+                
+            }
+        }
+    
 
 }
 
 extension ReadingListTableViewController {
 func booksFor(section: Int) -> [Book] {
     if section == 0 {
-        return bookController.readBooks
+        return bookController.sortedReadBooks
     } else if section == 1 {
-        return bookController.unreadBooks
+        return bookController.sortedUnreadBooks
     }
     return []
     }

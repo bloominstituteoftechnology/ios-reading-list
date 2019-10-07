@@ -13,7 +13,11 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var readCheckBoxButton: UIButton!
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     weak var delegate: BookTableViewCellDelegate?
     
     override func setSelected(_ selected: Bool, animated: Bool) {

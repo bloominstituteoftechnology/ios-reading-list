@@ -71,7 +71,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="mrc-LE-xos">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hIW-7Z-kGF">
                             <connections>
-                                <segue destination="lwL-Ik-6mG" kind="show" identifier="AddBookSegue" id="guF-W4-WaL"/>
+                                <segue destination="lwL-Ik-6mG" kind="show" identifier="addBookSegue" id="guF-W4-WaL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
