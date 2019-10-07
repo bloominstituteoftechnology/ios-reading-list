@@ -18,6 +18,7 @@ class BookTableViewCell: UITableViewCell {
     }
     
     
+    weak var delegate: BookTableViewCellDelegat?
     
     
     
@@ -32,6 +33,15 @@ class BookTableViewCell: UITableViewCell {
     
     private func updateViews() {
         guard let book = book else {return}
+        bookTitleLabel.text = book.title
+        let checkedImage = UIImage(named: "checked")
+        let unCheckedImage = UIImage(named: "unchecked")
+        if book.hasBeenRead == true {
+            checkBoxOutlet.setImage(checkedImage, for: .normal)
+            
+        }else {
+            checkBoxOutlet.setImage(unCheckedImage, for: .normal)
+        }
     }
     
     
