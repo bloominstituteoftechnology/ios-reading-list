@@ -9,6 +9,10 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
+  
+    var bookController = BookController()
+    var book: Book?
+    
     @IBOutlet weak var bookTitleTextField: UITextField!
     
     @IBOutlet weak var bookReasonsTextView: UITextView!
@@ -20,7 +24,28 @@ class BookDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard book != nil else {
+            let title = bookTitleTextField.text ?? ""
+            let reason = bookReasonsTextView.text ?? ""
+            bookController.create(book: Book(title: title, reasonToRead: reason))
+            return
+        }
+        let title = bookTitleTextField.text
+        let reason = bookReasonsTextView.text
+        bookController.updateBookText(for: book!, newTitle: title, newReason: reason)
     }
+    
+    func updateViews() {
+        guard let book = book else {
+            self.navigationItem.title = "Add a book"
+            return
+        }
+            bookTitleTextField.text = book.title
+            bookReasonsTextView.text = book.reasonToRead
+            self.navigationItem.title = book.title
+    }
+    
+}
     
     /*
     // MARK: - Navigation
@@ -32,4 +57,4 @@ class BookDetailViewController: UIViewController {
     }
     */
 
-}
+

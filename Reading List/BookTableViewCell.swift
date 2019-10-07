@@ -27,9 +27,9 @@ class BookTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
-   guard let book = book  else { return }
-        let imgStr = book.hasBeenRead ? "checked" : "unchecked"
-        let image = UIImage(named: imgStr)
-        readCheckBoxButton?.setImage(image, for: .normal)
-        bookLabel.text = book.title    }
+        guard let book = book  else { return }
+            let imgStr = book.hasBeenRead ? "checked" : "unchecked"
+            let image = UIImage(named: imgStr)
+            readCheckBoxButton?.setImage(image, for: .normal)
+            bookLabel.text = book.title    }
 }
