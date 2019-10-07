@@ -11,13 +11,46 @@ import Foundation
 class BookController {
     var books: [Book] = []
     
-    private var readingListURL: URL? {
-    let fileManager = FileManager.default
-    guard let documents = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) else { return nil }
     
-        return documents.appendingPathComponent("ReadingList.plist")
     
+    
+    
+    
+    
+//Mark: - Computed property:
+    
+    //Returning array of read books.
+    var readBooks: [Book] {
+        var readBooks = books.filter {$0.hasBeenRead == true}
+        readBooks.sort {
+            $0.title < $1.title
+        }
+        return readBooks
     }
+        
+     // Returning array of Unread books.
+    var unReadBooks: [Book] {
+        var unReadBooks = books.filter {$0.hasBeenRead == false}
+        unReadBooks.sort {
+            $0.title < $1.title
+        }
+        return unReadBooks
+    }
+    
+    
+    
+    
+    private var readingListURL: URL? {
+        let fileManager = FileManager.default
+        guard let documents = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true) else { return nil }
+        
+        return documents.appendingPathComponent("ReadingList.plist")
+        
+    }
+    
+//Mark: - Part of CRUD:
+    
+    //CREATING new book and READING:
     
     func createNewBook(title: String, reasonToRead: String){
         let book = Book(title: title, reasonToRead: reasonToRead)
@@ -27,7 +60,7 @@ class BookController {
         
     }
     
- //Mark: - Deleting Books method.
+//Mark: - DELETING Books method.
     func removeBook(title: Book) {
         if let index = books.index(of: title) {
             books.remove(at: index)
@@ -37,7 +70,7 @@ class BookController {
     }
     
     
-//Mark: - Updating methods for hasBeenRead:
+//Mark: - UPDATING methods for hasBeenRead:
     
     func updatehasBeenRead(for book: Book) {
         guard let index = books.index(of: book)else {return}
@@ -46,11 +79,8 @@ class BookController {
         
         saveToPersistentStore()
         
-
-        
     }
     
-
     
     
     
@@ -68,7 +98,7 @@ class BookController {
     
     
     
-//Mark: - Check this code. ASking for decodeBooks as constant, and setting value by calling the decode Method.
+    //Mark: - Check this code. ASking for decodeBooks as constant, and setting value by calling the decode Method.
     func loadFromPersistentStore() {
         guard let url = readingListURL else { return }
         
@@ -82,3 +112,11 @@ class BookController {
     }
     
 }
+    
+    
+    
+    
+    
+    
+    
+    
