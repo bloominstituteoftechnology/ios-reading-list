@@ -89,15 +89,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8O-8x-Iaa">
-                                <rect key="frame" x="20" y="160" width="374" height="443"/>
+                                <rect key="frame" x="20" y="160" width="374" height="1091.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter the book's title here:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ks-VH-6bG">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read&quot;" translatesAutoresizingMaskIntoConstraints="NO" id="ilR-91-SPL">
-                                        <rect key="frame" x="0.0" y="49.5" width="374" height="393.5"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read:" translatesAutoresizingMaskIntoConstraints="NO" id="ilR-91-SPL">
+                                        <rect key="frame" x="0.0" y="65.5" width="374" height="1026"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <accessibility key="accessibilityConfiguration" label="Reason to read:"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>

@@ -71,14 +71,14 @@ class BookController {
     // Method to remove a book from the list
     func delete(book: Book) {
         if books.contains(book) {
-            guard let bookIndex = books.index(of: book) else { return }
+            guard let bookIndex = books.firstIndex(of: book) else { return }
             books.remove(at: bookIndex)
             saveToPersistentStore()
         }
     }
     // Method to update hasBeenRead
     func updateHasBeenRead(for book: Book) {
-        guard let bookIndex = books.index(of: book) else { return }
+        guard let bookIndex = books.firstIndex(of: book) else { return }
         var updatedBook = book
         if book.hasBeenRead == true {
             updatedBook.hasBeenRead = false
@@ -90,7 +90,7 @@ class BookController {
     
     // Method to update title and/or reasonToRead properties
     func updateBookText(for book: Book, newTitle: String? = nil, newReason: String? = nil) {
-        guard let bookIndex = books.index(of: book) else { return }
+        guard let bookIndex = books.firstIndex(of: book) else { return }
         var updatedBook = book
         if let newBookTitle = newTitle {
             updatedBook.title = newBookTitle
