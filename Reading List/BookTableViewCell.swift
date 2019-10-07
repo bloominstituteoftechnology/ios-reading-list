@@ -13,12 +13,9 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var readCheckBoxButton: UIButton!
     
+    var book: Book?
+    weak var delegate: BookTableViewCellDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -26,5 +23,13 @@ class BookTableViewCell: UITableViewCell {
     }
 
     @IBAction func readCheckBoxButtonTapped(_ sender: UIButton) {
+        delegate?.toggleHasBeenRead(for: self)
     }
+    
+    func updateViews() {
+   guard let book = book  else { return }
+        let imgStr = book.hasBeenRead ? "checked" : "unchecked"
+        let image = UIImage(named: imgStr)
+        readCheckBoxButton?.setImage(image, for: .normal)
+        bookLabel.text = book.title    }
 }
