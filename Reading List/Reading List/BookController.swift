@@ -9,7 +9,28 @@
 import UIKit
 
 class BookController {
-    private(set)var books: [Book] = []
+   
+    init() {
+        loadFromPersistentStore()
+    }
+    
+    
+    var books: [Book] = []
+    
+    var readBooks: [Book] {
+        var readBooks = books.filter {$0.hasBeenRead}
+        readBooks.sort {
+            $0.title < $1.title
+        }
+        return readBooks
+    }
+    var unreadBooks: [Book] {
+        var unreadBooks = books.filter {!$0.hasBeenRead}
+        unreadBooks.sort {
+            $0.title < $1.title
+        }
+        return unreadBooks
+    }
     
     private var readingListURL: URL? {
     let fileManager = FileManager.default
