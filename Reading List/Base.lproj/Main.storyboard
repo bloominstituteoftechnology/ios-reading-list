@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LwZ-jb-m8Y" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" id="LwZ-jb-m8Y" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LwZ-jb-m8Y" id="t9h-lA-cXv">
@@ -39,7 +39,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="DN6-MF-C6d"/>
                                                         <constraint firstAttribute="width" secondItem="Fex-ll-X5Q" secondAttribute="height" multiplier="1:1" id="f4f-QL-inV"/>
-                                                        <constraint firstAttribute="width" constant="24" id="v6y-tP-tiy"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="v6y-tP-tiy"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                                     <state key="normal" title="Button" image="unchecked"/>
@@ -88,16 +88,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillProportionally" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8O-8x-Iaa">
-                                <rect key="frame" x="20" y="160" width="374" height="1091.5"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E8O-8x-Iaa">
+                                <rect key="frame" x="20" y="160" width="374" height="682"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter the book's title here:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ks-VH-6bG">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read:" translatesAutoresizingMaskIntoConstraints="NO" id="ilR-91-SPL">
-                                        <rect key="frame" x="0.0" y="65.5" width="374" height="1026"/>
+                                        <rect key="frame" x="0.0" y="33.5" width="374" height="648.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <accessibility key="accessibilityConfiguration" label="Reason to read:"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -109,13 +109,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="jUV-wX-4jj" firstAttribute="trailing" secondItem="E8O-8x-Iaa" secondAttribute="trailing" constant="20" id="CsZ-Ym-ijx"/>
-                            <constraint firstItem="E8O-8x-Iaa" firstAttribute="leading" secondItem="jUV-wX-4jj" secondAttribute="leading" constant="20" id="Ekv-UP-2Jq"/>
-                            <constraint firstItem="E8O-8x-Iaa" firstAttribute="top" secondItem="jUV-wX-4jj" secondAttribute="top" constant="20" id="XcT-El-HMw"/>
+                            <constraint firstItem="jUV-wX-4jj" firstAttribute="trailing" secondItem="E8O-8x-Iaa" secondAttribute="trailing" constant="20" id="NGa-U3-2KR"/>
+                            <constraint firstItem="E8O-8x-Iaa" firstAttribute="leading" secondItem="jUV-wX-4jj" secondAttribute="leading" constant="20" id="esY-lj-Iti"/>
+                            <constraint firstItem="E8O-8x-Iaa" firstAttribute="top" secondItem="jUV-wX-4jj" secondAttribute="top" constant="20" id="iVM-d0-616"/>
+                            <constraint firstItem="jUV-wX-4jj" firstAttribute="bottom" secondItem="E8O-8x-Iaa" secondAttribute="bottom" constant="20" id="m13-Kd-i0D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jUV-wX-4jj"/>
                     </view>
-                    <navigationItem key="navigationItem" id="U0R-mL-yqJ"/>
+                    <navigationItem key="navigationItem" id="R8V-eg-2uP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lUA-zz-B3i"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDH-IE-kAR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
