@@ -17,21 +17,22 @@ class BookController {
     // Set up an array to store books in.
     private var books: [Book] = []
     
-    // Set up an array of all the books that have been read.
-    var readBooks: [Book] {
-        books.filter { $0.hasBeenRead == true }
-    }
+    // Set up an alphabetical array of all the books that have been read.
     var sortedReadBooks: [Book] {
-        readBooks.sorted { $0.title < $1.title }
+        let filterAndSort = books
+            .filter { $0.hasBeenRead }
+            .sorted { $0.title < $1.title }
+        return filterAndSort
     }
     
-    // Set up an array of all the books that have not been read.
-    var unreadBooks: [Book] {
-        books.filter { $0.hasBeenRead == false}
-    }
+    // Set up an alphabetical array of all the books that have not been read.
    var sortedUnreadBooks: [Book] {
-       unreadBooks.sorted { $0.title < $1.title }
+      let filterAndSort = books
+           .filter { !$0.hasBeenRead }
+           .sorted { $0.title < $1.title }
+       return filterAndSort
    }
+    
     // Create location for saving data
     private var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -81,16 +82,17 @@ class BookController {
             saveToPersistentStore()
         }
     }
+    
     // Method to update hasBeenRead
     func updateHasBeenRead(for book: Book) {
         guard let bookIndex = books.firstIndex(of: book) else { return }
+        
         var updatedBook = book
-        if book.hasBeenRead == true {
-            updatedBook.hasBeenRead = false
-        } else {
-            updatedBook.hasBeenRead = true
-        }
+        updatedBook.hasBeenRead.toggle()
+        
         books[bookIndex] = updatedBook
+        saveToPersistentStore()
+        
     }
     
     // Method to update title and/or reasonToRead properties
@@ -104,9 +106,8 @@ class BookController {
             updatedBook.reasonToRead = newBookReason
         }
         books[bookIndex] = updatedBook
+        saveToPersistentStore()
     }
-    
-    
 }
 
 

@@ -23,7 +23,6 @@ class ReadingListTableViewController: UITableViewController {
 
     let bookController = BookController()
     
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -48,9 +47,10 @@ class ReadingListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
         guard let bookCell = cell as? BookTableViewCell else { return cell }
+        
         bookCell.delegate = self
         bookCell.book = booksFor(section: indexPath.section)[indexPath.row]
         
@@ -63,63 +63,54 @@ class ReadingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
                 let book = booksFor(section: indexPath.section)[indexPath.row]
-                    bookController.delete(book: book)
+                    
+                bookController.delete(book: book)
                 }
-                tableView.reloadData()
+               
+        tableView.reloadData()
+
         }
     
-    
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addBookSegue" {
                 guard let vc = segue.destination as? BookDetailViewController else { return }
+                
                 vc.bookController = bookController
                 
-            } else if segue.identifier == "showBookSegue" {
+        } else if segue.identifier == "showBookSegue" {
                 
                 guard let vc = segue.destination as? BookDetailViewController,
-                    let cell = sender as? BookTableViewCell else { return }
+                    
+                let cell = sender as? BookTableViewCell else { return }
+        
                 vc.bookController = bookController
                 vc.book = cell.book
                 
-            }
         }
-    
-
+    }
 }
 
 extension ReadingListTableViewController {
 func booksFor(section: Int) -> [Book] {
     if section == 0 {
         return bookController.sortedReadBooks
+    
     } else if section == 1 {
         return bookController.sortedUnreadBooks
+    
     }
     return []
+    
     }
 }
 
 extension ReadingListTableViewController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let book = cell.book else { return }
+        
         bookController.updateHasBeenRead(for: book)
         tableView.reloadData()
     }
