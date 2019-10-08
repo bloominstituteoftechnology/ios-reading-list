@@ -18,44 +18,33 @@ class BookTableViewCell: UITableViewCell {
     }
     
     
-    weak var delegate: BookTableViewCellDelegat?
+    var delegate: BookTableViewCellDelegate?
+    
+    
+    private func updateViews() {
+           guard let book = book else {return}
+           bookTitleLabel.text = book.title
+           let checkedImage = UIImage(named: "checked")
+           let unCheckedImage = UIImage(named: "unchecked")
+           if book.hasBeenRead == true {
+               checkBoxOutlet.setImage(checkedImage, for: .normal)
+               
+           }else {
+               checkBoxOutlet.setImage(unCheckedImage, for: .normal)
+           }
+       }
     
     
     
     
     @IBOutlet weak var bookTitleLabel: UILabel!
-    
-    
     @IBOutlet weak var checkBoxOutlet: UIButton!
     
     @IBAction func checkBoxTapped(_ sender: UIButton) {
+        let book = BookTableViewCell()
+        delegate?.toggleHasBeenRead(for: book)
     }
     
-    private func updateViews() {
-        guard let book = book else {return}
-        bookTitleLabel.text = book.title
-        let checkedImage = UIImage(named: "checked")
-        let unCheckedImage = UIImage(named: "unchecked")
-        if book.hasBeenRead == true {
-            checkBoxOutlet.setImage(checkedImage, for: .normal)
-            
-        }else {
-            checkBoxOutlet.setImage(unCheckedImage, for: .normal)
-        }
-    }
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
+    
+    
