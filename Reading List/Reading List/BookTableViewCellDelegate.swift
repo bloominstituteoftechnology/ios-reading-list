@@ -8,7 +8,6 @@
 
 import Foundation
 
-func toggleHasBeenRead(for cell: BookTableViewCell) {
-    BookController.updatehasBeenRead()
-    tableView.reload()
+protocol BookTableViewCellDelegate {
+    func toggleHasBeenRead(for cell: BookTableViewCell)
 }

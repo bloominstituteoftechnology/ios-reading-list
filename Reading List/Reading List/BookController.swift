@@ -12,11 +12,6 @@ class BookController {
     var books: [Book] = []
     
     
-    
-    
-    
-    
-    
 //Mark: - Computed property:
     
     //Returning array of read books.

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HHY-CR-gWw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HHY-CR-gWw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Reading List-->
         <scene sceneID="SWo-9f-Tcv">
             <objects>
-                <tableViewController title="Reading List" id="LTO-JU-pTl" customClass="ReadingTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Reading List" id="LTO-JU-pTl" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LnT-r1-lBV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,7 +110,11 @@
                         <viewLayoutGuide key="safeArea" id="mX3-mQ-O42"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a new book" id="5iB-hR-b8Z">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="RnL-tV-FUO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="RnL-tV-FUO">
+                            <connections>
+                                <action selector="saveTapped:" destination="HmO-bn-ZuU" id="MoR-lG-E4n"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bookTextField" destination="gSj-1C-BFM" id="b4p-Dj-BYu"/>

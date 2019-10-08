@@ -10,13 +10,15 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
     
+    var bookController: BookController?
+    var book: Book?
+    
+    func updateView() {
+        
+    }
+    
     @IBOutlet weak var bookTextField: UITextField!
-    
-    
     @IBOutlet weak var bookTextView: UITextView!
-    
-    
-    
     
 
     override func viewDidLoad() {
@@ -25,15 +27,33 @@ class BookDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        //Dispose of any resources that can be recreated.
     }
-    */
-
+    
+   
+    @IBAction func saveTapped(_ sender: UIBarButtonItem) {
+        guard book != nil else {
+            let title = bookTextField.text ?? ""
+            let reason = bookTextView.text ?? ""
+            
+            bookController?.createNewBook(title: title, reasonToRead: reason)
+            navigationController?.popViewController(animated: true)
+            updateView()
+            return
+            
+           
+        }
+    
+        let title = bookTextField.text
+        let reason = bookTextView.text
+        
+        bookController?.updatehasBeenRead(for: book!)
+        navigationController?.popViewController(animated: true)
+        
+        updateView()
+    }
+    
+    
 }

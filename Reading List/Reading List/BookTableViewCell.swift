@@ -20,7 +20,6 @@ class BookTableViewCell: UITableViewCell {
     
     var delegate: BookTableViewCellDelegate?
     
-    
     private func updateViews() {
            guard let book = book else {return}
            bookTitleLabel.text = book.title
