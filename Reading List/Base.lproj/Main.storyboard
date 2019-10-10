@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xz9-Rf-9gh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xz9-Rf-9gh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +20,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="Kzz-p9-ksd" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kzz-p9-ksd" id="9vA-7c-lG8">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kzz-p9-ksd" id="9vA-7c-lG8" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -53,6 +53,7 @@
                                         <constraint firstAttribute="bottom" secondItem="k5l-Qb-dhr" secondAttribute="bottom" id="uIt-lo-WaO"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="bookCell"/>
                                 <connections>
                                     <outlet property="bookTitleLabel" destination="uMI-IO-8eq" id="Fs7-Sp-Htn"/>
                                     <outlet property="checkBoxOutlet" destination="Cue-d9-BWj" id="Uwl-v4-Efk"/>
@@ -68,7 +69,7 @@
                     <navigationItem key="navigationItem" id="erX-S7-fxq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BwA-2U-keU">
                             <connections>
-                                <segue destination="PXW-fo-Wll" kind="show" identifier="AddBookSegue" id="9mA-Ha-nuF"/>
+                                <segue destination="PXW-fo-Wll" kind="show" identifier="AddBook" id="9mA-Ha-nuF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -93,7 +94,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UfS-5b-D0d">
                                 <rect key="frame" x="20" y="138" width="374" height="354"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">dpjsdfgoijdfgijsodigoidfgisdfjdlksjf;laskfasjdfl;kjsadlkfjsdklfjlskdjflksdjfklsdjflksjdlkjsdflkjsdlkfjsdklfjskldfjklsdjflksdjfklsjdflksjdflksjdflksjdfklsjdlkfsjdlkfjslkdfjlksdjflksdjflksdjlkfsjlskdfjlskdjflksjdfklsdjflksdjfjaskhdlgkjahsdlj.ayfliushdkf;asjdhfksjhdfkjsdhfkjshd</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

@@ -9,16 +9,24 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-    
+    @IBAction func hasBeenReadTapped(_ sender: Any) {
+        delegate?.toggleHasBeenReadFor(cell: self)
+    }
+
     var book: Book? {
         didSet {
             updateViews()
         }
     }
     
+    var delegate: BookTableViewCellDelegate?
+    
     @IBOutlet weak var bookTitleLabel: UILabel!
     
     @IBAction func checkBoxTapped(_ sender: UIButton) {
+        let book = BookTableViewCell()
+        
+        delegate?.toggleHasBeenReadFor(cell: book)
     }
     
     @IBOutlet weak var checkBoxOutlet: UIButton!

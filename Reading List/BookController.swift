@@ -14,7 +14,15 @@ class BookController {
         loadFromPersistentStore()
     }
     
-    
+    func createNewBook(title: String, reasonToRead: String) {
+         
+        let book = Book(title: title, reasonToRead: reasonToRead)
+         
+        books.append(book)
+        saveToPersistentStore()
+         
+    }
+     
     var books: [Book] = []
     
     var readBooks: [Book] {
@@ -40,15 +48,7 @@ class BookController {
     
     }
 
-    func createNewBook(title: String, reasonToRead: String) {
-        
-        let book = Book(title: title, reasonToRead: reasonToRead)
-        
-        books.append(book)
-        saveToPersistentStore()
-        
-    }
-    
+ 
     func removeBook(title: Book) {
         if let index = books.index(of: title) {
             books.remove(at: index)
@@ -64,6 +64,18 @@ class BookController {
         saveToPersistentStore()
         
         
+    }
+    
+    func update(book: Book, withTitle title: String, reasonToRead: String) {
+        guard let index = books.firstIndex(of: book) else { return }
+        
+        var scratch = book
+        
+        scratch.title = title
+        scratch.reasonToRead = reasonToRead
+        
+        books.remove(at: index)
+        books.insert(scratch, at: index)
     }
     
     func saveToPersistentStore() {
