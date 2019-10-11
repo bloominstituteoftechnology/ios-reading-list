@@ -18,6 +18,7 @@ class BookTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    
     weak var delegate: BookTableViewCellDelegate?
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,6 +35,9 @@ class BookTableViewCell: UITableViewCell {
         guard let book = book  else { return }
             let imgStr = book.hasBeenRead ? "checked" : "unchecked"
             let image = UIImage(named: imgStr)
+            
             readCheckBoxButton?.setImage(image, for: .normal)
-            bookLabel.text = book.title    }
+            bookLabel.text = book.title
+
+    }
 }

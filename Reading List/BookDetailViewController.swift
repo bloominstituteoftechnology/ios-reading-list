@@ -24,14 +24,19 @@ class BookDetailViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard book != nil else {
-            let title = bookTitleTextField.text ?? ""
-            let reason = bookReasonsTextView.text ?? ""
+            if bookTitleTextField.text == "" || bookReasonsTextView.text == "" {
+                navigationController?.popToRootViewController(animated: true)
+                return
+            } else {
+            let title = bookTitleTextField.text!
+            let reason = bookReasonsTextView.text!
             
             bookController.create(book: Book(title: title, reasonToRead: reason))
             
             navigationController?.popToRootViewController(animated: true)
             
             return
+            }
         }
         
         let title = bookTitleTextField.text
@@ -40,7 +45,6 @@ class BookDetailViewController: UIViewController {
         bookController.updateBookText(for: book!, newTitle: title, newReason: reason)
         
         navigationController?.popToRootViewController(animated: true)
-        
     }
     
     func updateViews() {
