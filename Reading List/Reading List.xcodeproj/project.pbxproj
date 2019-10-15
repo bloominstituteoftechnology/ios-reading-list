@@ -66,11 +66,11 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
-				9988FCB423566F8F00ACBCD9 /* Delegates */,
 				9988FCB323566F7600ACBCD9 /* Views */,
 				9988FCB523566F9700ACBCD9 /* View Controllers */,
 				9988FCB623566F9F00ACBCD9 /* Models */,
 				9988FCB723566FA400ACBCD9 /* Model Controllers */,
+				9988FCB423566F8F00ACBCD9 /* Delegates */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941742110E22B00E7FF73 /* Info.plist */,
 			);

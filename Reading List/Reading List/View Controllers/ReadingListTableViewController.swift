@@ -15,11 +15,7 @@ class ReadingListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.reloadData()
     }
     
     func bookFor(_ indexPath: IndexPath) throws -> Book {
@@ -93,15 +89,28 @@ class ReadingListTableViewController: UITableViewController {
         }
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        guard let bookDetailVC = segue.destination as? BookDetailViewController else { return }
+        
+        bookDetailVC.bookController = bookController
+        
+        if segue.identifier == "ShowBookDetailSegue" {
+            guard let tableView = tableView,
+                let indexPath = tableView.indexPathForSelectedRow
+                else { return }
+            
+            do {
+                bookDetailVC.book = try bookFor(indexPath)
+            } catch {
+                print(error)
+            }
+        }
     }
-    */
 
 }
 

@@ -12,7 +12,7 @@ class BookTableViewCell: UITableViewCell {
     
     var book: Book?
     
-    var delegate: BookTableViewDelegate?
+    weak var delegate: BookTableViewDelegate?
     
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var bookReadButton: UIButton!
