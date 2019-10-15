@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3zG-ng-UBc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3zG-ng-UBc" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3zG-ng-UBc" id="rqv-9Z-IOa">
@@ -39,6 +39,9 @@
                                                         <constraint firstAttribute="width" secondItem="9zj-Fg-YJ0" secondAttribute="height" multiplier="1:1" id="HFE-dd-02J"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="unchecked"/>
+                                                    <connections>
+                                                        <action selector="readButtonTapped:" destination="3zG-ng-UBc" eventType="touchUpInside" id="hK5-pA-BnI"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -49,6 +52,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="readButton" destination="9zj-Fg-YJ0" id="1FJ-5D-8tE"/>
+                                    <outlet property="titleLabel" destination="9YO-DR-Wx1" id="RMo-iF-ykU"/>
                                     <segue destination="HDZ-MG-n7e" kind="show" identifier="ShowBookDetailSegue" id="Kqy-Mi-AVh"/>
                                 </connections>
                             </tableViewCell>
@@ -70,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="617" y="163"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="ZZ8-t2-HZ6">
             <objects>
-                <viewController id="HDZ-MG-n7e" sceneMemberID="viewController">
+                <viewController id="HDZ-MG-n7e" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oz7-Vc-NOj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
