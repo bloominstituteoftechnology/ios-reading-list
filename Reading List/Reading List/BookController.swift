@@ -38,11 +38,11 @@ class BookController {
         saveToPersistentStore()
     }
     
-    func updateTitleAndReason(for book: Book) {
+    func updateTitleAndReason(for book: Book, updateTitle title: String, updateReason reason: String) {
         guard let bookIndex = books.firstIndex(of: book) else { return }
         
-        books[bookIndex].title = book.title
-        books[bookIndex].reasonToRead = book.reasonToRead
+        books[bookIndex].title = title
+        books[bookIndex].reasonToRead = reason
         saveToPersistentStore()
     }
     

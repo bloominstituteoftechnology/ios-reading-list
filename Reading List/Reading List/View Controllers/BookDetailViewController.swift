@@ -53,7 +53,7 @@ class BookDetailViewController: UIViewController {
                 !bookText.isEmpty else { return }
             
             bookController.updateHasBeenRead(for: book)
-            bookController.updateTitleAndReason(for: book)
+            bookController.updateTitleAndReason(for: book, updateTitle: bookText, updateReason: reasonToReadTextView.text)
             delegate?.addOrEditBook()
         }
     }
