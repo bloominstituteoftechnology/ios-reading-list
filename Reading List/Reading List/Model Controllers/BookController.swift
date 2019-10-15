@@ -91,11 +91,3 @@ class BookController {
         }
     }
 }
-
-enum BooksError: Error {
-    case troubleGettingReadingList
-    case readingListFileDoesNotExist
-    case bookNotInList
-    case bookAlreadyInList
-    case noBookInTableCell
-}
