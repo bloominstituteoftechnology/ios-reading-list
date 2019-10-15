@@ -112,6 +112,7 @@ class BooksTableViewController: UITableViewController {
             guard let addBookVC = segue.destination as? BookDetailViewController else { return }
             addBookVC.bookController = bookController
         } else if segue.identifier == PropertyKeys.viewBookSegue {
+            print("edit")
             guard let viewBookVC = segue.destination as? BookDetailViewController,
                 let indexPath = tableView.indexPathForSelectedRow else { return }
             viewBookVC.bookController = bookController

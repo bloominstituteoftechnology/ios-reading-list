@@ -55,6 +55,7 @@
                                 <connections>
                                     <outlet property="readButton" destination="SZV-jU-lAZ" id="i5d-tP-bhK"/>
                                     <outlet property="titleLabel" destination="xSR-gZ-JBa" id="glm-d0-ZsD"/>
+                                    <segue destination="HDZ-MG-n7e" kind="show" identifier="ShowBookDetailSegue" id="YHQ-8c-dcD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -146,4 +147,7 @@
             <point key="canvasLocation" x="-79.710144927536234" y="162.72321428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="YHQ-8c-dcD"/>
+    </inferredMetricsTieBreakers>
 </document>
