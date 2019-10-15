@@ -10,6 +10,10 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     
+    var book: Book?
+    
+    weak var delegate: BookTableViewDelegate?
+    
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var bookReadButton: UIButton!
 
@@ -23,7 +27,25 @@ class BookTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func updateViews() {
+        guard let book = book else {
+            print(BooksError.noBookInTableCell)
+            return
+        }
+        
+        let boxImage: String
+        if book.haveRead {
+            boxImage = "checked"
+        } else {
+            boxImage = "unchecked"
+        }
+        
+        bookTitleLabel.text = book.title
+        bookReadButton.setImage(UIImage(named: boxImage), for: .normal)
+    }
 
     @IBAction func bookReadButtonTapped(_ sender: UIButton) {
+        delegate?.toggleHasBeenRead(for: self)
     }
 }

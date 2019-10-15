@@ -97,4 +97,5 @@ enum BooksError: Error {
     case readingListFileDoesNotExist
     case bookNotInList
     case bookAlreadyInList
+    case noBookInTableCell
 }
