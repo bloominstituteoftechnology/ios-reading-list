@@ -99,6 +99,7 @@ class ReadingListTableViewController: UITableViewController {
         
         bookDetailVC.bookController = bookController
         
+        
         if segue.identifier == "ShowBookDetailSegue" {
             guard let tableView = tableView,
                 let indexPath = tableView.indexPathForSelectedRow
