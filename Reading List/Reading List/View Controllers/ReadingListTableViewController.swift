@@ -98,7 +98,7 @@ class ReadingListTableViewController: UITableViewController {
         guard let bookDetailVC = segue.destination as? BookDetailViewController else { return }
         
         bookDetailVC.bookController = bookController
-        
+        bookDetailVC.delegate = self
         
         if segue.identifier == "ShowBookDetailSegue" {
             guard let tableView = tableView,
@@ -122,6 +122,12 @@ extension ReadingListTableViewController: BookTableViewDelegate {
             return
         }
         bookController.toggleHasBeenRead(for: book)
+        tableView.reloadData()
+    }
+}
+
+extension ReadingListTableViewController: BookDetailDelegate {
+    func updateViews() {
         tableView.reloadData()
     }
 }

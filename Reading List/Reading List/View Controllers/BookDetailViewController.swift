@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol BookDetailDelegate {
+    func updateViews()
+}
+
 class BookDetailViewController: UIViewController {
     
     var bookController: BookController?
@@ -16,6 +20,7 @@ class BookDetailViewController: UIViewController {
             updateViews()
         }
     }
+    var delegate: BookDetailDelegate?
     
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var reasonToReadView: UITextView!
@@ -27,7 +32,6 @@ class BookDetailViewController: UIViewController {
     }
 
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        if bookController == nil { print("no book controller!!") }
         saveBook()
     }
     
@@ -42,7 +46,8 @@ class BookDetailViewController: UIViewController {
             bookController?.createBook(called: newTitle, for: newReasonToRead, haveRead: false)
         }
         
-        dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
+        delegate?.updateViews()
     }
     
     private func updateViews() {
