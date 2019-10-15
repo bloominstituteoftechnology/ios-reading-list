@@ -11,10 +11,10 @@ import Foundation
 class BookController {
     private(set) var books: [Book] = []
     var readBooks: [Book] {
-        return books.filter { $0.hasBeenRead }
+        return books.filter { $0.hasBeenRead }.sorted { $0.title.lowercased() < $1.title.lowercased() }
     }
     var unreadBooks: [Book] {
-        return books.filter { $0.hasBeenRead == false }
+        return books.filter { $0.hasBeenRead == false }.sorted { $0.title.lowercased() < $1.title.lowercased() }
     }
     
     init() {
