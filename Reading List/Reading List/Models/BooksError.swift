@@ -14,4 +14,7 @@ enum BooksError: Error {
     case bookNotInList
     case bookAlreadyInList
     case noBookInTableCell
+    case unknownTableSection
+    case unknownTableCell
+    case noneAtIndexPath
 }

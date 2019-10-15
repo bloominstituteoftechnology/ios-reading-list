@@ -34,7 +34,6 @@ class BookController {
         saveToPersistenceStore()
     }
     
-    // can do this in one method with overloading; if it's good enough for Apple, it's good enough for me!
     func update(book: Book, titleTo title: String?, hasBeenRead: Bool?) {
         guard let bookIndex = books.firstIndex(of: book) else {
             print(BooksError.bookNotInList)
@@ -47,6 +46,11 @@ class BookController {
         if let title = title {
             books[bookIndex].title = title
         }
+        saveToPersistenceStore()
+    }
+    
+    func toggleHasBeenRead(for book: Book) {
+        update(book: book, titleTo: nil, hasBeenRead: !book.haveRead)
     }
     
     // MARK: Persistence
