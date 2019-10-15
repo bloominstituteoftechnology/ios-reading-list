@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Book {
+struct Book: Equatable, Codable {
     let title: String
     var reasonToRead: String
     var hasBeenRead: Bool = false
