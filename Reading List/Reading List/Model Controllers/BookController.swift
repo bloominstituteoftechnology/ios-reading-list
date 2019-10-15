@@ -9,7 +9,7 @@
 import Foundation
 
 class BookController {
-    var books: [Book] = []
+    private(set) var books: [Book] = []
     var readBooks: [Book] {
         return books.filter { $0.hasBeenRead }
     }
@@ -17,9 +17,14 @@ class BookController {
         return books.filter { $0.hasBeenRead == false }
     }
     
+    init() {
+        loadFromPersistentStore()
+    }
+    
     @discardableResult func createBook(named title: String, withReason reason: String) -> Book {
         let book = Book(title: title, reasonToRead: reason)
         books.append(book)
+        print("\(unreadBooks)")
         saveToPersistentStore()
         return book
     }
