@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Books-->
+        <!--Reading List-->
         <scene sceneID="OFb-I1-Lbm">
             <objects>
                 <tableViewController id="KcI-rM-fvz" sceneMemberID="viewController">
@@ -34,7 +34,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9Q-59-pMY">
-                                                    <rect key="frame" x="324" y="0.0" width="50" height="50.5"/>
+                                                    <rect key="frame" x="323.5" y="0.0" width="50.5" height="50.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="U9Q-59-pMY" secondAttribute="height" multiplier="1:1" id="3ch-vn-ewF"/>
+                                                    </constraints>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
                                                         <action selector="bookReadButtonTapped:" destination="vlf-qG-yzc" eventType="touchUpInside" id="zSF-gB-sx9"/>
@@ -67,7 +70,7 @@
                             <outlet property="delegate" destination="KcI-rM-fvz" id="Tvv-VI-edi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Books" id="d9g-63-7hF">
+                    <navigationItem key="navigationItem" title="Reading List" id="d9g-63-7hF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="SuA-OB-QcH">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" identifier="AddBookSegue" id="cWs-GO-fwu"/>
@@ -79,21 +82,55 @@
             </objects>
             <point key="canvasLocation" x="328" y="132"/>
         </scene>
-        <!--Title-->
+        <!--Book Detail View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ycl-Yt-2n5">
+                                <rect key="frame" x="30" y="118" width="354" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8OJ-Cp-mDj">
+                                <rect key="frame" x="30" y="160" width="354" height="352"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.2537687059859155" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ycl-Yt-2n5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="OlY-Qs-2n7"/>
+                            <constraint firstItem="8OJ-Cp-mDj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="ecN-ea-5sW"/>
+                            <constraint firstItem="Ycl-Yt-2n5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="gB9-0o-RaR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8OJ-Cp-mDj" secondAttribute="bottom" constant="350" id="iFB-oY-3ep"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ycl-Yt-2n5" secondAttribute="trailing" constant="30" id="kb8-4L-WU5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8OJ-Cp-mDj" secondAttribute="trailing" constant="30" id="kqU-dN-Py4"/>
+                            <constraint firstItem="8OJ-Cp-mDj" firstAttribute="top" secondItem="Ycl-Yt-2n5" secondAttribute="bottom" constant="8" id="tZT-Qd-eMZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="2fG-Cc-tal"/>
+                    <navigationItem key="navigationItem" id="2fG-Cc-tal">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9IH-dc-3uH">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="BYZ-38-t0r" id="frn-t3-8uo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookTitleField" destination="Ycl-Yt-2n5" id="XMA-sd-gM7"/>
+                        <outlet property="reasonToReadView" destination="8OJ-Cp-mDj" id="XVC-XM-tvC"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1287" y="132"/>
+            <point key="canvasLocation" x="1286.9565217391305" y="131.91964285714286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QUP-b0-Opo">
