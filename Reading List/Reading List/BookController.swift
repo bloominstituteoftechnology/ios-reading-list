@@ -9,7 +9,42 @@
 import Foundation
 
 class BookController {
-    var books = [Book]()
+    private(set) var books = [Book]()
+    
+    func createBook(called title: String, for reason: String, haveRead: Bool) {
+        let newBook = Book(title: title, reasonToRead: reason, haveRead: haveRead)
+        
+        if !books.contains(newBook) {
+            books.append(newBook)
+            saveToPersistenceStore()
+        } else {
+            print(BooksError.bookAlreadyInList)
+        }
+    }
+    
+    func deleteBook(_ bookToRemove: Book) {
+        guard let indexToRemove = books.firstIndex(of: bookToRemove) else {
+            print(BooksError.bookNotInList)
+            return
+        }
+        books.remove(at: indexToRemove)
+        saveToPersistenceStore()
+    }
+    
+    // can do this in one method with overloading; if it's good enough for Apple, it's good enough for me!
+    func update(book: Book, titleTo title: String?, hasBeenRead: Bool?) {
+        guard let bookIndex = books.firstIndex(of: book) else {
+            print(BooksError.bookNotInList)
+            return
+        }
+        
+        if let hasBeenRead = hasBeenRead {
+            books[bookIndex].haveRead = hasBeenRead
+        }
+        if let title = title {
+            books[bookIndex].title = title
+        }
+    }
     
     // MARK: Persistence
     
@@ -57,4 +92,6 @@ class BookController {
 enum BooksError: Error {
     case troubleGettingReadingList
     case readingListFileDoesNotExist
+    case bookNotInList
+    case bookAlreadyInList
 }
