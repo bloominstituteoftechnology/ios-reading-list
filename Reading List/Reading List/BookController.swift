@@ -10,6 +10,9 @@ import Foundation
 
 class BookController {
     private(set) var books = [Book]()
+
+    var readBooks: [Book] { return books.filter { $0.haveRead }}
+    var unreadBooks: [Book] { return books.filter { !$0.haveRead }}
     
     func createBook(called title: String, for reason: String, haveRead: Bool) {
         let newBook = Book(title: title, reasonToRead: reason, haveRead: haveRead)
