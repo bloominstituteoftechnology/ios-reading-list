@@ -9,6 +9,9 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
+    
+    @IBOutlet weak var titleText: UITextField!
+    @IBOutlet weak var reasonText: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +19,9 @@ class BookDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func saveTapped(sender: UIBarButtonItem!) {
+        
+    }
 
     /*
     // MARK: - Navigation

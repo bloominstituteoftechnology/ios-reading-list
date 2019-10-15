@@ -7,3 +7,82 @@
 //
 
 import Foundation
+
+class BookController {
+   
+    var books: [Book] = []
+    
+    var readBooks: [Book] {
+        let ourBooks = books
+        return ourBooks.filter { $0.hasBeenRead == true }
+    }
+    
+    var unreadBooks: [Book] {
+        let ourBooks = books
+        return ourBooks.filter { $0.hasBeenRead == false }
+    }
+    
+// Functions (CRUD)
+    
+    func create(book: Book) {
+        books.append(book)
+        saveToPersistentStore()
+    }
+    
+    func delete(book: Book) {
+        if let index = books.index(of: book) {
+            books.remove(at: index)
+        }
+        saveToPersistentStore()
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        var bookStatus = book.hasBeenRead
+        bookStatus.toggle()
+        saveToPersistentStore()
+    }
+    
+    func edit(book: Book, title: String, reasonToRead: String) {
+        var selectedBook = book
+        selectedBook.title = title
+        selectedBook.reasonToRead = reasonToRead
+        saveToPersistentStore()
+    }
+    
+// Persistence Stuff
+    
+    var readingListURL: URL? {
+        let fm = FileManager.default
+        guard let dir = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        let fileName = "ReadingList.plist"
+        return dir.appendingPathComponent(fileName)
+    }
+    private func saveToPersistentStore() {
+        guard let url = readingListURL else { return }
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(books)
+            try data.write(to: url)
+        } catch {
+            print("Error loading stars data: \(error)")
+        }
+    }
+        
+    private func loadFromPersistentStore() {
+        let fm = FileManager.default
+        guard let url = readingListURL,
+            fm.fileExists(atPath: url.path) else { return }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            let decodedBooks = try decoder.decode([Book].self, from: data)
+            books = decodedBooks
+        } catch {
+            print("Error loading books data: \(error)")
+        }
+    }
+    
+        
+}
+

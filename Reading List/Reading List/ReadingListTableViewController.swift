@@ -8,39 +8,64 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+    
+    let bookController = BookController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        let rows: Int
+        if section == 0 {
+            rows = bookController.readBooks.count
+        } else {
+            rows = bookController.unreadBooks.count
+        }
+        return rows
+    }
+    
+    func bookFor(indexPath: IndexPath) -> Book {
+        let book: Book
+        if indexPath.section == 0 {
+            book = bookController.readBooks[indexPath.row]
+        } else {
+            book = bookController.unreadBooks[indexPath.row]
+        }
+        return book
+    }
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        guard let theBook = cell.book else { return }
+        let path: IndexPath
+        if theBook.hasBeenRead {
+            path.section = 0
+            if let row = bookController.readBooks.index(of: theBook) {
+            path.row = row
+        } else {
+            let path = bookController.unreadBooks.index(of: theBook)
+        }
+        bookController.updateHasBeenRead(for: bookFor(indexPath: path))
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
+        
+        let book = bookFor(indexPath: indexPath)
+        cell.book = book
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
