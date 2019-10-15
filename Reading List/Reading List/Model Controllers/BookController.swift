@@ -10,6 +10,12 @@ import Foundation
 
 class BookController {
     var books: [Book] = []
+    var readBooks: [Book] {
+        return books.filter { $0.hasBeenRead }
+    }
+    var unreadBooks: [Book] {
+        return books.filter { $0.hasBeenRead == false }
+    }
     
     @discardableResult func createBook(named title: String, withReason reason: String) -> Book {
         let book = Book(title: title, reasonToRead: reason)
