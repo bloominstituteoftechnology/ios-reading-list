@@ -33,7 +33,7 @@ class BookController {
         if (book.hasBeenRead) {
             books[bookIndex].hasBeenRead = false
         } else {
-            books[bookIndex].hasBeenRead = false
+            books[bookIndex].hasBeenRead = true
         }
         saveToPersistentStore()
     }
