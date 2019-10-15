@@ -17,7 +17,7 @@ class BookController {
     func createBook(called title: String, for reason: String, haveRead: Bool) {
         let newBook = Book(title: title, reasonToRead: reason, haveRead: haveRead)
         
-        if !books.contains(newBook) {
+        if books.contains(newBook) {
             books.append(newBook)
             saveToPersistenceStore()
         } else {
