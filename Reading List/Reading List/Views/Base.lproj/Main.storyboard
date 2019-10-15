@@ -124,8 +124,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bookTitleField" destination="Ycl-Yt-2n5" id="XMA-sd-gM7"/>
                         <outlet property="reasonToReadView" destination="8OJ-Cp-mDj" id="XVC-XM-tvC"/>
+                        <outlet property="titleField" destination="Ycl-Yt-2n5" id="XMA-sd-gM7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

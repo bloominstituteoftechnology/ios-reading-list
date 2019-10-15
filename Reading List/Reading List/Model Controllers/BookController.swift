@@ -34,23 +34,28 @@ class BookController {
         saveToPersistenceStore()
     }
     
-    func update(book: Book, titleTo title: String?, hasBeenRead: Bool?) {
+    func update(book: Book, titleTo title: String?, reasonTo reasonToRead: String?) {
         guard let bookIndex = books.firstIndex(of: book) else {
             print(BooksError.bookNotInList)
             return
         }
         
-        if let hasBeenRead = hasBeenRead {
-            books[bookIndex].haveRead = hasBeenRead
-        }
         if let title = title {
             books[bookIndex].title = title
         }
+        if let reasonToRead = reasonToRead {
+            books[bookIndex].reasonToRead = reasonToRead
+        }
+        
         saveToPersistenceStore()
     }
     
     func toggleHasBeenRead(for book: Book) {
-        update(book: book, titleTo: nil, hasBeenRead: !book.haveRead)
+        guard let bookIndex = books.firstIndex(of: book) else {
+            print(BooksError.bookNotInList)
+            return
+        }
+        books[bookIndex].haveRead.toggle()
     }
     
     // MARK: Persistence
