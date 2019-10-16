@@ -14,6 +14,10 @@ class BookController {
     var readBooks: [Book] { return books.filter { $0.haveRead }}
     var unreadBooks: [Book] { return books.filter { !$0.haveRead }}
     
+    init() {
+        loadFromPersistenceStore()
+    }
+    
     func createBook(called title: String, for reason: String, haveRead: Bool) {
         let newBook = Book(title: title, reasonToRead: reason, haveRead: haveRead)
         
@@ -56,6 +60,7 @@ class BookController {
             return
         }
         books[bookIndex].haveRead.toggle()
+        saveToPersistenceStore()
     }
     
     // MARK: Persistence

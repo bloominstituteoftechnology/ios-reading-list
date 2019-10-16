@@ -18,13 +18,14 @@ class ReadingListTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func bookFor(_ indexPath: IndexPath) throws -> Book {
+    func bookFor(_ indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
             return bookController.readBooks[indexPath.row]
         } else if indexPath.section == 1 {
             return bookController.unreadBooks[indexPath.row]
         } else {
-            throw BooksError.noneAtIndexPath
+            print(BooksError.noneAtIndexPath)
+            return Book(title: "", reasonToRead: "", haveRead: false)
         }
     }
 
@@ -62,15 +63,7 @@ class ReadingListTableViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        let book: Book
-        do {
-            book = try bookFor(indexPath)
-        } catch {
-            print(error)
-            return UITableViewCell()
-        }
-        
-        cell.book = book
+        cell.book = bookFor(indexPath)
         cell.delegate = self
         
         return cell
@@ -81,11 +74,7 @@ class ReadingListTableViewController: UITableViewController {
         if editingStyle == .delete {
             tableView.deleteRows(at: [indexPath], with: .fade)
             
-            do {
-                try bookController.deleteBook(bookFor(indexPath))
-            } catch {
-                print(error)
-            }
+            bookController.deleteBook(bookFor(indexPath))
         }
     }
 
@@ -105,11 +94,7 @@ class ReadingListTableViewController: UITableViewController {
                 let indexPath = tableView.indexPathForSelectedRow
                 else { return }
             
-            do {
-                bookDetailVC.book = try bookFor(indexPath)
-            } catch {
-                print(error)
-            }
+            bookDetailVC.book = bookFor(indexPath)
         }
     }
 

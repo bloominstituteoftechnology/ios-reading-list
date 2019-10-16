@@ -15,11 +15,7 @@ protocol BookDetailDelegate {
 class BookDetailViewController: UIViewController {
     
     var bookController: BookController?
-    var book: Book? {
-        didSet {
-            updateViews()
-        }
-    }
+    var book: Book?
     var delegate: BookDetailDelegate?
     
     @IBOutlet weak var titleField: UITextField!
@@ -51,10 +47,15 @@ class BookDetailViewController: UIViewController {
     }
     
     private func updateViews() {
-        if let book = book {
-            self.navigationItem.title = book.title
-            titleField.text = book.title
-            reasonToReadView.text = book.reasonToRead
+        if let thisBook = book {
+            self.navigationItem.title = thisBook.title
+            if titleField == nil {
+                print("WHAT")
+            } else {
+                titleField.text = thisBook.title
+                reasonToReadView.text = thisBook.reasonToRead
+            }
+            
         } else {
 //            let title = "Add a new book"
 //            self.title = title
