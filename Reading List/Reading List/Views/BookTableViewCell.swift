@@ -10,7 +10,11 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
     weak var delegate: BookTableViewDelegate?
     

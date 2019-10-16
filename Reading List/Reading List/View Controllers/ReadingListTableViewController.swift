@@ -72,7 +72,7 @@ class ReadingListTableViewController: UITableViewController {
         
         cell.book = book
         cell.delegate = self
-
+        
         return cell
     }
     
