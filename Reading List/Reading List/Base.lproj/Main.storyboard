@@ -24,17 +24,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="199" translatesAutoresizingMaskIntoConstraints="NO" id="buX-kU-04X">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="199" translatesAutoresizingMaskIntoConstraints="NO" id="buX-kU-04X">
                                             <rect key="frame" x="20" y="11" width="374" height="38"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFz-Vs-6hQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="77" height="38"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="87.5" height="38"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZg-3M-iwg">
-                                                    <rect key="frame" x="276" y="0.0" width="98" height="38"/>
+                                                    <rect key="frame" x="286.5" y="0.0" width="87.5" height="38"/>
                                                     <state key="normal" image="checked"/>
                                                     <connections>
                                                         <action selector="buttonTapped:" destination="DEZ-pt-Bta" eventType="touchUpInside" id="2JM-al-9b5"/>
