@@ -68,10 +68,10 @@
 			children = (
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				95F8DFB2235655B300953E46 /* ViewController.swift */,
-				95F8DFB823566BD700953E46 /* ReadingListTableViewController.swift */,
 				95F8DFBA23566BF400953E46 /* BookTableViewCell.swift */,
 				95F8DFBE2356745F00953E46 /* BookTableViewCellDelegate.swift */,
 				95F8DFBC23566F1900953E46 /* BookDetailViewController.swift */,
+				95F8DFB823566BD700953E46 /* ReadingListTableViewController.swift */,
 				95F8DFB42356564B00953E46 /* Book.swift */,
 				95F8DFB62356571300953E46 /* BookController.swift */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,

@@ -9,6 +9,8 @@
 import Foundation
 
 class BookController {
+    
+    var delegate: ReadingListTableViewController?
    
     var books: [Book] = []
     
@@ -24,9 +26,11 @@ class BookController {
     
 // Functions (CRUD)
     
-    func create(book: Book) {
+    func create(bookTitle: String, reasonToRead: String) {
+        let book = Book(title: bookTitle, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistentStore()
+        delegate?.tableView.reloadData()
     }
     
     func delete(book: Book) {
@@ -37,15 +41,17 @@ class BookController {
     }
     
     func updateHasBeenRead(for book: Book) {
-        var bookStatus = book.hasBeenRead
-        bookStatus.toggle()
-        saveToPersistentStore()
-    }
+         if let index = books.index(of: book) {
+            books[index].hasBeenRead.toggle()
+            saveToPersistentStore()
+            }
+        }
+       
     
     func edit(book: Book, title: String, reasonToRead: String) {
-        var selectedBook = book
-        selectedBook.title = title
-        selectedBook.reasonToRead = reasonToRead
+        guard let index = books.index(of: book) else { return }
+        books[index].title = title
+        books[index].reasonToRead = reasonToRead
         saveToPersistentStore()
     }
     
@@ -56,6 +62,10 @@ class BookController {
         guard let dir = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         let fileName = "ReadingList.plist"
         return dir.appendingPathComponent(fileName)
+    }
+    
+    init() {
+        loadFromPersistentStore()
     }
     private func saveToPersistentStore() {
         guard let url = readingListURL else { return }
@@ -82,7 +92,5 @@ class BookController {
             print("Error loading books data: \(error)")
         }
     }
-    
-        
 }
 
