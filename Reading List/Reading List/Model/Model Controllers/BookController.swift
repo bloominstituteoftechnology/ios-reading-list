@@ -17,12 +17,12 @@ class BookController {
     
     /// Computed property to return the read books in the app - CRUD (R)
     var readBooks: [Book] {
-        return books.filter( { $0.hasBeenRead == true } )
+        return books.filter( { $0.hasBeenRead == true } ).sorted(by: { $0 < $1 } )
     }
     
     /// Computed property to return the unread books in the app - CRUD (R)
     var unreadBooks: [Book] {
-        return books.filter( { $0.hasBeenRead == false } )
+        return books.filter( { $0.hasBeenRead == false } ).sorted(by: { $0 < $1 } )
     }
     
     /// Computed property to retrieve and store the file URL for the apps saved data

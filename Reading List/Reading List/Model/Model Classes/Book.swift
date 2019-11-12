@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Book: Equatable, Codable {
+struct Book: Equatable, Codable, Comparable {
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Properties
@@ -22,5 +22,9 @@ struct Book: Equatable, Codable {
         self.name = name
         self.reasonToRead = reasonToRead
         self.hasBeenRead = hasBeenRead
+    }
+    
+    static func < (lhs: Book, rhs: Book) -> Bool {
+        return lhs.name < rhs.name
     }
 }
