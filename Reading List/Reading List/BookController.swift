@@ -1,0 +1,60 @@
+//
+//  BookController.swift
+//  Reading List
+//
+//  Created by Donella Barcelo on 11/12/19.
+//  Copyright © 2019 Lambda School. All rights reserved.
+//
+
+import Foundation
+
+class BookController {
+    
+    var books: [Book] = []
+    
+    init() {
+        loadFromPersistentStore()
+    }
+    
+    
+    // MARK: - Reading List URL
+    
+    private var readingListURL: URL? {
+        let fileManager = FileManager.default
+        guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        
+        return documentsDir.appendingPathComponent("ReadingList.plist")
+    }
+    
+    func saveToPersistentStore() {
+        guard let fileURL = readingListURL else { return }
+        let encoder = PropertyListEncoder()
+        do {
+            let booksData = try encoder.encode(books)
+            try booksData.write(to: fileURL)
+        } catch {
+            print("Error saving books: \(error)")
+        }
+    }
+    
+    func loadFromPersistentStore() {
+        let fileManager = FileManager.default
+        guard let fileURL = readingListURL,
+            fileManager.fileExists(atPath: fileURL.path) else { return }
+        let decoder = PropertyListDecoder()
+        do {
+            let booksData = try Data(contentsOf: fileURL)
+            books = try decoder.decode([Book].self, from: booksData)
+        } catch {
+            print("Error loading books data: \(error)")
+        }
+    }
+    
+    func createBook(title: String, reasonToRead: String) {
+        let createdBook = Book(title: title, reasonToRead: reasonToRead)
+        books.append(createdBook)
+        saveToPersistentStore()
+    }
+    
+    
+}
