@@ -15,14 +15,37 @@
                     <view key="view" contentMode="scaleToFill" id="Dzz-8u-QKs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="er4-Xa-y95">
+                                <rect key="frame" x="12" y="198" width="390" height="652"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uHx-gf-M8j">
+                                <rect key="frame" x="12" y="152" width="390" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WZV-zo-o1M" firstAttribute="bottom" secondItem="er4-Xa-y95" secondAttribute="bottom" constant="12" id="5nD-dg-PFs"/>
+                            <constraint firstItem="uHx-gf-M8j" firstAttribute="top" secondItem="WZV-zo-o1M" secondAttribute="top" constant="12" id="6HV-mQ-cbD"/>
+                            <constraint firstItem="WZV-zo-o1M" firstAttribute="trailing" secondItem="er4-Xa-y95" secondAttribute="trailing" constant="12" id="L6j-id-xHq"/>
+                            <constraint firstItem="er4-Xa-y95" firstAttribute="top" secondItem="uHx-gf-M8j" secondAttribute="bottom" constant="12" id="PeK-SD-J1L"/>
+                            <constraint firstItem="er4-Xa-y95" firstAttribute="leading" secondItem="WZV-zo-o1M" secondAttribute="leading" constant="12" id="lbk-Y2-fVt"/>
+                            <constraint firstItem="uHx-gf-M8j" firstAttribute="leading" secondItem="WZV-zo-o1M" secondAttribute="leading" constant="12" id="qeZ-qH-WJy"/>
+                            <constraint firstItem="WZV-zo-o1M" firstAttribute="trailing" secondItem="uHx-gf-M8j" secondAttribute="trailing" constant="12" id="yHT-3B-gGN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WZV-zo-o1M"/>
                     </view>
                     <navigationItem key="navigationItem" id="Njo-f4-OgE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9su-yW-Jcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075" y="-214"/>
+            <point key="canvasLocation" x="1073.913043478261" y="-214.28571428571428"/>
         </scene>
         <!--Reading List-->
         <scene sceneID="9di-cd-cVL">
@@ -46,6 +69,9 @@
                                                 <constraint firstAttribute="width" secondItem="kwU-ud-bcb" secondAttribute="height" multiplier="1:1" id="wlX-VM-8Ym"/>
                                             </constraints>
                                             <state key="normal" image="unchecked"/>
+                                            <connections>
+                                                <action selector="hasBeenReadButtonTapped:" destination="FIQ-Uu-wOF" eventType="touchUpInside" id="Ibq-YW-5Po"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harry Potter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIr-3D-NQK">
                                             <rect key="frame" x="20" y="11.5" width="99" height="21"/>
