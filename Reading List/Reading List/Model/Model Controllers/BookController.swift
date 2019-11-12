@@ -12,13 +12,15 @@ class BookController {
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Properties
-    /// The array of model objects used within the app.
+    /// The array of model objects used within the app. - CRUD (R)
     var books = [Book]()
     
+    /// Computed property to return the read books in the app - CRUD (R)
     var readBooks: [Book] {
         return books.filter( { $0.hasBeenRead == true } )
     }
     
+    /// Computed property to return the unread books in the app - CRUD (R)
     var unreadBooks: [Book] {
         return books.filter( { $0.hasBeenRead == false } )
     }
@@ -32,37 +34,42 @@ class BookController {
     }
     
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+    // MARK: - Initialization
+    init() {
+        loadFromPersistentStore()
+    }
+    
+    // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Instance Methods
+    
+    /// Create a Book Object and save it to books array - CRUD (C)
     func create(with name: String, reason: String) {
         let book = Book(name: name, reasonToRead: reason)
         books.append(book)
         saveToPersistentStore()
     }
     
+    /// Remove Book object from array - CRUD (D)
     func delete(_ book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
         books.remove(at: index)
         saveToPersistentStore()
     }
     
+    /// Update hasBeenRead property on Book object - CRUD (U)
     func updateHasBeenRead(for book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
         books[index].hasBeenRead.toggle()
     }
     
-    func update(name: String?, reasonToRead: String?, for book: Book) {
+    /// Update title and reason properties on Book object - CRUD (U)
+    func update(name: String, reasonToRead: String, for book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
-        
-        if let name = name {
-            books[index].name = name
-        }
-        
-        if let reason = reasonToRead {
-            books[index].reasonToRead = reason
-        }
-        
+        books[index].name = name
+        books[index].reasonToRead = reasonToRead
         saveToPersistentStore()
     }
+    
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - Persistence
     /// Function used to save model items to the plist file.

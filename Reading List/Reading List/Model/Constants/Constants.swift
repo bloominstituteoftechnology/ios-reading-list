@@ -8,10 +8,12 @@
 
 import Foundation
 
+/// Constants set up to enable easily maintainable constants for cells
 struct Cells {
     static let bookCell = "BookCell"
 }
 
+/// Constants set up to enable easily maintainable constants for segues
 struct Segues {
     static let showBookDetail = "ShowBookDetail"
     static let addBook = "AddBook"

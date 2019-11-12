@@ -22,6 +22,28 @@ class ReadingListTableViewController: UITableViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Segues.addBook:
+            guard let bookDetailVC = segue.destination as? BookDetailViewController else { return }
+            bookDetailVC.bookController = bookController
+        case Segues.showBookDetail:
+            guard let bookDetailVC = segue.destination as? BookDetailViewController else { return }
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            bookDetailVC.bookController = bookController
+            bookDetailVC.book = book(for: indexPath)
+        default:
+            break
+        }
+    }
+    
     // --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // MARK: - TableView DataSource/Delegate Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,9 +60,17 @@ class ReadingListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Read Books"
+            if bookController.readBooks.isEmpty {
+                return nil
+            } else {
+                return "Read Books"
+            }
         } else {
-            return "Unread Books"
+            if bookController.unreadBooks.isEmpty {
+                return nil
+            } else {
+                return "Unread Books"
+            }
         }
     }
     
@@ -64,11 +94,13 @@ class ReadingListTableViewController: UITableViewController {
     }
 }
 
+// --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+// MARK: - BookTableViewCell Delegate Extension
 extension ReadingListTableViewController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let book = self.book(for: indexPath)
         bookController.updateHasBeenRead(for: book)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
     }
 }
