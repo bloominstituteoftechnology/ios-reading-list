@@ -9,38 +9,55 @@
 import UIKit
 
 class ReadingListTableViewController: UITableViewController {
+    
+    let bookController: BookController = BookController()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
+    }
+    
+    // Setting the header titles for sections within the table.
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Read Books"
+        } else {
+            return "Unread Books"
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        switch section {
+        case 0:
+            return bookController.readBooks.count
+        case 1:
+            return bookController.unreadBooks.count
+        default:
+            break
+        }
         return 0
     }
+    
+    // Cell height set to 60 for all cells
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
+        cell.delegate = self
+        cell.book = bookFor(indexPath: indexPath)
+        bookController.deleteBook(book)
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
