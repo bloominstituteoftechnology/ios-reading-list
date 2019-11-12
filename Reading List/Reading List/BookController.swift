@@ -26,6 +26,22 @@ class BookController {
         return documentsDir.appendingPathComponent("ReadingList.plist")
     }
     
+    var readBooks: [Book] {
+        var readBooks = books.filter { $0.hasBeenRead == true }
+        readBooks = readBooks.sorted {
+            $0.title < $1.title
+        }
+        return readBooks
+    }
+    
+    var unreadBooks: [Book] {
+        var unreadBooks = books.filter { $0.hasBeenRead == false }
+            unreadBooks = unreadBooks.sorted {
+                $0.title < $1.title
+        }
+        return unreadBooks
+    }
+    
     func saveToPersistentStore() {
         guard let fileURL = readingListURL else { return }
         let encoder = PropertyListEncoder()
