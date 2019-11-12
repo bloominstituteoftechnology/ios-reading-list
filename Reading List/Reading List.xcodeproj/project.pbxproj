@@ -17,6 +17,7 @@
 		634D849E237B5D6000D425A0 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D849D237B5D6000D425A0 /* ReadingListTableViewController.swift */; };
 		634D84A0237B5D8D00D425A0 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D849F237B5D8D00D425A0 /* BookTableViewCell.swift */; };
 		634D84A2237B5F4000D425A0 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D84A1237B5F4000D425A0 /* BookDetailViewController.swift */; };
+		634D84A5237B615200D425A0 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634D84A4237B615200D425A0 /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		634D849D237B5D6000D425A0 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		634D849F237B5D8D00D425A0 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		634D84A1237B5F4000D425A0 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		634D84A4237B615200D425A0 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				634D8493237B3E1000D425A0 /* Model */,
 				634D8491237B3DF700D425A0 /* View */,
 				634D8490237B3DEF00D425A0 /* Controller */,
+				634D84A3237B613400D425A0 /* Protocols */,
 				634D848E237B3D8600D425A0 /* Supporting Files */,
 			);
 			path = "Reading List";
@@ -151,6 +154,14 @@
 			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
+		634D84A3237B613400D425A0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				634D84A4237B615200D425A0 /* BookTableViewCellDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,6 +236,7 @@
 				634D849A237B528000D425A0 /* BookController.swift in Sources */,
 				634D849E237B5D6000D425A0 /* ReadingListTableViewController.swift in Sources */,
 				634D8498237B51DA00D425A0 /* Book.swift in Sources */,
+				634D84A5237B615200D425A0 /* BookTableViewCellDelegate.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				634D84A2237B5F4000D425A0 /* BookDetailViewController.swift in Sources */,
 				634D84A0237B5D8D00D425A0 /* BookTableViewCell.swift in Sources */,
