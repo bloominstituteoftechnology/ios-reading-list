@@ -9,10 +9,14 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
+    
+     weak var delegate: BookTableViewCellDelegate?
 
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var hasBeenRead: UIButton!
     @IBAction func hasBeenReadToggled(_ sender: Any) {
+        delegate?.toglleHassBeenRead(for: self)
+        
     }
     
     

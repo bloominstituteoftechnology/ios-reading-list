@@ -9,29 +9,33 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
+    var bookController: BookController?
+    
     @IBOutlet weak var bookTextField: UITextField!
     @IBOutlet weak var bookTextView: UITextView!
     
     @IBAction func saveButton(_ sender: Any) {
+        guard let updatedTitle = bookTextField.text,
+        let updatedReason = bookTextView.text else { return }
+        if let book = book {
+            bookController?.updateReasonToRead(book: book, title: updatedTitle, reasonToRead: updatedReason)
+        } else {
+            bookController?.createBook(with: updatedTitle, reasonToRead: updatedReason)
+        }
     }
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    var book: Book? {
+        didSet {
+            
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateViews() {
+        guard let book = book else { return }
+    
+        bookTextField.text = book.title
+        bookTextView.text = book.reasonToRead
     }
-    */
+    
 
 }
