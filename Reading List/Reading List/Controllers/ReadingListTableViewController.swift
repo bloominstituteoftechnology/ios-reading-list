@@ -58,13 +58,11 @@ class ReadingListTableViewController: UITableViewController {
         return cell
     }
     
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let book = bookFor(indexPath: indexPath)
             bookController.deleteBook(book)
             tableView.deleteRows(at: [indexPath], with: .fade)
-      
         }
     }
     
@@ -78,7 +76,6 @@ class ReadingListTableViewController: UITableViewController {
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddBookSegue" {
             guard let addBookVC = segue.destination as? BookDetailViewController else { return }

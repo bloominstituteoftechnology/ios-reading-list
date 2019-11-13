@@ -20,7 +20,6 @@ class BookTableViewCell: UITableViewCell {
         }
     }
     
-
     func updateViews() {
         let greenCellColor = UIColor(red: 0.749, green: 0.8784, blue: 0.102, alpha: 1.0)
         let redCellColor = UIColor(red: 1, green: 0.5686, blue: 0.5686, alpha: 1.0)

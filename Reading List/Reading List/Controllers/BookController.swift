@@ -16,7 +16,6 @@ class BookController {
         loadFromPersistentStore()
     }
     
-    
     // MARK: - Reading List URL
     
     private var readingListURL: URL? {
