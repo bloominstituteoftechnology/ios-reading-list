@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
+class ReadingListTableViewController: UITableViewController { var bookController: BookController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +24,15 @@ class ReadingListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
+    
+//    Implement the numberOfRowsInSection next. This time however, since we are using multiple sections, we can't get away with simply returning the count of the books array, because that holds all of the books in the application. We need to now say, "For my first section (that will display only the read books), return the number of read books, and for the second section return the number of unread books." Since the section that the table view is trying to get the number of rows for is passed in as a parameter, we can easily check the section using a conditional statement, and return the correct amount. Use the readBooks and unreadBooks computed properties in the bookController to get the right amount of rows depending on the section. The first section (0) will show the read books, and the second section (1) will show the unread books.
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        switch( )
+        return
     }
 
     /*
