@@ -8,10 +8,15 @@
 
 import Foundation
 
-// Book Struct for title, reason to read, and if it has been read. Adopts Equatable and codable.
+
 struct Book: Equatable, Codable {
     var title: String
     var reasonToRead: String
-    var hasBeenRead: Bool = false
-
+    var hasBeenRead: Bool
+// Initializer to give default values to the hasBeenRead parameter
+    init(_ title: String, _ reasonToRead: String, _ hasBeenRead: Bool = false) {
+        self.title = title
+        self.reasonToRead = reasonToRead
+        self.hasBeenRead = hasBeenRead
+    }
 }
