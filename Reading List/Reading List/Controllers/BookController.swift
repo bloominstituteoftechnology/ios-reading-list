@@ -24,11 +24,11 @@ class BookController {
     }
     
     var readBooks: [Book] {
-        return books.filter {$0.hasBeenRead}
+        return books.sorted {$0.title < $1.title }.filter {$0.hasBeenRead}
     }
     
     var unreadBooks: [Book] {
-        return books.filter {!$0.hasBeenRead}
+        return books.sorted {$0.title < $1.title }.filter {!$0.hasBeenRead}
     }
     
     func saveToPersistentStore() {
