@@ -13,7 +13,7 @@ struct Book: Equatable, Codable {
     var title: String
     var reasonToRead: String
     var hasBeenRead: Bool
-// Initializer to give default values to the hasBeenRead parameter
+
     init(_ title: String, _ reasonToRead: String, _ hasBeenRead: Bool = false) {
         self.title = title
         self.reasonToRead = reasonToRead
