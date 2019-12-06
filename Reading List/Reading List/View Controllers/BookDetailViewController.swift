@@ -24,6 +24,7 @@ class BookDetailViewController: UIViewController {
         super.viewDidLoad()
 
         updateViews()
+        titleTextField.becomeFirstResponder()
     }
     
     @IBAction func saveBook(_ sender: UIBarButtonItem) {
@@ -35,9 +36,11 @@ class BookDetailViewController: UIViewController {
         if let book = book {
             // Update an existing book
             bookController?.updateBook(book, withTitle: title, andReasonToRead: reasonToRead)
+            navigationController?.popViewController(animated: true)
         } else {
             // Create a new book
             bookController?.createBook(withTitle: title, andReasonToRead: reasonToRead)
+            navigationController?.popViewController(animated: true)
         }
     }
     
@@ -49,6 +52,6 @@ class BookDetailViewController: UIViewController {
         }
         title = book.title
         titleTextField.text = book.title
-        reasonToReadTextView.text = "Reason to read: \(book.reasonToRead)"
+        reasonToReadTextView.text = "\(book.reasonToRead)"
     }
 }

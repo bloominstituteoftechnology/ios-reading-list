@@ -12,14 +12,10 @@ class ReadingListTableViewController: UITableViewController {
     
     let bookController = BookController()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -69,10 +65,20 @@ class ReadingListTableViewController: UITableViewController {
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddBookSegue" {
+            guard let destinationVC = segue.destination as? BookDetailViewController else { return }
+            
+            destinationVC.bookController = bookController
+        } else if segue.identifier == "ShowBookDetail" {
+            guard let destinationVC = segue.destination as? BookDetailViewController else { return }
+            
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let book = bookFor(indexPath: indexPath)
+            
+            destinationVC.bookController = bookController
+            destinationVC.book = book
+        }
     }
     
 
