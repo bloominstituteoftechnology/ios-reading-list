@@ -25,7 +25,7 @@
 		4225B09E2399C49600898D56 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		42322005239B0BCD00A25D69 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		42322007239B0E4F00A25D69 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
-		42322009239B26C300A25D69 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookDetailViewController.swift; path = "Reading List/Controllers/BookDetailViewController.swift"; sourceTree = "<group>"; };
+		42322009239B26C300A25D69 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		4232200B239B8C9700A25D69 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		466941652110E22A00E7FF73 /* Reading List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466941682110E22A00E7FF73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +65,7 @@
 				4669416A2110E22B00E7FF73 /* ViewController.swift */,
 				42322005239B0BCD00A25D69 /* BookTableViewCell.swift */,
 				42322007239B0E4F00A25D69 /* ReadingListTableViewController.swift */,
+				42322009239B26C300A25D69 /* BookDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -89,7 +90,6 @@
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
-				42322009239B26C300A25D69 /* BookDetailViewController.swift */,
 				466941672110E22A00E7FF73 /* Reading List */,
 				466941662110E22A00E7FF73 /* Products */,
 			);

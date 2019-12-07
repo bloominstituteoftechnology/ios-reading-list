@@ -28,50 +28,87 @@ class BookController {
      }
 //MARK: - Methods
     
-    /// Creates a new book object in the book array
-    /// - Parameters:
-    ///   - title: The title of the book
-    ///   - reasonToRead: The reason to read the book
-    ///   - hasBeenRead: If the book has been read
-    func createBook(titleOf title: String, reason reasonToRead: String, hasRead hasBeenRead: Bool) {
-         let book = Book(title, reasonToRead, hasBeenRead)
+//    /// Creates a new book object in the book array
+//    /// - Parameters:
+//    ///   - title: The title of the book
+//    ///   - reasonToRead: The reason to read the book
+//    ///   - hasBeenRead: If the book has been read
+//    func createBook(titleOf title: String, reason reasonToRead: String, hasRead hasBeenRead: Bool) {
+//         let book = Book(title, reasonToRead, hasBeenRead)
+//         books.append(book)
+//         saveToPersistentStore()
+//     }
+//
+//    /// Removes a book object from the book array
+//    /// - Parameter book: Book object
+//     func deleteBook(_ book: Book) {
+//         guard let bookIndex = books.firstIndex(of: book) else { return }
+//         books.remove(at: bookIndex)
+//         saveToPersistentStore()
+//     }
+//
+    func editBook(book: Book, title: String, reasonToRead: String) {
+        guard let index = books.firstIndex(of: book) else { return }
+         books[index].title = title
+         books[index].reasonToRead = reasonToRead
+         saveToPersistentStore()
+     }
+//
+//    /// Updates when a book has been read in an array.
+//    /// - Parameter book: Book
+//     func updateHasBeenRead(for book: Book) {
+//         guard let bookIndex = books.firstIndex(of: book) else { return }
+//
+//         if (book.hasBeenRead) {
+//             books[bookIndex].hasBeenRead = false
+//         } else {
+//             books[bookIndex].hasBeenRead = true
+//         }
+//         saveToPersistentStore()
+//     }
+//
+//    /// Updates the title and reason to read a book in an array
+//    /// - Parameters:
+//    ///   - book: Book
+//    ///   - title: Title of Book
+//    ///   - reason: Reason to read
+//     func updateTitleAndReason(for book: Book, updateTitle title: String, updateReason reason: String) {
+//         guard let bookIndex = books.firstIndex(of: book) else { return }
+//
+//         books[bookIndex].title = title
+//         books[bookIndex].reasonToRead = reason
+//         saveToPersistentStore()
+//     }
+    
+    
+    @discardableResult func createBook(named title: String, withReason reason: String) -> Book {
+        let book = Book(title, reason)
          books.append(book)
+         print("\(unreadBooks)")
+         saveToPersistentStore()
+         return book
+     }
+
+     func deleteBook(named book: Book) {
+         guard let index = books.firstIndex(of: book) else { return }
+         books.remove(at: index)
          saveToPersistentStore()
      }
 
-    /// Removes a book object from the book array
-    /// - Parameter book: Book object
-     func deleteBook(_ book: Book) {
-         guard let bookIndex = books.firstIndex(of: book) else { return }
-         books.remove(at: bookIndex)
-         saveToPersistentStore()
-     }
-    
-    /// Updates when a book has been read in an array.
-    /// - Parameter book: Book
      func updateHasBeenRead(for book: Book) {
-         guard let bookIndex = books.firstIndex(of: book) else { return }
+         guard let index = books.firstIndex(of: book) else { return }
+         books[index].hasBeenRead.toggle()
+         saveToPersistentStore()
+     }
 
-         if (book.hasBeenRead) {
-             books[bookIndex].hasBeenRead = false
-         } else {
-             books[bookIndex].hasBeenRead = true
-         }
+     func updateReasonOrTitle(for book: Book) {
+         guard let index = books.firstIndex(of: book) else { return }
+         books[index].title = book.title
+         books[index].reasonToRead = book.reasonToRead
          saveToPersistentStore()
      }
     
-    /// Updates the title and reason to read a book in an array
-    /// - Parameters:
-    ///   - book: Book
-    ///   - title: Title of Book
-    ///   - reason: Reason to read
-     func updateTitleAndReason(for book: Book, updateTitle title: String, updateReason reason: String) {
-         guard let bookIndex = books.firstIndex(of: book) else { return }
-
-         books[bookIndex].title = title
-         books[bookIndex].reasonToRead = reason
-         saveToPersistentStore()
-     }
+    
 //MARK: - Persistence
     private var readingListURL: URL? {
         let fm = FileManager.default
