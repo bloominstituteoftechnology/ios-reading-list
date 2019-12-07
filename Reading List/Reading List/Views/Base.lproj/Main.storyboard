@@ -24,34 +24,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="302" translatesAutoresizingMaskIntoConstraints="NO" id="8sF-fv-C0A">
-                                            <rect key="frame" x="24.5" y="7" width="365.5" height="30"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="def-mN-fmA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="33.5" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTK-66-foN">
-                                                    <rect key="frame" x="335.5" y="0.0" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="Wux-sc-RL3"/>
-                                                        <constraint firstAttribute="width" secondItem="kTK-66-foN" secondAttribute="height" multiplier="1:1" id="Ze6-pD-y9T"/>
-                                                        <constraint firstAttribute="width" constant="30" id="jWW-Q2-zUF"/>
-                                                    </constraints>
-                                                    <state key="normal" image="unchecked"/>
-                                                    <connections>
-                                                        <action selector="checkButtonPressed:" destination="va1-sF-3oy" eventType="touchUpInside" id="b9b-d0-Sku"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTK-66-foN">
+                                            <rect key="frame" x="364" y="6" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="unchecked"/>
+                                            <connections>
+                                                <action selector="checkButtonPressed:" destination="va1-sF-3oy" eventType="touchUpInside" id="b9b-d0-Sku"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title of Book Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="def-mN-fmA">
+                                            <rect key="frame" x="20" y="4" width="336" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="8sF-fv-C0A" firstAttribute="centerY" secondItem="XTN-B6-F6G" secondAttribute="centerY" id="ClC-Kw-tBm"/>
-                                        <constraint firstItem="8sF-fv-C0A" firstAttribute="centerX" secondItem="XTN-B6-F6G" secondAttribute="centerX" id="xHD-Qw-tfh"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookLabel" destination="def-mN-fmA" id="kTD-5b-DAE"/>
