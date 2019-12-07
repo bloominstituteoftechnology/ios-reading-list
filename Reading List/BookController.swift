@@ -78,4 +78,21 @@ class BookController {
         books[index].reasonToRead = newReasonToRead
         saveToPersistentStore()
     }
+    // MARK: - LIST OF READ BOOKS
+  var readBooks: [Book] {
+      var readBooks = books.filter { $0.hasBeenRead == true }
+      readBooks = readBooks.sorted {
+          $0.title < $1.title
+      }
+      return readBooks
+  }
+    // MARK: - LIST OF UNREAD BOOKS
+    var unreadBooks: [Book] {
+       var unreadBooks = books.filter { $0.hasBeenRead == false }
+           unreadBooks = unreadBooks.sorted {
+               $0.title < $1.title
+       }
+       return unreadBooks
+   }
+    
 }
