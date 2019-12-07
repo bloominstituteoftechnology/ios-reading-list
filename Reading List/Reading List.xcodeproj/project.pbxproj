@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4225B09D2399C2E000898D56 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4225B09C2399C2E000898D56 /* Book.swift */; };
 		4225B09F2399C49600898D56 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4225B09E2399C49600898D56 /* BookController.swift */; };
+		42322006239B0BCD00A25D69 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42322005239B0BCD00A25D69 /* BookTableViewCell.swift */; };
+		42322008239B0E4F00A25D69 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42322007239B0E4F00A25D69 /* ReadingListTableViewController.swift */; };
+		4232200A239B26C300A25D69 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42322009239B26C300A25D69 /* BookDetailViewController.swift */; };
 		466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466941682110E22A00E7FF73 /* AppDelegate.swift */; };
 		4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4669416A2110E22B00E7FF73 /* ViewController.swift */; };
 		4669416E2110E22B00E7FF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4669416C2110E22B00E7FF73 /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 /* Begin PBXFileReference section */
 		4225B09C2399C2E000898D56 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		4225B09E2399C49600898D56 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		42322005239B0BCD00A25D69 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		42322007239B0E4F00A25D69 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
+		42322009239B26C300A25D69 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookDetailViewController.swift; path = "Reading List/Controllers/BookDetailViewController.swift"; sourceTree = "<group>"; };
 		466941652110E22A00E7FF73 /* Reading List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466941682110E22A00E7FF73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4669416A2110E22B00E7FF73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,9 +45,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42322001239B041E00A25D69 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				466941682110E22A00E7FF73 /* AppDelegate.swift */,
+				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
+				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
+				466941742110E22B00E7FF73 /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		42322002239B042300A25D69 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4225B09E2399C49600898D56 /* BookController.swift */,
+				4669416A2110E22B00E7FF73 /* ViewController.swift */,
+				42322005239B0BCD00A25D69 /* BookTableViewCell.swift */,
+				42322007239B0E4F00A25D69 /* ReadingListTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		42322003239B042500A25D69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4669416C2110E22B00E7FF73 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		42322004239B042700A25D69 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4225B09C2399C2E000898D56 /* Book.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
+				42322009239B26C300A25D69 /* BookDetailViewController.swift */,
 				466941672110E22A00E7FF73 /* Reading List */,
 				466941662110E22A00E7FF73 /* Products */,
 			);
@@ -58,14 +103,10 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
-				466941682110E22A00E7FF73 /* AppDelegate.swift */,
-				4669416A2110E22B00E7FF73 /* ViewController.swift */,
-				4669416C2110E22B00E7FF73 /* Main.storyboard */,
-				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
-				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
-				466941742110E22B00E7FF73 /* Info.plist */,
-				4225B09C2399C2E000898D56 /* Book.swift */,
-				4225B09E2399C49600898D56 /* BookController.swift */,
+				42322004239B042700A25D69 /* Models */,
+				42322003239B042500A25D69 /* Views */,
+				42322002239B042300A25D69 /* Controllers */,
+				42322001239B041E00A25D69 /* SupportFiles */,
 			);
 			path = "Reading List";
 			sourceTree = "<group>";
@@ -145,6 +186,9 @@
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				4225B09F2399C49600898D56 /* BookController.swift in Sources */,
+				42322006239B0BCD00A25D69 /* BookTableViewCell.swift in Sources */,
+				4232200A239B26C300A25D69 /* BookDetailViewController.swift in Sources */,
+				42322008239B0E4F00A25D69 /* ReadingListTableViewController.swift in Sources */,
 				4225B09D2399C2E000898D56 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,7 +335,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = "Reading List/Info.plist";
+				INFOPLIST_FILE = "Reading List/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,7 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VXUQXR6S56;
-				INFOPLIST_FILE = "Reading List/Info.plist";
+				INFOPLIST_FILE = "Reading List/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
