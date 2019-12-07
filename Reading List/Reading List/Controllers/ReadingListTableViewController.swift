@@ -88,13 +88,19 @@ class ReadingListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (section == 0) {
-            return "Currently Reading (\(bookController.unreadBooks.count))"
-        } else if (section == 1) {
-            return "Read Books (\(bookController.readBooks.count))"
-        } else {
-            return ""
-        }
+        switch section {
+        case 0:
+             if self.tableView(tableView, numberOfRowsInSection: section) > 0 {
+                 return "Currently Reading (\(bookController.unreadBooks.count))"
+             }
+         case 1:
+             if self.tableView(tableView, numberOfRowsInSection: section) > 0 {
+                 return "Read Books (\(bookController.readBooks.count))"
+             }
+         default:
+             return nil // when return nil no header will be shown
+         }
+         return nil
     }
     
     
