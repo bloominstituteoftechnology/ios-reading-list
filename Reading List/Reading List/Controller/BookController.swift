@@ -16,6 +16,7 @@ class BookController {
     
     private(set) var books: [Book] = []
     
+    
     // step 7 and 8 not sure
     //    private(set) var readBooks: [Book]
         //    private(set) var unreadBooks: [Book]
@@ -28,11 +29,42 @@ class BookController {
 
 //create
     @discardableResult func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
-      let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
         books.append(book)
         saveToPersistentStore()
         return book
     }
+    
+    // sort books for sections read vs unread
+    var readBooks: [Book] {
+        return books.sorted{$0.title < $1.title}.filter {$0.hasBeenRead}
+    }
+    var unreadBooks: [Book] {
+        return books.sorted{$0.title < $1.title}.filter {!$0.hasBeenRead}
+    }
+    
+    //edit book or title
+//    func editBook(book: Book, title: String, reasonToRead: String) {
+//        guard let index = books.firstIndex(of: book) else { return }
+//        books[index].title = title
+//        books[index].reasonToRead = reasonToRead
+//        saveToPersistentStore()
+//    }
+    
+    // delete
+    func deleteBook(for book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
+        saveToPersistentStore()
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
+        saveToPersistentStore()
+    }
+    
+    //edit book
     
     
     
