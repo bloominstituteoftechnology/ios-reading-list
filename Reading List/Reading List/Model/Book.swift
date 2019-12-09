@@ -10,11 +10,17 @@ import Foundation
 
 struct Book: Codable, Equatable {
     
-    static var shared = Book()
-    private init() {}
+//            static var shared = Book()
+//            private init() {}
     
     var title: String
     var reasonToRead: String
     var hasBeenRead: Bool = false
+    
+//    init(title: String, reasonToRead: String) {
+//        self.title = title
+//        self.reasonToRead = reasonToRead
+//        self.hasBeenRead = false
+//    }
     
 }

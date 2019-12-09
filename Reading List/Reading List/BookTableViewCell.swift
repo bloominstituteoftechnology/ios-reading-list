@@ -8,9 +8,15 @@
 
 import UIKit
 
-class BookTableViewCell: UITableViewCell {
+class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
+    
 
     var book: Book?
+    
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        <#code#>
+    }
     
     @IBOutlet weak var bookTitleLabel: UILabel!
     override func awakeFromNib() {
@@ -23,11 +29,12 @@ class BookTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    #warning("aaaand here")
     @IBAction func seenNotSeenTapped(_ sender: UIButton) {
-        Book.shared.hasBeenRead = !Book.shared.hasBeenRead
-    }
+      //  Book.hasBeenRead = !Book.hasBeenRead
     
+    }
+
     func upDateViews() {
         guard let book = book else { return }
         bookTitleLabel.text = book.title

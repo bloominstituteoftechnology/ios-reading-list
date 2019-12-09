@@ -9,9 +9,9 @@
 import Foundation
 
 class BookController {
-    //    init() {
-    //        loadFromPersistentStore()
-    //    }
+        init() {
+            loadFromPersistentStore()
+        }
     
     var books: [Book] = []
     
@@ -20,13 +20,6 @@ class BookController {
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         
         return documents.appendingPathComponent("ReadingList.plist")
-    }
-    
-    @discardableResult func createStar(named name: String, hasRead:  Bool) -> Book {
-        let book = Book(title: name, hasBeenRead: hasRead)
-        books.append(book)
-        saveToPersistentStore()
-        return book
     }
     
     func saveToPersistentStore() {
@@ -41,7 +34,6 @@ class BookController {
     }
     
     func loadFromPersistentStore() {
-        
         // Data in Plist -> Book
         let fileManager = FileManager.default
         guard let url = readingListURL,
@@ -54,14 +46,27 @@ class BookController {
             print("Error loading books data: \(error)")
         }
     }
-    #warning("How to implement?")
+    
+    @discardableResult func createBook(named name: String, reasonToRead: String) -> Book {
+            #warning("seems unfinished")
+            let book = Book(title: name, reasonToRead: reasonToRead)
+            books.append(book)
+            saveToPersistentStore()
+            return book
+        }
+    
+    #warning("How to implement?  Need to find the correct row/path..?")
     func deleteBook(book: Book) {
-        books.remove(at: <#T##Int#>)
+        
         saveToPersistentStore()
     }
-    
+    #warning("stuck here")
     func updateHasBeenRead(for book: Book) {
-        Book.shared.hasBeenRead = !Book.shared.hasBeenRead
+        Book.hasBeenRead = !Book.hasBeenRead
     }
     
+    func editBook(book: Book) {
+        
+    }
+
 }
