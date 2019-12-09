@@ -12,7 +12,8 @@ class BookController {
         init() {
             loadFromPersistentStore()
         }
-    
+    let readBooks: [Book] = books.filter {_ in book.hasBeenRead }
+    let unreadBooks: [Book] = books.filter {_ in !book.hasBeenRead }
     var books: [Book] = []
     
      var readingListURL: URL? {
@@ -53,6 +54,7 @@ class BookController {
             saveToPersistentStore()
             return book
         }
+    
     
     func deleteBook(book: Book) {
         guard let index = books.firstIndex(of: book) else { return }

@@ -36,7 +36,16 @@ class ReadingListTableViewController: UITableViewController {
        // let book = bookController.books[indexPath.row]
         return 0
     }
-
+    
+    private func bookFor(indexPath: IndexPath) -> Book {
+     
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+        } else {
+            return bookController.unreadBooks[indexPath.row]
+        }
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
