@@ -16,6 +16,7 @@
 		63D0C7B2239E0FDF00E6F10A /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0C7B1239E0FDF00E6F10A /* BookTableViewCell.swift */; };
 		63D0C7B4239E101300E6F10A /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0C7B3239E101300E6F10A /* ReadingListTableViewController.swift */; };
 		63D0C7B9239E1A6100E6F10A /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0C7B8239E1A6100E6F10A /* BookDetailViewController.swift */; };
+		63D0C7BB239E1F7300E6F10A /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0C7BA239E1F7300E6F10A /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		63D0C7B1239E0FDF00E6F10A /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		63D0C7B3239E101300E6F10A /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		63D0C7B8239E1A6100E6F10A /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		63D0C7BA239E1F7300E6F10A /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				63D0C7B1239E0FDF00E6F10A /* BookTableViewCell.swift */,
+				63D0C7BA239E1F7300E6F10A /* BookTableViewCellDelegate.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				63D0C7B9239E1A6100E6F10A /* BookDetailViewController.swift in Sources */,
 				63D0C7B2239E0FDF00E6F10A /* BookTableViewCell.swift in Sources */,
 				63D0C7B4239E101300E6F10A /* ReadingListTableViewController.swift in Sources */,
+				63D0C7BB239E1F7300E6F10A /* BookTableViewCellDelegate.swift in Sources */,
 				63D0C7AE239DBFB300E6F10A /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

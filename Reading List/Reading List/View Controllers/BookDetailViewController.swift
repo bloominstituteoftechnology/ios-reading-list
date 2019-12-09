@@ -10,18 +10,45 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
    
+    var bookController: BookController?
+    var book: Book?
+    
     // MARK: - IBOutlets
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reasonToReadTextView: UITextView!
     
     // MARK: - IBActions
+    
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let title = titleTextField.text,
+        let reasonToRead = reasonToReadTextView.text,
+        !title.isEmpty,
+        !reasonToRead.isEmpty,
+        let bc = bookController else { return }
         
+        if let book = book {
+            bc.updateProperties(for: book, newTitle: title, newReasonToRead: reasonToRead)
+        } else {
+            guard !bc.books.contains(Book(title: title, reasonToRead: reasonToRead)) else { return }
+            bc.createBook(withTitle: title, reasonToRead: reasonToRead)
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func updateViews() {
+        if let book = book {
+            self.title = book.title
+            titleTextField.text = book.title
+            reasonToReadTextView.text = book.reasonToRead
+        } else {
+            self.title = "Add a new book"
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
         // Do any additional setup after loading the view.
     }
     

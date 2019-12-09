@@ -31,8 +31,7 @@ class BookController {
         return book
     }
     
-    func deleteBook(withTitle title: String, reasonToRead: String) {
-        let book = Book(title: title, reasonToRead: reasonToRead)
+    func deleteBook(_ book: Book) {
         if let index = books.firstIndex(of: book) {
             books.remove(at: index)
             saveToPersistentStore()
