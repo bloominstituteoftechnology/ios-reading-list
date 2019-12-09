@@ -37,7 +37,7 @@
                                             </constraints>
                                             <state key="normal" image="checked"/>
                                             <connections>
-                                                <action selector="readStatusButton:" destination="nG5-EF-AF7" eventType="touchUpInside" id="hVS-XI-mbZ"/>
+                                                <action selector="readStatusButton:" destination="nG5-EF-AF7" eventType="touchUpInside" id="0ho-gh-gmM"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -51,6 +51,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookLabel" destination="Ac8-qV-kzs" id="ibN-Kh-Cmq"/>
+                                    <outlet property="readStatusButton" destination="Jds-KX-S3m" id="TCg-Sx-30A"/>
                                     <segue destination="sUR-CQ-4lu" kind="show" identifier="readStatusSegue" id="bAJ-PE-yyg"/>
                                 </connections>
                             </tableViewCell>
