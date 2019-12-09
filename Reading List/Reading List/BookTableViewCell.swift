@@ -15,13 +15,13 @@ class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
     
     
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-      //
+      
     }
     
     @IBOutlet weak var bookTitleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,17 +29,16 @@ class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
 
         // Configure the view for the selected state
     }
-    #warning("aaaand here")
+    #warning("aaaand here.. not sure if this will work")
     @IBAction func seenNotSeenTapped(_ sender: UIButton) {
-        Book.hasBeenRead = !Book.hasBeenRead
-    
+        book?.hasBeenRead = !(book?.hasBeenRead ?? nil)!
     }
 
     func upDateViews() {
         guard let book = book else { return }
         bookTitleLabel.text = book.title
         let seenButton = UIButton()
-        if  Book.hasBeenRead {
+        if  book.hasBeenRead {
             seenButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         } else {
            seenButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)

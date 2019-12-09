@@ -59,17 +59,17 @@ class BookController {
         books.remove(at: index)
         saveToPersistentStore()
     }
-   
+    #warning("hopefully this works")
     func updateHasBeenRead(for book: Book) {
-        guard let index = books.firstIndex(of: book) else { return }
-        books[index].hasBeenRead = !books[index].hasBeenRead
+        let readBooks: [Book] = books.filter {_ in book.hasBeenRead }
+        let unreadBooks: [Book] = books.filter {_ in !book.hasBeenRead }
         saveToPersistentStore()
     }
-    
+    #warning("Not sure if this will work")
     func editBook(book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
-        books[index].title = ""
-        books[index].reasonToRead = ""
+        books[index].title =  book.title //""//"\(bookTitleLabel)"
+        books[index].reasonToRead = book.reasonToRead //""//"\(reasonToReadLabel)"
         saveToPersistentStore()
     }
 

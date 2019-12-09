@@ -10,9 +10,6 @@ import Foundation
 
 struct Book: Codable, Equatable {
     
-//            static var shared = Book()
-//            private init() {}
-    
     var title: String
     var reasonToRead: String
     var hasBeenRead: Bool = false
@@ -22,5 +19,4 @@ struct Book: Codable, Equatable {
         self.reasonToRead = reasonToRead
         self.hasBeenRead = hasBeenRead
     }
-    
 }
