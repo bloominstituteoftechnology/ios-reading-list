@@ -15,7 +15,7 @@ class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
     
     
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-        <#code#>
+      //
     }
     
     @IBOutlet weak var bookTitleLabel: UILabel!
@@ -31,7 +31,7 @@ class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
     }
     #warning("aaaand here")
     @IBAction func seenNotSeenTapped(_ sender: UIButton) {
-      //  Book.hasBeenRead = !Book.hasBeenRead
+        Book.hasBeenRead = !Book.hasBeenRead
     
     }
 
@@ -39,7 +39,7 @@ class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
         guard let book = book else { return }
         bookTitleLabel.text = book.title
         let seenButton = UIButton()
-        if  Book.shared.hasBeenRead {
+        if  Book.hasBeenRead {
             seenButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         } else {
            seenButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)

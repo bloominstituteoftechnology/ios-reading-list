@@ -15,7 +15,7 @@ class BookController {
     
     var books: [Book] = []
     
-    private var readingListURL: URL? {
+     var readingListURL: URL? {
         let fileManager = FileManager.default
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         
@@ -47,26 +47,30 @@ class BookController {
         }
     }
     
-    @discardableResult func createBook(named name: String, reasonToRead: String) -> Book {
-            #warning("seems unfinished")
-            let book = Book(title: name, reasonToRead: reasonToRead)
+    @discardableResult func createBook(named name: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
+            let book = Book(title: name, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
             books.append(book)
             saveToPersistentStore()
             return book
         }
     
-    #warning("How to implement?  Need to find the correct row/path..?")
     func deleteBook(book: Book) {
-        
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
         saveToPersistentStore()
     }
-    #warning("stuck here")
+   
     func updateHasBeenRead(for book: Book) {
-        Book.hasBeenRead = !Book.hasBeenRead
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].hasBeenRead = !books[index].hasBeenRead
+        saveToPersistentStore()
     }
     
     func editBook(book: Book) {
-        
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].title = ""
+        books[index].reasonToRead = ""
+        saveToPersistentStore()
     }
 
 }

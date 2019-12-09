@@ -17,10 +17,10 @@ struct Book: Codable, Equatable {
     var reasonToRead: String
     var hasBeenRead: Bool = false
     
-//    init(title: String, reasonToRead: String) {
-//        self.title = title
-//        self.reasonToRead = reasonToRead
-//        self.hasBeenRead = false
-//    }
+    init(title: String, reasonToRead: String, hasBeenRead: Bool) {
+        self.title = title
+        self.reasonToRead = reasonToRead
+        self.hasBeenRead = hasBeenRead
+    }
     
 }

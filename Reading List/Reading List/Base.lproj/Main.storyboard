@@ -114,6 +114,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bookTitleLabel" destination="sM3-Pj-uUJ" id="LFe-aO-crJ"/>
+                        <outlet property="reasonToReadLabel" destination="e5p-Xe-bKw" id="kTM-pt-FHC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAH-vv-23V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
