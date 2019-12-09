@@ -18,9 +18,14 @@ class BookController {
     }
     
     private var readBooks: [Book] {
-        let readBooksArray = books.filter { == true}
+        let readBooksArray = books.filter({ $0.hasBeenRead == true})
         return readBooksArray
     }
+    
+    private var unreadBooks: [Book] {
+          let unreadBooksArray = books.filter({ $0.hasBeenRead == false})
+          return unreadBooksArray
+      }
     
     func saveToPersistentStore() {
         guard let url = readingListURL else {return}
