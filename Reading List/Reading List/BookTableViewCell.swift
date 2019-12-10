@@ -13,6 +13,8 @@ class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
 
     var book: Book?
     
+   
+var delegate: BookTableViewCellDelegate?
     
     func toggleHasBeenRead(for cell: BookTableViewCell) {
       
@@ -31,7 +33,8 @@ class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
     }
     #warning("aaaand here.. not sure if this will work")
     @IBAction func seenNotSeenTapped(_ sender: UIButton) {
-        book?.hasBeenRead = !(book?.hasBeenRead ?? nil)!
+        delegate?.toggleHasBeenRead(for: self)
+       // book?.hasBeenRead = !(book?.hasBeenRead ?? nil)!
     }
 
     func upDateViews() {

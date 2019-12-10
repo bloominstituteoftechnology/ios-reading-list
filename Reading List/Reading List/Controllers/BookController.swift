@@ -9,12 +9,20 @@
 import Foundation
 
 class BookController {
-        init() {
-            loadFromPersistentStore()
-        }
-    let readBooks: [Book] = books.filter {_ in book.hasBeenRead }
-    let unreadBooks: [Book] = books.filter {_ in !book.hasBeenRead }
+    
+     init() {
+         loadFromPersistentStore()
+     }
+     
     var books: [Book] = []
+    
+    var readBooks: [Book] {
+        return books.filter({$0.hasBeenRead == true})
+    }
+    
+    var unreadBooks: [Book] {
+        return books.filter({$0.hasBeenRead == false})
+    }
     
      var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -35,7 +43,6 @@ class BookController {
     }
     
     func loadFromPersistentStore() {
-        // Data in Plist -> Book
         let fileManager = FileManager.default
         guard let url = readingListURL,
             fileManager.fileExists(atPath: url.path) else { return }
@@ -61,18 +68,21 @@ class BookController {
         books.remove(at: index)
         saveToPersistentStore()
     }
-    #warning("hopefully this works")
+  
     func updateHasBeenRead(for book: Book) {
         let readBooks: [Book] = books.filter {_ in book.hasBeenRead }
         let unreadBooks: [Book] = books.filter {_ in !book.hasBeenRead }
         saveToPersistentStore()
     }
-    #warning("Not sure if this will work")
-    func editBook(book: Book) {
+  
+    func updateBook(book: Book, _ title: String? = nil, reason: String? = nil) {
         guard let index = books.firstIndex(of: book) else { return }
-        books[index].title =  book.title //""//"\(bookTitleLabel)"
-        books[index].reasonToRead = book.reasonToRead //""//"\(reasonToReadLabel)"
-        saveToPersistentStore()
+        if let title = title {
+            books[index].title = title
+        }
+        if let reason = reason {
+            books[index].reasonToRead = reason
+        }
     }
 
 }

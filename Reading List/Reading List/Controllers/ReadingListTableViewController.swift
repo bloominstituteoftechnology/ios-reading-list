@@ -8,7 +8,15 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+  
+    var bookC = BookController()
+
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        
+       
+    }
+    
 
   let bookController =  BookController()
     
@@ -16,7 +24,7 @@ class ReadingListTableViewController: UITableViewController {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-         self.clearsSelectionOnViewWillAppear = false
+        // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -32,19 +40,19 @@ class ReadingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        
-       // let book = bookController.books[indexPath.row]
+       
+       
         return 0
     }
     
-    private func bookFor(indexPath: IndexPath) -> Book {
-     
-        if indexPath.section == 0 {
-            return bookController.readBooks[indexPath.row]
-        } else {
-            return bookController.unreadBooks[indexPath.row]
-        }
-    }
+   // private func bookFor(indexPath: IndexPath) -> Book {
+    
+//        if indexPath.section == 0 {
+//            return read[indexPath.row]
+//        } else {
+//            return unread[indexPath.row]
+//        }
+ //   }
     
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
