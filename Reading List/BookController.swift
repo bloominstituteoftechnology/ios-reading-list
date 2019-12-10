@@ -65,7 +65,7 @@ class BookController {
     }
     
     // MARK: - UPDATE hasBeenRead
-    func hasBeenRead(for book: Book) {
+    func updateHasBeenRead(for book: Book) {
         guard let index = books.index(of: book) else { return }
         books[index].hasBeenRead.toggle()
         saveToPersistentStore()

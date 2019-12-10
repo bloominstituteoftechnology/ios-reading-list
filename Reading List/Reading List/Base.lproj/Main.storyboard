@@ -43,6 +43,9 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Dfz-Mb-Huw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZzF-nj-3C8" secondAttribute="trailing" constant="8" id="jxj-F1-uTa"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -81,18 +84,58 @@
         <!--Detail View Controller-->
         <scene sceneID="ahV-Q8-PK2">
             <objects>
-                <viewController title="Detail View Controller" id="jiy-so-eL6" sceneMemberID="viewController">
+                <viewController title="Detail View Controller" id="jiy-so-eL6" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eog-Iq-mhM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="bqD-WS-BMm">
+                                <rect key="frame" x="0.0" y="128" width="414" height="185"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iPX-0b-wZO">
+                                        <rect key="frame" x="0.0" y="0.0" width="412" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ugR-bn-5Yn">
+                                        <rect key="frame" x="0.0" y="57" width="412" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ugR-bn-5Yn" secondAttribute="bottom" id="FkL-53-ZCj"/>
+                                    <constraint firstAttribute="trailing" secondItem="iPX-0b-wZO" secondAttribute="trailing" constant="2" id="Nq7-ny-vtG"/>
+                                    <constraint firstAttribute="trailing" secondItem="ugR-bn-5Yn" secondAttribute="trailing" constant="2" id="wc6-g0-Nlv"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fKs-3P-hXB" firstAttribute="bottom" secondItem="bqD-WS-BMm" secondAttribute="bottom" constant="549" id="7JH-lK-L76"/>
+                            <constraint firstItem="bqD-WS-BMm" firstAttribute="leading" secondItem="fKs-3P-hXB" secondAttribute="leading" id="W0a-bn-dUL"/>
+                            <constraint firstItem="bqD-WS-BMm" firstAttribute="top" secondItem="fKs-3P-hXB" secondAttribute="top" constant="40" id="mdU-AY-guF"/>
+                            <constraint firstItem="fKs-3P-hXB" firstAttribute="trailing" secondItem="bqD-WS-BMm" secondAttribute="trailing" id="vyQ-PB-IrH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fKs-3P-hXB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cfS-C3-kMe"/>
+                    <navigationItem key="navigationItem" title="Add a new book" largeTitleDisplayMode="always" id="R66-hh-ouh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ish-LW-spk">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="jiy-so-eL6" id="zTU-Wg-fHe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookTitleTextField" destination="iPX-0b-wZO" id="amH-qL-lNs"/>
+                        <outlet property="reasonToReadTextView" destination="ugR-bn-5Yn" id="uWB-ry-k2p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOw-FR-LhX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1633" y="-79"/>
+            <point key="canvasLocation" x="1631.8840579710147" y="-79.017857142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xfU-aK-Qcm">
