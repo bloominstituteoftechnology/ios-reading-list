@@ -8,17 +8,22 @@
 
 import UIKit
 
-class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
+class BookTableViewCell: UITableViewCell {
     
 
-    var book: Book?
-    
-   
+    var book: Book? {
+        didSet {
+            upDateViews()
+        }
+    }
+       
 var delegate: BookTableViewCellDelegate?
     
-    func toggleHasBeenRead(for cell: BookTableViewCell) {
-      
-    }
+//    func toggleHasBeenRead(for cell: BookTableViewCell) {
+//      guard let index = books.firstIndex(of: book) else { return }
+//             books[index].toggleHasBeenRead()
+//             saveToPersistentStore()
+//    }
     
     @IBOutlet weak var bookTitleLabel: UILabel!
     override func awakeFromNib() {
@@ -34,7 +39,6 @@ var delegate: BookTableViewCellDelegate?
    
     @IBAction func seenNotSeenTapped(_ sender: UIButton) {
         delegate?.toggleHasBeenRead(for: self)
-       // book?.hasBeenRead = !(book?.hasBeenRead ?? nil)!
     }
 
     func upDateViews() {
@@ -42,9 +46,11 @@ var delegate: BookTableViewCellDelegate?
         bookTitleLabel.text = book.title
         let seenButton = UIButton()
         if  book.hasBeenRead {
-            seenButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+            seenButton.setImage(UIImage(named: "checked"), for: .normal)
+           // seenButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         } else {
-           seenButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
+            seenButton.setImage(UIImage(named: "unchecked"), for: .normal)
+          // seenButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
         }
     }
 }

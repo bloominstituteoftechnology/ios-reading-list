@@ -8,12 +8,14 @@
 
 import Foundation
 
+protocol handleBookDelegate {
+    func updateBook (book: Book, title: String?, reason: String?)
+    func createBook (title: String, reason: String)
+}
+
+
 class BookController {
-    
-     init() {
-         loadFromPersistentStore()
-     }
-     
+        
     private(set) var books: [Book] = []
     
     var readBooks: [Book] {
@@ -61,7 +63,10 @@ class BookController {
             saveToPersistentStore()
             return book
         }
-    
+        
+        init() {
+            loadFromPersistentStore()
+        }
     
     func deleteBook(which book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
@@ -84,5 +89,4 @@ class BookController {
             books[index].reasonToRead = reason
         }
     }
-
 }

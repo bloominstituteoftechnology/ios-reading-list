@@ -70,7 +70,7 @@
             </objects>
             <point key="canvasLocation" x="572.46376811594212" y="112.5"/>
         </scene>
-        <!--Book Detail View Controller-->
+        <!--Book Detail-->
         <scene sceneID="fhI-mx-yzH">
             <objects>
                 <viewController id="yCg-tf-Tfb" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,7 +78,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sM3-Pj-uUJ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sM3-Pj-uUJ">
                                 <rect key="frame" x="10" y="106" width="394" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -105,7 +105,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PS7-LL-FXk"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DFd-AJ-Hx4">
+                    <navigationItem key="navigationItem" title="Book Detail" id="DFd-AJ-Hx4">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="NmM-eG-abQ">
                             <connections>
                                 <action selector="saveBookTapped:" destination="yCg-tf-Tfb" id="smW-rI-bDW"/>
@@ -144,6 +144,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3uC-gc-ggK"/>
+        <segue reference="sKS-BF-1mv"/>
     </inferredMetricsTieBreakers>
 </document>

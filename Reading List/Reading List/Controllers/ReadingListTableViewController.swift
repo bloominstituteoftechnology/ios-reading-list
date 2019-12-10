@@ -13,16 +13,15 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     var bookC = BookController()
 
     func toggleHasBeenRead(for cell: BookTableViewCell) {
+        if let book = cell.book {
+            bookC.updateHasBeenRead(for: book)
+            tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -45,11 +44,8 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         return count
     }
     
-   
-    
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
 
         // Configure the cell...
         
@@ -59,7 +55,17 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+           switch section{
+           case 0:
+               return "Read Books"
+           case 1:
+               return "Unread Books"
+           default:
+               return ""
+           }
+       }
+    
      private func bookFor(indexPath: IndexPath) -> Book {
         var book: Book? = nil
             if indexPath.section == 0 {
@@ -88,26 +94,23 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
     }
    
-
-    
-   
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       
         switch segue.identifier {
-            
         case "AddBook":
             if let vc = segue.destination as? BookDetailViewController {
-                vc.delegate = self
+                vc.bookController = self.bookC
             }
             break
         case "ShowBook":
             if let vc = segue.destination as? BookDetailViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
-                    vc.book =  bookfor(indexPath: indexPath)
-                    vc.delegate = self
+                    #warning("might be an issue here")
+                    vc.book = bookFor(indexPath: indexPath)
+                    vc.bookController = self.bookC
                 }
             }
         default:
