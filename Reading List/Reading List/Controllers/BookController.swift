@@ -14,7 +14,7 @@ class BookController {
          loadFromPersistentStore()
      }
      
-    var books: [Book] = []
+    private(set) var books: [Book] = []
     
     var readBooks: [Book] {
         return books.filter({$0.hasBeenRead == true})
@@ -63,7 +63,7 @@ class BookController {
         }
     
     
-    func deleteBook(book: Book) {
+    func deleteBook(which book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
         books.remove(at: index)
         saveToPersistentStore()

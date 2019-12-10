@@ -31,7 +31,7 @@ var delegate: BookTableViewCellDelegate?
 
         // Configure the view for the selected state
     }
-    #warning("aaaand here.. not sure if this will work")
+   
     @IBAction func seenNotSeenTapped(_ sender: UIButton) {
         delegate?.toggleHasBeenRead(for: self)
        // book?.hasBeenRead = !(book?.hasBeenRead ?? nil)!
