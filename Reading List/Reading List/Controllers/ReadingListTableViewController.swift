@@ -76,15 +76,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         return book!
         }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-   
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -108,7 +99,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         case "ShowBook":
             if let vc = segue.destination as? BookDetailViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
-                    #warning("might be an issue here")
                     vc.book = bookFor(indexPath: indexPath)
                     vc.bookController = self.bookC
                 }

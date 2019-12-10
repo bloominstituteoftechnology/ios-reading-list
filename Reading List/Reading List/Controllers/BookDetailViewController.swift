@@ -11,7 +11,7 @@ import UIKit
 class BookDetailViewController: UIViewController {
     var bookController: BookController?
     @IBOutlet weak var bookTitleLabel: UITextField!
-    @IBOutlet weak var reasonToReadLabel: UITextView!
+    @IBOutlet weak var reasonToReadTextField: UITextView!
     
     var book: Book?
     var delegate: handleBookDelegate?
@@ -19,17 +19,17 @@ class BookDetailViewController: UIViewController {
     func updateViews() {
         guard let book = book else { return }
         bookTitleLabel.text = book.title
-        reasonToReadLabel.text = book.reasonToRead
+        reasonToReadTextField.text = book.reasonToRead
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
     }
-    
+    #warning("can't show any saving of books nor popping back")
     @IBAction func saveBookTapped(_ sender: UIButton) {
         guard let title = bookTitleLabel.text,
-            let reason = reasonToReadLabel.text,
+            let reason = reasonToReadTextField.text,
             !title.isEmpty,
             !reason.isEmpty else {return}
         if let book = book {

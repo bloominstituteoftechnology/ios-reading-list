@@ -78,30 +78,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sM3-Pj-uUJ">
-                                <rect key="frame" x="10" y="106" width="394" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e5p-Xe-bKw">
-                                <rect key="frame" x="10" y="145" width="394" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="CMg-3n-nl0"/>
-                                </constraints>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="iOi-4N-kik">
+                                <rect key="frame" x="8" y="110" width="398" height="267"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIr-Od-7Kh">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sM3-Pj-uUJ">
+                                        <rect key="frame" x="0.0" y="26.5" width="398" height="80"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason to Read" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3I-CF-yzx">
+                                        <rect key="frame" x="0.0" y="112.5" width="398" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e5p-Xe-bKw">
+                                        <rect key="frame" x="0.0" y="139" width="398" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="PS7-LL-FXk" firstAttribute="trailing" secondItem="e5p-Xe-bKw" secondAttribute="trailing" constant="10" id="QHL-cP-NJt"/>
-                            <constraint firstItem="PS7-LL-FXk" firstAttribute="bottom" secondItem="e5p-Xe-bKw" secondAttribute="bottom" constant="589" id="SeU-YA-QxG"/>
-                            <constraint firstItem="PS7-LL-FXk" firstAttribute="trailing" secondItem="sM3-Pj-uUJ" secondAttribute="trailing" constant="10" id="UPP-Ov-keH"/>
-                            <constraint firstItem="e5p-Xe-bKw" firstAttribute="top" secondItem="sM3-Pj-uUJ" secondAttribute="bottom" constant="5" id="ZSm-qX-ndF"/>
-                            <constraint firstItem="e5p-Xe-bKw" firstAttribute="leading" secondItem="PS7-LL-FXk" secondAttribute="leading" constant="10" id="aii-1O-xbt"/>
-                            <constraint firstItem="sM3-Pj-uUJ" firstAttribute="leading" secondItem="PS7-LL-FXk" secondAttribute="leading" constant="10" id="bap-TR-p3T"/>
+                            <constraint firstItem="PS7-LL-FXk" firstAttribute="trailing" secondItem="iOi-4N-kik" secondAttribute="trailing" constant="8" id="U8z-aG-rXG"/>
+                            <constraint firstItem="iOi-4N-kik" firstAttribute="top" secondItem="PS7-LL-FXk" secondAttribute="top" constant="22" id="ZGg-7l-1ZH"/>
+                            <constraint firstItem="iOi-4N-kik" firstAttribute="leading" secondItem="PS7-LL-FXk" secondAttribute="leading" constant="8" id="ckw-fl-X9g"/>
+                            <constraint firstItem="PS7-LL-FXk" firstAttribute="bottom" secondItem="iOi-4N-kik" secondAttribute="bottom" constant="485" id="weX-s5-1RU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PS7-LL-FXk"/>
                     </view>
@@ -114,7 +126,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bookTitleLabel" destination="sM3-Pj-uUJ" id="LFe-aO-crJ"/>
-                        <outlet property="reasonToReadLabel" destination="e5p-Xe-bKw" id="kTM-pt-FHC"/>
+                        <outlet property="reasonToReadTextField" destination="e5p-Xe-bKw" id="kTM-pt-FHC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAH-vv-23V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
