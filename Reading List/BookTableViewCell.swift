@@ -43,7 +43,4 @@ class BookTableViewCell: UITableViewCell {
                 readCheckedBox.setImage(image, for: .normal)
             }
         }
-    
-
     }
-

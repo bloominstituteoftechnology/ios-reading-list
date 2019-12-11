@@ -33,11 +33,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfz-Mb-Huw">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfz-Mb-Huw">
                                                     <rect key="frame" x="358" y="0.0" width="56" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Dfz-Mb-Huw" secondAttribute="height" multiplier="1:1" id="BGo-ST-ED4"/>
                                                     </constraints>
+                                                    <state key="normal" image="checked"/>
                                                     <connections>
                                                         <action selector="readCheckedBox:" destination="gYw-9n-Fph" eventType="touchUpInside" id="S4V-7O-9Ye"/>
                                                     </connections>
@@ -60,7 +61,7 @@
                                 <connections>
                                     <outlet property="bookTitle" destination="ZzF-nj-3C8" id="ank-SU-a7g"/>
                                     <outlet property="readCheckedBox" destination="Dfz-Mb-Huw" id="pd9-Hl-0vd"/>
-                                    <segue destination="jiy-so-eL6" kind="show" id="nuV-Bs-Y4w"/>
+                                    <segue destination="jiy-so-eL6" kind="show" identifier="TableViewCellShowDetail" id="nuV-Bs-Y4w"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -69,7 +70,7 @@
                             <outlet property="delegate" destination="GaJ-No-093" id="0pN-L2-kSg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Reading List" id="SZ9-w7-8sL">
+                    <navigationItem key="navigationItem" title="Reading List" largeTitleDisplayMode="always" id="SZ9-w7-8sL">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="l7P-Wc-tB4">
                             <connections>
                                 <segue destination="jiy-so-eL6" kind="show" identifier="AddButtonTapped" id="Nrs-lH-uQU"/>
@@ -90,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="bqD-WS-BMm">
-                                <rect key="frame" x="0.0" y="128" width="414" height="185"/>
+                                <rect key="frame" x="0.0" y="180" width="414" height="133"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iPX-0b-wZO">
                                         <rect key="frame" x="0.0" y="0.0" width="412" height="34"/>
@@ -98,7 +99,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ugR-bn-5Yn">
-                                        <rect key="frame" x="0.0" y="57" width="412" height="128"/>
+                                        <rect key="frame" x="0.0" y="57" width="412" height="76"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -142,8 +143,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QOp-V6-38g" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GsO-le-gcd">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="GsO-le-gcd">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -156,6 +157,9 @@
             <point key="canvasLocation" x="172.46376811594203" y="-79.017857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checked" width="50" height="50"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Nrs-lH-uQU"/>
     </inferredMetricsTieBreakers>
