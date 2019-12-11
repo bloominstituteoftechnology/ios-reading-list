@@ -26,6 +26,7 @@ var delegate: BookTableViewCellDelegate?
 //    }
     
     @IBOutlet weak var bookTitleLabel: UILabel!
+    @IBOutlet weak var seenButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -39,18 +40,16 @@ var delegate: BookTableViewCellDelegate?
    
     @IBAction func seenNotSeenTapped(_ sender: UIButton) {
         delegate?.toggleHasBeenRead(for: self)
+        upDateViews()
     }
 
     func upDateViews() {
         guard let book = book else { return }
         bookTitleLabel.text = book.title
-        let seenButton = UIButton()
         if  book.hasBeenRead {
             seenButton.setImage(UIImage(named: "checked"), for: .normal)
-           // seenButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         } else {
             seenButton.setImage(UIImage(named: "unchecked"), for: .normal)
-          // seenButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
         }
     }
 }

@@ -57,7 +57,7 @@ class BookController {
         }
     }
     
-    @discardableResult func createBook(named name: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
+    @discardableResult func createBook(named name: String, reasonToRead: String, hasBeenRead: Bool = false) -> Book {
             let book = Book(title: name, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
             books.append(book)
             saveToPersistentStore()
@@ -75,8 +75,8 @@ class BookController {
     }
   
     func updateHasBeenRead(for book: Book) {
-        let readBooks: [Book] = books.filter {_ in book.hasBeenRead }
-        let unreadBooks: [Book] = books.filter {_ in !book.hasBeenRead }
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].hasBeenRead.toggle()
         saveToPersistentStore()
     }
   

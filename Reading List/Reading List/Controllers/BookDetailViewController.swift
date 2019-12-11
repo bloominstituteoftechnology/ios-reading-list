@@ -33,11 +33,11 @@ class BookDetailViewController: UIViewController {
             !title.isEmpty,
             !reason.isEmpty else {return}
         if let book = book {
-            delegate?.updateBook(book: book, title: title, reason: reason)
+            bookController?.updateBook(book: book, title, reason: reason)
             navigationController?.popViewController(animated: true)
         } else {
-            delegate?.createBook(title: title, reason: reason)
-            dismiss(animated: true, completion: nil)
+            bookController?.createBook(named: title, reasonToRead: reason, hasBeenRead: false)
+            navigationController?.popViewController(animated: true)
         }
     }
 }

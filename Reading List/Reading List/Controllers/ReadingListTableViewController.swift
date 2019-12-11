@@ -23,6 +23,10 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         super.viewDidLoad()
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+        super.viewWillAppear(animated)
+    }
 
     // MARK: - Table view data source
 
@@ -91,12 +95,12 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       
         switch segue.identifier {
-        case "AddBook":
+        case "addBookSegue":
             if let vc = segue.destination as? BookDetailViewController {
                 vc.bookController = self.bookC
             }
             break
-        case "ShowBook":
+        case "showBookSegue":
             if let vc = segue.destination as? BookDetailViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
                     vc.book = bookFor(indexPath: indexPath)
