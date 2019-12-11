@@ -10,22 +10,22 @@ import Foundation
 
 class BookController {
     var books: [Book] = []
-
+    
     private var readingListURL: URL? {
         let fileManager = FileManager.default
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {return nil}
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
-    private var readBooks: [Book] {
+    var readBooks: [Book] {
         let readBooksArray = books.filter({ $0.hasBeenRead == true})
         return readBooksArray
     }
     
-    private var unreadBooks: [Book] {
-          let unreadBooksArray = books.filter({ $0.hasBeenRead == false})
-          return unreadBooksArray
-      }
+    var unreadBooks: [Book] {
+        let unreadBooksArray = books.filter({ $0.hasBeenRead == false})
+        return unreadBooksArray
+    }
     
     func saveToPersistentStore() {
         guard let url = readingListURL else {return}
