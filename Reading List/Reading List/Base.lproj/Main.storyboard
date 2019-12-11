@@ -79,6 +79,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="open book" translatesAutoresizingMaskIntoConstraints="NO" id="3H8-J0-Lzk">
+                                <rect key="frame" x="0.0" y="361.5" width="414" height="500.5"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="iOi-4N-kik">
                                 <rect key="frame" x="8" y="110" width="398" height="251.5"/>
                                 <subviews>
@@ -114,8 +117,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="PS7-LL-FXk" firstAttribute="bottom" secondItem="3H8-J0-Lzk" secondAttribute="bottom" id="7Hp-zl-nzd"/>
+                            <constraint firstItem="PS7-LL-FXk" firstAttribute="trailing" secondItem="3H8-J0-Lzk" secondAttribute="trailing" id="Aen-ht-T3R"/>
                             <constraint firstItem="PS7-LL-FXk" firstAttribute="trailing" secondItem="iOi-4N-kik" secondAttribute="trailing" constant="8" id="JEQ-nd-Bd2"/>
                             <constraint firstItem="iOi-4N-kik" firstAttribute="top" secondItem="PS7-LL-FXk" secondAttribute="top" constant="22" id="b4q-td-2AE"/>
+                            <constraint firstItem="3H8-J0-Lzk" firstAttribute="top" secondItem="iOi-4N-kik" secondAttribute="bottom" id="bMU-Wb-tFJ"/>
+                            <constraint firstItem="3H8-J0-Lzk" firstAttribute="leading" secondItem="PS7-LL-FXk" secondAttribute="leading" id="nv1-ab-q26"/>
                             <constraint firstItem="iOi-4N-kik" firstAttribute="leading" secondItem="PS7-LL-FXk" secondAttribute="leading" constant="8" id="t0M-pq-BzG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PS7-LL-FXk"/>
@@ -156,6 +163,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="open book" width="2400" height="1760"/>
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
