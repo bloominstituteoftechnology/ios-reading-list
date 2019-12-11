@@ -7,15 +7,25 @@
 //
 
 import Foundation
+
 import UIKit
 
 class BookController {
+    
     
     init() {
         loadFromPersistentStore()
     }
     
     private(set) var books: [Book] = []
+    
+    var readBooks: [Book] {
+        return books.filter({$0.hasBeenRead == true})
+    }
+    
+    var unreadBooks: [Book] {
+        return books.filter({$0.hasBeenRead == false})
+    }
     
     private var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -24,14 +34,6 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
-    //private(set) var readBooks: [Book.filter.hasBeenRead = true] = [] //??????????????
-    //
-    //private var readingListURL: URL? {
-    //    let FileManager = FileManager.default
-    //    guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-    //
-    //    return documents.appendingPathComponent("ReadingList.plist")
-    //}
     
     @discardableResult func createBook(titled title: String, withReasonToRead reasonToRead: String) -> Book {
         
@@ -43,7 +45,7 @@ class BookController {
     }
     
     func saveToPersistentStore() {
-        guard let url = persistentFileURL else { return }
+        guard let url = readingListURL else { return }
         
         do {
             let encoder = PropertyListEncoder()
@@ -56,7 +58,7 @@ class BookController {
     
     func loadFromPersistentStore() {
         let fileManager = FileManager.default
-        guard let url = persistentFileURL,
+        guard let url = readingListURL,
             fileManager.fileExists(atPath: url.path) else { return }
         
         do {
@@ -67,28 +69,22 @@ class BookController {
             print("Error saving book data: \(error)")
         }
     }
+    
+    
+    func delete(which book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
+        saveToPersistentStore()
+    }
+    
+    func update(which book: Book, _ title: String, _ reason: String) {
+        
+      guard let index = books.firstIndex(of: book) else { return }
+        books[index].title = title
+        books[index].reasonToRead = reason
+      
+    }
 }
 
-//protocol deleteBookDelegate {
-//
-//    func bookWasDeleted(_ book: Book)
-//}
-//
-//class BooksViewController: UIViewController {
-//
-//
-//
-//    var book: Book?
-//
-//    var delegate: deleteBookDelegate?
-//
-//
-//    @IBAction func deleteTapped(_ sender: UIBarButtonItem) {
-//
-//        let book = Book(bookName: bookName)
-//
-//        delegate?.bookWasDeleted(book)
-//        dismiss(animated: true, completion: nil)
-//    }
-//    saveToPersistentStore()
-//}
+
+

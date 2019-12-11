@@ -21,7 +21,7 @@ class BookTableViewCell: UITableViewCell {
     
     @IBAction func toggleIsSeen(_ sender: Any) {
         
-        book?.hasBeenRead()
+        book?.toggleHasBeenRead()
         
         updateViews()
         
@@ -43,12 +43,14 @@ class BookTableViewCell: UITableViewCell {
         // sets the text of both labels to the info from the Star Array
         nameLabel.text = book.title
         if book.hasBeenRead == true {
-            seenButton.setImage(image: .checked, for: UIControlState)
+            
+            seenButton.setImage(UIImage(named: "checked"), for: .normal)
             
         } else {
-            seenButton.setImage(image: .unchecked, for: UIControlState)
-        
+            seenButton.setImage(UIImage(named: "unchecked"), for: .normal)
+            
         }
+        delegate?.isSeenButtonTapped(book: book) 
     }
 
 }

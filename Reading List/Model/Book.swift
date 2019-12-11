@@ -10,7 +10,9 @@ import Foundation
 
 import UIKit
 
-struct Book: Codable {
+
+
+struct Book: Codable, Equatable {
     
     var title: String
     var reasonToRead: String
