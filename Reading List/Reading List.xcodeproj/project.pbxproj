@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466941682110E22A00E7FF73 /* AppDelegate.swift */; };
-		4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4669416A2110E22B00E7FF73 /* ViewController.swift */; };
-		4669416E2110E22B00E7FF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4669416C2110E22B00E7FF73 /* Main.storyboard */; };
 		466941702110E22B00E7FF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4669416F2110E22B00E7FF73 /* Assets.xcassets */; };
 		466941732110E22B00E7FF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466941712110E22B00E7FF73 /* LaunchScreen.storyboard */; };
+		B6A9BF9C239F557600277AFF /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A9BF9B239F557600277AFF /* ReadingListTableViewController.swift */; };
+		B6CAB9F5239B5AC800895246 /* Custom Views in Resources */ = {isa = PBXBuildFile; fileRef = B6CAB9EB239B5AC800895246 /* Custom Views */; };
+		B6CAB9F6239B5AC800895246 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAB9EC239B5AC800895246 /* BookDetailViewController.swift */; };
+		B6CAB9F7239B5AC800895246 /* Controllers in Resources */ = {isa = PBXBuildFile; fileRef = B6CAB9ED239B5AC800895246 /* Controllers */; };
+		B6CAB9F8239B5AC800895246 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAB9EE239B5AC800895246 /* AppDelegate.swift */; };
+		B6CAB9FB239B5AC800895246 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CAB9F1239B5AC800895246 /* Main.storyboard */; };
+		B6CAB9FD239B5AC800895246 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = B6CAB9F3239B5AC800895246 /* Model */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		466941652110E22A00E7FF73 /* Reading List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		466941682110E22A00E7FF73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4669416A2110E22B00E7FF73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4669416D2110E22B00E7FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4669416F2110E22B00E7FF73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		466941722110E22B00E7FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		466941742110E22B00E7FF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6A9BF9B239F557600277AFF /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
+		B6CAB9EB239B5AC800895246 /* Custom Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Custom Views"; sourceTree = "<group>"; };
+		B6CAB9EC239B5AC800895246 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		B6CAB9ED239B5AC800895246 /* Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Controllers; sourceTree = "<group>"; };
+		B6CAB9EE239B5AC800895246 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B6CAB9F1239B5AC800895246 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B6CAB9F3239B5AC800895246 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +62,13 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
-				466941682110E22A00E7FF73 /* AppDelegate.swift */,
-				4669416A2110E22B00E7FF73 /* ViewController.swift */,
-				4669416C2110E22B00E7FF73 /* Main.storyboard */,
+				B6CAB9EE239B5AC800895246 /* AppDelegate.swift */,
+				B6A9BF9B239F557600277AFF /* ReadingListTableViewController.swift */,
+				B6CAB9EC239B5AC800895246 /* BookDetailViewController.swift */,
+				B6CAB9ED239B5AC800895246 /* Controllers */,
+				B6CAB9EB239B5AC800895246 /* Custom Views */,
+				B6CAB9F1239B5AC800895246 /* Main.storyboard */,
+				B6CAB9F3239B5AC800895246 /* Model */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
 				466941742110E22B00E7FF73 /* Info.plist */,
@@ -96,6 +108,7 @@
 				TargetAttributes = {
 					466941642110E22A00E7FF73 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -122,9 +135,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6CAB9FD239B5AC800895246 /* Model in Resources */,
 				466941732110E22B00E7FF73 /* LaunchScreen.storyboard in Resources */,
+				B6CAB9FB239B5AC800895246 /* Main.storyboard in Resources */,
+				B6CAB9F5239B5AC800895246 /* Custom Views in Resources */,
+				B6CAB9F7239B5AC800895246 /* Controllers in Resources */,
 				466941702110E22B00E7FF73 /* Assets.xcassets in Resources */,
-				4669416E2110E22B00E7FF73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +151,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
-				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
+				B6CAB9F8239B5AC800895246 /* AppDelegate.swift in Sources */,
+				B6A9BF9C239F557600277AFF /* ReadingListTableViewController.swift in Sources */,
+				B6CAB9F6239B5AC800895246 /* BookDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4669416C2110E22B00E7FF73 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4669416D2110E22B00E7FF73 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		466941712110E22B00E7FF73 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -280,15 +289,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = 5A9243PU6T;
 				INFOPLIST_FILE = "Reading List/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.LambdaSchool.Reading-List";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DavidSchwinne12.Reading-List";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Reading List/Reading List-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -298,15 +310,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VXUQXR6S56;
+				DEVELOPMENT_TEAM = 5A9243PU6T;
 				INFOPLIST_FILE = "Reading List/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.LambdaSchool.Reading-List";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DavidSchwinne12.Reading-List";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Reading List/Reading List-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
