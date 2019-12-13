@@ -12,18 +12,23 @@ import UIKit
 
 
 
-struct Book: Codable, Equatable {
+class Book: Codable, Equatable {
+    static func == (lhs: Book, rhs: Book) -> Bool {
+        return lhs.title == rhs.title
+    }
+    
     
     var title: String
     var reasonToRead: String
     var hasBeenRead: Bool = false
     
-//    init (title: String, reasonToRead: String, hasBeenRead: Bool = false) {
-//        self.title = title
-//        self.reasonToRead = reasonToRead
-//        self.hasBeenRead = hasBeenRead
-//    }
-    mutating func toggleHasBeenRead() {
+    init(title: String, reasonToRead: String, hasBeenRead: Bool = false) {
+        self.title = title
+        self.reasonToRead = reasonToRead
+        self.hasBeenRead = hasBeenRead
+    }
+    
+    func toggleHasBeenRead() {
         self.hasBeenRead = !self.hasBeenRead
     }
 }

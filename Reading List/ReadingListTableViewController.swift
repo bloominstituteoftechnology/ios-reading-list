@@ -19,7 +19,9 @@ class ReadingListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        super.viewWillAppear(animated)
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddBookSegue" {
@@ -75,8 +77,8 @@ class ReadingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
         // Delete the row from the data source
-        //tableView.deleteRows(at: [indexPath], with: .fade)
-        bookController.delete(which: bookController.books[indexPath.row])
+        
+        bookController.delete(which: bookFor(indexPath: indexPath))
         tableView.reloadData()
       }
     }
@@ -95,9 +97,10 @@ class ReadingListTableViewController: UITableViewController {
 
 extension ReadingListTableViewController: ToggleSeenDelegate {
     func isSeenButtonTapped(book: Book) {
+        guard let index = bookController.books.firstIndex(of: book) else { return }
+        let book = bookController.books[index]
+        book.toggleHasBeenRead()
         tableView.reloadData()
     }
-    
-    
 }
 

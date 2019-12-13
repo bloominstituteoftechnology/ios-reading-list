@@ -75,6 +75,7 @@ class BookController {
         guard let index = books.firstIndex(of: book) else { return }
         books.remove(at: index)
         saveToPersistentStore()
+        
     }
     
     func update(which book: Book, _ title: String, _ reason: String) {

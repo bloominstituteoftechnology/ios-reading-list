@@ -14,28 +14,26 @@ protocol ToggleSeenDelegate {
 }
 
 class BookTableViewCell: UITableViewCell {
-
+    
+    var delegate: ToggleSeenDelegate?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var seenButton: UIButton!
     
     @IBAction func toggleIsSeen(_ sender: Any) {
         
-        book?.toggleHasBeenRead()
-        
+        guard let book = book else { return }
+        delegate?.isSeenButtonTapped(book: book)
         updateViews()
         
     }
     
-    
-    var delegate: ToggleSeenDelegate?
-
-    var book: Book? {
-        didSet {
-            updateViews()
-        }
-        
-    }
     
     private func updateViews() {
         guard let book = book else { return }
@@ -50,7 +48,7 @@ class BookTableViewCell: UITableViewCell {
             seenButton.setImage(UIImage(named: "unchecked"), for: .normal)
             
         }
-        delegate?.isSeenButtonTapped(book: book) 
+        
     }
 
 }
