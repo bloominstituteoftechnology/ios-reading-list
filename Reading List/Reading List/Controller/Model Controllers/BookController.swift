@@ -9,7 +9,11 @@
 import Foundation
 class BookController {
     var books = [Book]()
-
+    
+    var readBooks: [Book] {
+        return books.filter {$0.hasBeenRead == true}
+    }
+    
     var readingList: URL? {
         let fileManager = FileManager.default
        
@@ -47,7 +51,6 @@ class BookController {
     func updateHasBeenRead(for book: Book) {
         for (index, thisBook) in books.enumerated() where thisBook.title == book.title {
             books[index].hasBeenRead = !books[index].hasBeenRead
-            print(books[index])
         }
         saveToPersistentStore()
     }
@@ -112,6 +115,12 @@ class BookController {
         testSave()
         guard let book = books.first else {print("no books"); return}
         updateBook(book: book, title: "New Title", reasonToRead: "Don't really have one anymore")
+    }
+    
+    func testReadList() {
+        testUpdateBook()
+        testHasBeenRead()
+        print("Books Read: \(readBooks)")
     }
     
 }
