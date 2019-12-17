@@ -19,27 +19,14 @@ class BookController {
         return booksUrl
     }
     
-    //MARK: Update
-      func saveToPersistentStore() {
-        /*
-        Create an instance of PropertyListEncoder.
-        Inside of a do-try-catch block create a constant called booksData. Using the encode(value: ...) function of the property list encoder, encode the books array into Data.
-        Call the write(to: URL) function on the data you encoded computed property. The url you pass in should be an unwrapped version of the readingListURL property.
-        */
-        
-        
-        //check to make sure file url exists
-        guard let fileURL = readingList else { return }
-        do {
-            let encoder = PropertyListEncoder()
-            //use PList encoder to write books file
-            let booksData = try encoder.encode(books)
-            
-            try booksData.write(to: fileURL)
-        } catch {
-            print("Error Saving books: \(error)")
-        }
+    //MARK: Create
+    @discardableResult func addBookToRead(title: String, reasonToRead: String) -> Book {
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        self.books.append(book)
+        saveToPersistentStore()
+        return book
     }
+    
     //MARK: Read
     func loadFromPersistentStore() {
         guard let fileURL = readingList else {return}
@@ -56,10 +43,56 @@ class BookController {
         
     }
     
-    //MARK: Dev/Testing
-    func testSave() {
-        books = [Book(title: "Hello World", reasonToRead: "Learn to Code")]
+    //MARK: Update
+    func updateHasBeenRead(for book: Book) {
+        for (index, thisBook) in books.enumerated() where thisBook.title == book.title {
+            books[index].hasBeenRead = !books[index].hasBeenRead
+            print(books[index])
+        }
         saveToPersistentStore()
+    }
+      
+    
+    //MARK: Delete
+    func removeBookFromList(book: Book) {
+        //Add a "Delete" method that passes in a Book object as a parameter, and removes it from the books array
+        self.books.removeAll { (book) -> Bool in
+            return true
+        }
+        saveToPersistentStore()
+    }
+    
+    //MARK: Helper Methods
+    func saveToPersistentStore() {
+        //check to make sure file url exists
+        guard let fileURL = readingList else { return }
+        do {
+            let encoder = PropertyListEncoder()
+            //use PList encoder to write books file
+            let booksData = try encoder.encode(books)
+            
+            try booksData.write(to: fileURL)
+        } catch {
+            print("Error Saving books: \(error)")
+        }
+    }
+    
+    //MARK: **DANGER** Dev/Testing
+    func testSave() {
+        books = [Book(title: "Hello World", reasonToRead: "Learn to Code")] //DANGER overwrites book array
+        saveToPersistentStore() //DANGER saves overwrite
+    }
+    
+    func testDelete() {
+        guard let book = books.first else {print("no books"); return}
+        removeBookFromList(book: book) //DANGER deletes first book from array
+    }
+    
+    func testHasBeenRead() {
+        //testSave() //DANGER overwrites book array
+        print("hasBeenRead was: \(books[0].hasBeenRead)")
+        updateHasBeenRead(for: books[0])
+        print("is now: \(books[0].hasBeenRead)")
     }
     
 }
