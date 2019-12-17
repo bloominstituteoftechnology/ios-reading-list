@@ -12,6 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let librarian = BookController()
+        
+        
+        
+        //MARK: Dev/Testing
+//        librarian.testSave()
+//        librarian.loadFromPersistentStore()
+//        print(librarian.books)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
