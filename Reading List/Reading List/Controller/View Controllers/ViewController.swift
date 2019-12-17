@@ -19,8 +19,9 @@ class ViewController: UIViewController {
         //MARK: Dev/Testing
         //librarian.testSave()
         librarian.loadFromPersistentStore()
-//        librarian.testDelete()
-        librarian.testHasBeenRead()
+        //librarian.testDelete()
+        //librarian.testHasBeenRead()
+        librarian.testUpdateBook()
         print(librarian.books)
         // Do any additional setup after loading the view, typically from a nib.
     }

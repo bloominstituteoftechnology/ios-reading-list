@@ -51,6 +51,19 @@ class BookController {
         }
         saveToPersistentStore()
     }
+    
+    func updateBook(book: Book, title: String = "", reasonToRead: String = "" ) {
+        for (index, thisBook) in books.enumerated() where thisBook.title == book.title {
+            if title != "" {
+                books[index].title = title
+                print(books[index].title)
+            }
+            if reasonToRead != "" {
+                books[index].reasonToRead = reasonToRead
+            }
+        }
+        saveToPersistentStore()
+    }
       
     
     //MARK: Delete
@@ -93,6 +106,12 @@ class BookController {
         print("hasBeenRead was: \(books[0].hasBeenRead)")
         updateHasBeenRead(for: books[0])
         print("is now: \(books[0].hasBeenRead)")
+    }
+    
+    func testUpdateBook() {
+        testSave()
+        guard let book = books.first else {print("no books"); return}
+        updateBook(book: book, title: "New Title", reasonToRead: "Don't really have one anymore")
     }
     
 }
