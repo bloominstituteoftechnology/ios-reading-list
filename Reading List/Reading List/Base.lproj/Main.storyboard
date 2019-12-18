@@ -65,7 +65,7 @@
                             <outlet property="delegate" destination="1uc-IU-pt5" id="7Pm-y4-21w"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="dQt-5n-nl7">
+                    <navigationItem key="navigationItem" title="Reading List" id="dQt-5n-nl7">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nPR-yP-A8U">
                             <connections>
                                 <segue destination="wYN-kh-ZS3" kind="show" identifier="AddBook" id="Rn4-nK-yLS"/>
@@ -77,24 +77,23 @@
             </objects>
             <point key="canvasLocation" x="3" y="205"/>
         </scene>
-        <!--Title-->
+        <!--Add a new book-->
         <scene sceneID="5oy-Ou-XKC">
             <objects>
-                <viewController id="wYN-kh-ZS3" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add a new book" id="wYN-kh-ZS3" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vgt-cU-Bn6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p9V-TH-YFn">
-                                <rect key="frame" x="20" y="138" width="374" height="141"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p9V-TH-YFn">
+                                <rect key="frame" x="20" y="190" width="374" height="89"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N3f-KA-Yhq">
-                                <rect key="frame" x="20" y="96" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N3f-KA-Yhq">
+                                <rect key="frame" x="20" y="148" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -111,7 +110,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="egv-an-F5x"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="yW1-Ub-Jk3">
+                    <navigationItem key="navigationItem" title="Add a new book" id="yW1-Ub-Jk3">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="JaZ-n2-Bvf">
                             <connections>
                                 <action selector="saveTapped:" destination="wYN-kh-ZS3" id="RkS-yl-b4c"/>
@@ -132,8 +131,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QUN-EJ-nUF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ww3-vt-aON">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ww3-vt-aON">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -143,13 +142,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3P-7A-Qw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-741" y="205"/>
+            <point key="canvasLocation" x="-736" y="205"/>
         </scene>
     </scenes>
     <resources>
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Rn4-nK-yLS"/>
+        <segue reference="Fk9-A0-6UG"/>
     </inferredMetricsTieBreakers>
 </document>

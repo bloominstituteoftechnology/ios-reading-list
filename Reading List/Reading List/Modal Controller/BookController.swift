@@ -13,10 +13,12 @@ class BookController {
     var books: [Book] = []
     
     var readBooks: [Book] {
+        loadFromPersistentStore()
         return books.filter {$0.hasBeenRead}
         
     }
     var unreadBooks: [Book] {
+        loadFromPersistentStore()
         return books.filter {$0.hasBeenRead == false}
     }
     
@@ -63,12 +65,10 @@ class BookController {
     }
 
 
-    func create(title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
-        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+    func create(for book: Book) {
+        
         books.append(book)
         saveToPersistentStore()
-        
-        return book
     }
 
     func delete(for book: Book) {
@@ -83,17 +83,18 @@ class BookController {
         saveToPersistentStore()
     }
 
-    func editBook(book: Book, title: String, reasonToRead: String, hasBeenRead: Bool) {
+    func editBook(for book: Book) {
         guard let bookToEdit = books.firstIndex(of: book) else { return }
         var tempBook = book
         
-        tempBook.title = title
-        tempBook.reasonToRead = reasonToRead
+        tempBook.title = book.title
+        tempBook.reasonToRead = book.reasonToRead
         
         books.remove(at: bookToEdit)
         books.insert(tempBook, at: bookToEdit)
         saveToPersistentStore()
     }
+    
 }
 
 

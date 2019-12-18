@@ -14,19 +14,50 @@ class BookDetailViewController: UIViewController {
     
     @IBOutlet weak var bookTextView: UITextView!
     
+    var bookController: BookController?
     
+    
+    
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
+        
+        
 
         // Do any additional setup after loading the view.
     }
     @IBAction func saveTapped(_ sender: Any) {
         
-    }
-    
+        if let unwrappedBook = book {
+                bookController?.editBook(for: unwrappedBook)
+            } else {
+            if let title = bookTextField.text, let reason = bookTextView.text, !title.isEmpty, !reason.isEmpty {
+                let book = Book(title: title, reasonToRead: reason)
+                bookController?.create(for: book)
+                }
+            }
+            navigationController?.popViewController(animated: true)
+        }
 
+        
+//        if let unwrappedBook = book {
+//            bookController?.updateHasBeenRead(for: unwrappedBook)
+//        } else if book == nil {
+//            if let unwrappedBook = book {
+//                bookController?.create(for: unwrappedBook)
+//            }
+//
+//        }
+        
+        
+        
     /*
     // MARK: - Navigation
 
@@ -37,4 +68,19 @@ class BookDetailViewController: UIViewController {
     }
     */
 
+    
+    func updateViews() {
+        guard isViewLoaded else { return }
+        
+        guard let unwrappedTitle = book?.title, let unwrappedReasonToRead = book?.reasonToRead else { return }
+        bookTextField.text = unwrappedTitle
+        bookTextView.text = unwrappedReasonToRead
+        if book == nil {
+            navigationItem.title = "Add a new book"
+        } else {
+            navigationItem.title = unwrappedTitle
+        }
+        
+    }
+    
 }

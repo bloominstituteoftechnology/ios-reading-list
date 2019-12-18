@@ -18,6 +18,8 @@ class ReadingListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -73,10 +75,13 @@ class ReadingListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        switch section {
+        case 0:
             return "Read Books"
-        } else {
+        case 1:
             return "Unread Books"
+        default:
+            return ""
         }
     }
 
@@ -95,24 +100,34 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddBook" {
+            guard let addBookVC = segue.destination as? BookDetailViewController else { return }
+            addBookVC.bookController = bookController
+        } else if segue.identifier == "BookDetail" {
+            guard let bookDetailVC = segue.destination as? BookDetailViewController else { return }
+            bookDetailVC.bookController = bookController
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let book = bookFor(indexPath: indexPath)
+                bookDetailVC.book = book
+            }
+        }
     }
-    */
+    
 
 }
 
 extension ReadingListTableViewController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-         let book = bookFor(indexPath: indexPath)
-                           
-            bookController.updateHasBeenRead(for: book)
+         let bookIndexPath = bookFor(indexPath: indexPath)
+        
+            bookController.updateHasBeenRead(for: bookIndexPath)
             tableView.reloadData()
         }
     }
