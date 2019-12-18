@@ -76,7 +76,7 @@ class BookController {
     }
     
     //MARK: Helper Methods
-    func saveToPersistentStore() {
+    private func saveToPersistentStore() {
         //check to make sure file url exists
         guard let fileURL = readingList else { return }
         do {
