@@ -74,7 +74,6 @@ class ReadingListController: UITableViewController {
         }
         
     }
-    
 
     /*
     // Override to support conditional editing of the table view.
@@ -83,7 +82,6 @@ class ReadingListController: UITableViewController {
         return true
     }
     */
-
     
     //MARK: TableView Delegate
     //Override to support editing the table view.
@@ -111,7 +109,6 @@ class ReadingListController: UITableViewController {
         return true
     }
     */
-
     
     // MARK: - Navigation
 
@@ -129,9 +126,8 @@ class ReadingListController: UITableViewController {
             }
         }
     }
-    
-
 }
+
 //MARK: BookTableViewCellDelegate
 extension ReadingListController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookCell) {
@@ -140,6 +136,4 @@ extension ReadingListController: BookTableViewCellDelegate {
         librarian.updateHasBeenRead(for: librarian.books[indexPath.row])
         tableView.reloadData()
     }
-    
-    
 }

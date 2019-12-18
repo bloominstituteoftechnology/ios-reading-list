@@ -51,4 +51,3 @@ class DetailViewController: UIViewController {
         self.textView.text = book.reasonToRead
     }
 }
-
