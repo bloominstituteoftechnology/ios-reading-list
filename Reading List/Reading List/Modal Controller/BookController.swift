@@ -92,6 +92,7 @@ class BookController {
         
         books.remove(at: bookToEdit)
         books.insert(tempBook, at: bookToEdit)
+        saveToPersistentStore()
     }
 }
 

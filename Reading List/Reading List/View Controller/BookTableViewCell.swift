@@ -30,7 +30,7 @@ class BookTableViewCell: UITableViewCell {
 
 
     @IBAction func hasBeenReadTapped(_ sender: Any) {
-        delegate?.toggleHasBeenRead(for: <#BookTableViewCell#>)
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     func updateViews() {

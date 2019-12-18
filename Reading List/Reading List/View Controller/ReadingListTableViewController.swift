@@ -46,15 +46,15 @@ class ReadingListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
 
-        // Configure the cell...
+        cell.delegate = self
 
         return cell
     }
     
 
-    func bookFor(indexPath: IndexPath) -> Book {
+    private func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
             return bookController.readBooks[indexPath.row]
         } else {
@@ -62,17 +62,23 @@ class ReadingListTableViewController: UITableViewController {
         }
     }
 
-    /*
-    // Override to support editing the table view.
+    
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Read Books"
+        } else {
+            return "Unread Books"
+        }
+    }
 
     /*
     // Override to support rearranging the table view.
@@ -103,11 +109,11 @@ class ReadingListTableViewController: UITableViewController {
 
 extension ReadingListTableViewController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-        
-        bookController.updateHasBeenRead(for: <#T##Book#>)
-        tableView.reloadData()
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+         let book = bookFor(indexPath: indexPath)
+                           
+            bookController.updateHasBeenRead(for: book)
+            tableView.reloadData()
+        }
     }
-    
-    
-}
 
