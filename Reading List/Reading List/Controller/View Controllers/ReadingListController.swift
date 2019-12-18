@@ -85,7 +85,8 @@ class ReadingListController: UITableViewController {
     */
 
     
-    // Override to support editing the table view.
+    //MARK: TableView Delegate
+    //Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             librarian.removeBookFromList(book: bookFor(indexPath: indexPath))
@@ -131,7 +132,7 @@ class ReadingListController: UITableViewController {
     
 
 }
-
+//MARK: BookTableViewCellDelegate
 extension ReadingListController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookCell) {
         //print("toggled")

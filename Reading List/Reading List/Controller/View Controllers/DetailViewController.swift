@@ -9,14 +9,11 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    //MARK: IBOutlets
     @IBOutlet weak var textField: UITextField!
-    
     @IBOutlet weak var textView: UITextView!
     
-    
-    var librarian: BookController?
-    var book: Book?
-    
+    //MARK: IBActions
     @IBAction func saveBtn(_ sender: UIBarButtonItem) {
         //print("save Tapped")
         if let book = book {
@@ -36,14 +33,15 @@ class DetailViewController: UIViewController {
         
     }
     
+    //MARK: Class Variables
+    var librarian: BookController?
+    var book: Book?
+    
+
+    //MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     //MARK: Helper Methods
