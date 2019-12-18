@@ -28,7 +28,7 @@ class BookCell: UITableViewCell {
     func configureCell() {
         self.titleLabel.text = book?.title
         if book?.hasBeenRead ?? true {
-            print("tapped")
+            //print("tapped")
             hasBeenReadOut.setImage(UIImage(named: "checked"), for: .normal)
         } else {
             hasBeenReadOut.setImage(UIImage(named: "unchecked"), for: .normal)

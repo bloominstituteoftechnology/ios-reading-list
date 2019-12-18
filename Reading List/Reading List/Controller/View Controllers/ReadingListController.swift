@@ -17,7 +17,7 @@ class ReadingListController: UITableViewController {
         librarian.loadFromPersistentStore()
         tableView.reloadData()
         //MARK: Dev/Testing
-        librarian.testSave()
+        //librarian.testSave()
         //librarian.testDelete()
         //librarian.testHasBeenRead()
         //librarian.testUpdateBook()
@@ -134,7 +134,7 @@ class ReadingListController: UITableViewController {
 
 extension ReadingListController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookCell) {
-        print("toggled")
+        //print("toggled")
         guard let indexPath = self.tableView.indexPath(for: cell) else {return}
         librarian.updateHasBeenRead(for: librarian.books[indexPath.row])
         tableView.reloadData()
