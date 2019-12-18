@@ -10,6 +10,11 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController {
 
+    var bookController = BookController()
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,15 +29,22 @@ class ReadingListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        var rowCount = 0
+        if section == 0 {
+            rowCount = bookController.readBooks.count
+        }
+        if section == 1 {
+            rowCount = bookController.unreadBooks.count
+        }
+        
+        return rowCount
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -40,15 +52,15 @@ class ReadingListTableViewController: UITableViewController {
 
         return cell
     }
-    */
+    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func bookFor(indexPath: IndexPath) -> Book {
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+        } else {
+            return bookController.unreadBooks[indexPath.row]
+        }
     }
-    */
 
     /*
     // Override to support editing the table view.
@@ -88,3 +100,14 @@ class ReadingListTableViewController: UITableViewController {
     */
 
 }
+
+extension ReadingListTableViewController: BookTableViewCellDelegate {
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        
+        bookController.updateHasBeenRead(for: <#T##Book#>)
+        tableView.reloadData()
+    }
+    
+    
+}
+

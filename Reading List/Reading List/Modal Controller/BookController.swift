@@ -77,7 +77,7 @@ class BookController {
         saveToPersistentStore()
     }
 
-    func hasBeenRead(for book: Book) {
+    func updateHasBeenRead(for book: Book) {
         guard let bookToEdit = books.firstIndex(of: book) else { return }
         books[bookToEdit].hasBeenRead = !books[bookToEdit].hasBeenRead
         saveToPersistentStore()
