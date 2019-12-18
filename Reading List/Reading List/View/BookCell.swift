@@ -12,25 +12,21 @@ class BookCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var hasBeenReadOut: UIButton!
     
+    weak var delegate: BookTableViewCellDelegate?
     
     @IBAction func hasBeenReadTapped(_ sender: UIButton) {
-        
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     
     var book: Book? {
         didSet {
-            self.titleLabel.text = book?.title
-            setBookHasBeenReadUI()
+            configureCell()
         }
     }
     
-    func setHasBeenRead() {
-        book?.hasBeenRead = true
-        setBookHasBeenReadUI()
-    }
-    
-    func setBookHasBeenReadUI() {
+    func configureCell() {
+        self.titleLabel.text = book?.title
         if book?.hasBeenRead ?? true {
             print("tapped")
             hasBeenReadOut.setImage(UIImage(named: "checked"), for: .normal)

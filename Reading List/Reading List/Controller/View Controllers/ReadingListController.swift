@@ -32,22 +32,45 @@ class ReadingListController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return librarian.books.count
+        if section == 0 {
+            return librarian.unreadBooks.count
+        } else {
+            return librarian.readBooks.count
+        }
+        
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookCell else {return UITableViewCell()}
-        
+        cell.delegate = self
         cell.book = librarian.books[indexPath.row]
         //set cell.book
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Books To Read"
+        } else {
+            return "Books I've Read"
+        }
+    }
+    
+    //MARK: TableView Helper Methods
+    func bookFor(indexPath: IndexPath) -> Book {
+        if indexPath.section == 0 {
+            return librarian.unreadBooks[indexPath.row]
+        } else {
+            return librarian.readBooks[indexPath.row]
+        }
+        
     }
     
 
@@ -59,17 +82,16 @@ class ReadingListController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            librarian.removeBookFromList(book: bookFor(indexPath: indexPath))
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -96,4 +118,14 @@ class ReadingListController: UITableViewController {
     }
     */
 
+}
+
+extension ReadingListController: BookTableViewCellDelegate {
+    func toggleHasBeenRead(for cell: BookCell) {
+        guard let indexPath = tableView.indexPathForSelectedRow else {return}
+        librarian.updateHasBeenRead(for: librarian.books[indexPath.row])
+        
+    }
+    
+    
 }

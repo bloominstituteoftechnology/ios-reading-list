@@ -111,7 +111,11 @@
                         <viewLayoutGuide key="safeArea" id="tJr-HI-5iR"/>
                     </view>
                     <navigationItem key="navigationItem" id="7Tu-ea-NpF">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="w7H-Rd-TDo"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="w7H-Rd-TDo">
+                            <connections>
+                                <action selector="saveBtn:" destination="5Po-Zy-4z0" id="0t2-vT-4Si"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPe-lH-2Jq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

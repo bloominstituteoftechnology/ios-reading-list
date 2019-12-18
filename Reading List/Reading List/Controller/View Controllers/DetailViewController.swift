@@ -9,11 +9,13 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
+    @IBAction func saveBtn(_ sender: UIBarButtonItem) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
         
     }
 

@@ -14,6 +14,10 @@ class BookController {
         return books.filter {$0.hasBeenRead == true}
     }
     
+    var unreadBooks: [Book] {
+        return books.filter {$0.hasBeenRead == false}
+    }
+    
     var readingList: URL? {
         let fileManager = FileManager.default
        
