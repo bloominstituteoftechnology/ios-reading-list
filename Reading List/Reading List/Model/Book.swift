@@ -8,12 +8,14 @@
 
 import Foundation
 
-struct Book {
+struct Book: Equatable, Codable {
     let title: String
     let reasonToRead: String
     let hasBeenRead: Bool
     
-    init(<#parameters#>) {
-        <#statements#>
+    init(title: String, reasonToRead: String) {
+        self.title = title
+        self.reasonToRead = reasonToRead
+        self.hasBeenRead = false
     }
 }
