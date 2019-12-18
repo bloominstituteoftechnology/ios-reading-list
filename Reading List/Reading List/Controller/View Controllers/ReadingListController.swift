@@ -14,15 +14,12 @@ class ReadingListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
-        
-        
         //MARK: Dev/Testing
         //librarian.testSave()
-        //librarian.loadFromPersistentStore()
+        librarian.loadFromPersistentStore()
         //librarian.testDelete()
         //librarian.testHasBeenRead()
-        librarian.testUpdateBook()
+        //librarian.testUpdateBook()
         //librarian.testReadList()
         //print(librarian.books)
         // Do any additional setup after loading the view, typically from a nib.
@@ -108,15 +105,23 @@ class ReadingListController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddBookBtnSegue" {
+            if let destination = segue.destination as? DetailViewController {
+                destination.librarian = librarian
+            }
+        } else if segue.identifier == "DetailVCSegue" {
+            guard let indexPath = tableView.indexPathForSelectedRow else {return}
+            if let destination = segue.destination as? DetailViewController {
+                destination.book = self.bookFor(indexPath: indexPath)
+            }
+        }
     }
-    */
+    
 
 }
 
@@ -124,7 +129,7 @@ extension ReadingListController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookCell) {
         guard let indexPath = tableView.indexPathForSelectedRow else {return}
         librarian.updateHasBeenRead(for: librarian.books[indexPath.row])
-        
+        tableView.reloadData()
     }
     
     

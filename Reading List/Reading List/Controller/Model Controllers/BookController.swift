@@ -59,16 +59,11 @@ class BookController {
         saveToPersistentStore()
     }
     
-    func updateBook(book: Book, title: String = "", reasonToRead: String = "" ) {
+    func updateBook(book: Book, title: String, reasonToRead: String) {
         for (index, thisBook) in books.enumerated() where thisBook.title == book.title {
-            if title != "" {
                 books[index].title = title
-                print(books[index].title)
-            }
-            if reasonToRead != "" {
                 books[index].reasonToRead = reasonToRead
             }
-        }
         saveToPersistentStore()
     }
       

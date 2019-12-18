@@ -117,6 +117,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="BHd-MQ-Nq3" id="lrx-mL-KjV"/>
+                        <outlet property="textView" destination="xke-dp-RhR" id="vLA-wz-9gJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPe-lH-2Jq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
