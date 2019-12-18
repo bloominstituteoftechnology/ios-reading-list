@@ -24,8 +24,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="286" translatesAutoresizingMaskIntoConstraints="NO" id="67E-6d-PGX">
-                                            <rect key="frame" x="18" y="5" width="378" height="50"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="67E-6d-PGX">
+                                            <rect key="frame" x="0.0" y="5" width="414" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQY-T5-aQE">
                                                     <rect key="frame" x="0.0" y="0.0" width="42" height="50"/>
@@ -34,20 +34,22 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MI-pX-Axb">
-                                                    <rect key="frame" x="328" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="364" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="Adr-FT-Tys"/>
+                                                        <constraint firstAttribute="height" constant="50" id="Fm8-ZR-sdF"/>
+                                                    </constraints>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
                                                         <action selector="hasBeenReadTapped:" destination="8H8-6k-67E" eventType="touchUpInside" id="pdK-Yg-hPG"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="2MI-pX-Axb" firstAttribute="centerY" secondItem="67E-6d-PGX" secondAttribute="centerY" id="QGb-rf-3Gh"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="67E-6d-PGX" firstAttribute="centerY" secondItem="MPQ-of-JBn" secondAttribute="centerY" id="28j-z3-Vig"/>
+                                        <constraint firstItem="67E-6d-PGX" firstAttribute="width" secondItem="MPQ-of-JBn" secondAttribute="width" id="L6v-Pu-rEP"/>
                                         <constraint firstItem="67E-6d-PGX" firstAttribute="centerX" secondItem="MPQ-of-JBn" secondAttribute="centerX" id="WFp-ga-E1K"/>
                                     </constraints>
                                 </tableViewCellContentView>

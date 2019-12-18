@@ -71,8 +71,8 @@ class BookController {
     //MARK: Delete
     func removeBookFromList(book: Book) {
         //Add a "Delete" method that passes in a Book object as a parameter, and removes it from the books array
-        self.books.removeAll { (book) -> Bool in
-            return true
+        self.books.removeAll { (thisBook) -> Bool in
+            book.title == thisBook.title
         }
         saveToPersistentStore()
     }
