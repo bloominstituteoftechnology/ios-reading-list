@@ -118,8 +118,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="textField" destination="BHd-MQ-Nq3" id="lrx-mL-KjV"/>
-                        <outlet property="textView" destination="xke-dp-RhR" id="vLA-wz-9gJ"/>
+                        <outlet property="textField" destination="BHd-MQ-Nq3" id="HIW-SF-qwP"/>
+                        <outlet property="textView" destination="xke-dp-RhR" id="Dci-ay-Og3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPe-lH-2Jq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -149,6 +149,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tw3-NI-6Yj"/>
+        <segue reference="a0X-mh-UUP"/>
     </inferredMetricsTieBreakers>
 </document>

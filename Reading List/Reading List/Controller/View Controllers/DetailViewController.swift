@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
+    
     @IBOutlet weak var textView: UITextView!
     
     
@@ -29,7 +30,6 @@ class DetailViewController: UIViewController {
             guard let title = textField.text,
                 let reasonText = textView.text else {return}
             print("adding book")
-            print(librarian)
             librarian?.addBookToRead(title: title, reasonToRead: reasonText)
             navigationController?.popViewController(animated: true)
         }
@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateViews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,8 +48,9 @@ class DetailViewController: UIViewController {
 
     //MARK: Helper Methods
     func updateViews() {
-        self.textField.text = book?.title
-        self.textView.text = book?.reasonToRead
+        guard let book = book else {return}
+        self.textField.text = book.title
+        self.textView.text = book.reasonToRead
     }
 }
 

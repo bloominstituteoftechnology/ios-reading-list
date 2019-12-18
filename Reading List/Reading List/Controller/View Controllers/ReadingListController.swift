@@ -14,15 +14,20 @@ class ReadingListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //MARK: Dev/Testing
-        //librarian.testSave()
         librarian.loadFromPersistentStore()
+        tableView.reloadData()
+        //MARK: Dev/Testing
+        librarian.testSave()
         //librarian.testDelete()
         //librarian.testHasBeenRead()
         //librarian.testUpdateBook()
         //librarian.testReadList()
         //print(librarian.books)
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData() //reload view when coming back
     }
 
     // MARK: - Table view data source
@@ -85,6 +90,7 @@ class ReadingListController: UITableViewController {
         if editingStyle == .delete {
             librarian.removeBookFromList(book: bookFor(indexPath: indexPath))
             tableView.deleteRows(at: [indexPath], with: .fade)
+            //tableView.reloadData()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -118,6 +124,7 @@ class ReadingListController: UITableViewController {
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
             if let destination = segue.destination as? DetailViewController {
                 destination.book = self.bookFor(indexPath: indexPath)
+                destination.librarian = librarian
             }
         }
     }
@@ -127,7 +134,8 @@ class ReadingListController: UITableViewController {
 
 extension ReadingListController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookCell) {
-        guard let indexPath = tableView.indexPathForSelectedRow else {return}
+        print("toggled")
+        guard let indexPath = self.tableView.indexPath(for: cell) else {return}
         librarian.updateHasBeenRead(for: librarian.books[indexPath.row])
         tableView.reloadData()
     }
