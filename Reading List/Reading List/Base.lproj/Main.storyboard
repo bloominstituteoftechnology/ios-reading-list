@@ -41,7 +41,6 @@
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
                                                         <action selector="hasBeenReadButton:" destination="25Z-xK-jV8" eventType="touchUpInside" id="G5X-fH-2yd"/>
-                                                        <segue destination="Knn-n5-A9E" kind="show" identifier=" ShowDetailSegue" id="0fL-kW-nv3"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -57,6 +56,7 @@
                                 <connections>
                                     <outlet property="hasBeenSeen" destination="TBN-I7-ONz" id="BNw-Ix-k7a"/>
                                     <outlet property="nameLabel" destination="oB6-5V-mai" id="66e-eH-O72"/>
+                                    <segue destination="Knn-n5-A9E" kind="show" identifier="ShowDetailSegue" id="3aU-J4-0sp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -117,7 +117,7 @@
                     <navigationItem key="navigationItem" title="Title" id="1lj-Y3-YD8">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="bbY-WK-BPk">
                             <connections>
-                                <action selector="saveButton:" destination="Knn-n5-A9E" id="NBq-q6-7ul"/>
+                                <action selector="saveButton:" destination="Knn-n5-A9E" id="m1V-PW-Wfe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -153,6 +153,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0fL-kW-nv3"/>
+        <segue reference="3aU-J4-0sp"/>
     </inferredMetricsTieBreakers>
 </document>

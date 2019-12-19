@@ -30,7 +30,7 @@ class BookDetailViewController: UIViewController {
             guard let title = textField.text,
                 let reasonText = textView.text else { return }
             bookController?.updateBookInformation(book: book, title: title, reasonToRead: reasonText)
-            self.dismiss(animated: true, completion: nil)
+            navigationController?.popViewController(animated: true)
         } else {
             guard let title = textField.text,
                 let reasonText = textView.text else { return }
