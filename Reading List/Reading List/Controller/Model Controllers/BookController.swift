@@ -8,6 +8,13 @@
 
 import Foundation
 class BookController {
+    
+    static var instance = BookController()
+    
+    static func helloWorld() {
+        print("Hello World")
+    }
+    
     var books = [Book]()
     
     var readBooks: [Book] {

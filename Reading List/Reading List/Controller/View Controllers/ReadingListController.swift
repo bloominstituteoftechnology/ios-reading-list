@@ -15,7 +15,9 @@ class ReadingListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         librarian.loadFromPersistentStore()
-        tableView.reloadData()
+        BookController.instance.loadFromPersistentStore()
+        
+        //tableView.reloadData()
         //MARK: Dev/Testing
         //librarian.testSave()
         //librarian.testDelete()
@@ -26,9 +28,19 @@ class ReadingListController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData() //reload view when coming back
+    override func viewWillAppear(_ animated: Bool) {
+       tableView.reloadData() //reload view when coming back
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+         
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+    }
+    
+    
 
     // MARK: - Table view data source
 
@@ -51,9 +63,7 @@ class ReadingListController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookCell else {return UITableViewCell()}
         cell.delegate = self
-        cell.book = librarian.books[indexPath.row]
-        //set cell.book
-        
+        cell.book = bookFor(indexPath: indexPath) //fixes first time clicked, but now when clicking cell in section 1 if a cell is in section 0, the cell from section 0 becomes checked
         return cell
     }
     
@@ -90,9 +100,7 @@ class ReadingListController: UITableViewController {
             librarian.removeBookFromList(book: bookFor(indexPath: indexPath))
             tableView.deleteRows(at: [indexPath], with: .fade)
             //tableView.reloadData()
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
 
     /*
@@ -133,7 +141,7 @@ extension ReadingListController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookCell) {
         //print("toggled")
         guard let indexPath = self.tableView.indexPath(for: cell) else {return}
-        librarian.updateHasBeenRead(for: librarian.books[indexPath.row])
+        librarian.updateHasBeenRead(for: bookFor(indexPath: indexPath))
         tableView.reloadData()
     }
 }
