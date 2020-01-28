@@ -11,12 +11,11 @@
         <scene sceneID="gif-ML-NId">
             <objects>
                 <tableViewController id="MX2-WP-DQD" customClass="ReadingListTableVC" customModule="ReadingLIST" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="K8m-vR-Rsr">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="K8m-vR-Rsr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="hzM-UQ-iul" customClass="CustomBookCell" customModule="ReadingLIST" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="hzM-UQ-iul" customClass="BookTableViewCell" customModule="ReadingLIST" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hzM-UQ-iul" id="gBa-59-0hE">
@@ -24,25 +23,27 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="230" translatesAutoresizingMaskIntoConstraints="NO" id="8yd-JQ-E7e">
-                                            <rect key="frame" x="20" y="10" width="374" height="50"/>
+                                            <rect key="frame" x="20" y="18" width="374" height="34"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiQ-ag-AS0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="94" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bm-NK-zlN">
-                                                    <rect key="frame" x="324" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="340" y="0.0" width="34" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9bm-NK-zlN" secondAttribute="height" multiplier="1:1" id="ndM-5J-SqK"/>
                                                     </constraints>
-                                                    <state key="normal" image="checked"/>
                                                     <connections>
                                                         <action selector="statusTapped:" destination="hzM-UQ-iul" eventType="touchUpInside" id="OfC-0w-VgE"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9bm-NK-zlN" firstAttribute="height" secondItem="8yd-JQ-E7e" secondAttribute="height" id="kil-zg-Wg1"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -90,6 +91,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldChanged:" destination="XRw-jd-Pxi" eventType="editingChanged" id="7NB-dG-OnZ"/>
+                                </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" text="Reason to read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rGI-48-Zyl">
                                 <rect key="frame" x="20" y="202" width="374" height="148"/>
@@ -122,6 +126,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="xF6-Xq-e8P" id="ZqI-Xa-Ugy"/>
                         <outlet property="textField" destination="3ue-TC-NFf" id="gB7-0A-qhL"/>
                         <outlet property="textView" destination="rGI-48-Zyl" id="mAh-I8-SBz"/>
                     </connections>
@@ -149,9 +154,6 @@
             <point key="canvasLocation" x="153.62318840579712" y="98.4375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="checked" width="50" height="50"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="X7w-Gq-w0L"/>
     </inferredMetricsTieBreakers>

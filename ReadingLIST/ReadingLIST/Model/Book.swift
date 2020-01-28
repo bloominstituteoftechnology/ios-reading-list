@@ -11,7 +11,5 @@ struct Book : Equatable,Codable {
     let title: String
     let reasonToRead: String
     var hasBeenRead = false
-    static let segueId = "BookSegue"
-    static let cellId = "BookCell"
-    static let addSegue = "AddSegue"
+    
 }

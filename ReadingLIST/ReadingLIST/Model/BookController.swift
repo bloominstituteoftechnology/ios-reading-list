@@ -10,6 +10,9 @@ import Foundation
 class BookController {
     var books = [Book]()
     
+    init() {
+        loadFromPersistentStore()
+    }
     
     var readingListURL : URL? {
         let fm = FileManager.default
@@ -56,8 +59,11 @@ class BookController {
         saveToPersistStore()
         
     }
-    func updateHasBeenRead(for books:Book) -> Bool {
-        return books.hasBeenRead == !books.hasBeenRead
+    
+    func updateHasBeenRead(for book:Book)  {
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].hasBeenRead.toggle()
+        saveToPersistStore()
     }
     func editBook(for books:Book) {
         //
