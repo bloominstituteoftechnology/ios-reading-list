@@ -42,8 +42,6 @@
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
-				7264FE6723E0CB0900C93486 /* Book.swift */,
-				7264FE6923E0CC3F00C93486 /* BookController.swift */,
 				466941672110E22A00E7FF73 /* Reading List */,
 				466941662110E22A00E7FF73 /* Products */,
 			);
@@ -60,6 +58,8 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
+				7264FE6723E0CB0900C93486 /* Book.swift */,
+				7264FE6923E0CC3F00C93486 /* BookController.swift */,
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				4669416A2110E22B00E7FF73 /* ViewController.swift */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,

@@ -37,4 +37,18 @@ class BookController {
         }
     }
     
+    func loadFromPersistnetStore (){
+        
+        guard let readingListURL = readingListURL else { return }
+        
+        do{
+            let decoder = PropertyListDecoder()
+            
+            let readingListData = try Data(contentsOf: readingListURL)
+            
+            let readingListArray = try decoder.decode([Book].self, from: readingListData)
+        } catch{
+            print("Error decoding readList: \(error)")
+        }
+    }
 }
