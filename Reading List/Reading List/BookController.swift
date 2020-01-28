@@ -10,14 +10,12 @@ import Foundation
 
 class BookController {
     
-    
     var books: [Book]
 
     init(books: [Book]) {
         self.books = books
     }
 
-    
     func createBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
         
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
@@ -27,19 +25,30 @@ class BookController {
         saveToPersistentStore()
     }
     
-    func deleteBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
+//    func deleteBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
+//
+//        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+//
         
-        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+//        books.remove(object: book)
+    
+//    func updateHasBeenRead(for book: Book) {
+//
+//        //part 1 - step 6
+//    }
+//
+//    func updateBookTitle() {
+//
+//    }
+
+    
+    var readBooks: [Book] {
         
+        let books = [Book]
         
-        books.remove(object: book)
+        var readBookList = books.filter {  }
     }
     
-    func updateHasBeenRead(for book: Book) {
-        
-        //part 1 - step 6
-    }
-
 var readingListURL: URL? {
     
     let fileManager = FileManager.default
@@ -81,4 +90,7 @@ func saveToPersistentStore() {
         }
         
     }
+
+
+
 }
