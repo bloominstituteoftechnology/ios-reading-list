@@ -22,4 +22,19 @@ class BookController {
         return listURL
     }
     
+    func saveToPersistentStore(){
+        
+        guard let readingListURL = readingListURL else { return }
+        
+        let encoder = PropertyListEncoder()
+        do{
+            let booksData = try encoder.encode(books)
+            try booksData.write(to: readingListURL)
+            
+            
+        } catch {
+            print("Error encoding books array: \(error)")
+        }
+    }
+    
 }
