@@ -51,4 +51,60 @@ class BookController {
             print("Error decoding readList: \(error)")
         }
     }
+    
+    func createListEntry (with title: String, reasonToRead: String){
+        
+        let book = Book(title: title, reasonToBeRead: reasonToRead, hasBeenRead: false)
+        books.append(book)
+        saveToPersistentStore()
+        
+    }
+    
+    func deleteListEntry (book: Book){
+        
+ // 6 second item.  Need to delete an element at the book's index path but index path isn't available
+        guard let bookIndex = books.firstIndex(of: book) else { return }
+        books.remove(at: bookIndex)
+        saveToPersistentStore()
+        
+    }
+    
+    func updateHasBeenRead(for book: Book){
+        
+        guard let bookIndex = books.firstIndex(of: book) else { return }
+        books[bookIndex].hasBeenRead = !books[bookIndex].hasBeenRead
+        saveToPersistentStore()
+    }
+    
+    func editBookInformation(for book: Book){
+        
+        guard let bookIndex = books.firstIndex(of: book) else { return }
+        books[bookIndex].title = books[bookIndex].title
+        books[bookIndex].reasonToRead = books[bookIndex].reasonToRead
+        saveToPersistentStore()
+    }
+    
+    var readBooks: [Book]{
+        var readBooks = [Book]()
+        
+        for book in books{
+            if book.hasBeenRead == true{
+                readBooks.append(book)
+            }
+        }
+        return readBooks
+    }
+    
+    var unreadBooks: [Book]{
+          var unreadBooks = [Book]()
+          
+          for book in books{
+              if book.hasBeenRead == false{
+                  unreadBooks.append(book)
+              }
+          }
+          return unreadBooks
+      }
+    
+    
 }
