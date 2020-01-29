@@ -88,10 +88,22 @@ func saveToPersistentStore() {
         saveToPersistentStore()
         
     }
+    
+    func updateHasBeenRead(for book: Book) {
+        
+        var hasBeenRead = false
+        switch hasBeenRead{
+        case true:
+            hasBeenRead.toggle()
+        default:
+            hasBeenRead.toggle()
+        }
+        saveToPersistentStore()
+    }
+    
     func updateBookTitle(with title: String, reasonToRead: String, hasBeenRead: Bool) {
       
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
-        
      
         saveToPersistentStore()
      }

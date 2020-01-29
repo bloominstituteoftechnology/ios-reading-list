@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
-
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+    
     var books: [Book] = []
     
 //    init(books: [Book]) {
@@ -47,6 +47,15 @@ class ReadingListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        func toggleHasBeenRead(for cell: BookTableViewCell) {
+            
+            let book = bookFor(indexPath: IndexPath)
+            
+            bookController.updateHasBeenRead(for: book) {
+                
+            }
+           }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -79,19 +88,15 @@ class ReadingListTableViewController: UITableViewController {
             return bookController.unreadBooks[indexPath.row]
         }
     }
-    
-    
-    
-    
-    /*
+        
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+         
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
