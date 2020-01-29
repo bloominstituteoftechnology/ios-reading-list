@@ -8,61 +8,12 @@
 
 import Foundation
 
-class BookController {
+class BookController: BookTableViewCellDelegate {
     
     var books: [Book]
 
     init(books: [Book]) {
         self.books = books
-    }
-
-    func createBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
-        
-        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
-        
-        books.append(book)
-        
-        saveToPersistentStore()
-    }
-    
-    /*
-    func deleteBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
-
-        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
-
-        
-        books.remove(object: book)
-    
-    func updateHasBeenRead(for book: Book) {
-
-    
-        saveToPersistentStore()
-    
-        //part 1 - step 6
-    }
-
-    func updateBookTitle() {
-
-    saveToPersistentStore()
-    }
-    
-    
-    var readBooks: [Book] {
-
-        let books = [Book].self
-
-        var readBookList = books.filter { }
-
-          return books
-        saveToPersistentStore()
-    }
-   */
-    
-    var unreadBooks: [Book] {
-        
-        let books = [Book].self
-        var unreadBookList = books.filter(books.)
-        saveToPersistentStore()
     }
 
 var readingListURL: URL? {
@@ -106,7 +57,70 @@ func saveToPersistentStore() {
         }
         
     }
+    
+    
+    /////////////
 
+     func createBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
+           
+           let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+           
+           books.append(book)
+           
+           saveToPersistentStore()
+       }
+    
+     func deleteBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
 
+        
+//        func toggleHasBeenRead(for cell: BookTableViewCell) {
+//            books.removeAll()
+//        }
+         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+
+        if book.hasBeenRead == true {
+               books.removeAll() //does this remove all the titles or just the 'true' titles?
+        }
+        
+        saveToPersistentStore()
+        
+    }
+    
+     func updateHasBeenRead(for book: Book) {
+        
+        func toggleHasBeenRead(for cell: BookTableViewCell) {
+            
+        }
+            
+        }
+        
+         saveToPersistentStore()
+     
+         //part 1 - step 6
+     }
+
+     func updateBookTitle() {
+
+     saveToPersistentStore()
+        
+     }
+     
+        var readBooks: [Book] {
+
+            let books = [Book].self
+
+            var readBookList = books.filter { }
+
+            return books
+            saveToPersistentStore()
+     }
+    
+        var unreadBooks: [Book] {
+               
+               let books = [Book].self
+               var unreadBookList = books.filter(books.)
+               
+               saveToPersistentStore()
+           }
 
 }
