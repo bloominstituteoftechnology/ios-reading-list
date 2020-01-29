@@ -17,5 +17,15 @@ struct Book : Codable,Equatable,Comparable {
     var title: String
     var reasonToRead: String
     var hasBeenRead = false
-    var image : String
+    public var image : Data
+    
+    public init(image: UIImage,title:String,reasonToRead:String,hasBeenRead: Bool) {
+       
+        self.image = image.pngData()!
+        self.title = title
+        self.reasonToRead  = reasonToRead
+        self.hasBeenRead = hasBeenRead
+    }
+   
 }
+

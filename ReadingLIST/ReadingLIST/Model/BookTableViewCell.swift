@@ -29,6 +29,7 @@ class BookTableViewCell: UITableViewCell {
     private func updateViews() {
         guard let book = book else { return }
         bookTitleLabel.text = book.title
+        bookCover.image = UIImage(data: book.image,scale:1.0)
         
         if book.hasBeenRead == false {
             statusLabel.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)

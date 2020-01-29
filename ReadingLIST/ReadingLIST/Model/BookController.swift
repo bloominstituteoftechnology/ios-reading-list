@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 class BookController {
     
     var books = [Book]()
@@ -46,8 +47,9 @@ class BookController {
             print("Can't load Data , error: \(err)")
         }
     }
-    func createBook(title: String, reason: String ) {
-        let newBook = Book(title: title, reasonToRead: reason,image: "")
+    func createBook(title: String, reason: String , image: Data ) {
+        guard let image = UIImage(data: image) else { return }
+        let newBook = Book( image: image , title: title, reasonToRead: reason, hasBeenRead: false)
         books.append(newBook)
         saveToPersistStore()
     }
@@ -67,12 +69,13 @@ class BookController {
         books[index].hasBeenRead.toggle()
         saveToPersistStore()
     }
-    func editBook(for book:Book,with title: String, with reason: String) {
+    func editBook(for book:Book,with title: String, with reason: String, image: Data) {
         //
          guard let index = books.firstIndex(of: book) else { return }
         var scratchBook = book
         scratchBook.title = title
         scratchBook.reasonToRead = reason
+        scratchBook.image = image
         books.remove(at: index)
         books.insert(scratchBook, at: index)
       

@@ -22,7 +22,7 @@ class BookDetailVC: UIViewController   {
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.becomeFirstResponder()
-       updateViews()
+         updateViews()
         bookImageView.contentMode = .scaleAspectFill
         bookImageView.layer.masksToBounds = true
     }
@@ -35,11 +35,13 @@ class BookDetailVC: UIViewController   {
         guard let title = textField.text,
             let reasonToRead = textView.text,
             title != "" && reasonToRead != "" else { return }
+        guard let image = bookImageView.image else { return }
         
         if let book = book {
-            bookController?.editBook(for: book, with: title, with: reasonToRead)
+          
+            bookController?.editBook(for: book, with: title, with: reasonToRead, image: image.jpegData(compressionQuality: 1.0)!)
         } else {
-            bookController?.createBook(title: title, reason: reasonToRead)
+            bookController?.createBook(title: title, reason: reasonToRead, image: image.jpegData(compressionQuality: 1.0)!)
         }
         
         navigationController?.popViewController(animated: true)
@@ -55,6 +57,7 @@ class BookDetailVC: UIViewController   {
         title = book.title
         textField.text = book.title
         textView.text = book.reasonToRead
+        bookImageView.image = UIImage(data: book.image)
     }
  
     @IBAction func selectBookCover(_ sender: UIButton) {
@@ -66,7 +69,7 @@ class BookDetailVC: UIViewController   {
 extension BookDetailVC : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     func showImagePickerControllerActionSheet() {
-        let ac = UIAlertController(title: "Choose your book's cover", message: nil, preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: "Choose your book's cover", message: nil, preferredStyle: .alert)
         let firstAction = UIAlertAction(title: "Choose from Library", style: .default) { (action) in
             self.showImagePickerController(sourceType: .photoLibrary)
         }
