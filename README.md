@@ -1,35 +1,3 @@
-# Reading List
-
-A student that completes this project shows that they can:
-
-- understand and explain the role of model objects and model controllers in MVC
-- make a class or struct conform to Codable
-- use FileManager to find system directories (e.g. documents directory)
-- use PropertyListEncoder to save Codable objects to a file
-
-## Introduction
-
-Reading List is an application that lets you save a list of books and allow you to mark whether you have or have not read them. Since this application will use persistence, the books you create and check as read or not will be saved between launches of the application.
-
-Please look at the screen recording below to know what the finished project should look like:
-
-![](https://user-images.githubusercontent.com/16965587/43476440-d31883ac-94b5-11e8-89f9-c83f30099e69.gif)
-
-## Instructions
-
-Please fork and clone this repository. This repository comes with a started Xcode project that includes images that you will need.
-
-### Part 1 - Book and BookController
-
-#### Book
-
-1. Create a "Book.swift" file. Create a struct called `Book`
-2. This struct should have the following properties:
-    - A `title` String
-    - A `reasonToRead` String
-    - A `hasBeenRead` Bool
-3. Create an initializer for the struct so that you can give a default value of `false` to the `hasBeenRead` parameter.
-4. Adopt both the `Equatable`, and `Codable` protocols.
 
 #### BookController
 
