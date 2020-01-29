@@ -25,30 +25,45 @@ class BookController {
         saveToPersistentStore()
     }
     
-//    func deleteBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
-//
-//        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
-//
+    /*
+    func deleteBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
+
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+
         
-//        books.remove(object: book)
+        books.remove(object: book)
     
-//    func updateHasBeenRead(for book: Book) {
-//
-//        //part 1 - step 6
-//    }
-//
-//    func updateBookTitle() {
-//
-//    }
+    func updateHasBeenRead(for book: Book) {
 
     
-    var readBooks: [Book] {
-        
-        let books = [Book]
-        
-        var readBookList = books.filter {  }
+        saveToPersistentStore()
+    
+        //part 1 - step 6
+    }
+
+    func updateBookTitle() {
+
+    saveToPersistentStore()
     }
     
+    
+    var readBooks: [Book] {
+
+        let books = [Book].self
+
+        var readBookList = books.filter { }
+
+          return books
+        saveToPersistentStore()
+    }
+   */
+    var unreadBooks: [Book] {
+        
+        let books = [Book].self
+        var unreadBookList = books.filter(books.)
+        saveToPersistentStore()
+    }
+
 var readingListURL: URL? {
     
     let fileManager = FileManager.default
