@@ -21,15 +21,30 @@ class BookDetailVC: UIViewController   {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
+  
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+           self.view.addGestureRecognizer(tap)
         textField.becomeFirstResponder()
          updateViews()
         bookImageView.contentMode = .scaleAspectFill
         bookImageView.layer.masksToBounds = true
     }
     
+    @objc func dismissKeyboard(){
+        self.view.endEditing(true)
+    }
+    
     @IBAction func textFieldChanged(_ sender: UITextField) {
         saveButton.isEnabled = textField.hasText
     }
+  
+   
+    
+    
+    
+    
+
+    
     
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
         guard let title = textField.text,

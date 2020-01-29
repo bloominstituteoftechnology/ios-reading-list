@@ -24,7 +24,7 @@ class BookController {
     }
     
     
-    func saveToPersistStore() {
+    private func saveToPersistStore() {
         guard let fileURL = readingListURL else { return }
         do {
              let encoder = PropertyListEncoder()
@@ -36,7 +36,7 @@ class BookController {
        
     }
     
-    func loadFromPersistentStore() {
+   private func loadFromPersistentStore() {
         guard let fileURL = readingListURL else { return }
         do {
             let booksData = try Data(contentsOf: fileURL)
