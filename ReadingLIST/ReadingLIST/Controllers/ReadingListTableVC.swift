@@ -45,7 +45,7 @@ class ReadingListTableVC: UITableViewController , BookTableViewDelegate {
         default:
             break
         }
-        return 0
+        return bookController.readBooks.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
           
@@ -59,21 +59,30 @@ class ReadingListTableVC: UITableViewController , BookTableViewDelegate {
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            bookController.books.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+              let book = bookFor(indexPath: indexPath)
+                        
+            bookController.delete(book: book)
+                        
+                        tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
+            if bookController.readBooks.count > 0 {
+                 
+                return "Read Books"
+              
+            }
 
-            return "Read Books"
-            
         default:
-            return "Unread Books"
+            if bookController.unreadBooks.count > 0 {
+                
+                return "Unread Books" }
         }
-        
+
+        return ""
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Helper.bookSegue {
