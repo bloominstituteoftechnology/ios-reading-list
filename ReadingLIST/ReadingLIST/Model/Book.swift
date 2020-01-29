@@ -7,7 +7,9 @@
 //
 
 import Foundation
-struct Book : Equatable,Codable,Comparable {
+import UIKit
+
+struct Book : Codable,Equatable,Comparable {
     static func < (lhs: Book, rhs: Book) -> Bool {
         return lhs.title < rhs.title
     }
@@ -15,5 +17,5 @@ struct Book : Equatable,Codable,Comparable {
     var title: String
     var reasonToRead: String
     var hasBeenRead = false
-    
+    var image : String
 }

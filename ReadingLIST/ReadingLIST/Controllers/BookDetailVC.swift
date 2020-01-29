@@ -8,8 +8,9 @@
 
 import UIKit
 
-class BookDetailVC: UIViewController {
+class BookDetailVC: UIViewController   {
 
+    @IBOutlet weak var bookImageView: UIImageView!
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
@@ -22,7 +23,8 @@ class BookDetailVC: UIViewController {
         super.viewDidLoad()
         textField.becomeFirstResponder()
        updateViews()
-        
+        bookImageView.contentMode = .scaleAspectFill
+        bookImageView.layer.masksToBounds = true
     }
     
     @IBAction func textFieldChanged(_ sender: UITextField) {
@@ -54,7 +56,48 @@ class BookDetailVC: UIViewController {
         textField.text = book.title
         textView.text = book.reasonToRead
     }
+ 
+    @IBAction func selectBookCover(_ sender: UIButton) {
+      showImagePickerControllerActionSheet()
+    }
     
     
-
+}
+extension BookDetailVC : UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
+    func showImagePickerControllerActionSheet() {
+        let ac = UIAlertController(title: "Choose your book's cover", message: nil, preferredStyle: .actionSheet)
+        let firstAction = UIAlertAction(title: "Choose from Library", style: .default) { (action) in
+            self.showImagePickerController(sourceType: .photoLibrary)
+        }
+        let secondAction = UIAlertAction(title: "Take new photo", style: .default) { (action) in
+            self.showImagePickerController(sourceType: .camera)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        ac.addAction(firstAction)
+        ac.addAction(secondAction)
+        ac.addAction(cancelAction)
+        present(ac, animated: true, completion: nil)
+    }
+    
+    
+    
+    func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = sourceType
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+       if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            bookImageView.image = editedImage
+       } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        bookImageView.image = originalImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }

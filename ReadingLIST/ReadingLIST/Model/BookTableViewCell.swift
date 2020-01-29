@@ -10,6 +10,10 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
    
+    
+    @IBOutlet weak var bookCover: UIImageView!
+    
+    
     var book: Book? {
         didSet {
             updateViews()
@@ -18,13 +22,14 @@ class BookTableViewCell: UITableViewCell {
    
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var statusLabel: UIButton!
+    
     weak var delegate: BookTableViewDelegate?
     
     
     private func updateViews() {
         guard let book = book else { return }
         bookTitleLabel.text = book.title
-
+        
         if book.hasBeenRead == false {
             statusLabel.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
         } else {

@@ -8,6 +8,7 @@
 
 import Foundation
 class BookController {
+    
     var books = [Book]()
     
     init() {
@@ -46,19 +47,13 @@ class BookController {
         }
     }
     func createBook(title: String, reason: String ) {
-        let newBook = Book(title: title, reasonToRead: reason)
+        let newBook = Book(title: title, reasonToRead: reason,image: "")
         books.append(newBook)
         saveToPersistStore()
     }
     
-//    func deleteBook(title:String,reason:String) {
-//        let book = Book(title: title, reasonToRead: reason)
-//        if let index = books.firstIndex(of: book) {
-//            books.remove(at: index)
-//        }
-//        saveToPersistStore()
-//
-//    }
+
+
     func delete(book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
 

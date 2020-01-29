@@ -11,28 +11,31 @@
         <scene sceneID="gif-ML-NId">
             <objects>
                 <tableViewController id="MX2-WP-DQD" customClass="ReadingListTableVC" customModule="ReadingLIST" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="50" sectionFooterHeight="28" id="K8m-vR-Rsr">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="50" sectionFooterHeight="28" id="K8m-vR-Rsr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="70" id="hzM-UQ-iul" customClass="BookTableViewCell" customModule="ReadingLIST" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="80" id="hzM-UQ-iul" customClass="BookTableViewCell" customModule="ReadingLIST" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hzM-UQ-iul" id="gBa-59-0hE">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="230" translatesAutoresizingMaskIntoConstraints="NO" id="8yd-JQ-E7e">
-                                            <rect key="frame" x="20" y="18" width="374" height="34"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8yd-JQ-E7e">
+                                            <rect key="frame" x="20" y="-15.5" width="374" height="111"/>
                                             <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.on.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iiv-wN-wNk">
+                                                    <rect key="frame" x="0.0" y="-2.5" width="111.5" height="116"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiQ-ag-AS0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="34"/>
+                                                    <rect key="frame" x="131.5" y="0.0" width="111" height="111"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bm-NK-zlN">
-                                                    <rect key="frame" x="340" y="0.0" width="34" height="34"/>
+                                                    <rect key="frame" x="262.5" y="0.0" width="111.5" height="111"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9bm-NK-zlN" secondAttribute="height" multiplier="1:1" id="ndM-5J-SqK"/>
                                                     </constraints>
@@ -53,6 +56,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bookCover" destination="iiv-wN-wNk" id="OvQ-sT-TSr"/>
                                     <outlet property="bookTitleLabel" destination="SiQ-ag-AS0" id="zqO-se-A5a"/>
                                     <outlet property="statusLabel" destination="9bm-NK-zlN" id="nya-Yu-uTd"/>
                                     <segue destination="XRw-jd-Pxi" kind="show" identifier="BookSegue" id="X7w-Gq-w0L"/>
@@ -84,7 +88,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ue-TC-NFf">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ue-TC-NFf">
                                 <rect key="frame" x="20" y="148" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="wtF-nh-m1g"/>
@@ -97,7 +101,7 @@
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" text="Reason to read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rGI-48-Zyl">
                                 <rect key="frame" x="20" y="202" width="374" height="148"/>
-                                <color key="backgroundColor" red="0.57904726269999995" green="0.98508876560000003" blue="0.80921691659999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="148" id="oce-S3-5Px"/>
                                 </constraints>
@@ -105,27 +109,58 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cAe-iB-o5d">
+                                <rect key="frame" x="132" y="597.5" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="75"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUA-VV-DbW">
+                                <rect key="frame" x="32" y="800" width="350" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Select Book cover">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="selectBookCover:" destination="XRw-jd-Pxi" eventType="touchUpInside" id="hZZ-tU-dAp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="CNn-hy-eER" firstAttribute="trailing" secondItem="3ue-TC-NFf" secondAttribute="trailing" constant="20" id="4dF-bg-Eus"/>
                             <constraint firstItem="3ue-TC-NFf" firstAttribute="top" secondItem="CNn-hy-eER" secondAttribute="top" constant="60" id="PKb-0F-5WJ"/>
+                            <constraint firstItem="JUA-VV-DbW" firstAttribute="centerX" secondItem="bvl-96-d6N" secondAttribute="centerX" id="TwT-eo-wJ1"/>
                             <constraint firstItem="3ue-TC-NFf" firstAttribute="centerX" secondItem="bvl-96-d6N" secondAttribute="centerX" id="Ys6-Jy-NH9"/>
                             <constraint firstItem="rGI-48-Zyl" firstAttribute="leading" secondItem="3ue-TC-NFf" secondAttribute="leading" id="aqy-dA-dlF"/>
                             <constraint firstItem="rGI-48-Zyl" firstAttribute="trailing" secondItem="3ue-TC-NFf" secondAttribute="trailing" id="dwQ-gp-x7U"/>
                             <constraint firstItem="3ue-TC-NFf" firstAttribute="leading" secondItem="CNn-hy-eER" secondAttribute="leading" constant="20" id="hPi-Tg-xNp"/>
+                            <constraint firstItem="JUA-VV-DbW" firstAttribute="leading" secondItem="CNn-hy-eER" secondAttribute="leading" constant="32" id="lp1-iL-SJH"/>
                             <constraint firstItem="rGI-48-Zyl" firstAttribute="top" secondItem="3ue-TC-NFf" secondAttribute="bottom" constant="14" id="oQz-yH-Mko"/>
+                            <constraint firstItem="CNn-hy-eER" firstAttribute="bottom" secondItem="JUA-VV-DbW" secondAttribute="bottom" constant="32" id="t7Z-5i-bmN"/>
+                            <constraint firstItem="CNn-hy-eER" firstAttribute="trailing" secondItem="JUA-VV-DbW" secondAttribute="trailing" constant="32" id="vmM-pF-v1t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CNn-hy-eER"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a New Book" id="vat-cf-QDg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xF6-Xq-e8P">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="xF6-Xq-e8P">
                             <connections>
                                 <action selector="saveTapped:" destination="XRw-jd-Pxi" id="n1t-SY-agY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bookImageView" destination="cAe-iB-o5d" id="c9M-aX-uZS"/>
                         <outlet property="saveButton" destination="xF6-Xq-e8P" id="ZqI-Xa-Ugy"/>
                         <outlet property="textField" destination="3ue-TC-NFf" id="gB7-0A-qhL"/>
                         <outlet property="textView" destination="rGI-48-Zyl" id="mAh-I8-SBz"/>
@@ -154,6 +189,9 @@
             <point key="canvasLocation" x="153.62318840579712" y="98.4375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="square.and.arrow.up.on.square" catalog="system" width="58" height="64"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="X7w-Gq-w0L"/>
     </inferredMetricsTieBreakers>
