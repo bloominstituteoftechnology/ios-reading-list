@@ -27,7 +27,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="267" translatesAutoresizingMaskIntoConstraints="NO" id="r49-P3-sfg">
                                             <rect key="frame" x="16" y="8" width="382" height="50.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xI-jG-lze">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xI-jG-lze" userLabel="Book on List Label">
                                                     <rect key="frame" x="0.0" y="0.0" width="64.5" height="50.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -57,6 +57,7 @@
                                 <connections>
                                     <outlet property="CheckedButton" destination="gEf-LS-ept" id="374-nq-2OB"/>
                                     <outlet property="ReadingLabel" destination="5xI-jG-lze" id="syj-TW-u2n"/>
+                                    <outlet property="bookOnListLabel" destination="5xI-jG-lze" id="Ga8-3s-tZJ"/>
                                     <outlet property="checkedButton" destination="gEf-LS-ept" id="95M-Jo-P4Z"/>
                                     <outlet property="readingLabel" destination="5xI-jG-lze" id="V2W-Hf-sqZ"/>
                                     <segue destination="ZYh-b6-mVy" kind="show" identifier="showReadingDetails" id="0lb-Ca-rv5"/>
