@@ -80,21 +80,62 @@
             </objects>
             <point key="canvasLocation" x="489.85507246376818" y="-62.276785714285708"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="qtQ-Dr-x0D">
             <objects>
-                <viewController id="ZYh-b6-mVy" sceneMemberID="viewController">
+                <viewController id="ZYh-b6-mVy" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OWk-T8-Faw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fXz-r3-lMu">
+                                <rect key="frame" x="20" y="108" width="374" height="404"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book's Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RZN-SC-1ad">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Lrf-oV-uRu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jtA-xp-VJm">
+                                        <rect key="frame" x="0.0" y="48" width="374" height="356"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="RZN-SC-1ad" firstAttribute="leading" secondItem="fXz-r3-lMu" secondAttribute="leading" constant="20" id="Yva-kx-DS8"/>
+                                    <constraint firstItem="RZN-SC-1ad" firstAttribute="top" secondItem="fXz-r3-lMu" secondAttribute="top" constant="20" id="e8i-oZ-oYs"/>
+                                    <constraint firstItem="jtA-xp-VJm" firstAttribute="trailing" secondItem="RZN-SC-1ad" secondAttribute="trailing" id="qTn-xU-jOY"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fXz-r3-lMu" firstAttribute="top" secondItem="ixy-nH-1Yg" secondAttribute="top" constant="20" id="Hor-fU-6nU"/>
+                            <constraint firstItem="ixy-nH-1Yg" firstAttribute="bottom" secondItem="fXz-r3-lMu" secondAttribute="bottom" constant="350" id="LkI-DI-thk"/>
+                            <constraint firstItem="fXz-r3-lMu" firstAttribute="leading" secondItem="ixy-nH-1Yg" secondAttribute="leading" constant="20" id="afj-vU-Jfh"/>
+                            <constraint firstItem="ixy-nH-1Yg" firstAttribute="trailing" secondItem="fXz-r3-lMu" secondAttribute="trailing" constant="20" id="wtj-8P-OOO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ixy-nH-1Yg"/>
                     </view>
-                    <navigationItem key="navigationItem" id="t2f-Hl-Auy"/>
+                    <navigationItem key="navigationItem" id="t2f-Hl-Auy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gxg-H2-8M9">
+                            <connections>
+                                <action selector="saveBookDetailsButton:" destination="ZYh-b6-mVy" id="Wl4-kH-awv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookTitleTextField" destination="RZN-SC-1ad" id="Wyi-Bj-k1h"/>
+                        <outlet property="reasonTextField" destination="jtA-xp-VJm" id="7Fl-9f-IC7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSo-9p-Osk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1200" y="-62"/>
+            <point key="canvasLocation" x="1198.5507246376812" y="-62.276785714285708"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1qY-dZ-WIF">
