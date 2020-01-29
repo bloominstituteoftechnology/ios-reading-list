@@ -100,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				B688E4C423E0D27A00DDAD8B /* ReadingListTableVC.swift */,
-				B688E4DC23E0DC6E00DDAD8B /* BookTableViewCell.swift */,
 				B688E4DE23E0E12000DDAD8B /* BookDetailVC.swift */,
 				B688E4E423E0FFC000DDAD8B /* Helper */,
 			);
@@ -110,6 +109,7 @@
 		B688E4D923E0D32C00DDAD8B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B688E4DC23E0DC6E00DDAD8B /* BookTableViewCell.swift */,
 				B688E4D723E0D32900DDAD8B /* Book.swift */,
 				B688E4DA23E0D3A600DDAD8B /* BookController.swift */,
 				B688E4E023E0E2BE00DDAD8B /* BookTableViewCellDelegate.swift */,

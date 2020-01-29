@@ -73,11 +73,8 @@ class BookController {
         scratchBook.reasonToRead = reason
         books.remove(at: index)
         books.insert(scratchBook, at: index)
-        saveToPersistStore()
+      
     }
-    
-    
-    
     
     var readBooks: [Book] {
         let readBooks =  books.filter{$0.hasBeenRead == true }

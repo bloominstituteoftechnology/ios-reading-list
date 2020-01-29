@@ -30,31 +30,29 @@ class BookDetailVC: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
-        if book != nil {
-            
-            updateViews()
-            bookController?.editBook(for: book!, with: textField.text!, with: textView.text)
+        guard let title = textField.text,
+            let reasonToRead = textView.text,
+            title != "" && reasonToRead != "" else { return }
+        
+        if let book = book {
+            bookController?.editBook(for: book, with: title, with: reasonToRead)
         } else {
-            bookController?.createBook(title: textField.text ?? "", reason: textView.text ?? "")
+            bookController?.createBook(title: title, reason: reasonToRead)
         }
+        
         navigationController?.popViewController(animated: true)
    
     }
     
     
     func updateViews() {
-        if  book != nil {
-            //Unwrap because I know it has text
-            textView.text = book!.reasonToRead
-            textField.text = book!.title
-            navigationItem.title = book!.title
-          
-        } else {
-            textField.text =  ""
-            textView.text = "Reason to read:"
-            navigationItem.title = "Add a new book"
-            
-        }
+        guard let book = book else {
+            title = "Add a new book"
+            return }
+        
+        title = book.title
+        textField.text = book.title
+        textView.text = book.reasonToRead
     }
     
     
