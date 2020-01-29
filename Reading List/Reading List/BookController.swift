@@ -32,7 +32,7 @@ class BookController {
         return book
     }
     
-    
+   
     func removeBook(named book:Book) {
         guard let index = books.firstIndex(of: book) else { return }
         books.remove(at: index)

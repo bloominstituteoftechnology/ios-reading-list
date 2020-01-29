@@ -90,7 +90,7 @@ The layout of this application uses a simple master-detail interface.
       - **NOTE:** After adding the constraints, a way to make sure the constraints on the button are correct is to set its image property to the checked or unchecked images using the Attributes Inspector. If the constraints are correct, the image should be square, and also not expand off the button.
       - Create a show segue from the cell to the detail view controller. Give the segue an identifier
 4. Add a bar button item in the top-right corner of the table view controller. Set its "System Item" to "Add". Create a segue from it to the detail view controller. Give the segue an identifier.
-5. Create a Cocoa Touch subclass for both the table view controller and the custom `UITableViewCell`. Call the `UITableViewController` subclass `ReadingListTableViewController`, and the `UITableViewCell` subclass `BookTableViewCell`. Set the table view controller and cell's class in the Identity inspector. 
+5. Create a Cocoa Touch subclass for both the table view controller and the custom `UITableViewCell`. Call the `UITableViewController` subclass `ReadingListTableViewController`, and the `UITableViewCell` subclass `ReadingListTableViewController`. Set the table view controller and cell's class in the Identity inspector. 
 6. In the custom cell class, create outlets from the label and button, and an action from the button as well.
 
 Now we'll set up the detail view controller. This view controller will serve two purposes. First, it will be used to add new books to the reading list. The second is to view an existing book's information and potentially edit it.

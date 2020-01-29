@@ -11,13 +11,13 @@
         <!--Reading List-->
         <scene sceneID="4pK-cw-rPc">
             <objects>
-                <tableViewController title="Reading List" id="XgH-d5-Wbg" sceneMemberID="viewController">
+                <tableViewController title="Reading List" id="XgH-d5-Wbg" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nAC-Ci-Rhp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="56" id="A7O-Ti-nY8">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="56" id="A7O-Ti-nY8" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A7O-Ti-nY8" id="wvZ-o4-Dzf">
@@ -36,6 +36,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zlf-I9-BAJ" userLabel="Check Button">
                                                     <rect key="frame" x="327" y="0.0" width="50" height="50"/>
                                                     <state key="normal" image="unchecked"/>
+                                                    <connections>
+                                                        <action selector="checkButtonPressed:" destination="A7O-Ti-nY8" eventType="touchUpInside" id="7wp-r6-GRK"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -46,7 +49,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="yOQ-po-PbG" kind="show" identifier="ViewControllerSegue" id="ssa-gO-czY"/>
+                                    <outlet property="bookLabel" destination="dYn-A5-nG6" id="gbS-m8-cv0"/>
+                                    <outlet property="checkButton" destination="Zlf-I9-BAJ" id="sbS-fW-3yj"/>
+                                    <segue destination="yOQ-po-PbG" kind="show" identifier="viewSegue" id="ssa-gO-czY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -56,28 +61,58 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="dvg-fj-SrR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6Dp-be-F8J"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6Dp-be-F8J">
+                            <connections>
+                                <segue destination="yOQ-po-PbG" kind="show" identifier="AddSegue" id="qQc-fM-OfE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjg-SB-1Z8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057.9710144927537" y="50.892857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="jaS-7N-cyN">
             <objects>
-                <viewController id="yOQ-po-PbG" sceneMemberID="viewController">
+                <viewController id="yOQ-po-PbG" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7zM-hz-Slk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="R13-ct-bZH">
+                                <rect key="frame" x="20" y="166" width="374" height="388"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wxe-Ya-TCk">
+                                <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ZcO-gF-Y6i"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Pmq-c9-TWR"/>
+                    <navigationItem key="navigationItem" id="Pmq-c9-TWR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aw0-lY-VhC">
+                            <connections>
+                                <action selector="saveButton:" destination="yOQ-po-PbG" id="9Yf-sC-cx4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="TextField" destination="Wxe-Ya-TCk" id="6Y2-YY-zQu"/>
+                        <outlet property="textView" destination="R13-ct-bZH" id="qw8-wE-9O4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUe-Xn-haQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2027" y="53"/>
+            <point key="canvasLocation" x="2026.0869565217392" y="52.901785714285715"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4H3-8f-5Tx">
@@ -101,4 +136,7 @@
     <resources>
         <image name="unchecked" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ssa-gO-czY"/>
+    </inferredMetricsTieBreakers>
 </document>
