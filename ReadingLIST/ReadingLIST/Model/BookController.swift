@@ -78,11 +78,12 @@ class BookController {
     
     var readBooks: [Book] {
         let readBooks =  books.filter{$0.hasBeenRead == true }
-        return readBooks
+      
+        return readBooks.sorted()
     }
     var unreadBooks : [Book] {
         let unreadBooks = books.filter {$0.hasBeenRead == false }
-        return unreadBooks
+        return unreadBooks.sorted()
     }
     
 }
