@@ -15,6 +15,13 @@ class BookController: BookTableViewCellDelegate {
     init(books: [Book]) {
         self.books = books
     }
+    
+    var readBooks: [Book] {
+        return books.filter { $0.hasBeenRead}
+    }
+        var unreadBooks: [Book] {
+        return books.filter { $0.hasBeenRead == false}
+    }
 
 var readingListURL: URL? {
     
@@ -81,6 +88,13 @@ func saveToPersistentStore() {
         saveToPersistentStore()
         
     }
+    func updateBookTitle(with title: String, reasonToRead: String, hasBeenRead: Bool) {
+      
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        
+     
+        saveToPersistentStore()
+     }
     
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         
