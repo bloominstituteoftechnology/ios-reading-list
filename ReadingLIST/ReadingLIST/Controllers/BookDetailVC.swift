@@ -13,6 +13,7 @@ class BookDetailVC: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
+    
     var bookController: BookController?
     var book: Book?
     
@@ -30,23 +31,32 @@ class BookDetailVC: UIViewController {
     
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
         if book != nil {
+            
             updateViews()
+            bookController?.editBook(for: book!, with: textField.text!, with: textView.text)
         } else {
             bookController?.createBook(title: textField.text ?? "", reason: textView.text ?? "")
         }
         navigationController?.popViewController(animated: true)
    
     }
+    
+    
     func updateViews() {
         if  book != nil {
+            //Unwrap because I know it has text
             textView.text = book!.reasonToRead
             textField.text = book!.title
             navigationItem.title = book!.title
+          
         } else {
             textField.text =  ""
             textView.text = "Reason to read:"
             navigationItem.title = "Add a new book"
+            
         }
     }
     
+    
+
 }

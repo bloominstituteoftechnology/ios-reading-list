@@ -65,9 +65,18 @@ class BookController {
         books[index].hasBeenRead.toggle()
         saveToPersistStore()
     }
-    func editBook(for books:Book) {
+    func editBook(for book:Book,with title: String, with reason: String) {
         //
+         guard let index = books.firstIndex(of: book) else { return }
+        var scratchBook = book
+        scratchBook.title = title
+        scratchBook.reasonToRead = reason
+        books.remove(at: index)
+        books.insert(scratchBook, at: index)
+        saveToPersistStore()
     }
+    
+    
     
     
     var readBooks: [Book] {

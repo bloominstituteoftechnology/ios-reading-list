@@ -31,17 +31,7 @@ class BookTableViewCell: UITableViewCell {
             statusLabel.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         }
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-       
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-      
-    }
-
+   
     @IBAction func statusTapped(_ sender: UIButton) {
         delegate?.toggleHasBeenRead(for: self)
         

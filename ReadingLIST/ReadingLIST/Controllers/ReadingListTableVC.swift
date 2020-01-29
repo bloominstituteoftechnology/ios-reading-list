@@ -63,10 +63,11 @@ class ReadingListTableVC: UITableViewController , BookTableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
+
             return "Read Books"
             
         default:
