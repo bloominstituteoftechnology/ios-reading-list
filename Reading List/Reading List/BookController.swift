@@ -62,7 +62,7 @@ class BookController {
     
     func deleteListEntry (book: Book){
         
- // 6 second item.  Need to delete an element at the book's index path but index path isn't available
+
         guard let bookIndex = books.firstIndex(of: book) else { return }
         books.remove(at: bookIndex)
         saveToPersistentStore()

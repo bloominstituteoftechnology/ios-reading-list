@@ -17,15 +17,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kHr-ca-mT4" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookTableViewCell" id="kHr-ca-mT4" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kHr-ca-mT4" id="Goi-tI-Pfq">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="268" translatesAutoresizingMaskIntoConstraints="NO" id="yMQ-71-ngF">
-                                            <rect key="frame" x="20" y="5" width="364.5" height="22"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="268" translatesAutoresizingMaskIntoConstraints="NO" id="yMQ-71-ngF">
+                                            <rect key="frame" x="20" y="11" width="364.5" height="22"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eeq-YW-Id1">
                                                     <rect key="frame" x="0.0" y="0.0" width="77" height="22"/>
@@ -36,15 +36,23 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIZ-bH-toQ">
                                                     <rect key="frame" x="345" y="0.0" width="19.5" height="22"/>
                                                     <state key="normal" image="checkmark.square" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="readBoxTapped:" destination="kHr-ca-mT4" eventType="touchUpInside" id="hkr-GQ-UN7"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="yMQ-71-ngF" firstAttribute="centerY" secondItem="Goi-tI-Pfq" secondAttribute="centerY" id="GDB-DX-YYE"/>
+                                        <constraint firstAttribute="trailing" secondItem="yMQ-71-ngF" secondAttribute="trailing" constant="29.5" id="XQL-Cf-k3P"/>
+                                        <constraint firstItem="yMQ-71-ngF" firstAttribute="leading" secondItem="Goi-tI-Pfq" secondAttribute="leading" constant="20" id="u7J-VJ-oAQ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookTitleLabel" destination="Eeq-YW-Id1" id="ZHh-iQ-Qke"/>
                                     <outlet property="readCheckBox" destination="yIZ-bH-toQ" id="3u7-SK-DV6"/>
-                                    <segue destination="gJL-6H-c63" kind="show" identifier="EditMovieSegue" id="rCZ-kW-y10"/>
+                                    <segue destination="gJL-6H-c63" kind="show" identifier="EditBookSegue" id="rCZ-kW-y10"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -138,6 +146,6 @@
         <image name="checkmark.square" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rCZ-kW-y10"/>
+        <segue reference="Blv-eX-YKW"/>
     </inferredMetricsTieBreakers>
 </document>
