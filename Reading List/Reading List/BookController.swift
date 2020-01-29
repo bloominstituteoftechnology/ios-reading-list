@@ -72,10 +72,6 @@ func saveToPersistentStore() {
     
      func deleteBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
 
-        
-//        func toggleHasBeenRead(for cell: BookTableViewCell) {
-//            books.removeAll()
-//        }
          let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
 
         if book.hasBeenRead == true {
@@ -86,41 +82,8 @@ func saveToPersistentStore() {
         
     }
     
-     func updateHasBeenRead(for book: Book) {
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
         
-        func toggleHasBeenRead(for cell: BookTableViewCell) {
-            
-        }
-            
-        }
-        
-         saveToPersistentStore()
-     
-         //part 1 - step 6
-     }
-
-     func updateBookTitle() {
-
-     saveToPersistentStore()
-        
-     }
-     
-        var readBooks: [Book] {
-
-            let books = [Book].self
-
-            var readBookList = books.filter { }
-
-            return books
-            saveToPersistentStore()
-     }
-    
-        var unreadBooks: [Book] {
-               
-               let books = [Book].self
-               var unreadBookList = books.filter(books.)
-               
-               saveToPersistentStore()
-           }
-
+        saveToPersistentStore()
+    }
 }

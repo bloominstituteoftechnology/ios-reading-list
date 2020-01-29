@@ -10,9 +10,40 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController {
 
+    var books: [Book] = []
+    
+//    init(books: [Book]) {
+//        self.books = books
+//    }
+//
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     let bookController = BookController(books: [])
     
+    func updateHasBeenRead(for book: Book) {
+        var hasBeenRead = false
+        switch hasBeenRead{
+        case true:
+            hasBeenRead.toggle()
+        default:
+            hasBeenRead.toggle()
+        }
+    }
+    
+    func updateBookTitle(with title: String, reasonToRead: String, hasBeenRead: Bool) {
+      
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        
+        var readBooks: [Book] {
+        books.filter { $0 .hasBeenRead == true }
+    }
+        var unreadBooks: [Book] {
+        books.filter { $0 .hasBeenRead == false}
+    }
+        bookController.saveToPersistentStore()
+     }
     
     override func viewDidLoad() {
         super.viewDidLoad()

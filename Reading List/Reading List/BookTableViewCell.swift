@@ -18,7 +18,7 @@ class BookTableViewCell: UITableViewCell {
         delegate?.toggleHasBeenRead(for: self)
     }
     
-    weak var delegate: BookTableViewCellDelegate?
+    var delegate: BookTableViewCellDelegate?
     
     var book: Book?
     
