@@ -15,7 +15,7 @@ class BookTableViewCell: UITableViewCell {
     
 
     var book: Book? {
-        didSet() {
+        didSet {
         updateViews()
     }
     }

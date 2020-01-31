@@ -15,7 +15,7 @@ class BookController {
     init() {
         loadFromPersistentStore()
     }
-    var books = [Book]()
+    private(set) var books = [Book]()
     
     var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -25,14 +25,14 @@ class BookController {
         return documents.appendingPathComponent("books.plist")
     }
     
-    @discardableResult func createBook(named title: String, withReason reasonToRead: String) -> Book {
-        let book = Book(title: name, reasonToRead: reasonToRead)
+    func createBook(named title: String, withReason: String) -> Book {
+        let book = Book(title: title, reasonToRead: withReason)
         books.append(book)
         saveToPersistentStore()
         return book
     }
     
-   
+    
     func removeBook(named book:Book) {
         guard let index = books.firstIndex(of: book) else { return }
         books.remove(at: index)
@@ -44,7 +44,7 @@ class BookController {
         guard let index = books.firstIndex(of: book) else { return }
         books[index].hasBeenRead.toggle()
         saveToPersistentStore()
-    
+        
     }
     
     func updateReasonOrTitle(for book: Book) {
@@ -53,26 +53,34 @@ class BookController {
         books[index].reasonToRead = book.reasonToRead
         saveToPersistentStore()
         
-        
-        
-        
-}
+    }
     
-    var readBooks: [Book] {
-        let readBooks = books.filter { $0.hasBeenRead == true }
-            return readBooks
-        }
-    
-    var unreadBooks: [Book] {
-        let unreadBooks  = books.filter { $0.hasBeenRead == false }
-            return unreadBooks
+    func update(book: Book, withTitle title: String, reasonToRead: String) {
+        
+        guard let index = books.firstIndex(of: book) else { return }
+        
+        var erase = book
+        
+        erase.title = title
+        erase.reasonToRead = reasonToRead
+        
+        books.remove(at: index)
+        books.insert(erase, at: index)
     }
     
     
+    var readBooks: [Book] {
+        let readBooks = books.filter { $0.hasBeenRead == true }
+        return readBooks
+    }
+    
+    var unreadBooks: [Book] {
+        let unreadBooks  = books.filter { $0.hasBeenRead == false }
+        return unreadBooks
+    }
     
     
-    
-        func saveToPersistentStore() {
+    private func saveToPersistentStore() {
         
         //        guard let url = persistentFile
         guard let url = readingListURL else { return }
@@ -81,11 +89,15 @@ class BookController {
             let booksData = try encoder.encode(books)
             try booksData.write(to: url)
         } catch {
-            print("Error saving books: \(error)")
+            NSLog("Error saving books: \(error)")
         }
-}
-
-    func loadFromPersistentStore() {
+    }
+    
+    
+    
+    
+    
+    private func loadFromPersistentStore() {
         
         let fileManager = FileManager.default
         guard let url = readingListURL,
@@ -96,10 +108,19 @@ class BookController {
             let decodedBooks = PropertyListDecoder()
             books = try decodedBooks.decode([Book].self, from: data)
         } catch {
-            print("Error loading books data: \(error)")
+            NSLog("Error loading books data: \(error)")
         }
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n0r-k3-oIh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n0r-k3-oIh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,6 +35,9 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zlf-I9-BAJ" userLabel="Check Button">
                                                     <rect key="frame" x="327" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Zlf-I9-BAJ" secondAttribute="height" multiplier="1:1" id="a6W-Tl-8eZ"/>
+                                                    </constraints>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
                                                         <action selector="checkButtonPressed:" destination="A7O-Ti-nY8" eventType="touchUpInside" id="7wp-r6-GRK"/>
@@ -60,7 +63,7 @@
                             <outlet property="delegate" destination="XgH-d5-Wbg" id="gdP-Yv-ckJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="dvg-fj-SrR">
+                    <navigationItem key="navigationItem" title="Reading List" id="dvg-fj-SrR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6Dp-be-F8J">
                             <connections>
                                 <segue destination="yOQ-po-PbG" kind="show" identifier="AddSegue" id="qQc-fM-OfE"/>
@@ -137,6 +140,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ssa-gO-czY"/>
+        <segue reference="qQc-fM-OfE"/>
     </inferredMetricsTieBreakers>
 </document>
