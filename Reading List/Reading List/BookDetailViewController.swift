@@ -20,7 +20,6 @@ class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-
     }
     
     func updateViews() {
