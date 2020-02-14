@@ -15,6 +15,7 @@ class BookDetailViewController: UIViewController {
     
     var bookcontroller: BookController?
     var book: Book?
+    var delegate: handleBookDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class BookDetailViewController: UIViewController {
         if let book = book {
             bookcontroller?.editBook(book: book, title, reason: reason)
         } else {
-            bookcontroller?.createBook(named: title, reasonToRead: reason)
+            bookcontroller?.createBook(named: title, reasonToRead: reason, hasBeenRead: false)
         }
         navigationController?.popViewController(animated: true)
     }

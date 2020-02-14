@@ -102,7 +102,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1wx-QI-vTy">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Something here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1wx-QI-vTy">
                                         <rect key="frame" x="0.0" y="105" width="398" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -168,6 +168,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3Io-W7-chd"/>
+        <segue reference="cDL-pV-Qpp"/>
     </inferredMetricsTieBreakers>
 </document>

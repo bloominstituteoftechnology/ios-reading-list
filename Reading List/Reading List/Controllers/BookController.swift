@@ -8,6 +8,11 @@
 
 import Foundation
 
+protocol handleBookDelegate {
+    func editBook (book: Book, title: String?, reason: String?)
+    func createBook ( title: String, reason: String)
+}
+
 class BookController {
     
     private(set) var books: [Book] = []
@@ -76,7 +81,6 @@ class BookController {
     }
     
     
-    /// formerly updateBook
     func editBook(book: Book,_ title: String? = nil, reason: String? = nil) {
         guard let index = books.firstIndex(of: book) else { return }
         if let title = title {
