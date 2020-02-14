@@ -26,7 +26,7 @@ class BookDetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
     }
-  
+    #warning("can't show any saving of books nor popping back")
     @IBAction func saveBookTapped(_ sender: UIButton) {
         guard let title = bookTitleLabel.text,
             let reason = reasonToReadTextField.text,
@@ -34,12 +34,10 @@ class BookDetailViewController: UIViewController {
             !reason.isEmpty else {return}
         if let book = book {
             bookController?.updateBook(book: book, title, reason: reason)
-           // navigationController?.popViewController(animated: true)
+            navigationController?.popViewController(animated: true)
         } else {
             bookController?.createBook(named: title, reasonToRead: reason, hasBeenRead: false)
-            //navigationController?.popViewController(animated: true)
+            navigationController?.popViewController(animated: true)
         }
-        #warning("no need fot this line to be in both if lets if it the same destination")
-        navigationController?.popViewController(animated: true)
     }
 }

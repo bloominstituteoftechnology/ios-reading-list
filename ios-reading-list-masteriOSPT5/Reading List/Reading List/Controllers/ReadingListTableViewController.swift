@@ -79,9 +79,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
                 }
         return book!
         }
-   
+    
+    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            // Delete the row from the data source
             bookC.deleteBook(which: bookC.books[indexPath.row])
             tableView.reloadData()
         }
@@ -89,8 +91,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
    
     // MARK: - Navigation
 
-   
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      
         switch segue.identifier {
         case "addBookSegue":
             if let vc = segue.destination as? BookDetailViewController {

@@ -88,6 +88,5 @@ class BookController {
         if let reason = reason {
             books[index].reasonToRead = reason
         }
-        saveToPersistentStore()
     }
 }

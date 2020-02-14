@@ -17,4 +17,9 @@ struct Book: Codable, Equatable {
     mutating func toggleHasBeenRead () {
         self.hasBeenRead = !self.hasBeenRead
     }
+//    init(title: String, reasonToRead: String, hasBeenRead: Bool) {
+//        self.title = title
+//        self.reasonToRead = reasonToRead
+//        self.hasBeenRead = hasBeenRead
+//    }
 }
