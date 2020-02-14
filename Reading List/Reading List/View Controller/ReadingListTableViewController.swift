@@ -9,6 +9,16 @@
 import UIKit
 
 class ReadingListTableViewController: UITableViewController {
+    
+    // MARK: IBOutlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var readButton: UIButton!
+    
+    // MARK: IBActions
+    @IBAction func readButtonTapped(_ sender: Any) {
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
