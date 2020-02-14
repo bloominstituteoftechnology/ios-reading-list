@@ -40,7 +40,7 @@
                                                     </constraints>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
-                                                        <action selector="readButtonTapped:" destination="HrS-Zw-4Qk" eventType="touchUpInside" id="6ds-0t-tsa"/>
+                                                        <action selector="readButtonTapped:" destination="PMn-rI-GqW" eventType="touchUpInside" id="hPp-Db-S0p"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -53,6 +53,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="readButton" destination="LqV-si-tPC" id="wz2-eG-cvx"/>
+                                    <outlet property="titleLabel" destination="xfz-yl-c5l" id="SXq-PR-gMp"/>
                                     <segue destination="LRj-X1-VTl" kind="show" identifier="showBookSegue" id="6j1-ir-9AF"/>
                                 </connections>
                             </tableViewCell>
@@ -69,19 +71,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="readButton" destination="LqV-si-tPC" id="gdu-Oc-c1S"/>
-                        <outlet property="titleLabel" destination="xfz-yl-c5l" id="vHZ-Y7-sT8"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dwm-ab-n4g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955.07246376811599" y="85.714285714285708"/>
+            <point key="canvasLocation" x="777" y="86"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="xAO-vd-PYb">
             <objects>
-                <viewController id="LRj-X1-VTl" sceneMemberID="viewController">
+                <viewController id="LRj-X1-VTl" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dfr-wF-0F0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,12 +115,20 @@
                         <viewLayoutGuide key="safeArea" id="vE4-5C-tes"/>
                     </view>
                     <navigationItem key="navigationItem" id="wiz-FA-fne">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wV9-5Z-U2o"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wV9-5Z-U2o">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="LRj-X1-VTl" id="Xpj-GG-wos"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="reasonTextView" destination="Ns6-x6-Q6n" id="QD9-TP-t4l"/>
+                        <outlet property="titleTextField" destination="XmK-gd-I1V" id="wVQ-Yj-PDG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akl-QU-jeh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1733" y="86"/>
+            <point key="canvasLocation" x="1538" y="86"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sMW-AL-qaK">

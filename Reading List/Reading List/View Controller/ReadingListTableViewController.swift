@@ -11,13 +11,14 @@ import UIKit
 class ReadingListTableViewController: UITableViewController {
     
     // MARK: IBOutlets
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var readButton: UIButton!
+
+    
     
     // MARK: IBActions
-    @IBAction func readButtonTapped(_ sender: Any) {
-    }
+
     
+    // MARK: Properties
+    let bookController = BookController()
     
 
     override func viewDidLoad() {
@@ -26,51 +27,62 @@ class ReadingListTableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        switch section {
+        case 0:
+            return bookController.readBooks.count
+        case 1:
+            return bookController.unreadBooks.count
+        default:
+            return 0
+        }
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
 
         // Configure the cell...
-
+        let book = bookFor(indexPath: indexPath)
+        cell.book = book
+        cell.delegate = self
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    private func bookFor(indexPath: IndexPath) -> Book {
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+        } else {
+            return bookController.unreadBooks[indexPath.row]
+        }
     }
-    */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Read Books"
+        default:
+            return "Unread Books"
+        }
+    }
+
 
     /*
     // Override to support rearranging the table view.
@@ -97,4 +109,15 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension ReadingListTableViewController: BookTableViewCellDelegate {
+    
+    // if crashes, check this function!!
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        bookController.updateHasBeenRead(for: bookController.books[cell.index(ofAccessibilityElement: BookTableViewCell.self)])
+        tableView.reloadData()
+    }
+    
+    
 }

@@ -11,6 +11,8 @@
 		4669416E2110E22B00E7FF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4669416C2110E22B00E7FF73 /* Main.storyboard */; };
 		466941702110E22B00E7FF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4669416F2110E22B00E7FF73 /* Assets.xcassets */; };
 		466941732110E22B00E7FF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466941712110E22B00E7FF73 /* LaunchScreen.storyboard */; };
+		BB173D8223F74DAD00E5E570 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB173D8123F74DAD00E5E570 /* BookDetailViewController.swift */; };
+		BB173D8423F7553300E5E570 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB173D8323F7553300E5E570 /* BookTableViewCellDelegate.swift */; };
 		BBB5D49F23F65DD700C66B09 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5D49E23F65DD700C66B09 /* Book.swift */; };
 		BBB5D4A323F65FA800C66B09 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5D4A223F65FA800C66B09 /* BookController.swift */; };
 		BBB5D4A523F6734C00C66B09 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5D4A423F6734C00C66B09 /* ReadingListTableViewController.swift */; };
@@ -24,6 +26,8 @@
 		4669416F2110E22B00E7FF73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		466941722110E22B00E7FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		466941742110E22B00E7FF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB173D8123F74DAD00E5E570 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		BB173D8323F7553300E5E570 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		BBB5D49E23F65DD700C66B09 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		BBB5D4A223F65FA800C66B09 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		BBB5D4A423F6734C00C66B09 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 			children = (
 				BBB5D4A423F6734C00C66B09 /* ReadingListTableViewController.swift */,
 				BBB5D4A623F6736400C66B09 /* BookTableViewCell.swift */,
+				BB173D8123F74DAD00E5E570 /* BookDetailViewController.swift */,
+				BB173D8323F7553300E5E570 /* BookTableViewCellDelegate.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -186,8 +192,10 @@
 			files = (
 				BBB5D4A523F6734C00C66B09 /* ReadingListTableViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
+				BB173D8223F74DAD00E5E570 /* BookDetailViewController.swift in Sources */,
 				BBB5D4A323F65FA800C66B09 /* BookController.swift in Sources */,
 				BBB5D4A723F6736400C66B09 /* BookTableViewCell.swift in Sources */,
+				BB173D8423F7553300E5E570 /* BookTableViewCellDelegate.swift in Sources */,
 				BBB5D49F23F65DD700C66B09 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

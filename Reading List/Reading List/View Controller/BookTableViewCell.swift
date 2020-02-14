@@ -9,16 +9,31 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    
+    // MARK: IBOutlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var readButton: UIButton!
+    
+    // MARK: IBActions
+    @IBAction func readButtonTapped(_ sender: Any) {
+        //readButton.isSelected.toggle()
+        delegate?.toggleHasBeenRead(for: self)
     }
+    
+    // MARK: Properties
+    var book: Book?
+    var delegate: BookTableViewCellDelegate?
+    
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func updateViews() {
+        guard let book = book, !book.title.isEmpty else { return }
+        titleLabel.text = book.title
+        if readButton.isSelected {
+            readButton.setImage(UIImage(named: "checked"), for: .normal)
+        } else {
+            readButton.setImage(UIImage(named: "unchecked"), for: .normal)
+        }
     }
 
 }
