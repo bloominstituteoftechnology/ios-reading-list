@@ -9,7 +9,7 @@
 import Foundation
 
 class BookController {
-    private(set) var books: [Book] = []
+    private(set) lazy var books: [Book] = []
     
     private var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -27,10 +27,34 @@ class BookController {
     }
     
     func deleteBook(book: Book) {
-        guard let removedBook = books.index(of: book) else { return }
-        books.remove(at: removedBook)
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
+        saveToPersistentStore()
     }
     
+    func updateHasBeenRead(for book: Book) {
+        var book = book.hasBeenRead
+        if book == false {
+            book = true
+        } else {
+            book = false
+        }
+        saveToPersistentStore()
+    }
+    
+    func updateTitleAndReasonToRead(for book: Book) {
+        var bookTitle = book.title
+        var bookReasonToRead = book.reasonToRead
+        saveToPersistentStore()
+    }
+    
+    private func readBooks() -> [Book] {
+        return books.filter{ $0.hasBeenRead == true }
+    }
+    
+    private func unreadBooks() -> [Book] {
+        return books.filter{ $0.hasBeenRead == false }
+    }
     
     // MARK: Save and Load
     func saveToPersistentStore() {
