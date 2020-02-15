@@ -29,12 +29,11 @@ class BookController {
     
     
     //MARK: - CRUD
-    func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
+    func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
         
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistentStore()
-        return book
     }
     
     func deleteBook (bookToDelete: Book) {
