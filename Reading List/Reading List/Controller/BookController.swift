@@ -25,9 +25,19 @@ class BookController {
         return book
     }
     
-    // func deleteBook(book: Book)
-    // func updateHasBeenRead(for book: Book)
+    func deleteBook(book: Book) {
+        if let index = books.index(of: book) {
+            books.remove(at: index)
+        }
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        book.hasBeenRead.toggle()
+    }
     // func updateTitle and/or reasonToRead
+    func updateProperties() {
+        // get labels first
+    }
 
     func saveToPersistentStore() {
         guard let url = readingListURL else { return }
@@ -54,5 +64,13 @@ class BookController {
         } catch {
             print("Error loading books data: \(error)")
         }
+    }
+    
+    var readBooks: [Book] {
+        let read = books.filter { book.hasBeenRead == true }
+    }
+    
+    var unreadBooks: [Book] {
+        let read = books.filter { book.hasBeenRead == false }
     }
 }
