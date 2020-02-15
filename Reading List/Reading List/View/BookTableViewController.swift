@@ -69,14 +69,21 @@ class BookTableViewController: UITableViewController , BookTableViewCellDelegate
     }
     
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "addBookSegue" {
+            let addBookVC = segue.destination as! BookDetailViewController
+            addBookVC.bookController = bookController
+            
+        } else if segue.identifier == "showBookSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow,
+            let showDetailVC = segue.destination as? BookDetailViewController {
+                showDetailVC.bookController = bookController
+                showDetailVC.book = bookFor(indexPath: indexPath)
+            }
+        }
     }
-    */
 
 }
