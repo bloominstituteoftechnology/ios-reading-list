@@ -16,14 +16,23 @@ class BookDetailViewController: UIViewController {
     
     // MARK: IBActions
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        if let book = book, !book.title.isEmpty {
-            bookController?.updateBook(for: book, newTitle: titleTextField.text, newReason: reasonTextView.text)
-        } else if let title = titleTextField.text, !title.isEmpty {
-            bookController?.createBook(title: title, reasonToRead: reasonTextView.text ?? "")
-            dismiss(animated: true)
-        } else {
-            dismiss(animated: true)
-        }
+        
+        
+        let testBook = bookController?.createBook(title: titleTextField.text ?? "", reasonToRead: reasonTextView.text ?? "")
+            print(testBook)
+        self.navigationController?.popToRootViewController(animated: true)
+//        print("Save Tapped #1")
+//        if let book = book, !book.title.isEmpty {
+//            print("Save Tapped 3")
+//            bookController?.updateBook(for: book, newTitle: titleTextField.text, newReason: reasonTextView.text)
+//            print("Save Tapped")
+//            self.dismiss(animated: true)
+//        } else if let title = titleTextField.text, !title.isEmpty {
+//            print("Save Tapped4")
+//        } else {
+//            print("Save Tapped 2")
+//            self.dismiss(animated: true)
+//        }
     }
     
     // MARK: Properties

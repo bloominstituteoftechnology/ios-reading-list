@@ -16,12 +16,17 @@ class ReadingListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bookController.loadFromPersistentStore()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        bookController.loadFromPersistentStore()
+//    }
 
     // MARK: - Table view data source
 
