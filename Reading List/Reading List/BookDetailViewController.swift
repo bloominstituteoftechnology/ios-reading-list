@@ -20,23 +20,21 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Add a book:"
         updateViews()
+        imagePicker.delegate = self
     }
     
     var imagePicker = UIImagePickerController()
     
     func updateViews() {
+        loadViewIfNeeded()
         guard let book = book else { return }
         bookTitleLabel.text = book.title
         reasonToReadTextField.text = book.reasonToRead
-        // check to see if an existing book or a new book for title change
-        if bookTitleLabel.text != nil {
-            title = book.title
-        } else if bookTitleLabel.text == "" {
-            title = "Add a book"
-        }
+        title = book.title
     }
-   
+    
 
     @IBAction func saveBookTapped(_ sender: Any) {
         guard let title = bookTitleLabel.text,
@@ -51,11 +49,13 @@ class BookDetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func addCoverImageTapped(_ sender: Any) {
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true)
     }
 }
 
 extension BookDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        guard let image = info[.originalImage] as? UIImage else { return }
-    }
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        guard let image = info[.originalImage] as? UIImage else { return }
+//    }
 }

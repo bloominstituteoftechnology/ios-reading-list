@@ -11,7 +11,7 @@ import UIKit
 class BookTableViewCell: UITableViewCell {
 
     @IBOutlet weak var bookTitleLabel: UILabel!
-    @IBOutlet weak var seenButtton: UIButton!
+    @IBOutlet weak var seenButton: UIButton!
     
     var book: Book? {
         didSet {
@@ -29,11 +29,7 @@ class BookTableViewCell: UITableViewCell {
     func updateViews() {
         guard let book = book else { return }
         bookTitleLabel.text = book.title
-        if book.hasBeenRead {
-            seenButtton.setImage(UIImage(named: "checked"), for: .normal)
-        } else {
-            seenButtton.setImage(UIImage(named: "unchecked"), for: .normal)
-        }
+        seenButton.setImage(book.hasBeenRead ? UIImage(named: "checked") : UIImage(named: "unchecked"), for: .normal)
     }
 
     @IBAction func seenNotSeenTapped(_ sender: Any) {

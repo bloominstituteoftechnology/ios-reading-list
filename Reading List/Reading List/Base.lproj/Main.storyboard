@@ -51,7 +51,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookTitleLabel" destination="lW0-MM-XYr" id="iV3-qg-CiK"/>
-                                    <outlet property="seenButtton" destination="AkU-Ad-2b0" id="mj8-K3-uYS"/>
+                                    <outlet property="seenButton" destination="AkU-Ad-2b0" id="mj8-K3-uYS"/>
                                     <segue destination="cgY-4L-T2z" kind="show" identifier="showBookSegue" id="cDL-pV-Qpp"/>
                                 </connections>
                             </tableViewCell>

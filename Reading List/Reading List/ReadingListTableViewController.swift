@@ -54,7 +54,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         var book: Book?// = nil
         
         if indexPath.section == 0 {
-            var books: [Book] = []
+           // var books: [Book] = []
             book = bookController.readBooks[indexPath.row]
            //-> book)
         } else if indexPath.section == 1 {

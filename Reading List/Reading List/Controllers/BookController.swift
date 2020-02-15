@@ -12,6 +12,10 @@ class BookController {
     
     private(set) var books: [Book] = []
     
+    init() {
+        loadFromPersistentStore()
+    }
+    
     var readBooks: [Book] {
         return books.filter({$0.hasBeenRead == true})
     }
@@ -28,8 +32,8 @@ class BookController {
     }
     
     func saveToPersistentStore() {
-        guard let url = readingListURL else { return }
         do {
+            guard let url = readingListURL else { return }
             let encoder = PropertyListEncoder()
             let booksData = try encoder.encode(books)
             try booksData.write(to: url)
@@ -40,10 +44,8 @@ class BookController {
     
     
     func loadFromPersistentStore() {
-        let filemanager = FileManager.default
-        guard let url = readingListURL,
-            filemanager.fileExists(atPath: url.path) else { return }
         do {
+            guard let url = readingListURL else { return }
             let booksData = try Data(contentsOf: url)
             let decodeBooks = PropertyListDecoder()
             books = try decodeBooks.decode([Book].self, from: booksData)
@@ -57,10 +59,6 @@ class BookController {
         books.append(book)
         saveToPersistentStore()
         return book
-    }
-    
-    init() {
-        loadFromPersistentStore()
     }
     
     func deleteBook(which book: Book) {
@@ -86,7 +84,6 @@ class BookController {
         }
         saveToPersistentStore()
     }
-    
 }
 
 
