@@ -9,7 +9,11 @@
 import Foundation
 
 class BookController {
-    var books: [Book] = []
+    var books: [Book] = [Book(title: "Grapes of Wrath", reasonToRead: "Don't know")]
+    
+    init() {
+        loadFromPersistentStore()
+    }
     
     // MARK: - Computed Properties
     private var persistentFileURL: URL? {
@@ -20,16 +24,16 @@ class BookController {
     }
     
     var readBooks: [Book] {
-        return books.filter( { $0.hasBeenRead } )
+        return books.filter( { return $0.hasBeenRead } )
     }
     
     var unreadBooks: [Book] {
-        return books.filter( {!$0.hasBeenRead })
+        return books.filter( {return !$0.hasBeenRead })
     }
     
     
     //MARK: - CRUD
-    func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
+    func createBook(title: String, reasonToRead: String) {
         
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)

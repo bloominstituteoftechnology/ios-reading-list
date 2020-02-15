@@ -49,9 +49,10 @@ class BookDetailViewController: UIViewController {
             if let title = titleTextField.text,
                 let reasonToRead = bookTextView.text{
             
-            bookController.createBook(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
+            bookController.createBook(title: title, reasonToRead: reasonToRead)
             }
         }
+        navigationController?.popViewController(animated: true)
     }
     
 }

@@ -16,29 +16,26 @@ class BookTableViewCell: UITableViewCell {
     
     
     //MARK: - Properties
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     var delegate: BookTableViewCellDelegate?
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     func updateViews() {
         bookLabel.text = book?.title
+        
         var boxImage: UIImage
-        if (book?.hasBeenRead) != nil {
-            boxImage = UIImage(named: "checked")!
-        } else {
-            boxImage = UIImage(named: "unchecked")!
-        }
 
-        hasBeenReadButton.setImage(boxImage, for: .normal)
+        if let hasBeenRead = book?.hasBeenRead {
+            if hasBeenRead {
+                boxImage = UIImage(named: "checked")!
+            } else {
+                boxImage = UIImage(named: "unchecked")!
+            }
+            hasBeenReadButton.setImage(boxImage, for: .normal)
+        }
     }
     
     //MARK: - IBActions

@@ -14,7 +14,10 @@ class BookTableViewController: UITableViewController , BookTableViewCellDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -45,10 +48,16 @@ class BookTableViewController: UITableViewController , BookTableViewCellDelegate
     }
     
     //What is this?
-   /* override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        <#code#>
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let book = bookFor(indexPath: indexPath)
+            bookController.deleteBook(bookToDelete: book)
+
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
-    
+    /*
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "What is going on?"
     }
