@@ -16,6 +16,12 @@ class BookController {
             .urls(for: .documentDirectory, in: .userDomainMask).first?
             .appendingPathComponent("ReadingList.plist")
     }
+    var readBooks: [Book] {
+        books.filter { $0.hasBeenRead }
+    }
+    var unreadBooks: [Book] {
+        books.filter { !$0.hasBeenRead }
+    }
 
     func saveToPersistentStore() {
         guard let url = readingListURL else { return }
