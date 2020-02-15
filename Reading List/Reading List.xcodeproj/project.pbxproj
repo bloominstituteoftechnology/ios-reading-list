@@ -16,7 +16,7 @@
 		684D7EB923F797990062265B /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D7EB823F797990062265B /* BookTableViewCell.swift */; };
 		684D7EBB23F797B70062265B /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D7EBA23F797B70062265B /* ReadingListTableViewController.swift */; };
 		684D7EBF23F7A0E70062265B /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D7EBE23F7A0E70062265B /* BookTableViewCellDelegate.swift */; };
-		684D7EC123F7A8D00062265B /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D7EC023F7A8D00062265B /* BookDetailViewController.swift */; };
+		684D7EC323F7AB720062265B /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684D7EC223F7AB720062265B /* BookDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		684D7EB823F797990062265B /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		684D7EBA23F797B70062265B /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		684D7EBE23F7A0E70062265B /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		684D7EC023F7A8D00062265B /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		684D7EC223F7AB720062265B /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 			children = (
 				684D7EB623F65E710062265B /* BookController.swift */,
 				684D7EBE23F7A0E70062265B /* BookTableViewCellDelegate.swift */,
-				684D7EC023F7A8D00062265B /* BookDetailViewController.swift */,
+				684D7EC223F7AB720062265B /* BookDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 				684D7EB723F65E710062265B /* BookController.swift in Sources */,
 				684D7EBF23F7A0E70062265B /* BookTableViewCellDelegate.swift in Sources */,
 				684D7EB923F797990062265B /* BookTableViewCell.swift in Sources */,
-				684D7EC123F7A8D00062265B /* BookDetailViewController.swift in Sources */,
+				684D7EC323F7AB720062265B /* BookDetailViewController.swift in Sources */,
 				684D7EBB23F797B70062265B /* ReadingListTableViewController.swift in Sources */,
 				684D7EB523F65D890062265B /* Book.swift in Sources */,
 			);

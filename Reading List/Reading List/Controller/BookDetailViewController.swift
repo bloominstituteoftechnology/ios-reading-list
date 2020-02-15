@@ -6,4 +6,24 @@
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class BookDetailViewController: UIViewController {
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var reasonToReadTextView: UITextView!
+    
+    // MARK: - IBActions
+    @IBAction func saveButtonTapped(_ sender: Any) {
+    }
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    
+
+
+}

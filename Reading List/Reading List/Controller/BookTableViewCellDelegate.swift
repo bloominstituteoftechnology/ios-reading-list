@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 protocol BookTableViewCellDelegate: UITableViewDelegate {
-    func toggleHasBeenAdded(for cell: BookTableViewCell)
+    func toggleHasBeenRead(for cell: BookTableViewCell)
 }

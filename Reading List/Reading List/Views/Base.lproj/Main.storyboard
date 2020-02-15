@@ -39,6 +39,9 @@
                                                         <constraint firstAttribute="width" secondItem="6H3-Yn-nBL" secondAttribute="height" multiplier="1:1" id="QRf-6V-2zl"/>
                                                     </constraints>
                                                     <state key="normal" image="checked"/>
+                                                    <connections>
+                                                        <action selector="seenButtonTapped:" destination="eau-ho-Fdp" eventType="touchUpInside" id="mUa-4v-jKn"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -73,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="847.82608695652175" y="152.67857142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Add A New Book-->
         <scene sceneID="ONU-5p-7rd">
             <objects>
-                <viewController id="xC8-fW-5i7" sceneMemberID="viewController">
+                <viewController id="xC8-fW-5i7" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="11A-9Z-8VA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,7 +110,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aWY-WP-jB7"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fIt-5F-tto"/>
+                    <navigationItem key="navigationItem" title="Add A New Book" id="3iJ-ei-PlB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ycv-J9-X5u">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="xC8-fW-5i7" id="dBM-M4-aU6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="reasonToReadTextView" destination="cTR-Oy-Kxu" id="mZ2-3e-IpD"/>
+                        <outlet property="titleTextField" destination="8tf-zf-IvU" id="qjl-cv-ZKw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57g-la-8Lj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

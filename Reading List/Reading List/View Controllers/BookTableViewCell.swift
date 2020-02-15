@@ -18,8 +18,10 @@ class BookTableViewCell: UITableViewCell {
     
     
     // MARK: - IBActions
-    @IBAction func saveButtonTapped(_ sender: Any) {
+    @IBAction func seenButtonTapped(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
     }
+    
     
 
     var book: Book?
