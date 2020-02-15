@@ -85,31 +85,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sPh-Hg-cuH">
-                                <rect key="frame" x="10" y="98" width="394" height="193"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sPh-Hg-cuH">
+                                <rect key="frame" x="10" y="98" width="394" height="192"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pqo-TW-Kdx">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="57"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Fx-Md-eRI">
-                                        <rect key="frame" x="0.0" y="65" width="394" height="128"/>
+                                        <rect key="frame" x="0.0" y="42" width="394" height="150"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="UWa-q2-MBJ"/>
+                                        </constraints>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="pqo-TW-Kdx" secondAttribute="trailing" id="aO3-yn-1fa"/>
-                                    <constraint firstAttribute="trailing" secondItem="5Fx-Md-eRI" secondAttribute="trailing" id="jS7-Dx-FM0"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="kFD-ya-vYM" firstAttribute="bottom" secondItem="sPh-Hg-cuH" secondAttribute="bottom" constant="571" id="0pp-Co-NLC"/>
                             <constraint firstItem="kFD-ya-vYM" firstAttribute="trailing" secondItem="sPh-Hg-cuH" secondAttribute="trailing" constant="10" id="KED-Cd-SCp"/>
                             <constraint firstItem="sPh-Hg-cuH" firstAttribute="centerX" secondItem="CMm-9n-Fsh" secondAttribute="centerX" id="kqH-6g-I1h"/>
                             <constraint firstItem="sPh-Hg-cuH" firstAttribute="top" secondItem="kFD-ya-vYM" secondAttribute="top" constant="10" id="lOD-ml-MsB"/>
@@ -125,8 +123,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bookTextView" destination="5Fx-Md-eRI" id="I4c-Iw-YCx"/>
-                        <outlet property="titleTextField" destination="pqo-TW-Kdx" id="bbw-ZN-kRd"/>
+                        <outlet property="readTextView" destination="5Fx-Md-eRI" id="WdZ-UQ-TBr"/>
+                        <outlet property="titleTextField" destination="pqo-TW-Kdx" id="ycI-ey-hh1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLw-Ac-dsI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -156,6 +154,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dba-nD-Xl0"/>
+        <segue reference="kWK-Aa-ko4"/>
     </inferredMetricsTieBreakers>
 </document>

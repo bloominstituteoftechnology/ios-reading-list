@@ -11,44 +11,49 @@ import UIKit
 class BookDetailViewController: UIViewController {
     
     //MARK: - IBOutlets
+
     @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var bookTextView: UITextView!
+    @IBOutlet var readTextView: UITextView!
+    
     
     //MARK: - Properties
-    var bookController = BookController()
-    var book: Book?
+    var bookController: BookController?
+    
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Add a new book"
+        // updateViews()
+        
 
     }
     //MARK: - Function
-    func updateViews() {
-        if book != nil {
-            if let title = book?.title, !title.isEmpty,
-                let reason = book?.reasonToRead, !reason.isEmpty {
-                //Set the Text field
-                titleTextField.text = title
-                //Set the Text View
-                bookTextView.text = reason
-                //Set the title
-                self.title = book?.title
-            }
-            //add New Title
-            self.title = "Add a new book"
-        }
-        
+    private func updateViews() {
+        loadViewIfNeeded()
+        guard let book = book else { return }
+        //Set the Text field
+        titleTextField.text = book.title
+        //Set the Text View
+        readTextView.text = book.reasonToRead
+        //Set the title
+        title = book.title
     }
     
     
     //MARK: - IBAction
     @IBAction func saveTapped(_ sender: Any) {
+        guard let bookController = bookController else { return }
         if let book = book {
             bookController.updateTitleOrReasonToRead(for: book)
         } else {
             if let title = titleTextField.text,
-                let reasonToRead = bookTextView.text{
-            
+                let reasonToRead = readTextView.text{
+    
             bookController.createBook(title: title, reasonToRead: reasonToRead)
             }
         }

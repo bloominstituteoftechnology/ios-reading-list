@@ -24,18 +24,13 @@ class BookTableViewCell: UITableViewCell {
     var delegate: BookTableViewCellDelegate?
     
     func updateViews() {
-        bookLabel.text = book?.title
+        guard let book = book else { return }
         
-        var boxImage: UIImage
+        bookLabel.text = book.title
+        
+        let boxImage: UIImage = book.hasBeenRead ? UIImage(named: "checked")! : UIImage(named: "unchecked")!
 
-        if let hasBeenRead = book?.hasBeenRead {
-            if hasBeenRead {
-                boxImage = UIImage(named: "checked")!
-            } else {
-                boxImage = UIImage(named: "unchecked")!
-            }
-            hasBeenReadButton.setImage(boxImage, for: .normal)
-        }
+        hasBeenReadButton.setImage(boxImage, for: .normal)
     }
     
     //MARK: - IBActions

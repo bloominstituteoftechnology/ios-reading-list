@@ -9,7 +9,7 @@
 import Foundation
 
 class BookController {
-    var books: [Book] = [Book(title: "Grapes of Wrath", reasonToRead: "Don't know")]
+    var books: [Book] = []
     
     init() {
         loadFromPersistentStore()
@@ -51,10 +51,12 @@ class BookController {
         } else {
             print("book could not be found")
         }
+        saveToPersistentStore()
     }
     
     func updateHasBeenRead(for book: Book) {
-        //book.hasBeenRead.toggle()
+       // book.hasBeenRead = !book.hasBeenRead
+        
     }
     
     func updateTitleOrReasonToRead(for book: Book) {
@@ -87,11 +89,12 @@ class BookController {
     
     func loadFromPersistentStore() {
         
-        let fileManager = FileManager.default
+        //let fileManager = FileManager.default
         //Make sure that the file exists at our selected path
-        guard let readingListURL = persistentFileURL, fileManager.fileExists(atPath: readingListURL.path) else { return }
+       // guard let readingListURL = persistentFileURL, fileManager.fileExists(atPath: readingListURL.path) else { return }
         
         do {
+            guard let readingListURL = persistentFileURL else {return}
             //pull the data from the url
             let booksData = try Data(contentsOf: readingListURL)
             
