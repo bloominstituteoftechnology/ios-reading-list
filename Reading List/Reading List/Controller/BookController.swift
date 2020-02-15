@@ -19,11 +19,11 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
-    private var readBooks: [Book] {
+    var readBooks: [Book] {
         return books.filter( { $0.hasBeenRead } )
     }
     
-    private var unreadBooks: [Book] {
+    var unreadBooks: [Book] {
         return books.filter( {!$0.hasBeenRead })
     }
     
