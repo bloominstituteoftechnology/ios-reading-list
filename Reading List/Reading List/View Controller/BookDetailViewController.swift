@@ -15,11 +15,12 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var reasonTextView: UITextView!
     
     // MARK: IBActions
-    @IBAction func saveButtonTapped(_ sender: Any) {
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         if let book = book, !book.title.isEmpty {
             bookController?.updateBook(for: book, newTitle: titleTextField.text, newReason: reasonTextView.text)
         } else if let title = titleTextField.text, !title.isEmpty {
             bookController?.createBook(title: title, reasonToRead: reasonTextView.text ?? "")
+            dismiss(animated: true)
         } else {
             dismiss(animated: true)
         }

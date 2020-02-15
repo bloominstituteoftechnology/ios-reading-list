@@ -10,13 +10,6 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController {
     
-    // MARK: IBOutlets
-
-    
-    
-    // MARK: IBActions
-
-    
     // MARK: Properties
     let bookController = BookController()
     
@@ -84,31 +77,20 @@ class ReadingListTableViewController: UITableViewController {
     }
 
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
+        if segue.identifier == "showBookSegue" {
+            guard let bookDetailVC = segue.destination as? BookDetailViewController, let indexPath = tableView.indexPathForSelectedRow?.row else { return }
+            bookDetailVC.bookController = bookController
+            bookDetailVC.book = bookController.books[indexPath]
+        } else if segue.identifier == "addBookSegue" {
+            let addBookVC = segue.destination as! BookDetailViewController
+            addBookVC.bookController = bookController
+        }
         // Pass the selected object to the new view controller.
     }
-    */
-
 }
 
 extension ReadingListTableViewController: BookTableViewCellDelegate {
