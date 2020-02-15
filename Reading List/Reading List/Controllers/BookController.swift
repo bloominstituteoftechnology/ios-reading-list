@@ -8,11 +8,6 @@
 
 import Foundation
 
-protocol handleBookDelegate {
-    func editBook (book: Book, title: String?, reason: String?)
-    func createBook ( title: String, reason: String)
-}
-
 class BookController {
     
     private(set) var books: [Book] = []

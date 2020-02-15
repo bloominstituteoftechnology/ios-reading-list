@@ -51,9 +51,12 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
    
     
     private func bookFor(indexPath: IndexPath) -> Book {
-        var book: Book? = nil
+        var book: Book?// = nil
+        
         if indexPath.section == 0 {
+            var books: [Book] = []
             book = bookController.readBooks[indexPath.row]
+           //-> book)
         } else if indexPath.section == 1 {
             book = bookController.unreadBooks[indexPath.row]
         }
@@ -77,7 +80,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         case 0:
             return "I read these books:"
         case 1:
-            return "I have not rea these books:"
+            return "I have not read these books:"
         default:
             return ""
         }

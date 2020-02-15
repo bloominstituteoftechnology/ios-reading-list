@@ -7,20 +7,23 @@
 //
 
 import UIKit
+import  Photos
 
 class BookDetailViewController: UIViewController {
     
     @IBOutlet weak var bookTitleLabel: UITextField!
     @IBOutlet weak var reasonToReadTextField: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
     
     var bookcontroller: BookController?
     var book: Book?
-    var delegate: handleBookDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
     }
+    
+    var imagePicker = UIImagePickerController()
     
     func updateViews() {
         guard let book = book else { return }
@@ -46,5 +49,13 @@ class BookDetailViewController: UIViewController {
             bookcontroller?.createBook(named: title, reasonToRead: reason, hasBeenRead: false)
         }
         navigationController?.popViewController(animated: true)
+    }
+    @IBAction func addCoverImageTapped(_ sender: Any) {
+    }
+}
+
+extension BookDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
     }
 }
