@@ -18,6 +18,29 @@ class BookController {
         
         return documents.appendingPathComponent("ReadingList.plist")
     }
+    var readBooks: [Book] {
+        return books.filter { $0.hasBeenRead == true}
+    }
+    var unreadBooks: [Book] {
+        return books.filter {$0.hasBeenRead == false}
+    }
+    
+    //CRUD
+    @discardableResult func createBook(titled title: String,_ reasonToRead: String, _ hasBeenRead: Bool) -> Book {
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+            books.append(book)
+            saveToPersistentStore()
+            return book
+        }
+    func deleteBook(_ book: Book) {
+        if let index = books.index(of: book) {
+            books.remove(at: index)
+            saveToPersistentStore()
+        }
+    }
+    
+    func updateeHadBeenRead(for book: Book) {
+    }
     
     func saveToPersistentStore() {
         
@@ -51,5 +74,4 @@ class BookController {
             
         }
     }
-  
 }
