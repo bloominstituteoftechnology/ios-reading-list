@@ -36,4 +36,31 @@ class BookController {
             print("Error loading books data: \(error)")
         }
     }
+
+    func create(title: String, reasonToRead: String) {
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        books.append(book)
+        saveToPersistentStore()
+    }
+
+    func delete(_ book: Book) {
+        guard let index = books.index(of: book) else { return }
+        books.remove(at: index)
+        saveToPersistentStore()
+    }
+
+    func updateHasBeenRead(for book: Book) {
+        guard let index = books.index(of: book) else { return }
+        var book = books[index]
+        book.hasBeenRead.toggle() // TODO: do I need to save back to array?
+        saveToPersistentStore()
+    }
+
+    func update(_ book: Book, title: String, reasonToRead: String) {
+        guard let index = books.index(of: book) else { return }
+        var book = books[index]
+        book.title = title
+        book.reasonToRead = reasonToRead // TODO: do I need to save back to array?
+        saveToPersistentStore()
+    }
 }
