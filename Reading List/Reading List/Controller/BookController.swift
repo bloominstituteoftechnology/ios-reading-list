@@ -11,19 +11,55 @@ import Foundation
 class BookController {
     var books: [Book] = []
     
-    // Computed Property
+    // MARK: - Computed Properties
     private var persistentFileURL: URL? {
         
-        //It only has once place to store so we grab an instance of it
         let fileManager = FileManager.default
-        
-        //navigate to the location where the documenns are stored
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        
-        //Creating a file
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
+    private var readBooks: [Book] {
+        return books.filter( { $0.hasBeenRead } )
+    }
+    
+    private var unreadBooks: [Book] {
+        return books.filter( {!$0.hasBeenRead })
+    }
+    
+    
+    //MARK: - CRUD
+    func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
+        
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        books.append(book)
+        saveToPersistentStore()
+        return book
+    }
+    
+    func deleteBook (bookToDelete: Book) {
+        if let book = books.first(where: {$0.title == bookToDelete.title}) {
+           print(book)
+            //Needs to delete the book
+
+            if let index = books.firstIndex(of: book) {
+                books.remove(at: index)
+            }
+        } else {
+            print("book could not be found")
+        }
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        //book.hasBeenRead.toggle()
+    }
+    
+    func updateTitleOrReasonToRead(for book: Book) {
+        
+    }
+    
+    
+    //MARK: - SAVE and LOAD
     func saveToPersistentStore() {
         
         //place to store the data
