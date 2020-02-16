@@ -24,11 +24,11 @@ class BookController {
     }
     
     var readBooks: [Book] {
-        return books.filter( { return $0.hasBeenRead } )
+        return books.sorted{ return $0.title < $1.title}.filter( { return $0.hasBeenRead } )
     }
     
     var unreadBooks: [Book] {
-        return books.filter( {return !$0.hasBeenRead })
+        return books.sorted{ return $0.title < $1.title}.filter( {return !$0.hasBeenRead })
     }
     
     
