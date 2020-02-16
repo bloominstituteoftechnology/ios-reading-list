@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add a new book-->
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="DetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,10 +45,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add a new book" id="PrH-8I-sMP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cuo-b7-sX2">
+                    <navigationItem key="navigationItem" title="Title" id="fhI-Hw-YYV">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="Jpy-D9-dfB">
                             <connections>
-                                <action selector="saveBookButtonTapped:" destination="BYZ-38-t0r" id="8IQ-8j-Vfw"/>
+                                <action selector="saveBookButtonTapped:" destination="BYZ-38-t0r" id="ffh-o1-b67"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -70,7 +70,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="46" id="SP7-JN-ID3" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="46" id="SP7-JN-ID3" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SP7-JN-ID3" id="Fre-Bi-lvD">
@@ -118,7 +118,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="Mud-3R-dj5">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="G5k-Nt-5bv">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="AddBookSegue" id="Oos-y8-lGh"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="AddBookSegue" id="0hM-E8-RWA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -150,6 +150,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="onL-JC-3X1"/>
+        <segue reference="0hM-E8-RWA"/>
     </inferredMetricsTieBreakers>
 </document>

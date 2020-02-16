@@ -48,11 +48,11 @@ class BookController {
         saveToPersistentStore()
     }
     
-    private func readBooks() -> [Book] {
+    func readBooks() -> [Book] {
         return books.filter{ $0.hasBeenRead == true }
     }
     
-    private func unreadBooks() -> [Book] {
+    func unreadBooks() -> [Book] {
         return books.filter{ $0.hasBeenRead == false }
     }
     
