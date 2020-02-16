@@ -42,7 +42,6 @@ class BookController {
     
     func deleteBook (bookToDelete: Book) {
         if let book = books.first(where: {$0.title == bookToDelete.title}) {
-           print(book)
             //Needs to delete the book
 
             if let index = books.firstIndex(of: book) {

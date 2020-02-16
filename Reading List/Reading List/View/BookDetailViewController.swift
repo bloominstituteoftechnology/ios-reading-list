@@ -53,7 +53,6 @@ class BookDetailViewController: UIViewController {
         let reasonToRead = readTextView.text, !reasonToRead.isEmpty else { return }
         
         if let book = book {
-            print("book being passed in \(book)")
             bookController.updateTitleOrReasonToRead(book: book, title: title, reasonToRead: reasonToRead)
         } else {
             bookController.createBook(title: title, reasonToRead: reasonToRead)
