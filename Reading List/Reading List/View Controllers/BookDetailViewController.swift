@@ -11,49 +11,43 @@ import UIKit
 class BookDetailViewController: UIViewController {
     
     @IBOutlet weak var bookTitleTextField: UITextField!
-    @IBOutlet weak var reasonToReadTextField: UITextView!
+    @IBOutlet weak var reasonToReadTextView: UITextView!
     
     
     override func viewDidLoad() {
-           super.viewDidLoad()
-            updateViews()
-           // Do any additional setup after loading the view.
-       }
+        super.viewDidLoad()
+        updateViews()
+        // Do any additional setup after loading the view.
+    }
     var bookController: BookController?
-    var book: Book?
-//    title = "Add a new book"
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
-   
+    
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let title = bookTitleTextField.text, let reason = reasonToReadTextField.text
-        !title.isEmpty, !reasonToRead.isEmpty else { return }
+        guard let title = bookTitleTextField.text,
+              let reasonToRead = reasonToReadTextView.text,
+            !title.isEmpty, !reasonToRead.isEmpty else { return }
         
         if let book = book {
-            BookController?.editBook
+            bookController?.update(book: book, with: title, and: reasonToRead)
         } else {
-            BookController?.createBook(title: title, reasonToRead: reason)
+            bookController?.createBook(title: title, reasonToRead: reasonToRead)
+        }
+        if let parent = navigationController?.viewControllers.first as? ReadingListTableViewController {
+            parent.tableView.reloadData()
         }
         navigationController? .popViewController(animated: true)
     }
-   func updateViews() {
-          if book != nil {
-              self.title = book?.title
-              bookTitleTextField.text = book?.title
-              reasonToReadTextField.text = book?.reasonToRead
-          } else {
-              self.title = "Add a new book"
-          }
-      }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateViews() {
+        guard let book = book else { return }
+            self.title = book.title
+            bookTitleTextField.text = book.title
+            reasonToReadTextView.text = book.reasonToRead
     }
-    */
-
+    
 }

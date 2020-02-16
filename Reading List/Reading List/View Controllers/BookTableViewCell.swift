@@ -32,7 +32,7 @@ class BookTableViewCell: UITableViewCell {
         if let book = book {
             bookNameLabel.text = book.title
         }
-        if book?.hasBeenRead == true {
+        if book?.hasBeenRead == false {
             readOrNotRead.setImage(UIImage(named: "checked"), for: .normal)
         } else {
             readOrNotRead.setImage(UIImage(named: "unchecked"), for: .normal)

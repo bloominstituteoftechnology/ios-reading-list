@@ -11,7 +11,7 @@
         <!--ReadingList-->
         <scene sceneID="lEg-Cs-bUR">
             <objects>
-                <tableViewController title="ReadingList" id="j6G-tg-eLs" sceneMemberID="viewController">
+                <tableViewController title="ReadingList" id="j6G-tg-eLs" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="egf-gE-l4I" customClass="ReadingListTableViewController">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,35 +24,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kh-Ty-6dz">
-                                            <rect key="frame" x="20" y="10.5" width="99" height="23"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="23" id="SVl-BO-yt0"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trR-Rb-5Ra">
-                                            <rect key="frame" x="349" y="-1" width="45" height="45.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="45" id="RdB-de-cqo"/>
-                                                <constraint firstAttribute="width" secondItem="trR-Rb-5Ra" secondAttribute="height" multiplier="1:1" id="fEy-TT-2TE"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                            <state key="normal" image="checked"/>
-                                            <connections>
-                                                <action selector="readOrNotReadButtonTapped:" destination="ht0-QF-VS0" eventType="touchUpInside" id="REr-ul-taf"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="129" translatesAutoresizingMaskIntoConstraints="NO" id="r1G-bX-Hga">
+                                            <rect key="frame" x="20" y="2" width="382" height="45"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kh-Ty-6dz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="208" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="IT3-2k-hBP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trR-Rb-5Ra">
+                                                    <rect key="frame" x="337" y="0.0" width="45" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="RdB-de-cqo"/>
+                                                        <constraint firstAttribute="width" secondItem="trR-Rb-5Ra" secondAttribute="height" multiplier="1:1" id="fEy-TT-2TE"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="uGU-f1-U4S"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                                    <state key="normal" image="checked"/>
+                                                    <connections>
+                                                        <action selector="readOrNotReadButtonTapped:" destination="ht0-QF-VS0" eventType="touchUpInside" id="REr-ul-taf"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="trR-Rb-5Ra" secondAttribute="trailing" constant="20" id="ET2-u4-9aB"/>
-                                        <constraint firstItem="trR-Rb-5Ra" firstAttribute="leading" secondItem="4kh-Ty-6dz" secondAttribute="trailing" constant="230" id="H84-vP-Ud5"/>
-                                        <constraint firstItem="4kh-Ty-6dz" firstAttribute="leading" secondItem="iU5-DS-Zji" secondAttribute="leading" constant="20" id="aUC-9W-7gt"/>
-                                        <constraint firstItem="4kh-Ty-6dz" firstAttribute="centerY" secondItem="iU5-DS-Zji" secondAttribute="centerY" id="f8l-EP-VHX"/>
-                                        <constraint firstItem="trR-Rb-5Ra" firstAttribute="centerY" secondItem="iU5-DS-Zji" secondAttribute="centerY" id="uYo-Da-fdH"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookNameLabel" destination="4kh-Ty-6dz" id="M0p-Qb-Pon"/>
@@ -126,7 +125,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bookTitleTextField" destination="fP0-R3-zEy" id="YqX-nU-TPb"/>
-                        <outlet property="reasonToReadTextField" destination="sDj-nL-02e" id="aVd-86-ZWu"/>
+                        <outlet property="reasonToReadTextView" destination="sDj-nL-02e" id="aVd-86-ZWu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glA-v6-vyw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -156,6 +155,6 @@
         <image name="checked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oWK-hh-LXh"/>
+        <segue reference="VcF-26-PHE"/>
     </inferredMetricsTieBreakers>
 </document>

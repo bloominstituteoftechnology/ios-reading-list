@@ -12,18 +12,14 @@ class ReadingListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bookController.loadFromPersistentStore()
+        tableView.reloadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     // bookController Constant
        let bookController = BookController()
-    
-    
-    func toggleHasBeenRead(for cell: BookTableViewCell) {
-        guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let book = bookFor(indexPath: indexPath)
-        bookController.updateHasBeenRead(for: book)
-        tableView.reloadData()
-    }
-   
     
     
     // MARK: - Table view data source
@@ -36,22 +32,27 @@ class ReadingListTableViewController: UITableViewController {
         
         if section == 0 {
             return bookController.hasNotBeenRead.count
-        } else {
+        } else if section == 1 {
             return bookController.hasBeenRead.count
         }
+        return 0
     }
     func bookFor(indexPath: IndexPath) -> Book {
+//        let section = indexPath.section
         if indexPath.section == 0 {
             return bookController.hasNotBeenRead[indexPath.row]
         } else {
             return bookController.hasBeenRead[indexPath.row]
         }
+        
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else {return UITableViewCell() }
         cell.delegate = self
+        let book = bookFor(indexPath: indexPath)
+        cell.book = book
         
         return cell
     }
@@ -61,10 +62,13 @@ class ReadingListTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            // Delete the row form the data source
             let book = bookFor(indexPath: indexPath)
             bookController.deleteBook(with: book)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            
         }
         tableView.reloadData()
     }
@@ -76,7 +80,7 @@ class ReadingListTableViewController: UITableViewController {
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier = "AddBookSegue" {
+        if segue.identifier == "AddBookSegue" {
             if let addBookVC = segue.destination as? BookDetailViewController {
                 addBookVC.bookController = bookController
             }
@@ -89,6 +93,15 @@ class ReadingListTableViewController: UITableViewController {
                     
                 }
             }
+        }
+    }
+}
+extension ReadingListTableViewController: BookTableViewCellDelegate {
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            let book = bookFor(indexPath: indexPath)
+            bookController.updateHasBeenRead(for: book)
+            tableView.reloadData()
         }
     }
 }
