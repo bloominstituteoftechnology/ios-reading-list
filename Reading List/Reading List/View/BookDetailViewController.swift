@@ -48,15 +48,17 @@ class BookDetailViewController: UIViewController {
     //MARK: - IBAction
     @IBAction func saveTapped(_ sender: Any) {
         guard let bookController = bookController else { return }
+        
+        guard let title = titleTextField.text, !title.isEmpty,
+        let reasonToRead = readTextView.text, !reasonToRead.isEmpty else { return }
+        
         if let book = book {
-            bookController.updateTitleOrReasonToRead(for: book)
+            print("book being passed in \(book)")
+            bookController.updateTitleOrReasonToRead(book: book, title: title, reasonToRead: reasonToRead)
         } else {
-            if let title = titleTextField.text,
-                let reasonToRead = readTextView.text{
-    
             bookController.createBook(title: title, reasonToRead: reasonToRead)
-            }
         }
+
         navigationController?.popViewController(animated: true)
     }
     

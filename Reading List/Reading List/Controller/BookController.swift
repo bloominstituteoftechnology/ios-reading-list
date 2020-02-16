@@ -55,12 +55,22 @@ class BookController {
     }
     
     func updateHasBeenRead(for book: Book) {
-       // book.hasBeenRead = !book.hasBeenRead
+       if let index = books.firstIndex(of: book) {
+           books[index].hasBeenRead.toggle()
+       }
+        saveToPersistentStore()
         
     }
     
-    func updateTitleOrReasonToRead(for book: Book) {
-        
+    func updateTitleOrReasonToRead(book: Book, title: String, reasonToRead: String) {
+        if let index = books.firstIndex(of: book) {
+            var book = books[index]
+            book.title = title
+            book.reasonToRead = reasonToRead
+            
+            books[index] = book
+            saveToPersistentStore()
+        }
     }
     
     

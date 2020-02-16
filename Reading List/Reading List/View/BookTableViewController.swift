@@ -40,14 +40,13 @@ class BookTableViewController: UITableViewController , BookTableViewCellDelegate
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
-
+        cell.delegate = self
         let book = bookFor(indexPath: indexPath)
         cell.book = book
 
         return cell
     }
     
-    //What is this?
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
@@ -57,11 +56,14 @@ class BookTableViewController: UITableViewController , BookTableViewCellDelegate
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    /*
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "What is going on?"
+        if section == 0 {
+            return "Read Books"
+        } else {
+            return "Unread Books"
+        }
     }
-    */
     
     private func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
@@ -73,9 +75,11 @@ class BookTableViewController: UITableViewController , BookTableViewCellDelegate
 
     //MARK: - Delegate Function
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-        guard let book = cell.book else { return }
-        bookController.updateHasBeenRead(for: book)
-        tableView.reloadData()
+        if let indexPath = tableView.indexPath(for: cell) {
+            let book = bookFor(indexPath: indexPath)
+            bookController.updateHasBeenRead(for: book)
+            tableView.reloadData()
+        }
     }
     
     
