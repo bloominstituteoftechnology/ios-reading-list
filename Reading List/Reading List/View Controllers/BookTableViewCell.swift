@@ -13,15 +13,28 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var isReadButton: UIButton!
 
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
+    var delegate: BookTableViewCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func updateViews() {
+        guard let book = book else { return }
+        bookTitleLabel.text = book.title
+        if book.hasBeenRead {
+            isReadButton.setImage(UIImage(named: "checked"), for: .normal)
+        } else {
+            isReadButton.setImage(UIImage(named: "unchecked"), for: .normal)
+        }
     }
 
     @IBAction func isReadButtonWasTapped(_ sender: UIButton) {
-        
+        delegate?.toggleHasBeenRead(for: self)
     }
 }
