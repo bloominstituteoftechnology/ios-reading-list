@@ -21,11 +21,7 @@ class BookDetailViewController: UIViewController {
     }
     var bookController: BookController?
     
-    var book: Book? {
-        didSet {
-            updateViews()
-        }
-    }
+    var book: Book? 
     
 // Mark: IBAction
     
@@ -46,6 +42,7 @@ class BookDetailViewController: UIViewController {
     }
     func updateViews() {
         guard let book = book else { return }
+            title = book.title
             bookTitleTextField.text = book.title
             reasonToReadTextView.text = book.reasonToRead
     }
