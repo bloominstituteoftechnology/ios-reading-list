@@ -12,8 +12,8 @@ class ReadingListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bookController.loadFromPersistentStore()
         tableView.reloadData()
+        bookController.loadFromPersistentStore()
     }
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -38,7 +38,6 @@ class ReadingListTableViewController: UITableViewController {
         return 0
     }
     func bookFor(indexPath: IndexPath) -> Book {
-//        let section = indexPath.section
         if indexPath.section == 0 {
             return bookController.hasNotBeenRead[indexPath.row]
         } else {
@@ -53,19 +52,13 @@ class ReadingListTableViewController: UITableViewController {
         cell.delegate = self
         let book = bookFor(indexPath: indexPath)
         cell.book = book
-        
         return cell
     }
-    
-
-    
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row form the data source
             let book = bookFor(indexPath: indexPath)
             bookController.deleteBook(with: book)
-            
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             
