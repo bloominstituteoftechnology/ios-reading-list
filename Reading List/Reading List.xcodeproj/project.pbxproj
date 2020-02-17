@@ -39,6 +39,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F0BB7CD23F8D9B50064FE1E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				466941682110E22A00E7FF73 /* AppDelegate.swift */,
+				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
+				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1F0BB7CE23F8D9D00064FE1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1F0BB7C923F8D13F0064FE1E /* Book.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1F0BB7CF23F8D9F00064FE1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4669416C2110E22B00E7FF73 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1F0BB7D023F8DA170064FE1E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4669416A2110E22B00E7FF73 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1F0BB7D123F8DA380064FE1E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1F0BB7CB23F8D5E40064FE1E /* BookController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +100,12 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
-				466941682110E22A00E7FF73 /* AppDelegate.swift */,
-				4669416A2110E22B00E7FF73 /* ViewController.swift */,
-				4669416C2110E22B00E7FF73 /* Main.storyboard */,
-				1F0BB7C923F8D13F0064FE1E /* Book.swift */,
-				1F0BB7CB23F8D5E40064FE1E /* BookController.swift */,
-				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
-				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
+				1F0BB7CE23F8D9D00064FE1E /* Model */,
+				1F0BB7CF23F8D9F00064FE1E /* Views */,
+				1F0BB7D023F8DA170064FE1E /* View Controllers */,
+				1F0BB7D123F8DA380064FE1E /* Controller */,
 				466941742110E22B00E7FF73 /* Info.plist */,
+				1F0BB7CD23F8D9B50064FE1E /* Resources */,
 			);
 			path = "Reading List";
 			sourceTree = "<group>";
