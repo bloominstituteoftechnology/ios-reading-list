@@ -32,7 +32,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+       
         return 2
     }
 
@@ -51,12 +51,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
    
     
     private func bookFor(indexPath: IndexPath) -> Book {
-        var book: Book?// = nil
-        
+        var book: Book?
         if indexPath.section == 0 {
-           // var books: [Book] = []
             book = bookController.readBooks[indexPath.row]
-           //-> book)
         } else if indexPath.section == 1 {
             book = bookController.unreadBooks[indexPath.row]
         }
@@ -66,7 +63,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
-
         let book = bookFor(indexPath: indexPath)
         cell.delegate = self
         cell.book = book
@@ -91,7 +87,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         if editingStyle == .delete {
             bookController.deleteBook(which: bookController.books[indexPath.row])
             tableView.reloadData()
-    }
+        }
     }
 
     

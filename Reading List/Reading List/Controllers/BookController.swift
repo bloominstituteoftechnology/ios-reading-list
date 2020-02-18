@@ -42,7 +42,6 @@ class BookController {
         }
     }
     
-    
     func loadFromPersistentStore() {
         do {
             guard let url = readingListURL else { return }
@@ -63,6 +62,7 @@ class BookController {
     
     func deleteBook(which book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
+       // books.removeAll { $0 == book }
         books.remove(at: index)
         saveToPersistentStore()
     }
@@ -76,14 +76,24 @@ class BookController {
     
     func editBook(book: Book,_ title: String? = nil, reason: String? = nil) {
         guard let index = books.firstIndex(of: book) else { return }
+     
         if let title = title {
-            books[index].title = title
+          books[index].title = title
         }
         if let reason = reason {
-            books[index].reasonToRead = reason
+          books[index].reasonToRead = reason
         }
-        saveToPersistentStore()
-    }
+        books.append(book)
+          saveToPersistentStore()
+        }
+    
+//    guard let index = books.firstIndex(of: book) else {return}
+//    var bookCopy = book
+//    bookCopy.title = newTitle
+//    bookCopy.reasonsToRead = newReasons
+//    books.remove(at: index)
+//    books.insert(bookCopy, at: index)
+//    saveToPersistentStore()
 }
 
 

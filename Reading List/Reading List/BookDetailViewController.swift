@@ -9,18 +9,21 @@
 import UIKit
 import  Photos
 
-class BookDetailViewController: UIViewController {
+class BookDetailViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var bookTitleLabel: UITextField!
     @IBOutlet weak var reasonToReadTextField: UITextView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var editBookCoverLabel: UIButton!
+    
+    @IBOutlet weak var editBookLabel: UILabel!
     
     var bookcontroller: BookController?
     var book: Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Add a book:"
+        title = "Add the book:"
         updateViews()
         imagePicker.delegate = self
     }
@@ -32,6 +35,10 @@ class BookDetailViewController: UIViewController {
         guard let book = book else { return }
         bookTitleLabel.text = book.title
         reasonToReadTextField.text = book.reasonToRead
+        editBookCoverLabel.setTitle("Update Cover Image", for: [])
+        editBookLabel.text = "Edit a Book"
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         title = book.title
     }
     
@@ -48,14 +55,19 @@ class BookDetailViewController: UIViewController {
         }
         navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func addCoverImageTapped(_ sender: Any) {
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true)
     }
 }
-
-extension BookDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        guard let image = info[.originalImage] as? UIImage else { return }
+#warning("Why does this not work?")
+//extension BookDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//
+//    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        if let image = info[.originalImage] as? UIImage {
+//            imageView.image = image
+//        }
+//        picker.dismiss(animated: true, completion: nil)
 //    }
-}
+//}
