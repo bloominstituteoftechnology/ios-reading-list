@@ -15,21 +15,35 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var bookTitleText: UITextField!
     @IBOutlet weak var bookDetailText: UITextView!
     
+    var bookController: BookController?
+    var book: Book?
+    
+    override func viewDidLoad () {
+        super.viewDidLoad()
+        updateViews()
+    }
+    
     // MARK IBActions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let title = bookTitleText.text, let reason = bookDetailText.text else { return }
+        if let book = book {
+            bookController?.editBook(book: book, title: title)
+        } else {
+            bookController?.createBook(title: title, reasonToRead: reason)
+        }
+        navigationController?.popViewController(animated: true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    func updateViews() {
+        if book != nil {
+            self.title = book?.title
+            bookTitleText.text = book?.title
+            bookDetailText.text = book?.reasonToRead
+        } else {
+            self.title = "Add a new book"
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

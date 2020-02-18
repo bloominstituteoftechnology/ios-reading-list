@@ -10,18 +10,13 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     
-//    weak var delegate: BookTableViewCellDelegate?
 
-    var book: Book?
-    
-    func updateViews() {
-        bookLabel.text = book?.title
-        if readToggle.isSelected {
-            UIImage(named: "checked")
-        } else {
-            UIImage(named: "unchecked")
+    var book: Book?{
+        didSet{
+            updateViews()
         }
     }
+    
     // MARK: IBOutlets
     
     @IBOutlet weak var bookLabel: UILabel!
@@ -29,19 +24,22 @@ class BookTableViewCell: UITableViewCell {
     
     // MARK: IBActions
     
-//    @IBAction func readToggleButton(_ sender: UIButton) {
-////        toggleHasBeenRead(for: delegate)
-//    }
+    @IBAction func readToggleButton(_ sender: UIButton) {
+        delegate?.toggleHasBeenRead(for: self)
+        updateViews()
+    }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    weak var delegate: BookTableViewCellDelegate?
+    
+    func updateViews() {
+        if let book = book {
+        bookLabel.text = book.title
+        }
+        
+        if book?.hasBeenRead == true {
+            readToggle.setImage(UIImage(named: "checked"), for: .normal)
+        } else {
+            readToggle.setImage(UIImage(named: "unchecked"), for: .normal)
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
