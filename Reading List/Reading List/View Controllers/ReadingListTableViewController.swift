@@ -17,16 +17,17 @@ class ReadingListTableViewController: UITableViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     func bookFor(indexPath: IndexPath) -> Book {
-        let readBooks = bookController.readBooks()
-        let unreadBooks = bookController.unreadBooks()
         if indexPath.section == 0 {
-            return readBooks[indexPath.row]
+            return bookController.readBooks()[indexPath.row]
         } else {
-            return unreadBooks[indexPath.row]
+            return bookController.unreadBooks()[indexPath.row]
         }
     }
     
@@ -38,43 +39,49 @@ class ReadingListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let indexPath = tableView.indexPathForSelectedRow
-        let sectionNumber = indexPath?.section
-        if sectionNumber == 0 {
-            return "Read Books"
-        } else {
-            return "Unread Books"
+        var sectionTitle = ""
+        if section == 0 {
+            sectionTitle = "Read Books"
         }
+        if section == 1 {
+            sectionTitle = "Unread Books"
+        }
+        return sectionTitle
     }
 
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let indexPath = tableView.indexPathForSelectedRow
-        let sectionNumber = indexPath?.section
-        let readBooks = bookController.readBooks()
-        let unreadBooks = bookController.unreadBooks()
-        if sectionNumber == 0 {
-            return readBooks.count
-        } else {
-            return unreadBooks.count
+        var rowNumber = 0
+        
+        if section == 0 {
+            rowNumber = bookController.readBooks().count
         }
+        if section == 1 {
+            rowNumber = bookController.unreadBooks().count
+        }
+        return rowNumber
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
-        let book = bookController.books[indexPath.row]
-        cell.textLabel?.text = book.title
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell
+        else { return UITableViewCell() }
+        cell.delegate = self
+        let book = bookFor(indexPath: indexPath)
+        cell.book = book
         return cell
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddBookSegue" {
             let addBookVC = segue.destination as! DetailViewController
-            addBookVC.delegate = self
-            addBookVC.bookController = self.bookController
-        } else if segue.identifier == "BookCell" {
-            let detailVC = segue.destination as! DetailViewController
-            guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            detailVC.book = bookFor(indexPath: indexPath)
+            addBookVC.bookController = bookController
+        } else if segue.identifier == "DetailViewSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow,
+            let detailVC = segue.destination as? DetailViewController {
+                detailVC.bookController = bookController
+                detailVC.book = bookFor(indexPath: indexPath)
+            }
         }
     }
 
@@ -82,9 +89,17 @@ class ReadingListTableViewController: UITableViewController {
 
 extension ReadingListTableViewController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-        guard let currentIndexPath = tableView.indexPathForSelectedRow else { return }
-        let book = bookFor(indexPath: currentIndexPath)
+        if let indexPath = tableView.indexPath(for: cell) {
+        let book = bookFor(indexPath: indexPath)
         bookController.updateHasBeenRead(for: book)
         tableView.reloadData()
+        }
     }
 }
+
+//extension ReadingListTableViewController: TableViewBookDelegate {
+//    func addBookAndReason(_ book: String, _ reason: String) {
+//        bookController.books.append(book)
+//        tableView.reloadData()
+//    }
+//}

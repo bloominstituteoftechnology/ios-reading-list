@@ -13,21 +13,23 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var hasBeenReadLabel: UIButton!
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     weak var delegate: BookTableViewCellDelegate?
+
     
     func updateViews() {
-        bookTitleLabel.text = book?.title
-        if book?.hasBeenRead == true {
-            hasBeenReadLabel.setImage(UIImage(named: "checked"), for: .normal)
-        } else {
-            hasBeenReadLabel.setImage(UIImage(named: "unchecked"), for: .normal)
-        }
+        guard let book = book else { return }
+        bookTitleLabel.text = book.title
+        let checkedImage: UIImage = book.hasBeenRead ? UIImage(named: "checked")! : UIImage(named: "unchecked")!
+        hasBeenReadLabel.setImage(checkedImage, for: .normal)
     }
     
     @IBAction func hasBeenReadButtonTapped(_ sender: Any) {
-        let bookTableViewCell = self
-        delegate?.toggleHasBeenRead(for: bookTableViewCell)
+        delegate?.toggleHasBeenRead(for: self)
     }
     
 }

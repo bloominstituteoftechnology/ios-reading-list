@@ -9,7 +9,7 @@
 import Foundation
 
 class BookController {
-    private(set) lazy var books: [Book] = []
+    var books: [Book] = []
     
     private var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -19,6 +19,9 @@ class BookController {
         return documents.appendingPathComponent("ReadingList.plist")
     }
     
+    init() {
+        loadFromPersistentStore()
+    }
     
     func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
@@ -33,19 +36,20 @@ class BookController {
     }
     
     func updateHasBeenRead(for book: Book) {
-        var book = book.hasBeenRead
-        if book == false {
-            book = true
-        } else {
-            book = false
+        if let index = books.firstIndex(of: book) {
+            books[index].hasBeenRead.toggle()
         }
         saveToPersistentStore()
     }
     
-    func updateTitleAndReasonToRead(for book: Book) {
-        var bookTitle = book.title
-        var bookReasonToRead = book.reasonToRead
-        saveToPersistentStore()
+    func updateTitleAndReasonToRead(for book: Book, title: String, reasonToRead: String) {
+        if let index = books.firstIndex(of: book) {
+            var book = books[index]
+            book.title = title
+            book.reasonToRead = reasonToRead
+            books[index] = book
+            saveToPersistentStore()
+        }
     }
     
     func readBooks() -> [Book] {

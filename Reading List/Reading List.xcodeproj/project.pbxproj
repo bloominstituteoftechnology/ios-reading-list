@@ -71,7 +71,7 @@
 				C90AACD923F86CEF008E76B6 /* Models */,
 				C90AACD823F8693C008E76B6 /* Views */,
 				C9A95C1D23F8688D00A491F6 /* View Controllers */,
-				C9A95C1423F65E9D00A491F6 /* BookController.swift */,
+				C924AA3923FB26F90092F7BA /* Model Controllers */,
 				C90AACDA23F86F92008E76B6 /* BookTableViewCellDelegate.swift */,
 			);
 			path = "Reading List";
@@ -91,6 +91,14 @@
 				C9A95C1223F65E1E00A491F6 /* Book.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C924AA3923FB26F90092F7BA /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C9A95C1423F65E9D00A491F6 /* BookController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 		C9A95C1123F65DFE00A491F6 /* Resources */ = {

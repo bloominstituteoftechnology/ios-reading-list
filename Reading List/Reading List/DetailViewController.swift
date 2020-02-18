@@ -8,44 +8,44 @@
 
 import UIKit
 
-protocol BookWasAdded {
-    func updateTableView()
-}
-
 class DetailViewController: UIViewController {
     
-    @IBOutlet weak var TitleTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reasonToReadTextView: UITextView!
     
     var delegate: BookTableViewCellDelegate?
-    var bookController = BookController()
-    var book: Book?
+    var bookController: BookController?
+    
+    var book: Book?{
+        didSet {
+            updateViews()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Add a new book"
         updateViews()
     }
     
     @IBAction func saveBookButtonTapped(_ sender: Any) {
-        if book != nil {
-            bookController.updateTitleAndReasonToRead(for: book!)
+        guard let bookController = bookController else { return }
+        guard let title = titleTextField.text, !title.isEmpty,
+            let reasonToRead = reasonToReadTextView.text, !reasonToRead.isEmpty else { return }
+        
+        if let book = book {
+            bookController.updateTitleAndReasonToRead(for: book, title: title, reasonToRead: reasonToRead)
         } else {
-            guard let title = TitleTextField.text,
-                let reasonToRead = reasonToReadTextView.text else { return }
             bookController.createBook(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
-            
         }
         navigationController?.popViewController(animated: true)
     }
     
-    func updateViews() {
-        if book != nil {
-            TitleTextField.text = book?.title
-            reasonToReadTextView.text = book?.reasonToRead
-            self.title = book?.title
-        } else {
-            self.title = "Add a new Book"
-        }
+    private func updateViews() {
+        loadViewIfNeeded()
+        guard let book = book else { return }
+        titleTextField.text = book.title
+        reasonToReadTextView.text = book.reasonToRead
+        title = book.title
     }
 }
