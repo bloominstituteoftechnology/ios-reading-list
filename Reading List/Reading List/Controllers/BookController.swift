@@ -76,24 +76,15 @@ class BookController {
     
     func editBook(book: Book,_ title: String? = nil, reason: String? = nil) {
         guard let index = books.firstIndex(of: book) else { return }
-     
+        
         if let title = title {
-          books[index].title = title
+            books[index].title = title
         }
         if let reason = reason {
-          books[index].reasonToRead = reason
+            books[index].reasonToRead = reason
         }
-        books.append(book)
-          saveToPersistentStore()
-        }
-    
-//    guard let index = books.firstIndex(of: book) else {return}
-//    var bookCopy = book
-//    bookCopy.title = newTitle
-//    bookCopy.reasonsToRead = newReasons
-//    books.remove(at: index)
-//    books.insert(bookCopy, at: index)
-//    saveToPersistentStore()
+        saveToPersistentStore()
+    }
 }
 
 

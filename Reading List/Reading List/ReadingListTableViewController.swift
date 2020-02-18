@@ -81,11 +81,12 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             return ""
         }
     }
-  
+    #warning("Such a bug in here or my bad coding")
         // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             bookController.deleteBook(which: bookController.books[indexPath.row])
+          //  bookController.deleteBook(which: bookController.books[indexPath.row])
             tableView.reloadData()
         }
     }

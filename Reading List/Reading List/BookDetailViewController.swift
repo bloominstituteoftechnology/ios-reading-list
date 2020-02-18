@@ -37,8 +37,8 @@ class BookDetailViewController: UIViewController,UIImagePickerControllerDelegate
         reasonToReadTextField.text = book.reasonToRead
         editBookCoverLabel.setTitle("Update Cover Image", for: [])
         editBookLabel.text = "Edit a Book"
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+//        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
+//        navigationController?.navigationBar.titleTextAttributes = textAttributes
         title = book.title
     }
     
@@ -71,3 +71,18 @@ class BookDetailViewController: UIViewController,UIImagePickerControllerDelegate
 //        picker.dismiss(animated: true, completion: nil)
 //    }
 //}
+
+extension BookDetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text,
+            !text.isEmpty else { return false }
+        print("\(String(describing: textField.text))")
+        switch textField {
+        case bookTitleLabel:
+            reasonToReadTextField.textInputView.resignFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+}
