@@ -62,6 +62,17 @@ class ReadingListTableViewController: UITableViewController {
             return "Unread Books"
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? BookDetailViewController else { return }
+        detailVC.bookController = bookController
+        detailVC.delegate = self
+
+        if segue.identifier == "DetailSegue" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            detailVC.book = bookFor(indexPath: indexPath)
+        }
+    }
 }
 
 extension ReadingListTableViewController: BookTableViewCellDelegate {
@@ -93,15 +104,5 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
     */
