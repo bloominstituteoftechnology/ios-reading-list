@@ -17,16 +17,16 @@ class ReadingListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bookController.loadFromPersistentStore()
-        
+        tableView.reloadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        bookController.loadFromPersistentStore()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
@@ -44,13 +44,14 @@ class ReadingListTableViewController: UITableViewController {
             return 0
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
 
         // Configure the cell...
         let book = bookFor(indexPath: indexPath)
         cell.book = book
+        print(book)
         cell.delegate = self
         return cell
     }
@@ -67,6 +68,8 @@ class ReadingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let book = bookFor(indexPath: indexPath)
+            bookController.deleteBook(book: book)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
         }    
@@ -98,13 +101,12 @@ class ReadingListTableViewController: UITableViewController {
     }
 }
 
-extension ReadingListTableViewController: BookTableViewCellDelegate {
+extension ReadingListTableViewController: UpdateHasBeenReadDelegate {
     
     // if crashes, check this function!!
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-        bookController.updateHasBeenRead(for: bookController.books[cell.index(ofAccessibilityElement: BookTableViewCell.self)])
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        bookController.updateHasBeenRead(for: bookFor(indexPath: indexPath))
         tableView.reloadData()
     }
-    
-    
 }

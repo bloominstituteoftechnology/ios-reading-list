@@ -1,5 +1,5 @@
 //
-//  BookTableViewCellDelegate.swift
+//  UpdateHasBeenReadDelegate.swift
 //  Reading List
 //
 //  Created by Lambda_School_Loaner_259 on 2/14/20.
@@ -9,6 +9,6 @@
 import Foundation
 
 
-protocol BookTableViewCellDelegate {
+protocol UpdateHasBeenReadDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell)
 }

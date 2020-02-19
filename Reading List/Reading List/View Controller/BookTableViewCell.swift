@@ -22,18 +22,26 @@ class BookTableViewCell: UITableViewCell {
     }
     
     // MARK: Properties
-    var book: Book?
-    var delegate: BookTableViewCellDelegate?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
+    var delegate: UpdateHasBeenReadDelegate?
     
 
     func updateViews() {
         guard let book = book, !book.title.isEmpty else { return }
         titleLabel.text = book.title
-        if readButton.isSelected {
-            readButton.setImage(UIImage(named: "checked"), for: .normal)
-        } else {
-            readButton.setImage(UIImage(named: "unchecked"), for: .normal)
-        }
+        let checkedImage = UIImage(named: "checked")!
+        let uncheckedImage = UIImage(named: "unchecked")!
+        let checkImage = book.hasBeenRead ? checkedImage : uncheckedImage
+        readButton.setImage(checkImage, for: .normal)
+//        if book.hasBeenRead {
+//            readButton.setImage(UIImage(named: "checked"), for: .normal)
+//        } else {
+//            readButton.setImage(UIImage(named: "unchecked"), for: .normal)
+//        }
     }
 
 }
