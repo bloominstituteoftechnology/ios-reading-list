@@ -9,7 +9,8 @@
 import Foundation
 
 class BookController {
-    var books: [Book] = []
+
+    private(set) var books: [Book] = []
 
     var readingListURL: URL? {
         FileManager.default
@@ -21,6 +22,10 @@ class BookController {
     }
     var unreadBooks: [Book] {
         books.filter { !$0.hasBeenRead }
+    }
+
+    init() {
+        loadFromPersistentStore()
     }
 
     func saveToPersistentStore() {
@@ -59,6 +64,7 @@ class BookController {
         guard let index = books.index(of: book) else { return }
         var book = books[index]
         book.hasBeenRead.toggle() // TODO: do I need to save back to array?
+        books[index] = book
         saveToPersistentStore()
     }
 
@@ -67,6 +73,7 @@ class BookController {
         var book = books[index]
         book.title = title
         book.reasonToRead = reasonToRead // TODO: do I need to save back to array?
+        books[index] = book
         saveToPersistentStore()
     }
 }
