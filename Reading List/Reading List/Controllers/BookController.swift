@@ -18,10 +18,19 @@ class BookController {
     
     var readBooks: [Book] {
         return books.filter({$0.hasBeenRead == true})
+            .sorted(by: { $0.title.lowercased() < $1.title.lowercased() })
     }
     
     var unreadBooks: [Book] {
+        
+        
         return books.filter({$0.hasBeenRead == false})
+            .sorted(by: { $0.title.lowercased() < $1.title.lowercased() })
+    }
+    
+    var sortBooks: [Book] {
+        let sortedBooks = books.sorted(by: { $0.title.lowercased() < $1.title.lowercased() })
+        return sortedBooks
     }
     
     var readingListURL: URL? {

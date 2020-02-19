@@ -13,10 +13,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     let bookController = BookController()
     
     func toggleHasBeenread(for cell: BookTableViewCell) {
-        if let book = cell.book {
+        guard let book = cell.book  else { return }
             bookController.updateHasBeenRead(for: book)
             tableView.reloadData()
-        }
     }
     
     override func viewDidLoad() {
@@ -54,8 +53,10 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         var book: Book?
         if indexPath.section == 0 {
             book = bookController.readBooks[indexPath.row]
+            
         } else if indexPath.section == 1 {
             book = bookController.unreadBooks[indexPath.row]
+            
         }
         return book!
     }

@@ -9,7 +9,7 @@
 import UIKit
 import  Photos
 
-class BookDetailViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class BookDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var bookTitleLabel: UITextField!
     @IBOutlet weak var reasonToReadTextField: UITextView!
@@ -57,14 +57,17 @@ class BookDetailViewController: UIViewController,UIImagePickerControllerDelegate
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true)
     }
+    
+    
+    
 }
 #warning("Why does this not work?")
 extension BookDetailViewController {
 
 //    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//            imageView.image = image
-//        }
+//
+//      let image = info[.originalImage] as? UIImage
+//
 //        picker.dismiss(animated: true, completion: nil)
 //    }
 }
