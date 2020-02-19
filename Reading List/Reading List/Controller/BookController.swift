@@ -19,9 +19,11 @@ class BookController {
     }
     var readBooks: [Book] {
         books.filter { $0.hasBeenRead }
+            .sorted { $0.title < $1.title }
     }
     var unreadBooks: [Book] {
         books.filter { !$0.hasBeenRead }
+            .sorted { $0.title < $1.title }
     }
 
     init() {
