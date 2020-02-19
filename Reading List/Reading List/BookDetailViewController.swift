@@ -37,12 +37,9 @@ class BookDetailViewController: UIViewController,UIImagePickerControllerDelegate
         reasonToReadTextField.text = book.reasonToRead
         editBookCoverLabel.setTitle("Update Cover Image", for: [])
         editBookLabel.text = "Edit a Book"
-//        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.red]
-//        navigationController?.navigationBar.titleTextAttributes = textAttributes
         title = book.title
     }
     
-
     @IBAction func saveBookTapped(_ sender: Any) {
         guard let title = bookTitleLabel.text,
             let reason = reasonToReadTextField.text,
@@ -62,15 +59,15 @@ class BookDetailViewController: UIViewController,UIImagePickerControllerDelegate
     }
 }
 #warning("Why does this not work?")
-//extension BookDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//
+extension BookDetailViewController {
+
 //    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        if let image = info[.originalImage] as? UIImage {
+//        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
 //            imageView.image = image
 //        }
 //        picker.dismiss(animated: true, completion: nil)
 //    }
-//}
+}
 
 extension BookDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

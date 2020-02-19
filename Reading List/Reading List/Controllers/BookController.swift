@@ -76,7 +76,6 @@ class BookController {
     
     func editBook(book: Book,_ title: String? = nil, reason: String? = nil) {
         guard let index = books.firstIndex(of: book) else { return }
-        
         if let title = title {
             books[index].title = title
         }

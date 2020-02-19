@@ -70,7 +70,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         return cell
     }
     
-    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch  section {
         case 0:
@@ -81,17 +80,16 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             return ""
         }
     }
-    #warning("Such a bug in here or my bad coding")
+  
         // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            bookController.deleteBook(which: bookController.books[indexPath.row])
-          //  bookController.deleteBook(which: bookController.books[indexPath.row])
+           let book =  bookFor(indexPath: indexPath)
+            bookController.deleteBook(which: book)
             tableView.reloadData()
         }
     }
 
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
