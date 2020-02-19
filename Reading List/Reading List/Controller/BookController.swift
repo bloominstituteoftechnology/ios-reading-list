@@ -31,15 +31,17 @@ class BookController {
            saveToPersistentStore()
            return book
        }
-       
-       func listStars() -> String {
-           var output = ""
-           for book in books {
-               output += "\(book.title) is \(book.reasonToRead) has \(book.hasBeenRead)."
-           }
-           return output
-       }
     
+    //Reference Function
+       
+//       func listStars() -> String {
+//           var output = ""
+//           for book in books {
+//               output += "\(book.title) is \(book.reasonToRead) has \(book.hasBeenRead)."
+//           }
+//           return output
+//       }
+//
     
     
     // Save to PList
