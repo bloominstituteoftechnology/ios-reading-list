@@ -27,7 +27,7 @@ class BookTableViewCell: UITableViewCell {
 
     //MARK: - IBAction
     
-    @IBAction func seenUnseenButton(_ sender: Any) {
+    @IBAction func seenUnseenButton(_ sender: UIButton) {
         delegate?.toggleHasBeenRead(for: self)
         updateViews()
     }

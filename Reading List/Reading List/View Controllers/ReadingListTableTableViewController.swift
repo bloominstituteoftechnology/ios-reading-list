@@ -60,7 +60,8 @@ class ReadingListTableTableViewController: UITableViewController, BookTableViewC
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            let book = bookFor(indexPath: indexPath)
+            
+            let book1 = bookFor(indexPath: indexPath)
             bookController.deleteBook(at: 0)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -68,7 +69,7 @@ class ReadingListTableTableViewController: UITableViewController, BookTableViewC
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "bookDetailSegue" {
+        if segue.identifier == "showCellDetail" {
             if let indexPath = tableView.indexPathForSelectedRow, let DetailVC = segue.destination as? BookDetailViewController{
                 DetailVC.book = bookFor(indexPath: indexPath)
                 DetailVC.bookController = bookController
