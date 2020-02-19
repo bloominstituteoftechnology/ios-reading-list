@@ -11,6 +11,10 @@ import Foundation
 class BookController {
     var books: [Book] = []
     
+    init() {
+        loadFromPersistentStore()
+    }
+    
     private var readingListURL: URL?{
         let fileManager = FileManager.default
         guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
@@ -25,8 +29,9 @@ class BookController {
         return book
     }
     
-    @discardableResult func deleteBook(at index: Int) -> Book {
+    func deleteBook(at index: Int) {
         books.remove(at: index)
+        saveToPersistentStore()
     }
     
     func saveToPersistentStore() {
@@ -65,8 +70,15 @@ class BookController {
         }
     }
     
-//    func updateTitleReason(for book: Book) -> Book {
-//        var myBook = book
-//        
-//    }
+    func updateTitleReason(book: Book, title: String){
+        var myBook = book
+        myBook.title = book.title
+        saveToPersistentStore()
+    }
+    var readBooks: [Book]{
+        return books.filter ({ $0.hasBeenRead == true})
+    }
+    var unreadBooks: [Book]{
+        return books.filter ({ $0.hasBeenRead == false})
+    }
 }

@@ -16,7 +16,7 @@ struct Book: Codable, Equatable {
     init(title: String, reasonToRead: String, hasBeenRead: Bool) {
         self.title = title
         self.reasonToRead = reasonToRead
-        self.hasBeenRead = false
+        self.hasBeenRead = hasBeenRead
     }
 }
 
