@@ -17,6 +17,7 @@
 		9C3249AA240379FC00FE2D70 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3249A9240379FC00FE2D70 /* BookTableViewCell.swift */; };
 		9C3249AC24037E0300FE2D70 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3249AB24037E0300FE2D70 /* BookDetailViewController.swift */; };
 		9C3249AE24038C6300FE2D70 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3249AD24038C6300FE2D70 /* BookTableViewCellDelegate.swift */; };
+		9C3249B02404420B00FE2D70 /* DetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3249AF2404420B00FE2D70 /* DetailViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9C3249A9240379FC00FE2D70 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		9C3249AB24037E0300FE2D70 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		9C3249AD24038C6300FE2D70 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		9C3249AF2404420B00FE2D70 /* DetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				9C32499E2403504F00FE2D70 /* Book.swift */,
 				9C3249AD24038C6300FE2D70 /* BookTableViewCellDelegate.swift */,
+				9C3249AF2404420B00FE2D70 /* DetailViewDelegate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				9C3249A62403529A00FE2D70 /* BookController.swift in Sources */,
 				9C3249AC24037E0300FE2D70 /* BookDetailViewController.swift in Sources */,
+				9C3249B02404420B00FE2D70 /* DetailViewDelegate.swift in Sources */,
 				9C3249AA240379FC00FE2D70 /* BookTableViewCell.swift in Sources */,
 				9C3249AE24038C6300FE2D70 /* BookTableViewCellDelegate.swift in Sources */,
 				9C32499F2403504F00FE2D70 /* Book.swift in Sources */,
