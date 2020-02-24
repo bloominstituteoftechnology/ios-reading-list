@@ -56,6 +56,14 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Read Books"
+        } else {
+            return "Unread Books"
+        }
+    }
 
     // MARK: - Navigation
 
