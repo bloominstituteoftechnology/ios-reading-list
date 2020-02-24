@@ -46,7 +46,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="DetailView" id="jt3-3E-NLZ"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="DetailBookView" id="jt3-3E-NLZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -55,7 +55,13 @@
                             <outlet property="delegate" destination="Ypv-9E-FRO" id="36X-g6-vGP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="dFk-0w-COv"/>
+                    <navigationItem key="navigationItem" id="dFk-0w-COv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="B3W-9e-8J9">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="NewBookView" id="T07-aJ-3cF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AL4-W5-OkW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,4 +105,7 @@
     <resources>
         <image name="unchecked" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jt3-3E-NLZ"/>
+    </inferredMetricsTieBreakers>
 </document>
