@@ -14,13 +14,19 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var reasonsTextView: UITextView!
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let title = titleTextField.text,
-        let reasons = reasonsTextView.text else { return }
+        let reasons = reasonsTextView.text,
+        let bookController = bookController else { return }
         
         if let book = book {
-            bookController?.update(for: book, title: title, reasonToRead: reasons)
+            bookController.update(for: book, title: title, reasonToRead: reasons)
+            print("Old file edited")
         } else {
-            bookController?.create(title: title, reasonToRead: reasons)
+            bookController.create(title: title, reasonToRead: reasons)
+            print("New file added")
         }
+        dismiss(animated: true, completion: nil)
+        
+        
     }
     
     var bookController: BookController?
@@ -29,7 +35,7 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
         // Do any additional setup after loading the view.
     }
     

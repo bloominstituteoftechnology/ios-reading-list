@@ -9,7 +9,8 @@
 import Foundation
 
 class BookController: Codable {
-    var books: [Book] = []
+
+    var books: [Book] = [Book(title: "New Book", reasonToRead: "Never been touched.")]
     
     var readBooks: [Book] {
         get {
@@ -76,7 +77,7 @@ class BookController: Codable {
     }
     
     func delete(for book: Book) {
-        for i in 0...books.count {
+        for i in 0..<books.count {
             if books[i] == book {
                 books.remove(at: i)
             }
@@ -84,7 +85,7 @@ class BookController: Codable {
     }
     
     func updateHasBeenRead(for book: Book) {
-        for i in 0...books.count {
+        for i in 0..<books.count {
             if books[i] == book {
                 books[i].hasBeenRead.toggle()
             }
@@ -92,7 +93,7 @@ class BookController: Codable {
     }
     
     func update(for book: Book, title: String, reasonToRead: String) {
-        for i in 0...books.count {
+        for i in 0..<books.count {
             if books[i] == book {
                 books[i].title = title
                 books[i].reasonToRead = reasonToRead
