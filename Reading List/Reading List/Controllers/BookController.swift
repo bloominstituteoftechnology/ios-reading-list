@@ -21,4 +21,17 @@ class BookController: Codable {
             
             return plistFile
         } }
+    
+    func saveToPersistentStore() {
+        
+        guard let fileUrl = readingListURL else { return }
+        let propertyList = PropertyListEncoder()
+        
+        do {
+            let booksData = try propertyList.encode(books)
+            try booksData.write(to: fileUrl)
+        } catch {
+            print("Error encoding Book: \(error)")
+        }
+    }
 }
