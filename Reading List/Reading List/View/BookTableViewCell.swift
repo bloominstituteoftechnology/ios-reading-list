@@ -12,8 +12,9 @@ class BookTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var hasBeenRead: UIButton!
-    @IBAction func hasBeenReadTapped(_ sender: Any) {
-        delegate?.toggleHasBeenRead(for: <#T##BookTableViewCell#>)
+    @IBAction func hasBeenReadTapped(_ sender: UIButton) {
+        guard let delegate = delegate else { return }
+        delegate.toggleHasBeenRead(for: self)
     }
     
     var book: Book?

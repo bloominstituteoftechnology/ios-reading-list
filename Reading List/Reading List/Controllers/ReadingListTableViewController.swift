@@ -39,7 +39,22 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         return 0
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = bookFor(indexPath: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as? BookTableViewCell else { fatalError() }
+        
+        let book = bookFor(indexPath: indexPath)
+        
+        cell.book = book
+        cell.delegate = self
+        
+        return cell
+        
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if indexPath.section == 0 {
+                bookController.books.removeAll( where: { book in book == bookFor(indexPath: indexPath) })
+            }
+        }
     }
 
     // MARK: - Navigation
@@ -52,7 +67,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
             return bookController.readBooks[indexPath.row]
-        } else if indexPath.section == 1 {
+        } else {
             return bookController.unreadBooks[indexPath.row]
         }
     }
