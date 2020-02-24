@@ -28,6 +28,11 @@ class BookController: Codable {
         }
     }
     
+    var unreadBooks: [Book] {
+        get {
+            return books.filter { book in !book.hasBeenRead }
+        }
+    }
     
     
     
