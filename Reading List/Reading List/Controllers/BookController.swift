@@ -57,4 +57,12 @@ class BookController: Codable {
         saveToPersistentStore()
     }
     
+    func delete(bookDelete: Book) {
+        for i in 0...books.count {
+            if books[i] == bookDelete {
+                books.remove(at: i)
+            }
+        }
+    }
+    
 }
