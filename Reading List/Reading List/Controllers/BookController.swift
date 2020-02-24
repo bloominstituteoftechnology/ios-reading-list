@@ -57,10 +57,27 @@ class BookController: Codable {
         saveToPersistentStore()
     }
     
-    func delete(bookDelete: Book) {
+    func delete(for book: Book) {
         for i in 0...books.count {
-            if books[i] == bookDelete {
+            if books[i] == book {
                 books.remove(at: i)
+            }
+        }
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        for i in 0...books.count {
+            if books[i] == book {
+                books[i].hasBeenRead.toggle()
+            }
+        }
+    }
+    
+    func update(for book: Book, title: String, reasonToRead: String) {
+        for i in 0...books.count {
+            if books[i] == book {
+                books[i].title = title
+                books[i].reasonToRead = reasonToRead
             }
         }
     }
