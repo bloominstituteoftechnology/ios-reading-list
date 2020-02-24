@@ -34,4 +34,17 @@ class BookController: Codable {
             print("Error encoding Book: \(error)")
         }
     }
+    
+    func loadFromPersistentStore() {
+        do {
+            guard let fileUrl = readingListURL else { return }
+            let data = try Data(contentsOf: fileUrl)
+            let plistDecoder = PropertyListDecoder()
+            let decodedBooks = try plistDecoder.decode([Book].self , from: data)
+            books = decodedBooks
+            
+        } catch {
+            print("Failed to load decoded books array: \(error)")
+        }
+    }
 }
