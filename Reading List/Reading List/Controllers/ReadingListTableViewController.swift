@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
+    
+    
+    
 
     let bookController = BookController()
     
@@ -54,6 +57,11 @@ class ReadingListTableViewController: UITableViewController {
         }
     }
     
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        guard let book = cell.book else { return }
+        bookController.updateHasBeenRead(for: book)
+        tableView.reloadData()
+    }
     
 
 }
