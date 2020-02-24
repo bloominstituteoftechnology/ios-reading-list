@@ -106,6 +106,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     func updateView() {
         bookController.saveToPersistentStore()
+        bookController.loadFromPersistentStore()
         tableView.reloadData()
     }
 
