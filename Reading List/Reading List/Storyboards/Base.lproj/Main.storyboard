@@ -49,6 +49,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="hasBeenRead" destination="xuc-JQ-5h3" id="8qD-Gd-bhM"/>
                                     <outlet property="titleLabel" destination="p1q-k4-RYX" id="82x-wn-wul"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="DetailBookView" id="jt3-3E-NLZ"/>
                                 </connections>

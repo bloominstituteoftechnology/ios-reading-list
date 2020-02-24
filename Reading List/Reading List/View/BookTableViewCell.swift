@@ -11,9 +11,11 @@ import UIKit
 class BookTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var hasBeenRead: UIButton!
     @IBAction func hasBeenReadTapped(_ sender: Any) {
     }
     
+    var book: Book?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +26,17 @@ class BookTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func updateViews() {
+        guard let book = book else { return }
+        titleLabel.text = book.title
+        if book.hasBeenRead {
+            hasBeenRead.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+        } else {
+            hasBeenRead.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
+        }
+        
     }
 
 }
