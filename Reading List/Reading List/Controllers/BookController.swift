@@ -10,7 +10,7 @@ import Foundation
 
 class BookController: Codable {
 
-    var books: [Book] = [Book(title: "New Book", reasonToRead: "Never been touched.")]
+    var books: [Book] = []
     
     var readBooks: [Book] {
         get {
