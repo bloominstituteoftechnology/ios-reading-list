@@ -22,6 +22,20 @@ class BookController: Codable {
             return plistFile
         } }
     
+    var readBooks: [Book] {
+        get {
+            return books.filter { book in book.hasBeenRead }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // PropertyListEncoder
     
     func saveToPersistentStore() {
