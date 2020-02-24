@@ -11,18 +11,6 @@ import Foundation
 class BookController: Codable {
     var books: [Book] = []
     
-    var readingListURL: URL? {
-        get {
-//            guard FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: .none, create: false) is String else {return nil}
-            
-            
-            let fileManager = FileManager.default
-            guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-            let plistFile = documentsDir.appendingPathComponent("ReadingList.plist")
-            
-            return plistFile
-        } }
-    
     var readBooks: [Book] {
         get {
             return books.filter { book in book.hasBeenRead }
@@ -41,7 +29,17 @@ class BookController: Codable {
     
     
     
-    
+    var readingListURL: URL? {
+            get {
+    //            guard FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: .none, create: false) is String else {return nil}
+                
+                
+                let fileManager = FileManager.default
+                guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+                let plistFile = documentsDir.appendingPathComponent("ReadingList.plist")
+                
+                return plistFile
+            } }
     // PropertyListEncoder
     
     func saveToPersistentStore() {
