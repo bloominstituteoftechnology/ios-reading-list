@@ -22,6 +22,8 @@ class BookController: Codable {
             return plistFile
         } }
     
+    // PropertyListEncoder
+    
     func saveToPersistentStore() {
         
         guard let fileUrl = readingListURL else { return }
@@ -47,4 +49,12 @@ class BookController: Codable {
             print("Failed to load decoded books array: \(error)")
         }
     }
+    
+    // CRUD Methods
+    
+    func create(title: String, reasonToRead: String) {
+        books.append(Book(title: title, reasonToRead: reasonToRead))
+        saveToPersistentStore()
+    }
+    
 }
