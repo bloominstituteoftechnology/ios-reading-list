@@ -24,7 +24,7 @@ class BookDetailViewController: UIViewController {
             bookController.create(title: title, reasonToRead: reasons)
             print("New file added")
         }
-        dismiss(animated: true, completion: nil)
+        super.navigationController?.popViewController(animated: true)
         
         
     }
