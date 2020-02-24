@@ -19,7 +19,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
+        bookController.loadFromPersistentStore()
     }
 
     // MARK: - Table view data source
@@ -53,7 +53,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if indexPath.section == 0 {
-                bookController.books.removeAll( where: { book in book == bookFor(indexPath: indexPath) })
+                bookController.delete(for: bookFor(indexPath: indexPath))
+                updateView()
+            } else if indexPath.section == 1 {
+                bookController.delete(for: bookFor(indexPath: indexPath))
+                updateView()
             }
         }
     }
@@ -97,10 +101,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let book = cell.book else { return }
         bookController.updateHasBeenRead(for: book)
-        tableView.reloadData()
+        updateView()
     }
     
     func updateView() {
+        bookController.saveToPersistentStore()
         tableView.reloadData()
     }
 
