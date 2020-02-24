@@ -25,12 +25,13 @@ class BookDetailViewController: UIViewController {
             print("New file added")
         }
         super.navigationController?.popViewController(animated: true)
-        
+        delegate?.updateView()
         
     }
     
     var bookController: BookController?
     var book: Book?
+    var delegate: DetailViewDelegate?
     
     
     override func viewDidLoad() {
