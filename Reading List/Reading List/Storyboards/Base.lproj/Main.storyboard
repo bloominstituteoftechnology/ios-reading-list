@@ -11,13 +11,13 @@
         <!--Reading List-->
         <scene sceneID="AQy-82-LWz">
             <objects>
-                <tableViewController title="Reading List" id="Ypv-9E-FRO" sceneMemberID="viewController">
+                <tableViewController title="Reading List" id="Ypv-9E-FRO" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hUC-Rq-1aI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XCX-Va-CSu">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XCX-Va-CSu" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XCX-Va-CSu" id="9gi-eE-FFx">
@@ -36,6 +36,9 @@
                                                 <constraint firstAttribute="width" secondItem="xuc-JQ-5h3" secondAttribute="height" multiplier="1:1" id="HxS-g9-b1t"/>
                                             </constraints>
                                             <state key="normal" image="unchecked"/>
+                                            <connections>
+                                                <action selector="hasBeenReadTapped:" destination="XCX-Va-CSu" eventType="touchUpInside" id="Vah-WF-aFl"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -46,6 +49,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="titleLabel" destination="p1q-k4-RYX" id="82x-wn-wul"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="DetailBookView" id="jt3-3E-NLZ"/>
                                 </connections>
                             </tableViewCell>

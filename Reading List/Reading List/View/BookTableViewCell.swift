@@ -10,6 +10,11 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBAction func hasBeenReadTapped(_ sender: Any) {
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
