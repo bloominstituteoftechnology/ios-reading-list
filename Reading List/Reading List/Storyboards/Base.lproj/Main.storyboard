@@ -78,7 +78,33 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EqT-3M-qcU">
+                                <rect key="frame" x="30" y="108" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xpi-R8-Ytu">
+                                <rect key="frame" x="30" y="162" width="354" height="650"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xpi-R8-Ytu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="0vm-TZ-wtb"/>
+                            <constraint firstItem="EqT-3M-qcU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="2hG-mt-2YE"/>
+                            <constraint firstItem="Xpi-R8-Ytu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gq5-dO-HKp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xpi-R8-Ytu" secondAttribute="trailing" constant="30" id="Ia6-YI-GJI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EqT-3M-qcU" secondAttribute="trailing" constant="30" id="JaJ-ou-9MN"/>
+                            <constraint firstItem="EqT-3M-qcU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="YVi-Y0-EXk"/>
+                            <constraint firstItem="EqT-3M-qcU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mpU-9A-8Ca"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xpi-R8-Ytu" secondAttribute="bottom" constant="50" id="rYm-hL-Bu8"/>
+                            <constraint firstItem="Xpi-R8-Ytu" firstAttribute="top" secondItem="EqT-3M-qcU" secondAttribute="bottom" constant="20" id="xBi-Pa-1lg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="mno-3g-IJn"/>
