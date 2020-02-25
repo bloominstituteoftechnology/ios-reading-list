@@ -21,19 +21,21 @@ class BookController {
         saveToPersistentStore()
     }
     
-    
-    func deleteBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
-        let deletebook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+    // "Delete" method
+    func deleteBook(book: Book) {
         
+        //firstindexof
         
         books.remove(at: 0)
     }
     
+    // Two "Update" methods
     func updateHasBeenRead(for book: Book) {
         
-        if hasBeenRead == false {
+        hasBeenRead.toggle()
+        // indexPath
+        // .toggle (for Bool)
         
-        }
     }
     
     
@@ -41,9 +43,17 @@ class BookController {
         
     }
     
+    // computed property
     
+    var readBooks: [Book] {
+        
+        
+    }
     
-    
+    var unreadBooks: [Book] {
+        
+        
+    }
     // MARK: - Persistence
     
     var readingListURL: URL? {
