@@ -90,6 +90,7 @@ class BookController: Codable {
     func delete(for book: Book) {
         for i in 0..<books.count {
             if books[i] == book {
+                print(books[i].title)
                 books.remove(at: i)
             }
         }
