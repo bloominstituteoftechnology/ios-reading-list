@@ -75,8 +75,15 @@ class BookController: Codable {
     
     // CRUD Methods
     
-    func create(title: String, reasonToRead: String) {
-        books.append(Book(title: title, reasonToRead: reasonToRead))
+    func create(title: String, reasonToRead: String, image: Image? ) {
+        if let image = image {
+            var newBook = Book(title: title, reasonToRead: reasonToRead)
+            newBook.image = image
+            books.append(newBook)
+        } else {
+            books.append(Book(title: title, reasonToRead: reasonToRead))
+        }
+        
         saveToPersistentStore()
     }
     
@@ -96,11 +103,15 @@ class BookController: Codable {
         }
     }
     
-    func update(for book: Book, title: String, reasonToRead: String) {
+    func update(for book: Book, title: String, reasonToRead: String, image: Image?) {
+        
         for i in 0..<books.count {
             if books[i] == book {
                 books[i].title = title
                 books[i].reasonToRead = reasonToRead
+                if let image = image {
+                    books[i].image = image
+                }
             }
         }
     }

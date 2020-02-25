@@ -18,10 +18,10 @@ class BookDetailViewController: UIViewController {
         let bookController = bookController else { return }
         
         if let book = book {
-            bookController.update(for: book, title: title, reasonToRead: reasons)
+            bookController.update(for: book, title: title, reasonToRead: reasons, image: nil)
             print("Old file edited")
         } else {
-            bookController.create(title: title, reasonToRead: reasons)
+            bookController.create(title: title, reasonToRead: reasons, image: nil)
             print("New file added")
         }
         super.navigationController?.popViewController(animated: true)

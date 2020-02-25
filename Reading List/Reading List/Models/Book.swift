@@ -17,13 +17,12 @@ struct Book: Equatable, Codable {
     var title: String
     var reasonToRead: String
     var hasBeenRead: Bool
-    var image: Image
+    var image: Image?
     
-    init (title: String, reasonToRead: String, hasBeenRead: Bool = false, image: Image) {
+    init (title: String, reasonToRead: String, hasBeenRead: Bool = false) {
         self.title = title
         self.reasonToRead = reasonToRead
         self.hasBeenRead = hasBeenRead
-        self.image = image
     }
 }
 
