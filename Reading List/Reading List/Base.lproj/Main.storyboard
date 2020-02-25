@@ -45,10 +45,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="okk-AB-cWm" firstAttribute="top" secondItem="WN4-3O-C7X" secondAttribute="top" constant="20" symbolic="YES" id="3Nr-v8-Fw3"/>
                                                 <constraint firstItem="okk-AB-cWm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OpY-aR-OAm" secondAttribute="trailing" constant="8" id="EJv-4V-2D6"/>
-                                                <constraint firstAttribute="bottom" secondItem="okk-AB-cWm" secondAttribute="bottom" constant="20" symbolic="YES" id="cg5-fX-c8y"/>
-                                                <constraint firstAttribute="trailing" secondItem="okk-AB-cWm" secondAttribute="trailing" constant="20" symbolic="YES" id="ksw-eN-D17"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
@@ -84,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="247.82608695652175" y="2.6785714285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="yX9-be-mOA">
             <objects>
-                <viewController id="Poc-EL-keF" sceneMemberID="viewController">
+                <viewController id="Poc-EL-keF" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zA1-hU-Ysc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,8 +117,17 @@
                         <viewLayoutGuide key="safeArea" id="2xh-QY-TeT"/>
                     </view>
                     <navigationItem key="navigationItem" id="xJu-U2-GCR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="CQs-8K-kD2"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="CQs-8K-kD2">
+                            <connections>
+                                <action selector="saveTapped:" destination="Poc-EL-keF" id="cOM-3z-r72"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookTitle" destination="vMr-w7-Ae3" id="uEp-Hf-EFh"/>
+                        <outlet property="bookTitleTextField" destination="vMr-w7-Ae3" id="ZYe-Pi-RoE"/>
+                        <outlet property="reasonToRead" destination="qqu-cA-pYn" id="nPW-cV-UnH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPN-xr-oZf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
