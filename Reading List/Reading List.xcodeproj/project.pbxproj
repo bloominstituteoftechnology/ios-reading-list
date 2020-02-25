@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F6A36D72405C7FD00C8BAAE /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A36D62405C7FD00C8BAAE /* Book.swift */; };
+		3F6A36DA2405CA3900C8BAAE /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A36D92405CA3900C8BAAE /* BookController.swift */; };
 		466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466941682110E22A00E7FF73 /* AppDelegate.swift */; };
 		4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4669416A2110E22B00E7FF73 /* ViewController.swift */; };
 		4669416E2110E22B00E7FF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4669416C2110E22B00E7FF73 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F6A36D62405C7FD00C8BAAE /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		3F6A36D92405CA3900C8BAAE /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		466941652110E22A00E7FF73 /* Reading List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466941682110E22A00E7FF73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4669416A2110E22B00E7FF73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F6A36D82405C9D700C8BAAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F6A36D62405C7FD00C8BAAE /* Book.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F6A36DB2405CA4400C8BAAE /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F6A36D92405CA3900C8BAAE /* BookController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
@@ -54,7 +74,9 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
+				3F6A36D82405C9D700C8BAAE /* Model */,
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
+				3F6A36DB2405CA4400C8BAAE /* Model Controller */,
 				4669416A2110E22B00E7FF73 /* ViewController.swift */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
@@ -137,6 +159,8 @@
 			files = (
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
+				3F6A36DA2405CA3900C8BAAE /* BookController.swift in Sources */,
+				3F6A36D72405C7FD00C8BAAE /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
