@@ -9,14 +9,9 @@
 import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate, DetailViewDelegate {
-    
-    
-    
 
     let bookController = BookController()
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         bookController.loadFromPersistentStore()

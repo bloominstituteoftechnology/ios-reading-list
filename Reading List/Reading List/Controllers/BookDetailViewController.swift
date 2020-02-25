@@ -14,52 +14,6 @@ class BookDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var reasonsTextView: UITextView!
     @IBOutlet weak var bookCover: UIImageView!
     
-
-    @IBAction func coverTapped(_ sender: Any) {
-        
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.allowsEditing = false
-            
-            present(imagePicker, animated: true, completion: nil)
-            
-        }
-        
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-//        let originalImage = info["originalImage"]
-//
-//        if let image = originalImage as? UIImage {
-//            bookCover.image = image
-//        }
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            bookCover.image = pickedImage
-            
-        }
-        dismiss(animated: true, completion: nil)
-        
-    }
-    
-    @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let title = titleTextField.text,
-        let reasons = reasonsTextView.text,
-        let bookController = bookController else { return }
-        
-        if let book = book {
-            bookController.update(for: book, title: title, reasonToRead: reasons, image: Image(withImage: bookCover.image!))
-            print("Old file edited")
-        } else {
-            bookController.create(title: title, reasonToRead: reasons, image: Image(withImage: bookCover.image!))
-            print("New file added")
-        }
-        super.navigationController?.popViewController(animated: true)
-        delegate?.updateView()
-        
-    }
-    
     var imagePicker = UIImagePickerController()
     
     var bookController: BookController?
@@ -83,15 +37,42 @@ class BookDetailViewController: UIViewController, UIImagePickerControllerDelegat
             self.title = "Add a new book"
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func coverTapped(_ sender: Any) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+            
+        }
+        
     }
-    */
-
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            bookCover.image = pickedImage
+            
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let title = titleTextField.text,
+        let reasons = reasonsTextView.text,
+        let bookController = bookController else { return }
+        
+        if let book = book {
+            bookController.update(for: book, title: title, reasonToRead: reasons, image: Image(withImage: bookCover.image!))
+            print("Old file edited")
+        } else {
+            bookController.create(title: title, reasonToRead: reasons, image: Image(withImage: bookCover.image!))
+            print("New file added")
+        }
+        super.navigationController?.popViewController(animated: true)
+        delegate?.updateView()
+        
+    }
 }

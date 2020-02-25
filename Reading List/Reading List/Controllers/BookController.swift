@@ -34,10 +34,7 @@ class BookController: Codable {
     
 
     var readingListURL: URL? {
-            get {
-    //            guard FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: .none, create: false) is String else {return nil}
-                
-                
+            get {     
                 let fileManager = FileManager.default
                 guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
                 let plistFile = documentsDir.appendingPathComponent("ReadingList.plist")
@@ -45,7 +42,7 @@ class BookController: Codable {
                 return plistFile
             } }
     
-    // PropertyListEncoder
+// MARK: - PropertyListEncoder
     
     func saveToPersistentStore() {
         
@@ -73,7 +70,7 @@ class BookController: Codable {
         }
     }
     
-    // CRUD Methods
+// MARK: - CRUD Methods
     
     func create(title: String, reasonToRead: String, image: Image? ) {
         if let image = image {
