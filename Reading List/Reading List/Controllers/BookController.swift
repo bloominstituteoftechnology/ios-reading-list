@@ -88,12 +88,10 @@ class BookController: Codable {
     }
     
     func delete(for book: Book) {
-        for i in 0..<books.count {
-            if books[i] == book {
-                print(books[i].title)
-                books.remove(at: i)
-            }
-        }
+        guard let i = books.firstIndex(of: book) else { return }
+        print(books[i].title)
+        books.remove(at: i)
+        
     }
     
     func updateHasBeenRead(for book: Book) {
