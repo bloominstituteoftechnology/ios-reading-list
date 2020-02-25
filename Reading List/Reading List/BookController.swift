@@ -11,6 +11,7 @@ import Foundation
 class BookController {
     var books: [Book] = []
     
+    // MARK: - Persitance
     var readingListURL: URL? {
         let fileManager = FileManager.default
         
@@ -26,7 +27,7 @@ class BookController {
         let encoder = PropertyListEncoder()
         
         do {
-            let booksData = try encoder.encode(books) //FIXME: 
+            let booksData = try encoder.encode(books) //FIXME: encode(value:
             
             guard let booksUrl = readingListURL else { return }
             
@@ -34,6 +35,24 @@ class BookController {
             
         } catch {
             print("Unable to save books to plist: \(error)")
+        }
+    }
+    
+    func loadFromPersistentStore() {
+        
+        do {
+            guard let readingListURL = readingListURL else { return }
+            
+            let booksData = try Data(contentsOf: readingListURL)
+            
+            let decoder = PropertyListDecoder()
+            
+            let decodedBooks = try decoder.decode([Book].self, from: booksData)
+            
+            self.books = decodedBooks
+            
+        } catch {
+            print("Unable to open books to plist: \(error)")
         }
     }
 }
