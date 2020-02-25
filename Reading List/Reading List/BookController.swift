@@ -12,6 +12,15 @@ import Foundation
 class BookController {
     var books: [Book] = []
     
+    
+    var readBooks: [Book] {
+        return books.filter{$0.hasBeenRead == true}
+    }
+    
+    var unReadBooks: [Book] {
+        return books.filter{$0.hasBeenRead == false}
+    }
+    
     // CRUD
     
     func create(title: String, reasonToRead: String) {
