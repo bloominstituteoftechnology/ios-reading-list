@@ -10,15 +10,14 @@ import UIKit
 
 
 class BookTableViewCell: UITableViewCell {
-
-    weak var delegate: BookTableViewCellDelegate?
-    
     @IBOutlet weak var readBooks: UILabel!
-    
     @IBOutlet weak var checkedBox: UIButton!
     
     
+    var delegate: BookTableViewCellDelegate?
+    
     @IBAction func addBook(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     override func awakeFromNib() {
@@ -32,9 +31,23 @@ class BookTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
-
+    func updateViews() {
+        if let book = book {
+            readBooks.text = book.title
+            switch book.hasBeenRead {
+            case true:
+                checkedBox.setImage(UIImage(named: "checked"), for: .normal)
+            case false:
+                checkedBox.setImage(UIImage(named: "unchecked"), for: .normal)
+            }
+        }
+    }
     
     
     
