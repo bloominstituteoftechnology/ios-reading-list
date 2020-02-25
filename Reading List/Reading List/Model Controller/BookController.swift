@@ -9,20 +9,32 @@
 import Foundation
 
 class BookController {
-    // var books: [Book] = [] -> Trouble here
+    
+    init() {
+        loadFromPersistentStore()
+    }
+    var books: [Book] = []
+    
+    
+    
+
     
     func createBook(title: String, reasonToRead: String) {
         let book = Book(title: title, reasonToRead: reasonToRead)
-        // books.append(book)
+         books.append(book)
+    }
+    func create(title: String, reasonToRead: String) {
+    let newBook = Book(title: title, reasonToRead: reasonToRead)
+        saveToPersistentStore()
     }
     var readingListURL: URL? {
         let fileMananger = FileManager.default
         
-        let documentsDir = fileMananger.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDir = fileMananger.urls(for: .documentDirectory, in: .userDomainMask).first
         
-        let booksURL = documentsDir.appendPathComponent("Reading.Plist")
+         let booksURL = documentsDir?.appendingPathComponent("Readlist.plist") // Not working because of BOOK arrat
         
-        return booksURL
+         return booksURL
     }
     
     func saveToPersistentStore() {
@@ -30,11 +42,27 @@ class BookController {
         let encoder = PropertyListEncoder()
         
         do {
-            let bookData = try encoder.encode(books)
+            let booksData = try encoder.encode(books) // has to see with books array.
             
-            guard let booksURL = 
+            guard let booksURL = readingListURL else { return }
+            try booksData.write(to: booksURL)
         } catch {
-            
+            print("Unable to save into Plist \(error)")
         }
     }
+        
+        func loadFromPersistentStore() {
+            guard let booksURL = readingListURL else { return }
+            let decoder = PropertyListDecoder()
+            
+            do {
+                let booksData = try Data(contentsOf: booksURL)
+                let books = try decoder.decode([Book].self, from: booksData)
+                self.books = books
+                
+            } catch {
+                print("error decoding \(error)")
+            }
+        }
 }
+
