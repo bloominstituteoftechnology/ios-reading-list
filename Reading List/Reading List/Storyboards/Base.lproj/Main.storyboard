@@ -81,50 +81,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EqT-3M-qcU">
-                                <rect key="frame" x="30" y="108" width="354" height="34"/>
+                                <rect key="frame" x="30" y="108" width="354" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3Kc-Fp-xfz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="X9c-8l-JDt">
-                                <rect key="frame" x="30" y="162" width="354" height="145"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NB3-wn-Zu4">
-                                        <rect key="frame" x="0.0" y="1" width="151" height="142.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="NB3-wn-Zu4" secondAttribute="height" multiplier="49:47" id="b6s-2E-Ud5"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reasons for reading: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xpi-R8-Ytu">
-                                        <rect key="frame" x="185" y="0.0" width="169" height="145"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NB3-wn-Zu4">
+                                <rect key="frame" x="30" y="169" width="96" height="77.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="Bki-le-Dbc"/>
+                                    <constraint firstAttribute="width" secondItem="NB3-wn-Zu4" secondAttribute="height" multiplier="6:5" id="clz-IH-zio"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpf-dj-eab">
-                                <rect key="frame" x="30" y="315" width="158" height="30"/>
+                                <rect key="frame" x="30" y="268" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="yej-KN-pzC"/>
+                                </constraints>
                                 <state key="normal" title="Book Cover"/>
                                 <connections>
                                     <action selector="coverTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UhV-7T-Zzp"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reasons for reading: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xpi-R8-Ytu">
+                                <rect key="frame" x="146" y="168" width="238" height="674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="rPu-8i-WII"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X9c-8l-JDt" secondAttribute="trailing" constant="30" id="BGv-D7-JYj"/>
-                            <constraint firstItem="EqT-3M-qcU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="GS8-bT-XJz"/>
-                            <constraint firstItem="lpf-dj-eab" firstAttribute="top" secondItem="X9c-8l-JDt" secondAttribute="bottom" constant="8" id="MCd-X5-wXg"/>
-                            <constraint firstItem="X9c-8l-JDt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sxy-u4-yOc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X9c-8l-JDt" secondAttribute="bottom" constant="555" id="X2G-Yz-zkR"/>
-                            <constraint firstItem="lpf-dj-eab" firstAttribute="leading" secondItem="X9c-8l-JDt" secondAttribute="leading" id="fI1-e8-SZB"/>
-                            <constraint firstItem="EqT-3M-qcU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ffF-uR-vcU"/>
-                            <constraint firstItem="EqT-3M-qcU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hRZ-yb-W1J"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lpf-dj-eab" secondAttribute="trailing" constant="226" id="io8-vm-MT5"/>
-                            <constraint firstItem="X9c-8l-JDt" firstAttribute="top" secondItem="EqT-3M-qcU" secondAttribute="bottom" constant="20" id="lC7-B0-UcG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EqT-3M-qcU" secondAttribute="trailing" constant="30" id="siO-uX-i2c"/>
-                            <constraint firstItem="X9c-8l-JDt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="yXh-uQ-IOG"/>
+                            <constraint firstItem="NB3-wn-Zu4" firstAttribute="top" secondItem="EqT-3M-qcU" secondAttribute="bottom" constant="20" id="66m-Ye-NqJ"/>
+                            <constraint firstItem="EqT-3M-qcU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Arn-wP-jvt"/>
+                            <constraint firstItem="lpf-dj-eab" firstAttribute="leading" secondItem="NB3-wn-Zu4" secondAttribute="leading" id="C7z-ls-YPx"/>
+                            <constraint firstItem="Xpi-R8-Ytu" firstAttribute="leading" secondItem="NB3-wn-Zu4" secondAttribute="trailing" constant="20" id="HuQ-xB-CYu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EqT-3M-qcU" secondAttribute="trailing" constant="30" id="IKi-oZ-1RE"/>
+                            <constraint firstItem="lpf-dj-eab" firstAttribute="top" secondItem="NB3-wn-Zu4" secondAttribute="bottom" constant="20" id="Ttw-4D-GKx"/>
+                            <constraint firstItem="EqT-3M-qcU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c99-tD-hTX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xpi-R8-Ytu" secondAttribute="bottom" constant="20" id="d8W-YG-hcZ"/>
+                            <constraint firstItem="Xpi-R8-Ytu" firstAttribute="trailing" secondItem="EqT-3M-qcU" secondAttribute="trailing" id="jaf-KQ-MJt"/>
+                            <constraint firstItem="EqT-3M-qcU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="oJN-uf-Ma4"/>
+                            <constraint firstItem="Xpi-R8-Ytu" firstAttribute="top" secondItem="EqT-3M-qcU" secondAttribute="bottom" constant="20" id="rOv-i2-V4x"/>
+                            <constraint firstItem="NB3-wn-Zu4" firstAttribute="leading" secondItem="EqT-3M-qcU" secondAttribute="leading" id="yY1-wF-oG7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
