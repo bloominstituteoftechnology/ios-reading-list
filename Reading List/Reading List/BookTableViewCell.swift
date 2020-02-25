@@ -10,10 +10,7 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    var book: Book?
 
     @IBOutlet weak var labelTextField: UILabel!
     @IBOutlet weak var readButton: UIButton!
@@ -21,10 +18,19 @@ class BookTableViewCell: UITableViewCell {
     @IBAction func hasBeenReadButton(_ sender: Any) {
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func updateViews() {
+        guard let book = book else { return }
+        
+        labelTextField.text = book.title
+        
+        var imageName = "unchecked.png"
+        
+        if book.hasBeenRead == true {
+            imageName = "checked.png"
+        }
 
-        // Configure the view for the selected state
+        if let image = UIImage(named: imageName) {
+            readButton.setImage(image, for: .normal)
+        }
     }
-
 }
