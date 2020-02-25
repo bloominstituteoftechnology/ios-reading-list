@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Reading List-->
         <scene sceneID="orJ-1J-HM5">
             <objects>
-                <tableViewController id="gHJ-tt-UXC" sceneMemberID="viewController">
+                <tableViewController title="Reading List" id="gHJ-tt-UXC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SWO-VV-1f0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,31 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yUs-qI-HuI" id="3GE-Fr-US3">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNd-rH-Me4">
+                                            <rect key="frame" x="20" y="11.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSB-bH-7BK">
+                                            <rect key="frame" x="344" y="-3.5" width="50" height="50.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="mSB-bH-7BK" secondAttribute="height" multiplier="1:1" id="USK-xC-3LM"/>
+                                            </constraints>
+                                            <state key="normal" image="checked"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wNd-rH-Me4" firstAttribute="centerY" secondItem="3GE-Fr-US3" secondAttribute="centerY" id="CWr-i7-UEx"/>
+                                        <constraint firstAttribute="trailing" secondItem="mSB-bH-7BK" secondAttribute="trailing" constant="20" id="Kmi-OM-cZH"/>
+                                        <constraint firstItem="wNd-rH-Me4" firstAttribute="leading" secondItem="3GE-Fr-US3" secondAttribute="leadingMargin" id="Y8B-fl-ww1"/>
+                                        <constraint firstItem="mSB-bH-7BK" firstAttribute="centerY" secondItem="3GE-Fr-US3" secondAttribute="centerY" id="wV3-9S-RnX"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="gZ0-XP-f1K" kind="show" identifier="BookDetailSegue" id="usX-SO-wUR"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -35,7 +59,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beq-fk-9Jm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044.9275362318842" y="68.973214285714278"/>
+            <point key="canvasLocation" x="958" y="69"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1Id-7F-heA">
@@ -47,6 +71,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="QyT-eq-eL2"/>
                     </view>
+                    <navigationItem key="navigationItem" id="dvM-t5-zgI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvX-Qk-dL0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,4 +96,7 @@
             <point key="canvasLocation" x="134.78260869565219" y="68.973214285714278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checked" width="50" height="50"/>
+    </resources>
 </document>
