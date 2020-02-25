@@ -11,13 +11,13 @@
         <!--Reading List-->
         <scene sceneID="orJ-1J-HM5">
             <objects>
-                <tableViewController title="Reading List" id="gHJ-tt-UXC" sceneMemberID="viewController">
+                <tableViewController title="Reading List" id="gHJ-tt-UXC" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SWO-VV-1f0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yUs-qI-HuI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" id="yUs-qI-HuI" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yUs-qI-HuI" id="3GE-Fr-US3">
@@ -42,6 +42,7 @@
                                         <constraint firstItem="wNd-rH-Me4" firstAttribute="centerY" secondItem="3GE-Fr-US3" secondAttribute="centerY" id="CWr-i7-UEx"/>
                                         <constraint firstAttribute="trailing" secondItem="mSB-bH-7BK" secondAttribute="trailing" constant="20" id="Kmi-OM-cZH"/>
                                         <constraint firstItem="wNd-rH-Me4" firstAttribute="leading" secondItem="3GE-Fr-US3" secondAttribute="leadingMargin" id="Y8B-fl-ww1"/>
+                                        <constraint firstItem="mSB-bH-7BK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wNd-rH-Me4" secondAttribute="trailing" constant="8" symbolic="YES" id="bF7-sh-5kl"/>
                                         <constraint firstItem="mSB-bH-7BK" firstAttribute="centerY" secondItem="3GE-Fr-US3" secondAttribute="centerY" id="wV3-9S-RnX"/>
                                     </constraints>
                                 </tableViewCellContentView>
