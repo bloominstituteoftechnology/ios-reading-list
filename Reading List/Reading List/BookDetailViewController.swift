@@ -10,12 +10,15 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
 
-    
     @IBOutlet weak var titleTextField: UITextField!
-    
     @IBOutlet weak var reasonToReadTextView: UITextView!
     
-    
+    var bookController: BookController?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +27,28 @@ class BookDetailViewController: UIViewController {
     }
     
     @IBAction func saveBookButtonTapped(_ sender: Any) {
+        
+        if book == nil {
+            guard let title = titleTextField.text, !title.isEmpty, let reason = reasonToReadTextView.text, !reason.isEmpty else { return }
+            bookController?.create(title: title, reasonToRead: reason)
+            
+        } else if book != nil {
+            guard let book = book else {return}
+             guard let title = titleTextField.text, !title.isEmpty, let reason = reasonToReadTextView.text, !reason.isEmpty else { return }
+            bookController?.updateBook(for: book, title: title, reason: reason)
+        }
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
+        
     }
     
     
-    
+    func updateViews() {
+        titleTextField.text = book?.title
+        reasonToReadTextView.text = book?.reasonToRead
+        self.navigationItem.title = book?.title
+    }
     /*
     // MARK: - Navigation
 

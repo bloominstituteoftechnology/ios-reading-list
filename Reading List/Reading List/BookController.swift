@@ -36,6 +36,7 @@ class BookController {
         for aBook in books {
             if aBook.title == book.title {
                 books.remove(at: index)
+                //return
             }
             index += 1
         }
@@ -56,8 +57,15 @@ class BookController {
         saveToPersistentStore()
     }
     
-    func updateBook(for book: Book) {
-        //
+    func updateBook(for book: Book, title: String, reason: String) {
+        for i in 0..<books.count {
+            if books[i] == book {
+                books[i].title = title
+                books[i].reasonToRead = reason
+            }
+        }
+        
+            
         saveToPersistentStore()
     }
     
