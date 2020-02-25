@@ -49,10 +49,10 @@ class BookDetailViewController: UIViewController, UIImagePickerControllerDelegat
         let bookController = bookController else { return }
         
         if let book = book {
-            bookController.update(for: book, title: title, reasonToRead: reasons, image: nil)
+            bookController.update(for: book, title: title, reasonToRead: reasons, image: Image(withImage: bookCover.image!))
             print("Old file edited")
         } else {
-            bookController.create(title: title, reasonToRead: reasons, image: nil)
+            bookController.create(title: title, reasonToRead: reasons, image: Image(withImage: bookCover.image!))
             print("New file added")
         }
         super.navigationController?.popViewController(animated: true)
@@ -77,6 +77,7 @@ class BookDetailViewController: UIViewController, UIImagePickerControllerDelegat
         if var book = book {
             titleTextField.text = book.title
             reasonsTextView.text = book.reasonToRead
+            bookCover.image = book.image?.getImage()
             self.title = book.title
         } else {
             self.title = "Add a new book"

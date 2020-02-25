@@ -99,6 +99,7 @@ class BookController: Codable {
         for i in 0..<books.count {
             if books[i] == book {
                 books[i].hasBeenRead.toggle()
+                print(books)
             }
         }
     }
