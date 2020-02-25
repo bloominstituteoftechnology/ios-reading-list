@@ -24,8 +24,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyF-5N-Lng">
-                                            <rect key="frame" x="20" y="13" width="104" height="24"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some Book With a Really Really Long Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyF-5N-Lng">
+                                            <rect key="frame" x="20" y="13" width="336" height="24"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -44,6 +44,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="NyF-5N-Lng" firstAttribute="centerY" secondItem="8Ff-6t-IeP" secondAttribute="centerY" id="1Ee-kr-s8l"/>
+                                        <constraint firstItem="nC2-f0-I81" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NyF-5N-Lng" secondAttribute="trailing" constant="8" id="MkH-NH-UlF"/>
                                         <constraint firstItem="NyF-5N-Lng" firstAttribute="leading" secondItem="8Ff-6t-IeP" secondAttribute="leadingMargin" id="R3O-cY-X2b"/>
                                         <constraint firstItem="nC2-f0-I81" firstAttribute="centerY" secondItem="8Ff-6t-IeP" secondAttribute="centerY" id="p9m-DH-bHu"/>
                                         <constraint firstAttribute="trailing" secondItem="nC2-f0-I81" secondAttribute="trailing" constant="20" id="rz0-CV-tkp"/>
