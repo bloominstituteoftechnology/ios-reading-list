@@ -10,8 +10,13 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
 
-    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField! {
+        didSet {
+            titleTextField.delegate = self
+        }
+    }
     @IBOutlet weak var reasonToReadTextView: UITextView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     
     var bookController: BookController?
@@ -21,12 +26,9 @@ class BookDetailViewController: UIViewController {
     //MARK: - IBActions
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        guard let bookController = bookController else { return }
-        guard let title = titleTextField.text,
-              let reasonToRead = reasonToReadTextView.text else {
-            print("We should inform the user that a title and reason are needed")
-            return
-        }
+        guard let bookController = bookController,
+              let title = titleTextField.text,
+              let reasonToRead = reasonToReadTextView.text else { return }
         
         if let book = book {
             bookController.update(book: book, title: title, reasonToRead: reasonToRead)
@@ -46,6 +48,12 @@ class BookDetailViewController: UIViewController {
             reasonToReadTextView.text = book.reasonToRead
             navigationItem.title = book.title
         }
+        updateSaveButton()
+    }
+    
+    func updateSaveButton() {
+        guard let titleText = titleTextField.text else { return }
+        saveButton.isEnabled = !titleText.isEmpty
     }
     
     
@@ -55,5 +63,10 @@ class BookDetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
     }
+}
 
+extension BookDetailViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        updateSaveButton()
+    }
 }

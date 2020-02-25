@@ -13,6 +13,7 @@ private let fileName = "ReadingList.plist"
 class BookController {
     
     private(set) var books = [Book]()
+    
     var readBooks: [Book] {
         let readBooks = self.books.filter{ $0.hasBeenRead }
         return readBooks.sorted{ $0.title < $1.title }

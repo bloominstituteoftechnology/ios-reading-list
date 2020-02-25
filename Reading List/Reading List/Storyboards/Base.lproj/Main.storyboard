@@ -122,6 +122,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="reasonToReadTextView" destination="L7e-lp-daM" id="v3c-cb-Bbx"/>
+                        <outlet property="saveButton" destination="UUw-DA-KJy" id="dkO-bI-sbU"/>
                         <outlet property="titleTextField" destination="w0s-vR-vVv" id="hI7-Fa-hUK"/>
                     </connections>
                 </viewController>
