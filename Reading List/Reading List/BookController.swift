@@ -8,16 +8,18 @@
 
 import Foundation
 
-class BookController: Codable {
+class BookController {
     var books: [Book] = []
     
 
 
     var readingListURL: URL? {
-        guard let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-        return nil
-        }
-        return docDir.appendingPathComponent("ReadingList.plist")
+    let fileManager = FileManager.default
+    guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+    
+    let listURL = documentsDir.appendingPathComponent("ReadingList.plist")
+    
+    return listURL
     }
 
     func saveToPersistentStore() {
@@ -36,11 +38,12 @@ class BookController: Codable {
         
     func loadFromPersistentStore() {
         do{
-            guard let fileURL = readingListURL else { return }
+            if let fileURL = readingListURL {
             let data = try Data(contentsOf: fileURL)
             let decoder = PropertyListDecoder()
             let decodedBooks = try decoder.decode([Book].self, from: data)
             books = decodedBooks
+            }
         } catch {
             print(error)
         }
