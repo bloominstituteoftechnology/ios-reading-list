@@ -53,7 +53,7 @@
                                 <connections>
                                     <outlet property="readButton" destination="07r-Ut-Ki8" id="mOm-LJ-Sob"/>
                                     <outlet property="titleLabel" destination="rGZ-qW-WqH" id="S2l-Gp-3K4"/>
-                                    <segue destination="kkD-JA-6jd" kind="show" identifier="AddBookShowSegue" id="DUT-Ml-xS8"/>
+                                    <segue destination="kkD-JA-6jd" kind="show" identifier="EditBookShowSegue" id="DUT-Ml-xS8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -65,7 +65,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="ZI9-PM-M7l">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="i6c-IN-Qd0">
                             <connections>
-                                <segue destination="kkD-JA-6jd" kind="show" identifier="EditBookShowSegue" id="zoj-KK-Out"/>
+                                <segue destination="kkD-JA-6jd" kind="show" identifier="AddBookShowSegue" id="zoj-KK-Out"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -146,6 +146,6 @@
         <image name="checked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zoj-KK-Out"/>
+        <segue reference="DUT-Ml-xS8"/>
     </inferredMetricsTieBreakers>
 </document>

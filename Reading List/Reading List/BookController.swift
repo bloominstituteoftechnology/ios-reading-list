@@ -11,6 +11,10 @@ import Foundation
 class BookController {
     var books: [Book] = []
     
+    init() {
+        loadFromPersistentStore()
+    }
+    
     var readBooks: [Book] {
         let read = books.filter { return $0.hasBeenRead }
         return read
@@ -49,7 +53,7 @@ class BookController {
     }
         
     func loadFromPersistentStore() {
-        do{
+        do {
             if let fileURL = readingListURL {
             let data = try Data(contentsOf: fileURL)
             let decoder = PropertyListDecoder()

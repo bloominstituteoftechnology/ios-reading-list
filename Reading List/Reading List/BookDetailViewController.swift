@@ -25,6 +25,7 @@ class BookDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         
         guard let title = titleTextField.text,
@@ -35,7 +36,7 @@ class BookDetailViewController: UIViewController {
                    bookController?.update(book: book, with: title, and: reasonToRead)
         } else {
                    bookController?.createBook(title: title, reasonToRead: reasonToRead)
-    }
+        }
     
     if let parent = navigationController?.viewControllers.first as? ReadingListTableViewController {
                parent.tableView.reloadData()
