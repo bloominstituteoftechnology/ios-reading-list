@@ -10,6 +10,37 @@ import Foundation
 
 class BookController {
     var books: [Book] = []
+
+    // This initilizer is treated as the viewDidLoad of the model controller.
+    init() {
+        loadFromPersistentStore()
+    }
+    
+    // MARK: - CRUD
+    
+    // Create
+    func create(title: String, reasonToRead: String) {
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        books.append(book)
+        saveToPersistentStore()
+    }
+    
+    // Read. Not the model
+    
+    // Update
+    func toogleHasBeenRead(book: Book) {
+        book.hasBeenRead = !book.hasBeenRead
+    }
+    
+    func reasonToRead(book: Book, title: String, reasonToRead: String) {
+        book.title = title
+        book.reasonToRead = title 
+    }
+    
+    // Delete
+    func delete(book: Book) {
+        //FIXME: delete book from books
+    }
     
     // MARK: - Persitance
     var readingListURL: URL? {
