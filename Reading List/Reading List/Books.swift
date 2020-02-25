@@ -18,4 +18,8 @@ struct Book: Equatable, Codable {
            self.reasonToRead = reasonToRead
            self.hasBeenRead = false
     }
+    
+    static func == (lhs: Book, rhs: Book) -> Bool {
+    return lhs.title == rhs.title && lhs.reasonToRead == rhs.reasonToRead && lhs.hasBeenRead == rhs.hasBeenRead
+    }
 }
