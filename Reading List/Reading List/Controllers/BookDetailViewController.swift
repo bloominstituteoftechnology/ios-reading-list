@@ -8,10 +8,41 @@
 
 import UIKit
 
-class BookDetailViewController: UIViewController {
+class BookDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reasonsTextView: UITextView!
+    @IBOutlet weak var bookCover: UIImageView!
+    
+
+    @IBAction func coverTapped(_ sender: Any) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+            
+        }
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+//        let originalImage = info["originalImage"]
+//
+//        if let image = originalImage as? UIImage {
+//            bookCover.image = image
+//        }
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            bookCover.image = pickedImage
+            
+        }
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let title = titleTextField.text,
         let reasons = reasonsTextView.text,
@@ -29,14 +60,16 @@ class BookDetailViewController: UIViewController {
         
     }
     
+    var imagePicker = UIImagePickerController()
+    
     var bookController: BookController?
     var book: Book?
     var delegate: DetailViewDelegate?
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         updateViews()
+        imagePicker.delegate = self
         // Do any additional setup after loading the view.
     }
     
