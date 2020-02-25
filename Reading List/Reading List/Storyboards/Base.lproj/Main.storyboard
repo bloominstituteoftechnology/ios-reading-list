@@ -115,7 +115,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QyT-eq-eL2"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add a New Book" id="dvM-t5-zgI"/>
+                    <navigationItem key="navigationItem" title="Add a New Book" id="dvM-t5-zgI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xrL-o5-FCw"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvX-Qk-dL0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
