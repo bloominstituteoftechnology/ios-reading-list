@@ -13,15 +13,21 @@ class BookController {
     var books: [Book] = []
     
     func createBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
-        var book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
-        saveToPersistentStore()
-    }
-    func deleteBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
-        let deletedBook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: true)
-//        books.filter { $0 != deletedBook }
         
-        books.removeAll { $0 == deletedBook }
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        
+        books.append(book)
+        
     }
+    
+    func deleteBook(for book: Book) {
+        if let i =  books.firstIndex(of: book) {
+            books.remove(at: i)
+        }
+        
+        saveToPersistentStore()
+        
+        }
     
     func updateHasBeenRead(for book: Book) {
         var hasBeenRead = false
@@ -31,14 +37,24 @@ class BookController {
         default:
             hasBeenRead.toggle()
         }
-        
+        saveToPersistentStore()
+     }
+    
         func updateBookInfo(with title: String, reasonToRead: String, hasBeenRead: Bool) {
-//            let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
-            
-            
+            let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+            //CODE NEEDED: to edit book's title and/or reasonToRead properties
+            saveToPersistentStore()
         }
         
-    }
+        var readBooks: [Book] {
+           return books.filter { $0 .hasBeenRead == true }
+        }
+    
+        var unreadBooks: [Book] {
+           return books.filter { $0 .hasBeenRead == false }
+        }
+        
+
     
     
     // MARK: - Persistence
