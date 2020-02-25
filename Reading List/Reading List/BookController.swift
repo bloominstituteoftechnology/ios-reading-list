@@ -16,6 +16,14 @@ class BookController {
         loadFromPersistentStore()
     }
     
+    var readBooks: [Book] {
+        return books.filter { $0.hasBeenRead == true }
+    }
+
+    var unreadBooks: [Book] {
+        return books.filter { $0.hasBeenRead == false }
+    }
+    
     // MARK: - CRUD
     
     // Create
@@ -28,13 +36,17 @@ class BookController {
     // Read. Not the model
     
     // Update
-    func toogleHasBeenRead(book: Book) {
+    func toogleHasBeenRead(book b: Book) {
+        var book = b
         book.hasBeenRead = !book.hasBeenRead
+        // FIXME: Update member variable and view
     }
     
-    func reasonToRead(book: Book, title: String, reasonToRead: String) {
+    func reasonToRead(book b: Book, title: String, reasonToRead: String) {
+        var book = b
         book.title = title
-        book.reasonToRead = title 
+        book.reasonToRead = title
+        //FIXME: Update member variable and view
     }
     
     // Delete
