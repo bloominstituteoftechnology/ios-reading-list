@@ -8,8 +8,8 @@
 
 import Foundation
 
-class BookController: Codable {
-    var books: [Books] = []
+class BookController {
+    var books: [Book] = []
     
     var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -19,5 +19,21 @@ class BookController: Codable {
         let booksUrl = documentsDir?.appendingPathComponent("books.plist")
         
         return booksUrl
+    }
+    
+    func saveToPersistentStore() {
+        // Convert our book Property List
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let booksData = try encoder.encode(books) //FIXME: 
+            
+            guard let booksUrl = readingListURL else { return }
+            
+            try booksData.write(to: booksUrl)
+            
+        } catch {
+            print("Unable to save books to plist: \(error)")
+        }
     }
 }
