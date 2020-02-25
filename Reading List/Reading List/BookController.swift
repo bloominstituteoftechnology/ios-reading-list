@@ -12,6 +12,37 @@ class BookController {
     
     var books: [Book] = []
     
+    func createBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
+        var book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        saveToPersistentStore()
+    }
+    func deleteBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
+        let deletedBook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: true)
+//        books.filter { $0 != deletedBook }
+        
+        books.removeAll { $0 == deletedBook }
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        var hasBeenRead = false
+        switch hasBeenRead{
+        case true:
+            hasBeenRead.toggle()
+        default:
+            hasBeenRead.toggle()
+        }
+        
+        func updateBookInfo(with title: String, reasonToRead: String, hasBeenRead: Bool) {
+//            let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+            
+            
+        }
+        
+    }
+    
+    
+    // MARK: - Persistence
+    
     var readingListURL: URL? {
         let fileManager = FileManager.default
         
@@ -23,7 +54,6 @@ class BookController {
     }
     
     func saveToPersistentStore() {
-           // Convert Stars into a Property List
            
            let encoder = PropertyListEncoder()
            
@@ -31,15 +61,34 @@ class BookController {
            
                let booksData = try encoder.encode(books)
                
-               guard let starsURL = persistentFileURL else { return }
+               guard let booksURL = readingListURL else { return }
                
-              try starsPlist.write(to: starsURL)
+              try booksData.write(to: booksURL)
                
            } catch {
-               // The catch statement gets called if the function(s) that you call "try" on fails.
-               print("Unable to save stars to plist: \(error)")
+               
+               print("Unable to save books to plist: \(error)")
                
            }
-           
        }
+    
+    func loadFromPersistentStore() {
+        
+        guard let booksURL = readingListURL else { return }
+        
+        let decoder = PropertyListDecoder()
+        
+        do {
+            
+            let bookListData = try Data(contentsOf: booksURL)
+            
+            let decodedBooks = try decoder.decode([Book].self, from: bookListData)
+            
+            self.books = decodedBooks
+            
+        } catch {
+            print("Error decoding books: \(error)")
+            
+        }
+    }
 }
