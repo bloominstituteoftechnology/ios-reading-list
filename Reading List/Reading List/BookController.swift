@@ -10,8 +10,12 @@ import Foundation
 
 
 class BookController {
-    var books: [Book] = []
     
+    init() {
+        self.loadFromPersistentStore()
+    }
+    
+    var books: [Book] = []
     
     var readBooks: [Book] {
         return books.filter{$0.hasBeenRead == true}
@@ -28,7 +32,6 @@ class BookController {
         books.append(newBook)
         
         saveToPersistentStore()
-        
     }
     
     func delete(book: Book) {

@@ -12,6 +12,14 @@ class ReadingListTableViewController: UITableViewController {
 
     let bookController = BookController()
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,12 +46,12 @@ class ReadingListTableViewController: UITableViewController {
         }
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
         
         let book = bookFor(indexPath: indexPath)
         cell.book = book
+        cell.delegate = self
 
         return cell
     }
@@ -52,14 +60,20 @@ class ReadingListTableViewController: UITableViewController {
         if indexPath.section == 0 {
             return bookController.readBooks[indexPath.row]
         } else {
-            return bookController.readBooks[indexPath.row]
+            return bookController.unReadBooks[indexPath.row]
         }
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
+            if bookController.readBooks.count == 0 {
+                return ""
+            }
             return "Read Books"
         } else {
+            if bookController.unReadBooks.count == 0 {
+                return ""
+            }
             return "Unread Books"
         }
     }

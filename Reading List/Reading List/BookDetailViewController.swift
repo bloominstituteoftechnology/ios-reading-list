@@ -31,6 +31,7 @@ class BookDetailViewController: UIViewController {
         if book == nil {
             guard let title = titleTextField.text, !title.isEmpty, let reason = reasonToReadTextView.text, !reason.isEmpty else { return }
             bookController?.create(title: title, reasonToRead: reason)
+            print("test")
             
         } else if book != nil {
             guard let book = book else {return}
