@@ -9,10 +9,11 @@
 import Foundation
 
 class BookController {
-    
     var books: [Book] = []
     
-    
+    init() {
+        loadFromPersistentStore()
+    }
     
     func createBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
@@ -23,37 +24,45 @@ class BookController {
     
     // "Delete" method
     func deleteBook(book: Book) {
-        
-        //firstindexof
-        
-        books.remove(at: 0)
+        if let index = books.firstIndex(of: book) {
+            books.remove(at: index)
+            saveToPersistentStore()
+        }
     }
     
     // Two "Update" methods
     func updateHasBeenRead(for book: Book) {
-        
-        hasBeenRead.toggle()
-        // indexPath
-        // .toggle (for Bool)
-        
+        if let index = books.firstIndex(of: book) {
+            books[index].hasBeenRead.toggle()
+            saveToPersistentStore()
+        }
     }
     
     
-    func updateTitle(for book: Book) {
-        
+    func updateTitle(for book: Book, with title: String, and reasonToRead: String?) {
+        if let index = books.firstIndex(of: book) {
+            var book = books[index]
+            book.title = title
+            if let reasonToRead = reasonToRead {
+                book.reasonToRead = reasonToRead
+            }
+            saveToPersistentStore()
+        }
     }
     
     // computed property
     
     var readBooks: [Book] {
-        
-        
+        let read = books.filter { return $0.hasBeenRead }
+        return read
     }
     
     var unreadBooks: [Book] {
-        
-        
+        let unread = books.filter { return !$0.hasBeenRead }
+        return unread
     }
+    
+    
     // MARK: - Persistence
     
     var readingListURL: URL? {
@@ -62,7 +71,7 @@ class BookController {
         
         let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
         
-        let booksURL = documentsDir?.appendingPathComponent("books.plist")
+        let booksURL = documentsDir?.appendingPathComponent("ReadingList.plist")
         
         return booksURL
     }

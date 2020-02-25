@@ -8,8 +8,11 @@
 
 import UIKit
 
+
 class BookTableViewCell: UITableViewCell {
 
+    weak var delegate: BookTableViewCellDelegate?
+    
     @IBOutlet weak var readBooks: UILabel!
     
     @IBOutlet weak var checkedBox: UIButton!
@@ -30,6 +33,8 @@ class BookTableViewCell: UITableViewCell {
     }
     
     var book: Book?
+    
+
     
     
     

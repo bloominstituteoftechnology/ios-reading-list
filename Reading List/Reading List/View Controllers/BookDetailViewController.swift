@@ -25,6 +25,16 @@ class BookDetailViewController: UIViewController {
 
     @IBAction func saveButton(_ sender: Any) {
     }
+    
+    var bookController: BookController?
+    
+    var book: Book?
+    
+   func updateViews() {
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 

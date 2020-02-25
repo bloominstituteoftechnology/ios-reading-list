@@ -64,19 +64,67 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
+				FE08A6BB2405DB45009FEAED /* Storyboards */,
+				FE08A6BC2405DB56009FEAED /* View Controllers */,
+				FE08A6BE2405DB76009FEAED /* View */,
+				FE08A6BD2405DB67009FEAED /* Model */,
+				FE08A6BF2405DB9D009FEAED /* Model Controller */,
+				FE08A6BA2405DB2A009FEAED /* Resources */,
+			);
+			path = "Reading List";
+			sourceTree = "<group>";
+		};
+		FE08A6BA2405DB2A009FEAED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
-				4669416C2110E22B00E7FF73 /* Main.storyboard */,
-				FE08A6B22405D56E009FEAED /* ReadingListTableViewController.swift */,
-				FE08A6B42405D58F009FEAED /* BookTableViewCell.swift */,
-				FE08A6B82405DA25009FEAED /* BookTableViewCellDelegate.swift */,
-				FE08A6B62405D8D4009FEAED /* BookDetailViewController.swift */,
-				FE08A6AE2405BD19009FEAED /* Book.swift */,
-				FE08A6B02405C071009FEAED /* BookController.swift */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
 				466941742110E22B00E7FF73 /* Info.plist */,
 			);
-			path = "Reading List";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FE08A6BB2405DB45009FEAED /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4669416C2110E22B00E7FF73 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FE08A6BC2405DB56009FEAED /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FE08A6B22405D56E009FEAED /* ReadingListTableViewController.swift */,
+				FE08A6B62405D8D4009FEAED /* BookDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FE08A6BD2405DB67009FEAED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE08A6AE2405BD19009FEAED /* Book.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE08A6BE2405DB76009FEAED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE08A6B42405D58F009FEAED /* BookTableViewCell.swift */,
+				FE08A6B82405DA25009FEAED /* BookTableViewCellDelegate.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FE08A6BF2405DB9D009FEAED /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FE08A6B02405C071009FEAED /* BookController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
