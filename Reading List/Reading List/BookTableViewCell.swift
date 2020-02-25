@@ -9,13 +9,16 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-
+    
+    var delegate: BookTableViewCellDelegate?
+    
     var book: Book?
 
     @IBOutlet weak var labelTextField: UILabel!
     @IBOutlet weak var readButton: UIButton!
     
     @IBAction func hasBeenReadButton(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     func updateViews() {

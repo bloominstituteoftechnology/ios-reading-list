@@ -16,6 +16,7 @@
 		929959A32405D65800605B33 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929959A22405D65800605B33 /* ReadingListTableViewController.swift */; };
 		929959A52405D67E00605B33 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929959A42405D67E00605B33 /* BookTableViewCell.swift */; };
 		929959A92405DDFC00605B33 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929959A82405DDFC00605B33 /* BookDetailViewController.swift */; };
+		929959AB2405E1D100605B33 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929959AA2405E1D100605B33 /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		929959A22405D65800605B33 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		929959A42405D67E00605B33 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		929959A82405DDFC00605B33 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		929959AA2405E1D100605B33 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				928769AA2405C2AB008D29D2 /* BookController.swift */,
 				929959A82405DDFC00605B33 /* BookDetailViewController.swift */,
 				929959A42405D67E00605B33 /* BookTableViewCell.swift */,
+				929959AA2405E1D100605B33 /* BookTableViewCellDelegate.swift */,
 				929959A22405D65800605B33 /* ReadingListTableViewController.swift */,
 				929959A62405D6A800605B33 /* Resources */,
 				929959A72405D6E700605B33 /* Storyboards */,
@@ -169,6 +172,7 @@
 				928769AB2405C2AB008D29D2 /* BookController.swift in Sources */,
 				929959A92405DDFC00605B33 /* BookDetailViewController.swift in Sources */,
 				929959A52405D67E00605B33 /* BookTableViewCell.swift in Sources */,
+				929959AB2405E1D100605B33 /* BookTableViewCellDelegate.swift in Sources */,
 				928769A92405C142008D29D2 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
