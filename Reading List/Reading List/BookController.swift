@@ -10,4 +10,12 @@ import Foundation
 
 class BookController {
     var books: [Book] = []
+    
+}
+
+var readingListURL: URL? {
+    guard let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+    return nil
+    }
+    return docDir.appendingPathComponent("ReadingList.plist")
 }
