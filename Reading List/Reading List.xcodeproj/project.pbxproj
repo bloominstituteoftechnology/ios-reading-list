@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		25837BD12405B95500110B14 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25837BD02405B95500110B14 /* ReadingListTableViewController.swift */; };
 		25837BD32405B97900110B14 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25837BD22405B97900110B14 /* BookTableViewCell.swift */; };
+		25837BD52405C0B700110B14 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25837BD42405C0B700110B14 /* BookDetailViewController.swift */; };
 		25E17823240565EE00843756 /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E17822240565EE00843756 /* Books.swift */; };
 		25E178252405668A00843756 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E178242405668A00843756 /* BookController.swift */; };
 		466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466941682110E22A00E7FF73 /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		25837BD02405B95500110B14 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		25837BD22405B97900110B14 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		25837BD42405C0B700110B14 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		25E17822240565EE00843756 /* Books.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
 		25E178242405668A00843756 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		466941652110E22A00E7FF73 /* Reading List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,7 @@
 				466941742110E22B00E7FF73 /* Info.plist */,
 				25837BD02405B95500110B14 /* ReadingListTableViewController.swift */,
 				25837BD22405B97900110B14 /* BookTableViewCell.swift */,
+				25837BD42405C0B700110B14 /* BookDetailViewController.swift */,
 			);
 			path = "Reading List";
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				25837BD12405B95500110B14 /* ReadingListTableViewController.swift in Sources */,
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
 				25E178252405668A00843756 /* BookController.swift in Sources */,
+				25837BD52405C0B700110B14 /* BookDetailViewController.swift in Sources */,
 				25837BD32405B97900110B14 /* BookTableViewCell.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 			);
