@@ -14,15 +14,11 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var reasonToReadTextView: UITextView!
     
     var bookController: BookController?
-    var book: Book? {
-        didSet {
-            updateViews()
-        }
-    }
+    var book: Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
         // Do any additional setup after loading the view.
     }
     

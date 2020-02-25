@@ -30,7 +30,7 @@ class BookTableViewCell: UITableViewCell {
         
         bookTitleLabel.text = book.title
         if book.hasBeenRead {
-            hasBeenReadButton.setImage(UIImage(named: "checked"), for: .selected)
+            hasBeenReadButton.setImage(UIImage(named: "checked"), for: .normal)
         } else {
             hasBeenReadButton.setImage(UIImage(named: "unchecked"), for: .normal)
         }
