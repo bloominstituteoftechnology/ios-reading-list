@@ -14,22 +14,25 @@ class BookController: Codable {
     
     var readBooks: [Book] {
         get {
-            return books.filter { book in book.hasBeenRead }
-        }
-    }
-    
+            let read: [Book] = books.filter { book in book.hasBeenRead}
+            let sorted: [Book] = read.sorted {book1, book2 in
+                book1.title.lowercased() < book2.title.lowercased()
+            }
+            
+            return sorted
+        }}
+
     var unreadBooks: [Book] {
         get {
-            return books.filter { book in !book.hasBeenRead }
-        }
-    }
+            let unRead: [Book] = books.filter { book in !book.hasBeenRead}
+            let sorted: [Book] = unRead.sorted {book1, book2 in
+                book1.title.lowercased() < book2.title.lowercased()
+            }
+            
+            return sorted
+        }}
     
-    
-    
-    
-    
-    
-    
+
     var readingListURL: URL? {
             get {
     //            guard FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: .none, create: false) is String else {return nil}
@@ -41,6 +44,7 @@ class BookController: Codable {
                 
                 return plistFile
             } }
+    
     // PropertyListEncoder
     
     func saveToPersistentStore() {
