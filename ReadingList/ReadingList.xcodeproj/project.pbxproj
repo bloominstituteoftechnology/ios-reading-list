@@ -17,6 +17,7 @@
 		BBD881DA2405D8E900203B09 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD881D92405D8E900203B09 /* ReadingListTableViewController.swift */; };
 		BBD881DE2405D91300203B09 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD881DD2405D91300203B09 /* BookDetailViewController.swift */; };
 		BBD881E02405DA0F00203B09 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD881DF2405DA0F00203B09 /* BookTableViewCell.swift */; };
+		BBD881E22405E57E00203B09 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD881E12405E57E00203B09 /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BBD881D92405D8E900203B09 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		BBD881DD2405D91300203B09 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		BBD881DF2405DA0F00203B09 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		BBD881E12405E57E00203B09 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				BBD881D72405D16800203B09 /* BookController.swift */,
+				BBD881E12405E57E00203B09 /* BookTableViewCellDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				BBD881BD2405D00E00203B09 /* AppDelegate.swift in Sources */,
 				BBD881E02405DA0F00203B09 /* BookTableViewCell.swift in Sources */,
 				BBD881DA2405D8E900203B09 /* ReadingListTableViewController.swift in Sources */,
+				BBD881E22405E57E00203B09 /* BookTableViewCellDelegate.swift in Sources */,
 				BBD881BF2405D00E00203B09 /* SceneDelegate.swift in Sources */,
 				BBD881DE2405D91300203B09 /* BookDetailViewController.swift in Sources */,
 				BBD881D82405D16800203B09 /* BookController.swift in Sources */,

@@ -17,17 +17,34 @@ class BookTableViewCell: UITableViewCell {
     
     // MARK: - IBActions
     @IBAction func hasBeenReadButtonTapped(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
+        updateViews()
     }
     
     // MARK: - Properties
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
     let checkedImage = UIImage(named: "checked")!
     let uncheckedImage = UIImage(named: "unchecked")!
+    var delegate: BookTableViewCellDelegate?
     
     func updateViews() {
         guard let book = book else { return }
         titleLabel.text = book.title
+        let image = book.hasBeenRead ? checkedImage : uncheckedImage
+        hasBeenReadButton.setImage(image, for: .normal)
         
     }
 
+}
+
+extension BookTableViewCell: BookTableViewCellDelegate {
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        book?.hasBeenRead.toggle()
+    }
+    
+    
 }
