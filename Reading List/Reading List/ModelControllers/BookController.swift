@@ -11,13 +11,21 @@ import Foundation
 private let fileName = "ReadingList.plist"
 
 class BookController {
+    
     private(set) var books = [Book]()
-    var readBooks: [Book] { self.books.filter{ $0.hasBeenRead } }
-    var unreadBooks: [Book] { self.books.filter{ !$0.hasBeenRead } }
+    var readBooks: [Book] {
+        let readBooks = self.books.filter{ $0.hasBeenRead }
+        return readBooks.sorted{ $0.title < $1.title }
+    }
+    var unreadBooks: [Book] {
+        let unreadBooks = self.books.filter{ !$0.hasBeenRead }
+        return unreadBooks.sorted{ $0.title < $1.title }
+    }
     
     init() {
         loadFromPersistentStore()
     }
+    
     
     //MARK: - CRUD
     
@@ -57,7 +65,6 @@ class BookController {
         books[index] = book
         saveToPersistentStore()
     }
-    
     
     
     //MARK: - Persistence

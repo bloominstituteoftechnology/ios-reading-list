@@ -44,8 +44,7 @@ class ReadingListTableViewController: UITableViewController {
         
         bookCell.book = bookFor(indexPath: indexPath)
         bookCell.delegate = self
-        // Configure the cell...
-
+        
         return bookCell
     }
 

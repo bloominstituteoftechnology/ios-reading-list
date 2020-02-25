@@ -23,10 +23,16 @@ class BookTableViewCell: UITableViewCell {
     
     weak var delegate: BookTableViewCellDelegate?
     
+    
+    //MARK: - IBActions
+    
     @IBAction func checkMarkToggled(_ sender: UIButton) {
         delegate?.toggleHasBeenRead(for: self)
         updateViews()
     }
+    
+    
+    //MARK: - Helper Functions
     
     func updateViews() {
         guard let book = book else { return }

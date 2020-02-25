@@ -17,6 +17,9 @@ class BookDetailViewController: UIViewController {
     var bookController: BookController?
     var book: Book?
     
+    
+    //MARK: - IBActions
+    
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let bookController = bookController else { return }
         guard let title = titleTextField.text,
@@ -34,6 +37,9 @@ class BookDetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    
+    //MARK: - Helper Functions
+    
     func updateViews() {
         if let book = book {
             titleTextField.text = book.title
@@ -41,6 +47,7 @@ class BookDetailViewController: UIViewController {
             navigationItem.title = book.title
         }
     }
+    
     
     //MARK: - View Lifecycle
     
