@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		13B15D362405B90E00C01669 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15D352405B90E00C01669 /* Book.swift */; };
 		13B15D382405BA2400C01669 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15D372405BA2400C01669 /* BookController.swift */; };
+		13B15D3A2405C5CA00C01669 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15D392405C5CA00C01669 /* ReadingListTableViewController.swift */; };
+		13B15D3C2405C5E100C01669 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15D3B2405C5E100C01669 /* BookTableViewCell.swift */; };
+		13B15D402405C70F00C01669 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B15D3F2405C70F00C01669 /* BookDetailViewController.swift */; };
 		466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466941682110E22A00E7FF73 /* AppDelegate.swift */; };
 		4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4669416A2110E22B00E7FF73 /* ViewController.swift */; };
 		4669416E2110E22B00E7FF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4669416C2110E22B00E7FF73 /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 /* Begin PBXFileReference section */
 		13B15D352405B90E00C01669 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		13B15D372405BA2400C01669 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		13B15D392405C5CA00C01669 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
+		13B15D3B2405C5E100C01669 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		13B15D3F2405C70F00C01669 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		466941652110E22A00E7FF73 /* Reading List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466941682110E22A00E7FF73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4669416A2110E22B00E7FF73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,11 +67,14 @@
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				4669416A2110E22B00E7FF73 /* ViewController.swift */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,
+				13B15D392405C5CA00C01669 /* ReadingListTableViewController.swift */,
+				13B15D3B2405C5E100C01669 /* BookTableViewCell.swift */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
 				466941742110E22B00E7FF73 /* Info.plist */,
 				13B15D352405B90E00C01669 /* Book.swift */,
 				13B15D372405BA2400C01669 /* BookController.swift */,
+				13B15D3F2405C70F00C01669 /* BookDetailViewController.swift */,
 			);
 			path = "Reading List";
 			sourceTree = "<group>";
@@ -142,8 +151,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
+				13B15D3A2405C5CA00C01669 /* ReadingListTableViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				13B15D382405BA2400C01669 /* BookController.swift in Sources */,
+				13B15D402405C70F00C01669 /* BookDetailViewController.swift in Sources */,
+				13B15D3C2405C5E100C01669 /* BookTableViewCell.swift in Sources */,
 				13B15D362405B90E00C01669 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
