@@ -17,24 +17,38 @@ class BookController {
     
     
     
-
-    
-    func createBook(title: String, reasonToRead: String) {
-        let book = Book(title: title, reasonToRead: reasonToRead)
-         books.append(book)
-    }
     func create(title: String, reasonToRead: String) {
-    let newBook = Book(title: title, reasonToRead: reasonToRead)
+        let newBook = Book(title: title, reasonToRead: reasonToRead)
+        books.append(newBook)
         saveToPersistentStore()
     }
+    
+    func delete(book: Book) {
+        books.removeAll()
+    }
+    
+    
+    func updateHasBeenRead(for book: Book) {
+        if book.hasBeenRead == true {
+            false
+        } else {
+            true
+        }
+    }
+
+    func editBook(title: String, reasonToRead: String) {
+    let editBook = Book(title: title, reasonToRead: reasonToRead)
+      
+    }
+    
     var readingListURL: URL? {
         let fileMananger = FileManager.default
         
         let documentsDir = fileMananger.urls(for: .documentDirectory, in: .userDomainMask).first
         
-         let booksURL = documentsDir?.appendingPathComponent("Readlist.plist") // Not working because of BOOK arrat
+        let booksURL = documentsDir?.appendingPathComponent("Readlist.plist") // Not working because of BOOK array
         
-         return booksURL
+        return booksURL
     }
     
     func saveToPersistentStore() {
@@ -50,19 +64,19 @@ class BookController {
             print("Unable to save into Plist \(error)")
         }
     }
+    
+    func loadFromPersistentStore() {
+        guard let booksURL = readingListURL else { return }
+        let decoder = PropertyListDecoder()
         
-        func loadFromPersistentStore() {
-            guard let booksURL = readingListURL else { return }
-            let decoder = PropertyListDecoder()
+        do {
+            let booksData = try Data(contentsOf: booksURL)
+            let books = try decoder.decode([Book].self, from: booksData)
+            self.books = books
             
-            do {
-                let booksData = try Data(contentsOf: booksURL)
-                let books = try decoder.decode([Book].self, from: booksData)
-                self.books = books
-                
-            } catch {
-                print("error decoding \(error)")
-            }
+        } catch {
+            print("error decoding \(error)")
         }
+    }
 }
 
