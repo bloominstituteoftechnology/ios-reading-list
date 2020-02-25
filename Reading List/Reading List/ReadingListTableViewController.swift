@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
-
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
     var bookController = BookController()
     
     override func viewDidLoad() {
@@ -20,6 +19,15 @@ class ReadingListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+
+    // MARK: - Delegate
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        // FIXME: Find cell and toggle value.
+        // HINT: Think about how to get an IndexPath using the cell parameter of the toggleHasBeenRead(for cell: ...). Once you have an IndexPath, you can get an instance of Book to pass into the update function.
+        print(cell)
+        
+        //reloadData()
     }
 
     // MARK: - Table view data source
@@ -55,6 +63,7 @@ class ReadingListTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.book = bookFor(indexPath: indexPath)
+        cell.delegate = self
         
         return cell
     }
@@ -67,17 +76,16 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            let bookToBeDeleted = bookFor(indexPath: indexPath)
+            bookController.delete(book: bookToBeDeleted)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.
