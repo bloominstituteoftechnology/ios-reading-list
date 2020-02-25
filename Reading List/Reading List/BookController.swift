@@ -14,6 +14,36 @@ class BookController {
     
     
     
+    func createBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        
+        books.append(book)
+        saveToPersistentStore()
+    }
+    
+    
+    func deleteBook(with title: String, reasonToRead: String, hasBeenRead: Bool) {
+        let deletebook = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        
+        
+        books.remove(at: 0)
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        
+        if hasBeenRead == false {
+        
+        }
+    }
+    
+    
+    func updateTitle(for book: Book) {
+        
+    }
+    
+    
+    
+    
     // MARK: - Persistence
     
     var readingListURL: URL? {
