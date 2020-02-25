@@ -36,6 +36,9 @@
                                                 <constraint firstAttribute="width" secondItem="mSB-bH-7BK" secondAttribute="height" multiplier="1:1" id="USK-xC-3LM"/>
                                             </constraints>
                                             <state key="normal" image="checked"/>
+                                            <connections>
+                                                <action selector="hasBeenReadButton:" destination="yUs-qI-HuI" eventType="touchUpInside" id="PWe-bK-bhr"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -47,6 +50,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="labelTextField" destination="wNd-rH-Me4" id="0L3-uy-Pf6"/>
+                                    <outlet property="readButton" destination="mSB-bH-7BK" id="C9W-we-1kB"/>
                                     <segue destination="gZ0-XP-f1K" kind="show" identifier="BookDetailSegue" id="usX-SO-wUR"/>
                                 </connections>
                             </tableViewCell>

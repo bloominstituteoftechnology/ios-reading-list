@@ -15,6 +15,12 @@ class BookTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    @IBOutlet weak var labelTextField: UILabel!
+    @IBOutlet weak var readButton: UIButton!
+    
+    @IBAction func hasBeenReadButton(_ sender: Any) {
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
