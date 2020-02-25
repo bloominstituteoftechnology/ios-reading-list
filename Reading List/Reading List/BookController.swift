@@ -11,15 +11,25 @@ import Foundation
 class BookController {
     var books: [Book] = []
     
+    var readBooks: [Book] {
+        let read = books.filter { return $0.hasBeenRead }
+        return read
+        
+    }
+    
+    var unreadBooks: [Book] {
+        let unread = books.filter { return !$0.hasBeenRead }
+        return unread
+    }
 
 
     var readingListURL: URL? {
-    let fileManager = FileManager.default
-    guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        let fileManager = FileManager.default
+        guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
     
-    let listURL = documentsDir.appendingPathComponent("ReadingList.plist")
+        let listURL = documentsDir.appendingPathComponent("ReadingList.plist")
     
-    return listURL
+        return listURL
         
         
     }
