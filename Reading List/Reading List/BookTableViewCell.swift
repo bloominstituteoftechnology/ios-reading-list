@@ -14,7 +14,9 @@ class BookTableViewCell: UITableViewCell {
     
     
     var book: Book? {
-        
+        didSet {
+            updateViews()
+        }
     }
     
     override func awakeFromNib() {
