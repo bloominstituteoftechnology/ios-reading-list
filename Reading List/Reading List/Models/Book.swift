@@ -11,7 +11,10 @@ import UIKit
 
 struct Book: Equatable, Codable {
     static func == (lhs: Book, rhs: Book) -> Bool {
-        return lhs.hasBeenRead == rhs.hasBeenRead && lhs.title == rhs.title && lhs.reasonToRead == rhs.reasonToRead
+        return
+            lhs.hasBeenRead ==  rhs.hasBeenRead &&
+            lhs.title ==        rhs.title &&
+            lhs.reasonToRead == rhs.reasonToRead
     }
     
     var title: String
