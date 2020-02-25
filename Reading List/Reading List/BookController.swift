@@ -20,6 +20,8 @@ class BookController {
     let listURL = documentsDir.appendingPathComponent("ReadingList.plist")
     
     return listURL
+        
+        
     }
 
     func saveToPersistentStore() {
@@ -48,4 +50,38 @@ class BookController {
             print(error)
         }
     }
+    
+    //MARK: - Step 6
+    
+    func createBook(title: String, reasonToRead: String) {
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        books.append(book)
+        saveToPersistentStore()
+    }
+    
+    func deletedBook(book: Book) {
+        if let index = books.firstIndex(of: book) {
+            books.remove(at: index)
+            saveToPersistentStore()
+        }
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        if let index = books.firstIndex(of: book) {
+            books[index].hasBeenRead.toggle()
+            saveToPersistentStore()
+        }
+    }
+    
+    func update(book: Book, with title: String, and reasonToRead: String?) {
+        if let index = books.firstIndex(of: book) {
+            var book = books[index]
+            book.title = title
+            if let reasonToRead = reasonToRead {
+                book.reasonToRead = reasonToRead
+            }
+            saveToPersistentStore()
+        }
+    }
+    
 }
