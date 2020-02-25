@@ -36,10 +36,13 @@ class BookController: Codable {
         
     func loadFromPersistentStore() {
         do{
-            let fileURL = readingListURL
+            guard let fileURL = readingListURL else { return }
             let data = try Data(contentsOf: fileURL)
             let decoder = PropertyListDecoder()
             let decodedBooks = try decoder.decode([Book].self, from: data)
+            books = decodedBooks
+        } catch {
+            print(error)
         }
     }
 }
