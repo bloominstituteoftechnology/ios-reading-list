@@ -95,6 +95,15 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		151172432405EF790014F5B1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4669416C2110E22B00E7FF73 /* Main.storyboard */,
+				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
@@ -114,13 +123,12 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
-				4669416C2110E22B00E7FF73 /* Main.storyboard */,
+				151172432405EF790014F5B1 /* Storyboards */,
 				1511723C2405EBAA0014F5B1 /* View Controllers */,
 				1511723F2405EBD80014F5B1 /* Table View Cells */,
 				151172422405EE2A0014F5B1 /* Delegate */,
 				1511723E2405EBC70014F5B1 /* Model */,
 				1511723D2405EBBD0014F5B1 /* Model Controllers */,
-				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
 				466941742110E22B00E7FF73 /* Info.plist */,
 				151172312405CA4F0014F5B1 /* Resources */,
 			);
