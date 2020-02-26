@@ -9,6 +9,7 @@
 import Foundation
 
 class BookController {
+    // MARK: - PROPERTIES
     var books: [Book] = []
     var readingListURL: URL? {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -16,9 +17,27 @@ class BookController {
         let listURL = documentsDirectory.appendingPathComponent("ReadingList.plist")
         return listURL
     }
+    var readBooks: [Book] {
+        var booksRead: [Book] = []
+        for book in books {
+            if book.hasBeenRead == true {
+                booksRead.append(book)
+            }
+        }
+        return booksRead
+    }
+    var unreadBooks: [Book] {
+        var booksNotRead: [Book] = []
+        for book in books {
+            if book.hasBeenRead == false {
+                booksNotRead.append(book)
+            }
+        }
+        return booksNotRead
+    }
     
     init() {
-        // FIXME: - what goes here?
+        loadFromPersistentStore()
     }
     
     // MARK: - SAVE BOOKS
@@ -47,7 +66,7 @@ class BookController {
         }
     }
     
-    // MARK: - CREATE BOOKS
+    // MARK: - CREATE / ADD BOOKS
     func create(title: String, reasonToRead: String) {
         let newBook = Book(title: title, reasonToRead: reasonToRead)
         books.append(newBook)
@@ -59,6 +78,27 @@ class BookController {
         if let bookIndex = books.firstIndex(of: book) {
             books.remove(at: bookIndex)
         }
-        books.remove(at: <#T##Int#>)
     }
+    
+    // MARK: - UPDATE / EDIT BOOKS
+    func updateHasBeenRead(for book: Book) {
+        if let index = books.firstIndex(of: book) {
+            books[index].hasBeenRead.toggle()
+            saveToPersistentStore()
+        }
+    }
+    
+    func updateText(for book: Book, title: String?, reasonToRead: String?) {
+        if let index = books.firstIndex(of: book) {
+            if let titleUnwrap = title {
+                books[index].title = titleUnwrap
+            }
+            if let reasonUnwrap = reasonToRead {
+                books[index].reasonToRead = reasonUnwrap
+            }
+        }
+    }
+    
+    
+    
 }
