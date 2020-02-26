@@ -18,7 +18,7 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
         // Do any additional setup after loading the view.
     }
     
@@ -28,12 +28,18 @@ class BookDetailViewController: UIViewController {
     
     var bookController: BookController?
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
     
+
+
    func updateViews() {
-        
-    }
-    
+       bookTitleTextField.text = book?.title
+       reasonToReadTextView.text = book?.reasonToRead
+       
+   }
     
     /*
     // MARK: - Navigation
@@ -45,4 +51,5 @@ class BookDetailViewController: UIViewController {
     }
     */
 
+}
 }
