@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F6A36D72405C7FD00C8BAAE /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A36D62405C7FD00C8BAAE /* Book.swift */; };
 		3F6A36DA2405CA3900C8BAAE /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A36D92405CA3900C8BAAE /* BookController.swift */; };
-		3F6A36DD24060E0D00C8BAAE /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A36DC24060E0D00C8BAAE /* BookTableViewController.swift */; };
-		3F6A36DF24060E2400C8BAAE /* NewBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A36DE24060E2400C8BAAE /* NewBookTableViewCell.swift */; };
+		3F6A36E124060EAE00C8BAAE /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A36E024060EAE00C8BAAE /* ReadingListTableViewController.swift */; };
+		3F6A36E324060EE500C8BAAE /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A36E224060EE500C8BAAE /* BookTableViewCell.swift */; };
 		466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466941682110E22A00E7FF73 /* AppDelegate.swift */; };
 		4669416E2110E22B00E7FF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4669416C2110E22B00E7FF73 /* Main.storyboard */; };
 		466941702110E22B00E7FF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4669416F2110E22B00E7FF73 /* Assets.xcassets */; };
@@ -20,8 +20,8 @@
 /* Begin PBXFileReference section */
 		3F6A36D62405C7FD00C8BAAE /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		3F6A36D92405CA3900C8BAAE /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
-		3F6A36DC24060E0D00C8BAAE /* BookTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
-		3F6A36DE24060E2400C8BAAE /* NewBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookTableViewCell.swift; sourceTree = "<group>"; };
+		3F6A36E024060EAE00C8BAAE /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
+		3F6A36E224060EE500C8BAAE /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		466941652110E22A00E7FF73 /* Reading List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reading List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		466941682110E22A00E7FF73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4669416D2110E22B00E7FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +57,15 @@
 			path = "Model Controller";
 			sourceTree = "<group>";
 		};
+		3F6A36E42406101A00C8BAAE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F6A36E024060EAE00C8BAAE /* ReadingListTableViewController.swift */,
+				3F6A36E224060EE500C8BAAE /* BookTableViewCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
@@ -80,8 +89,7 @@
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				3F6A36DB2405CA4400C8BAAE /* Model Controller */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,
-				3F6A36DC24060E0D00C8BAAE /* BookTableViewController.swift */,
-				3F6A36DE24060E2400C8BAAE /* NewBookTableViewCell.swift */,
+				3F6A36E42406101A00C8BAAE /* ViewControllers */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
 				466941742110E22B00E7FF73 /* Info.plist */,
@@ -162,9 +170,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
+				3F6A36E124060EAE00C8BAAE /* ReadingListTableViewController.swift in Sources */,
 				3F6A36DA2405CA3900C8BAAE /* BookController.swift in Sources */,
-				3F6A36DF24060E2400C8BAAE /* NewBookTableViewCell.swift in Sources */,
-				3F6A36DD24060E0D00C8BAAE /* BookTableViewController.swift in Sources */,
+				3F6A36E324060EE500C8BAAE /* BookTableViewCell.swift in Sources */,
 				3F6A36D72405C7FD00C8BAAE /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Reading List Table View Controller-->
         <scene sceneID="VhM-oY-FnN">
             <objects>
-                <tableViewController id="lAC-DU-mAV" sceneMemberID="viewController">
+                <tableViewController id="lAC-DU-mAV" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KsX-En-zqY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="je6-QC-vMN">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="je6-QC-vMN" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="je6-QC-vMN" id="TWb-HT-b88">
@@ -39,12 +39,17 @@
                                                         <constraint firstAttribute="width" secondItem="Col-rP-Ddz" secondAttribute="height" multiplier="1:1" id="CkJ-JY-bdI"/>
                                                     </constraints>
                                                     <state key="normal" image="checked"/>
+                                                    <connections>
+                                                        <action selector="buttonInAction:" destination="je6-QC-vMN" eventType="touchUpInside" id="UGJ-nn-1FT"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bookButton" destination="Col-rP-Ddz" id="fwd-DE-SNE"/>
+                                    <outlet property="bookLabel" destination="xmS-jl-VrG" id="rUF-4z-piy"/>
                                     <segue destination="5YC-WM-dv7" kind="show" identifier="bookSegue" id="ndY-2A-RTj"/>
                                 </connections>
                             </tableViewCell>
@@ -76,6 +81,22 @@
                     <view key="view" contentMode="scaleToFill" id="dBg-c6-Ed2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R9A-s7-wHa">
+                                <rect key="frame" x="20" y="124" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Reason to read:" translatesAutoresizingMaskIntoConstraints="NO" id="wiI-ql-eLs">
+                                <rect key="frame" x="20" y="166" width="384" height="266"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="x9v-q3-MTB"/>
                     </view>
@@ -83,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4G-OV-TNP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1812" y="31"/>
+            <point key="canvasLocation" x="1811.594202898551" y="30.803571428571427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gcG-2W-aCU">
