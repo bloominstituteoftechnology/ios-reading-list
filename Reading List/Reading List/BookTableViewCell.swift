@@ -12,7 +12,11 @@ class BookTableViewCell: UITableViewCell {
     
     var delegate: BookTableViewCellDelegate?
     
-    var book: Book?
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
 
     @IBOutlet weak var labelTextField: UILabel!
     @IBOutlet weak var readButton: UIButton!
@@ -24,7 +28,11 @@ class BookTableViewCell: UITableViewCell {
     func updateViews() {
         guard let book = book else { return }
         
-        labelTextField.text = book.title
+        if book.title.count == 0 {
+            labelTextField.text = "<blank>"
+        } else {
+            labelTextField.text = book.title
+        }
         
         var imageName = "unchecked.png"
         
