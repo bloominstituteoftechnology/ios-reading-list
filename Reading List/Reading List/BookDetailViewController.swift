@@ -10,26 +10,44 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
 
+    var bookController: BookController?
+    var book: Book?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViews()
     }
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reasonToReadTextView: UITextView!
     
     @IBAction func save(_ sender: Any) {
+        // In the action of the button, it should either call the createBook method in the bookController if the book property is nil or call the update method in the bookController if the book property is not nil.
+        
+        guard let bookTitle = titleTextField.text,
+            let reasonToRead = reasonToReadTextView.text else { return }
+        
+        if book == nil {
+            // Create book
+            bookController?.create(title: bookTitle, reasonToRead: reasonToRead)
+        } else {
+            // Book exists, update it.
+            // FIXME: Is this the right call?
+            bookController?.reasonToRead(book: book!,
+                                         title: bookTitle,
+                                         reasonToRead: reasonToRead)
+        }
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateViews() {
+        guard let book = book else {
+            self.title = "Add a new book"
+            return
+        }
+
+        self.title = book.title
+        titleTextField.text = book.title
+        reasonToReadTextView.text = book.reasonToRead
     }
-    */
-
 }
