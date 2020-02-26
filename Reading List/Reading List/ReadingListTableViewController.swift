@@ -24,10 +24,8 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     // MARK: - Delegate
     
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-        // HINT: Think about how to get an IndexPath using the cell parameter of the toggleHasBeenRead(for cell: ...). Once you have an IndexPath, you can get an instance of Book to pass into the update function.
-        guard let bookFromCell = cell.book,
-            let bookToToggle = bookController.findBook(bookFromCell) else { return }
-        bookController.toogleHasBeenRead(book: bookToToggle)
+        guard let bookFromCell = cell.book else { return }
+        bookController.toogleHasBeenRead(book: bookFromCell)
         
         tableView.reloadData()
     }
