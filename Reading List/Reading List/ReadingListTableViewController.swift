@@ -34,9 +34,24 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
 
     // MARK: - Table view data source
-
+    var numOfSections: Int {
+        var numOfSections = 0
+        
+        if bookController.readBooks.count > 0 {
+            numOfSections += 1
+        }
+        
+        if bookController.unreadBooks.count > 0 {
+            numOfSections += 1
+        }
+        
+        return numOfSections
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        let num = numOfSections
+        print("numOfSections: \(numOfSections)")
+        return num
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,21 +59,45 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         // The first section (0) will show the read books
         // The second section (1) will show the unread books.
         
-        if section == 0 {
+        if numOfSections == 2 {
+            if section == 0 {
+                return bookController.readBooks.count
+            }
+            
+            // section == 1
+            return bookController.unreadBooks.count
+        }
+        
+        if bookController.readBooks.count > 0 {
             return bookController.readBooks.count
         }
-    
-        // section == 1
-        return bookController.unreadBooks.count
+        
+        if bookController.unreadBooks.count > 0 {
+            return bookController.unreadBooks.count
+        }
+        
+        return 0
     }
 
     func bookFor(indexPath: IndexPath) -> Book {
-        if indexPath.section == 0 {
+        if numOfSections == 2 {
+            if indexPath.section == 0 {
+                return bookController.readBooks[indexPath.row]
+            }
+            
+            // section == 1
+            return bookController.unreadBooks[indexPath.row]
+        }
+        
+        if bookController.readBooks.count > 0 {
             return bookController.readBooks[indexPath.row]
         }
         
-        // section == 1
-        return bookController.unreadBooks[indexPath.row]
+        if bookController.unreadBooks.count > 0 {
+            return bookController.unreadBooks[indexPath.row]
+        }
+        
+        return Book(title: "", reasonToRead: "")
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,12 +133,24 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         // The title of the first section (0) could be "Read Books"
         // The title of the second section (1) could be "Unread Books"
 
-        if section == 0 {
+        if numOfSections == 2 {
+            if section == 0 {
+                return "Read Books"
+            }
+            
+            // section == 1
+            return "Unread Books"
+        }
+
+        if bookController.readBooks.count > 0 {
             return "Read Books"
         }
         
-        // section == 1
-        return "Unread Books"
+        if bookController.unreadBooks.count > 0 {
+            return "Unread Books"
+        }
+        
+        return "!!!"
     }
     
     /*
