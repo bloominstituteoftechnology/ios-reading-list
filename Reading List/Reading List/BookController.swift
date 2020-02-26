@@ -10,15 +10,10 @@ import Foundation
 
 class BookController {
     
-    var books: [Book] = [] {
-        didSet {
-         //   loadFromPersistentStore()
-        }
-    }
+    var books: [Book] = []
     
     init() {
         loadFromPersistentStore()
-        print("THIS MANY BOOKS: \(books.count)")
     }
     
     var readingListURL: URL? {
@@ -32,18 +27,19 @@ class BookController {
     
     var readBooks: [Book] {
         let readOnes = books.filter{ $0.hasBeenRead == true }
-        return readOnes
+        let sortArray = readOnes.sorted{ $0.title < $1.title }
+        return sortArray
     }
     
     var unreadBooks: [Book] {
         let unreadOnes = books.filter{ $0.hasBeenRead == false }
-        return unreadOnes
+        let sortArray = unreadOnes.sorted{ $0.title < $1.title }
+        return sortArray
     }
     
     func createBook(with title: String, reason: String) {
         let book = Book(title: title, reasonToRead: reason)
         books.append(book)
-        print("book created")
         saveToPersistentStore()
     }
     

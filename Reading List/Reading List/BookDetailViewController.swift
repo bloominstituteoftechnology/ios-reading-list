@@ -10,10 +10,14 @@ import UIKit
 
 protocol AddBookDelegate {
     func bookWasAdded(_ book: Book)
+    func bookWasUpdated(oldBook: Book, title: String, reason: String)
 }
 
 class BookDetailViewController: UIViewController {
 
+    @IBOutlet var navigationTop: UINavigationItem!
+    
+    
     @IBOutlet var titleField: UITextField!
     
     @IBOutlet var reasonTextView: UITextView!
@@ -26,12 +30,14 @@ class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViews()
     }
     
     @IBAction func saveTapped(_ sender: Any) {
         if let newBook = book {
-            bookController?.updateTitleOrReasson(with: newBook, title: newBook.title, reason: newBook.reasonToRead)
+            guard let title = titleField.text, let reason = reasonTextView.text else {return}
+            delegate?.bookWasUpdated(oldBook: newBook, title: title, reason: reason)
+            navigationController?.popViewController(animated: true)
         } else {
             guard let title = titleField.text, let reason = reasonTextView.text else {return}
             let freshBook = Book(title: title, reasonToRead: reason)
@@ -43,13 +49,13 @@ class BookDetailViewController: UIViewController {
     
     func updateViews() {
         guard let book = book else {
-            navigationItem.title = "Add a new book"
+            navigationTop.title = "Add a new book"
             return
         }
         
-        navigationItem.title = book.title
-        titleField.text = book.title
-        reasonTextView.text = book.reasonToRead
+        navigationTop.title = book.title
+        titleField?.text = book.title
+        reasonTextView?.text = book.reasonToRead
     }
     
 

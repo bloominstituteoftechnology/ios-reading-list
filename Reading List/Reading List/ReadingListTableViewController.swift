@@ -12,18 +12,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewDelega
     
     var bookController = BookController()
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
     private func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
             print("this is section 0")
@@ -85,19 +73,20 @@ class ReadingListTableViewController: UITableViewController, BookTableViewDelega
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Read Books"
+            if bookController.readBooks.count > 0 {
+                return "Read Books"
+            } else {
+                return nil
+            }
+            
         } else {
-            return "Unread Books"
+            if bookController.unreadBooks.count > 0 {
+                 return "Unread Books"
+             } else {
+                 return nil
+             }
         }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
     
     // MARK: - Navigation
 
@@ -109,24 +98,27 @@ class ReadingListTableViewController: UITableViewController, BookTableViewDelega
                     bookDetailVC.delegate = self
                 } else {
                     if segue.identifier == "CellSegue" {
-                    guard let bookDetailVC = segue.destination as? BookDetailViewController else {
-                        print("THERES NO BOOK CONTROLLER")
-                        return}
-                        print("THERES A REAL SEGUE THING")
+                    guard let bookDetailVC = segue.destination as? BookDetailViewController else {return}
                         bookDetailVC.bookController = bookController
                         guard let newIndex = self.tableView.indexPathForSelectedRow else {return}
                         let booked = bookFor(indexPath: newIndex)
                         bookDetailVC.book = booked
-                        
+                        bookDetailVC.delegate = self
                     }
         }
     }
 }
 
 extension ReadingListTableViewController: AddBookDelegate {
+    
     func bookWasAdded(_ book: Book) {
-        print("ADDING BOOK NOW")
         bookController.createBook(with: book.title, reason: book.reasonToRead)
         tableView.reloadData()
     }
+    
+    func bookWasUpdated(oldBook: Book, title: String, reason: String) {
+        bookController.updateTitleOrReasson(with: oldBook, title: title, reason: reason)
+        tableView.reloadData()
+    }
+                
 }

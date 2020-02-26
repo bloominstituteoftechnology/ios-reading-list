@@ -72,7 +72,7 @@
             </objects>
             <point key="canvasLocation" x="956.52173913043487" y="126.5625"/>
         </scene>
-        <!--Book Detail View Controller-->
+        <!--Title-->
         <scene sceneID="dFA-1K-S24">
             <objects>
                 <viewController id="ts0-Jk-UTW" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -85,7 +85,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VWX-q5-NIz">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VWX-q5-NIz">
                                 <rect key="frame" x="20" y="146" width="374" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -106,7 +106,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bZg-Em-A49"/>
                     </view>
-                    <navigationItem key="navigationItem" id="daJ-oG-hxf">
+                    <navigationItem key="navigationItem" title="Title" id="daJ-oG-hxf">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="uUL-o8-I2u">
                             <connections>
                                 <action selector="saveTapped:" destination="ts0-Jk-UTW" id="MwB-gQ-5hx"/>
@@ -114,6 +114,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="navigationTop" destination="daJ-oG-hxf" id="tZg-oi-Lkb"/>
                         <outlet property="reasonTextView" destination="VWX-q5-NIz" id="GFb-6F-zDN"/>
                         <outlet property="titleField" destination="uRJ-aw-B9U" id="Fhf-mF-fgS"/>
                     </connections>
