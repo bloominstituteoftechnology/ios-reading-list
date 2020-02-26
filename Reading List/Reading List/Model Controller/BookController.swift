@@ -23,8 +23,18 @@ class BookController {
         saveToPersistentStore()
     }
     
-    func delete(book: Book) {
-        books.removeAll()
+    func deleteBook(book: Book) {
+        if let index = books.firstIndex(of: book) {
+            books.remove(at: index)
+            saveToPersistentStore()
+        }
+       
+    }
+    func updateBook(book: Book) {
+        if let index = books.firstIndex(of: book) {
+            books[index].hasBeenRead.toggle()
+            saveToPersistentStore()
+        }
     }
     
     var readBooks: [Book] {

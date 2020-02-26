@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="je6-QC-vMN" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookViewCell" id="je6-QC-vMN" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="je6-QC-vMN" id="TWb-HT-b88">
@@ -77,7 +77,7 @@
         <!--Reading List-->
         <scene sceneID="LyH-Rj-fpu">
             <objects>
-                <viewController title="Reading List" id="5YC-WM-dv7" sceneMemberID="viewController">
+                <viewController title="Reading List" id="5YC-WM-dv7" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dBg-c6-Ed2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +100,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="x9v-q3-MTB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uJw-11-W2t"/>
+                    <navigationItem key="navigationItem" id="uJw-11-W2t">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Be4-j8-McK">
+                            <connections>
+                                <action selector="saveButton:" destination="5YC-WM-dv7" id="GK8-ac-mXq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookTextView" destination="wiI-ql-eLs" id="K0T-bj-oVF"/>
+                        <outlet property="titleTextField" destination="R9A-s7-wHa" id="wzD-j0-LSf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4G-OV-TNP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

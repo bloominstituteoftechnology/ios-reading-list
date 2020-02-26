@@ -8,16 +8,14 @@
 
 import UIKit
 
-class BookTableViewCell: UITableViewCell {
-
-   
+class BookTableViewCell: UITableViewCell, UITableViewDelegate {
+    
+    
     
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var bookButton: UIButton!
     
     
-    @IBAction func buttonInAction(_ sender: UIButton) {
-    }
     
     var book: Book? {
     didSet {
@@ -25,6 +23,7 @@ class BookTableViewCell: UITableViewCell {
        }
     }
     
+   
     
         func updateViews() {
         guard let book = book else { return }
@@ -35,6 +34,12 @@ class BookTableViewCell: UITableViewCell {
             bookButton.setImage(image, for: .normal)
             
     }
+  var delegate: BookTableViewCellDelegate?
+    
+    @IBAction func buttonInAction(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: BookTableViewCell(style: .default , reuseIdentifier: "BookViewCell"))
+    }
        
            
 }
+
