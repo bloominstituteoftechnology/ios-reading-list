@@ -27,6 +27,12 @@ class BookController {
         books.removeAll()
     }
     
+    var readBooks: [Book] {
+        return books.filter({ $0.hasBeenRead })
+    }
+    var unreadBooks: [Book] {
+        return books.filter({ $0.hasBeenRead == false })
+    }
     
     func editBook(title: String, reasonToRead: String) {
     let editBook = Book(title: title, reasonToRead: reasonToRead)

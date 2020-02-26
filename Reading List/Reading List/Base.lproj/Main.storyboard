@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reading List-->
+        <!--Table View Controller-->
         <scene sceneID="VhM-oY-FnN">
             <objects>
-                <tableViewController title="Reading List" id="lAC-DU-mAV" sceneMemberID="viewController">
+                <tableViewController id="lAC-DU-mAV" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KsX-En-zqY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,15 +24,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIm-0w-miB">
-                                            <rect key="frame" x="20" y="0.0" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="286" translatesAutoresizingMaskIntoConstraints="NO" id="Oj2-Zz-KVS">
+                                            <rect key="frame" x="18" y="0.0" width="378" height="50"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmS-jl-VrG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Col-rP-Ddz">
+                                                    <rect key="frame" x="328" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Col-rP-Ddz" secondAttribute="height" multiplier="1:1" id="CkJ-JY-bdI"/>
+                                                    </constraints>
+                                                    <state key="normal" image="checked"/>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="5YC-WM-dv7" kind="show" identifier="bookSegue" id="ndY-2A-RTj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -40,7 +54,13 @@
                             <outlet property="delegate" destination="lAC-DU-mAV" id="weq-SX-Idh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="kLs-zv-AU3"/>
+                    <navigationItem key="navigationItem" id="kLs-zv-AU3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="z8s-65-49W">
+                            <connections>
+                                <segue destination="5YC-WM-dv7" kind="show" identifier="addButtonSegue" id="iii-Dd-qek"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="5YC-WM-dv7" kind="showDetail" id="10G-rh-yO3"/>
                     </connections>
@@ -49,16 +69,17 @@
             </objects>
             <point key="canvasLocation" x="1000.0000000000001" y="91.741071428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--Reading List-->
         <scene sceneID="LyH-Rj-fpu">
             <objects>
-                <viewController id="5YC-WM-dv7" sceneMemberID="viewController">
+                <viewController title="Reading List" id="5YC-WM-dv7" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dBg-c6-Ed2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="x9v-q3-MTB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uJw-11-W2t"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4G-OV-TNP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,4 +104,10 @@
             <point key="canvasLocation" x="89.855072463768124" y="91.741071428571431"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checked" width="50" height="50"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="iii-Dd-qek"/>
+    </inferredMetricsTieBreakers>
 </document>
