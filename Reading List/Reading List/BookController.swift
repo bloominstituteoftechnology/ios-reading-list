@@ -82,7 +82,7 @@ class BookController {
         let encoder = PropertyListEncoder()
         
         do {
-            let booksData = try encoder.encode(books) //FIXME: encode(value:
+            let booksData = try encoder.encode(books)
             
             guard let booksUrl = readingListURL else { return }
             
