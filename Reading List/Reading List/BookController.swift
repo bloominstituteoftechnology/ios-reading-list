@@ -56,8 +56,9 @@ class BookController {
     }
     
     // Delete
-    func delete(book: Book) {
-        //FIXME: delete book from books
+    func delete(book bookToDelete: Book) {
+        let booksMinusBookToDelete = books.filter { $0 != bookToDelete }
+        books = booksMinusBookToDelete
     }
     
     // MARK: - Persitance
