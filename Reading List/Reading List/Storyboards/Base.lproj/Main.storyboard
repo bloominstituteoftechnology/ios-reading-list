@@ -46,7 +46,7 @@
                                 <connections>
                                     <outlet property="checkedBox" destination="Xbq-NE-RNU" id="oqH-Tw-rYn"/>
                                     <outlet property="readBooks" destination="NjT-mK-jTH" id="8eT-TZ-NVc"/>
-                                    <segue destination="Y1o-4f-ix8" kind="show" identifier="BookCell" id="rf3-Ph-Apg"/>
+                                    <segue destination="Y1o-4f-ix8" kind="show" identifier="BookDetail" id="rf3-Ph-Apg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -138,6 +138,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="g1e-lX-xQl"/>
+        <segue reference="rf3-Ph-Apg"/>
     </inferredMetricsTieBreakers>
 </document>

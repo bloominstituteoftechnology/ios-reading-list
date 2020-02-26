@@ -23,7 +23,10 @@ class BookDetailViewController: UIViewController {
     }
  
 
-    @IBAction func saveButton(_ sender: Any) {
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        guard let bookTitle = bookTitleTextField.text,
+            let reasonToRead = reasonToReadTextView.text,
+            
         
     }
     
@@ -32,14 +35,11 @@ class BookDetailViewController: UIViewController {
 
 
     func updateViews() {
-        bookTitleTextField.text = book?.title
-        reasonToReadTextView.text = book?.reasonToRead
-        guard let book = book else {
-            navigationItem.title = "Add a new book"
-            return
+        if let book = book {
+            title = book.title
+            bookTitleTextField.text = book.title
+            reasonToReadTextView.text = book.reasonToRead
         }
-        
-        
     }
     
   

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
     
     let bookController: BookController
     
@@ -56,6 +56,7 @@ class ReadingListTableViewController: UITableViewController {
         
         let book = bookFor(indexPath: indexPath)
         cell.book = book
+        cell.delegate = self
         
         return cell
         
@@ -81,12 +82,23 @@ class ReadingListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addBookSegue" {
-            guard let addNewBook = segue.destination as? BookDetailViewController else { return }
-            addNewBook.bookController = BookController
-            addNewBook.delegate = self
+        if segue.identifier == "BookDetail" {
+            if let destinationVC = segue.destination as? BookDetailViewController {
+                destinationVC.bookController = bookController
             }
+        }
+        
+        if segue.identifier == "addBookSegue" {
+            if let destinationVC = segue.destination as? BookDetailViewController {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    let book = bookFor(indexPath: indexPath)
+                    destinationVC.bookController = bookController
+                    destinationVC.book = book
+                }
+            }
+        }
     }
     
-
+    
 }
+
