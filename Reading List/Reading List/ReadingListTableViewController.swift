@@ -124,10 +124,14 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             guard let bookDetailVC = segue.destination as? BookDetailViewController else {return}
             bookDetailVC.bookController = bookController
         } else if segue.identifier == "BookDetailSegue" {
+            
+            // Let the VC 
             guard let bookDetailVC = segue.destination as? BookDetailViewController else {return}
             bookDetailVC.bookController = bookController
-            // FIXME: Grab the currently select cell. 
-            // bookDetailVC.book =
+            
+            // Find the book the user tapped on and set the VC's book to it.
+            guard let indexPath = tableView?.indexPathForSelectedRow else { return }
+            bookDetailVC.book = bookFor(indexPath: indexPath)
         }
     }
 }
