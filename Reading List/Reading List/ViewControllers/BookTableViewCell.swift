@@ -28,11 +28,11 @@ class BookTableViewCell: UITableViewCell {
     
         func updateViews() {
         guard let book = book else { return }
-            bookLabel.text = book.title
-            if bookButton.isSelected {
-                bookButton.image(for: UIImage(named: "checked"))
-            }
             
+            bookLabel.text = book.title
+            
+            let image = book.hasBeenRead ? #imageLiteral(resourceName: "checked") : #imageLiteral(resourceName: "unchecked")
+            bookButton.setImage(image, for: .normal)
             
     }
        
