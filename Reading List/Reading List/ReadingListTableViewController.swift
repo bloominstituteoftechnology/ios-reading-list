@@ -120,15 +120,12 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+
+        guard let bookDetailVC = segue.destination as? BookDetailViewController else {return}
+        bookDetailVC.bookController = bookController
+
         if segue.identifier == "AddBookSegue" {
-            guard let bookDetailVC = segue.destination as? BookDetailViewController else {return}
-            bookDetailVC.bookController = bookController
         } else if segue.identifier == "BookDetailSegue" {
-            
-            // Let the VC 
-            guard let bookDetailVC = segue.destination as? BookDetailViewController else {return}
-            bookDetailVC.bookController = bookController
-            
             // Find the book the user tapped on and set the VC's book to it.
             guard let indexPath = tableView?.indexPathForSelectedRow else { return }
             bookDetailVC.book = bookFor(indexPath: indexPath)
