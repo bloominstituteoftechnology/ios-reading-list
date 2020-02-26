@@ -47,6 +47,7 @@ class BookController {
         if let index = books.firstIndex(where: { $0 == b }) {
             books[index].hasBeenRead = !books[index].hasBeenRead
         }
+        saveToPersistentStore()
     }
     
     // TODO: Was I correct to pass the book object back because it's a struct
@@ -55,12 +56,14 @@ class BookController {
             books[index].title = title
             books[index].reasonToRead = title
         }
+        saveToPersistentStore()
     }
     
     // Delete
     func delete(book bookToDelete: Book) {
         let booksMinusBookToDelete = books.filter { $0 != bookToDelete }
         books = booksMinusBookToDelete
+        saveToPersistentStore()
     }
     
     // MARK: - Persitance
