@@ -24,6 +24,13 @@ class BookController {
         return books.filter { $0.hasBeenRead == false }
     }
     
+    //TODO: Does this leverage equatable? 
+    func findBook(_ book: Book) -> Book? {
+        let matches = books.filter { $0 == book }
+        assert(matches.count == 1)
+        return matches[0]
+    }
+    
     // MARK: - CRUD
     
     // Create
@@ -37,16 +44,15 @@ class BookController {
     
     // Update
     func toogleHasBeenRead(book b: Book) {
-        var book = b
+        guard var book = findBook(b) else { return }
         book.hasBeenRead = !book.hasBeenRead
-        // FIXME: Update member variable and view
     }
     
-    func reasonToRead(book b: Book, title: String, reasonToRead: String) {
-        var book = b
+    // TODO: Was I correct to pass the book object back because it's a struct
+    func updateTitleAndReason(book b: Book, title: String, reasonToRead: String) {
+        guard var book = findBook(b) else { return }
         book.title = title
         book.reasonToRead = title
-        //FIXME: Update member variable and view
     }
     
     // Delete
