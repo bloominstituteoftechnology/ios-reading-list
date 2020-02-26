@@ -46,14 +46,15 @@ class BookDetailViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        guard let title = titleTextField.text else { return }
-        guard let reason = reasonTextView.text else { return }
+        guard let title = titleTextField.text,
+        let reasonToRead = reasonTextView.text,
+            !title.isEmpty, !reasonToRead.isEmpty else { return }
         
         
         if let book = book {
-            bookController?.updateText(for: book, title: title, reasonToRead: reason)
+            bookController?.updateText(for: book, title: title, reasonToRead: reasonToRead)
         } else {
-            bookController?.create(title: title, reasonToRead: reason)
+            bookController?.create(title: title, reasonToRead: reasonToRead)
             
         }
     }

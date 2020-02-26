@@ -12,28 +12,18 @@ class BookController {
     // MARK: - PROPERTIES
     var books: [Book] = []
     var readingListURL: URL? {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
+        let fileManager = FileManager.default
+        guard let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         let listURL = documentsDirectory.appendingPathComponent("ReadingList.plist")
         return listURL
     }
     var readBooks: [Book] {
-        var booksRead: [Book] = []
-        for book in books {
-            if book.hasBeenRead == true {
-                booksRead.append(book)
-            }
-        }
-        return booksRead
+        let read = books.filter { return $0.hasBeenRead }
+        return read
     }
     var unreadBooks: [Book] {
-        var booksNotRead: [Book] = []
-        for book in books {
-            if book.hasBeenRead == false {
-                booksNotRead.append(book)
-            }
-        }
-        return booksNotRead
+        let unread = books.filter { return !$0.hasBeenRead }
+        return unread
     }
     
     init() {
@@ -77,6 +67,7 @@ class BookController {
     func delete(book: Book) {
         if let bookIndex = books.firstIndex(of: book) {
             books.remove(at: bookIndex)
+            saveToPersistentStore()
         }
     }
     
@@ -96,6 +87,7 @@ class BookController {
             if let reasonUnwrap = reasonToRead {
                 books[index].reasonToRead = reasonUnwrap
             }
+            saveToPersistentStore()
         }
     }
     
