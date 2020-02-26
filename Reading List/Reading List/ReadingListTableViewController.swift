@@ -50,7 +50,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         let num = numOfSections
-        print("numOfSections: \(numOfSections)")
+        //print("numOfSections: \(numOfSections)")
         return num
     }
 
