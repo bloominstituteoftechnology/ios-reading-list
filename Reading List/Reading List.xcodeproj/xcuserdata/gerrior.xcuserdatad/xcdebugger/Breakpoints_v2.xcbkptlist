@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "32AB046F-AF78-4BDA-826C-23E43535B682"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "891160A8-CA9E-46CB-8933-629EE095779A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Reading List/BookController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "findBook(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "891160A8-CA9E-46CB-8933-629EE095779A - 76f05903fdc98cf9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Reading_List.BookController.findBook(Reading_List.Book) -&gt; Swift.Optional&lt;Reading_List.Book&gt;"
+                  moduleName = "Reading List"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gerrior/Projects/Lambda/ios-reading-list/Reading%20List/Reading%20List/BookController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "149">
+               </Location>
+               <Location
+                  uuid = "891160A8-CA9E-46CB-8933-629EE095779A - 852b8a0b3540aeb0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Reading_List.Book) -&gt; Swift.Bool in Reading_List.BookController.findBook(Reading_List.Book) -&gt; Swift.Optional&lt;Reading_List.Book&gt;"
+                  moduleName = "Reading List"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gerrior/Projects/Lambda/ios-reading-list/Reading%20List/Reading%20List/BookController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
