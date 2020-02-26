@@ -44,8 +44,9 @@ class BookController {
     
     // Update
     func toogleHasBeenRead(book b: Book) {
-        guard var book = findBook(b) else { return }
-        book.hasBeenRead = !book.hasBeenRead
+        if let index = books.firstIndex(where: { $0 == b }) {
+            books[index].hasBeenRead = !books[index].hasBeenRead
+        }
     }
     
     // TODO: Was I correct to pass the book object back because it's a struct
