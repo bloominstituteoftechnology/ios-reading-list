@@ -135,6 +135,20 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             let bookToBeDeleted = bookFor(indexPath: indexPath)
             bookController.delete(book: bookToBeDeleted)
             
+            if (bookToBeDeleted.hasBeenRead == true) {
+                if bookController.readBooks.count  == 0 {
+                    // Last one in read section
+                    tableView.deleteSections(NSIndexSet(index: 0) as IndexSet, with: .fade)
+                    return
+                }
+            } else {
+                if bookController.unreadBooks.count  == 0 {
+                    // Last one in unread section
+                    tableView.deleteSections(NSIndexSet(index: 0) as IndexSet, with: .fade)
+                    return 
+                }
+            }
+        
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
