@@ -33,21 +33,29 @@ class BookDetailViewController: UIViewController {
             bookController?.create(title: bookTitle, reasonToRead: reasonToRead)
         } else {
             // Book exists, update it.
-            // FIXME: Is this the right call?
-            bookController?.reasonToRead(book: book!,
+            bookController?.updateTitleAndReason(book: book!,
                                          title: bookTitle,
                                          reasonToRead: reasonToRead)
         }
+        
+        // Use this if you present modally
+        //dismiss(animated: true, completion: nil)
+        
+        // Use this if you Show
+        // FIXME: Should I call it here or should the caller do it?
+        navigationController?.popViewController(animated: true)
     }
 
     func updateViews() {
         guard let book = book else {
             self.title = "Add a new book"
+            reasonToReadTextView.text = ""
             return
         }
 
         self.title = book.title
-        titleTextField.text = book.title
+        // Handle a saved blank title.
+        titleTextField.text = book.title == "" ? "Add a new book" : book.title
         reasonToReadTextView.text = book.reasonToRead
     }
 }
