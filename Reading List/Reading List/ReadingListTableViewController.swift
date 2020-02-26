@@ -14,6 +14,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //print(tableView.dataSource)
+        tableView.dataSource = self
+        // Observed to be the same before and after
+        //print(tableView.dataSource)
+
         // TODO: Why doesn't "Storyboard > Large Title > Always" work?
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -24,6 +29,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    // TODO: New/Changed books were now showing up. This fixed it. Correct way?
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     // MARK: - Delegate
     
     func toggleHasBeenRead(for cell: BookTableViewCell) {
