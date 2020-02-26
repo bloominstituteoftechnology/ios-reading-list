@@ -50,9 +50,10 @@ class BookController {
     
     // TODO: Was I correct to pass the book object back because it's a struct
     func updateTitleAndReason(book b: Book, title: String, reasonToRead: String) {
-        guard var book = findBook(b) else { return }
-        book.title = title
-        book.reasonToRead = title
+        if let index = books.firstIndex(where: { $0 == b }) {
+            books[index].title = title
+            books[index].reasonToRead = title
+        }
     }
     
     // Delete
