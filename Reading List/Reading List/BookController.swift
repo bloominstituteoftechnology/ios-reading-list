@@ -10,7 +10,16 @@ import Foundation
 
 class BookController {
     
-    var books: [Book] = []
+    var books: [Book] = [] {
+        didSet {
+         //   loadFromPersistentStore()
+        }
+    }
+    
+    init() {
+        loadFromPersistentStore()
+        print("THIS MANY BOOKS: \(books.count)")
+    }
     
     var readingListURL: URL? {
         
@@ -34,6 +43,7 @@ class BookController {
     func createBook(with title: String, reason: String) {
         let book = Book(title: title, reasonToRead: reason)
         books.append(book)
+        print("book created")
         saveToPersistentStore()
     }
     
@@ -94,7 +104,5 @@ class BookController {
         } catch {
             print("An error occured: \(error)")
         }
-        
     }
-    
 }

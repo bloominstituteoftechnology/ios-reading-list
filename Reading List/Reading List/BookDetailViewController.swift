@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddBookDelegate {
+    func bookWasAdded(_ book: Book)
+}
+
 class BookDetailViewController: UIViewController {
 
     @IBOutlet var titleField: UITextField!
@@ -16,6 +20,8 @@ class BookDetailViewController: UIViewController {
     
     var bookController: BookController?
     var book: Book?
+    
+    var delegate: AddBookDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +34,10 @@ class BookDetailViewController: UIViewController {
             bookController?.updateTitleOrReasson(with: newBook, title: newBook.title, reason: newBook.reasonToRead)
         } else {
             guard let title = titleField.text, let reason = reasonTextView.text else {return}
-            bookController?.createBook(with: title, reason: reason)
+            let freshBook = Book(title: title, reasonToRead: reason)
+            delegate?.bookWasAdded(freshBook)
+            
+            navigationController?.popViewController(animated: true)
         }
     }
     
@@ -43,14 +52,5 @@ class BookDetailViewController: UIViewController {
         reasonTextView.text = book.reasonToRead
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

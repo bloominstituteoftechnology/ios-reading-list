@@ -10,10 +10,12 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewDelegate {
     
-    let bookController = BookController()
+    var bookController = BookController()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -50,17 +52,22 @@ class ReadingListTableViewController: UITableViewController, BookTableViewDelega
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
+         //   print("THERES BOOKS HERE")
             return bookController.readBooks.count
         } else {
+            print("THERES BOOKS HERE")
             return bookController.unreadBooks.count
         }
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else {
+            print("NO CELL COMING UP")
+            return UITableViewCell()}
 
+        print("CELL COMING UP")
         let book = bookFor(indexPath: indexPath)
+        print(indexPath.section)
         print(book.title)
         cell.book = book
         cell.delegate = self
@@ -99,14 +106,27 @@ class ReadingListTableViewController: UITableViewController, BookTableViewDelega
                 if segue.identifier == "AddSegue" {
             guard let bookDetailVC = segue.destination as? BookDetailViewController else {return}
             bookDetailVC.bookController = bookController
+                    bookDetailVC.delegate = self
                 } else {
                     if segue.identifier == "CellSegue" {
-                    guard let bookDetailVC = segue.destination as? BookDetailViewController else {return}
+                    guard let bookDetailVC = segue.destination as? BookDetailViewController else {
+                        print("THERES NO BOOK CONTROLLER")
+                        return}
+                        print("THERES A REAL SEGUE THING")
                         bookDetailVC.bookController = bookController
                         guard let newIndex = self.tableView.indexPathForSelectedRow else {return}
                         let booked = bookFor(indexPath: newIndex)
                         bookDetailVC.book = booked
+                        
                     }
         }
+    }
+}
+
+extension ReadingListTableViewController: AddBookDelegate {
+    func bookWasAdded(_ book: Book) {
+        print("ADDING BOOK NOW")
+        bookController.createBook(with: book.title, reason: book.reasonToRead)
+        tableView.reloadData()
     }
 }
