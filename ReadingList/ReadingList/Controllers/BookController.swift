@@ -21,11 +21,15 @@ class BookController {
     }
     
     var readBooks: [Book] {
-        return books.filter { $0 .hasBeenRead }
+        var bookArray = books.filter { $0 .hasBeenRead }
+        bookArray.sort()
+        return bookArray
     }
     
     var unreadBooks: [Book] {
-        return books.filter { $0 .hasBeenRead == false }
+        var bookArray = books.filter { $0 .hasBeenRead == false }
+        bookArray.sort()
+        return bookArray
     }
     
     // MARK: - Persistent Store
