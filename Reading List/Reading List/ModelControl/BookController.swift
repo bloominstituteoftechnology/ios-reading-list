@@ -21,7 +21,7 @@ class BookController {
         // FIXME: - what goes here?
     }
     
-    // MARK: - SAVE
+    // MARK: - SAVE BOOKS
     func saveToPersistentStore() {
         let encoder = PropertyListEncoder()
         do {
@@ -33,7 +33,7 @@ class BookController {
         }
     }
     
-    // MARK: - LOAD
+    // MARK: - LOAD BOOKS
     func loadFromPersistentStore() {
         do {
             if let listURL = readingListURL {
@@ -47,4 +47,18 @@ class BookController {
         }
     }
     
+    // MARK: - CREATE BOOKS
+    func create(title: String, reasonToRead: String) {
+        let newBook = Book(title: title, reasonToRead: reasonToRead)
+        books.append(newBook)
+        saveToPersistentStore()
+    }
+    
+    // MARK: - DELETE BOOKS
+    func delete(book: Book) {
+        if let bookIndex = books.firstIndex(of: book) {
+            books.remove(at: bookIndex)
+        }
+        books.remove(at: <#T##Int#>)
+    }
 }
