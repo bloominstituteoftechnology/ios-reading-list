@@ -28,18 +28,11 @@ class BookController {
     }
     
     
-    func updateHasBeenRead(for book: Book) {
-        if book.hasBeenRead == true {
-            false
-        } else {
-            true
-        }
-    }
-
     func editBook(title: String, reasonToRead: String) {
     let editBook = Book(title: title, reasonToRead: reasonToRead)
       
     }
+    
     
     var readingListURL: URL? {
         let fileMananger = FileManager.default
