@@ -18,7 +18,6 @@ class ReadingListTableViewController: UITableViewController {
         
     }
     
-    // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -43,19 +42,27 @@ class ReadingListTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
-            
+        if let book = cell.book {
+            bookController.updateHasBeenRead(for: book)
+            tableView.reloadData()
         }
-
-
-        return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
+        
+        let book = bookFor(indexPath: indexPath)
+        cell.book = book
+        
+        return cell
+        
+        }
     
-func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             if section == 0 {
                 return "Read Books"
             } else {
@@ -63,13 +70,22 @@ func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -
         }
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let book = bookFor(indexPath: indexPath)
+            bookController.deleteBook(book: book)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "addBookSegue" {
+            guard let addNewBook = segue.destination as? BookDetailViewController else { return }
+            addNewBook.bookController = BookController
+            addNewBook.delegate = self
+            }
     }
     
 

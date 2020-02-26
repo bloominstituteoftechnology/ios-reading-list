@@ -38,7 +38,6 @@ class BookController {
         }
     }
     
-    
     func updateTitle(for book: Book, with title: String, and reasonToRead: String?) {
         if let index = books.firstIndex(of: book) {
             var book = books[index]

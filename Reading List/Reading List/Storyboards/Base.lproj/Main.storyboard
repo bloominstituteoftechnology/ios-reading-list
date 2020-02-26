@@ -25,20 +25,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="260" translatesAutoresizingMaskIntoConstraints="NO" id="2Kq-ms-oRg">
-                                            <rect key="frame" x="42" y="-4" width="352" height="50"/>
+                                            <rect key="frame" x="39" y="4" width="336" height="34"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjT-mK-jTH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbq-NE-RNU">
-                                                    <rect key="frame" x="302" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="302" y="0.0" width="34" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Xbq-NE-RNU" secondAttribute="height" multiplier="1:1" id="Wzh-gs-5n7"/>
                                                     </constraints>
-                                                    <state key="normal" image="checked"/>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -59,8 +58,8 @@
                     <navigationItem key="navigationItem" title="Reading List" id="hVk-ZE-XOX">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="h6o-YT-W1W">
                             <connections>
-                                <action selector="addBook:" destination="VkX-Qo-Mf7" id="1fk-s5-rk5"/>
-                                <segue destination="Y1o-4f-ix8" kind="show" identifier="addSegue" id="Lyg-GH-Js3"/>
+                                <action selector="addBookTapped:" destination="VkX-Qo-Mf7" id="xvu-ze-ctk"/>
+                                <segue destination="Y1o-4f-ix8" kind="show" identifier="addBookSegue" id="g1e-lX-xQl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -138,10 +137,7 @@
             <point key="canvasLocation" x="-320.28985507246381" y="-9.375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="checked" width="50" height="50"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rf3-Ph-Apg"/>
+        <segue reference="g1e-lX-xQl"/>
     </inferredMetricsTieBreakers>
 </document>

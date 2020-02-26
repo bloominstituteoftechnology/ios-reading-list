@@ -16,9 +16,10 @@ class BookTableViewCell: UITableViewCell {
     
     var delegate: BookTableViewCellDelegate?
     
-    @IBAction func addBook(_ sender: Any) {
+    @IBAction func addBookTapped(_ sender: UIBarButtonItem) {
         delegate?.toggleHasBeenRead(for: self)
     }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
