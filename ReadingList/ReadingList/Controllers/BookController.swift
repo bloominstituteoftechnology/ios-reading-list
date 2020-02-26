@@ -77,4 +77,10 @@ class BookController {
         saveToPersistentStore()
     }
     
+    func deleteBook(book: Book) {
+        guard let bookIndex = books.firstIndex(of: book) else { return }
+        books.remove(at: bookIndex)
+        saveToPersistentStore()
+    }
+    
 }

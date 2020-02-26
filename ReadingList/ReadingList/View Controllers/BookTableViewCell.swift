@@ -32,19 +32,11 @@ class BookTableViewCell: UITableViewCell {
     var delegate: BookTableViewCellDelegate?
     
     func updateViews() {
-        guard let book = book else { return }
+        guard let book = book, !book.title.isEmpty else { return }
         titleLabel.text = book.title
         let image = book.hasBeenRead ? checkedImage : uncheckedImage
         hasBeenReadButton.setImage(image, for: .normal)
         
     }
 
-}
-
-extension BookTableViewCell: BookTableViewCellDelegate {
-    func toggleHasBeenRead(for cell: BookTableViewCell) {
-        book?.hasBeenRead.toggle()
-    }
-    
-    
 }
