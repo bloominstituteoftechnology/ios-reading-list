@@ -15,6 +15,7 @@ class BookTableViewCell: UITableViewCell {
     
     var book: Book?
     
+    var delegate: BookTableViewCellDelegate?
     
     func updateViews() {
         
@@ -29,6 +30,7 @@ class BookTableViewCell: UITableViewCell {
     }
     
     @IBAction func readBoxChecked(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     override func awakeFromNib() {
