@@ -53,9 +53,14 @@ class BookDetailViewController: UIViewController {
             return
         }
 
-        self.title = book.title
+        self.title = "Edit \(book.title)"
+
+        if book.title == "" {
+            self.title = "Enter a Title"
+        }
+
         // Handle a saved blank title.
-        titleTextField.text = book.title == "" ? "Add a new book" : book.title
+        titleTextField.text = book.title
         reasonToReadTextView.text = book.reasonToRead
     }
 }
