@@ -10,36 +10,31 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell, UITableViewDelegate {
     
-    
-    
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var bookButton: UIButton!
     
-    
-    
     var book: Book? {
-    didSet {
-           updateViews()
-       }
+        didSet {
+            updateViews()
+        }
     }
     
-   
     
-        func updateViews() {
+    func updateViews() {
         guard let book = book else { return }
-            
-            bookLabel.text = book.title
-            
-            let image = book.hasBeenRead ? #imageLiteral(resourceName: "checked") : #imageLiteral(resourceName: "unchecked")
-            bookButton.setImage(image, for: .normal)
-            
+        
+        bookLabel.text = book.title
+        
+        let image = book.hasBeenRead ? #imageLiteral(resourceName: "checked") : #imageLiteral(resourceName: "unchecked")
+        bookButton.setImage(image, for: .normal)
+        
     }
-  var delegate: BookTableViewCellDelegate?
+    var delegate: BookTableViewCellDelegate?
     
     @IBAction func buttonInAction(_ sender: Any) {
         delegate?.toggleHasBeenRead(for: BookTableViewCell(style: .default , reuseIdentifier: "BookViewCell"))
     }
-       
-           
+    
+    
 }
 

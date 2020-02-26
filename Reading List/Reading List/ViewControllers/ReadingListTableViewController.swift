@@ -10,6 +10,8 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController {
 
+    let bookController: BookController
+    var books: [Book] = [Book(title: "Swift Basics", reasonToRead: "Important for the class")]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,12 +26,14 @@ class ReadingListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if section == 1 {
+           return books.filter({ $0.hasBeenRead})
+        }
     }
 
     /*
