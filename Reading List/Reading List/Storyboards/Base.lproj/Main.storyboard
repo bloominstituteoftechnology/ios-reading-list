@@ -61,7 +61,7 @@
                             <outlet property="delegate" destination="gHJ-tt-UXC" id="8EP-pq-H1q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Scy-Zc-U5P">
+                    <navigationItem key="navigationItem" title="Reading List" id="Scy-Zc-U5P">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mkH-GB-Gmf">
                             <connections>
                                 <segue destination="gZ0-XP-f1K" kind="show" identifier="AddBookSegue" id="7RH-6M-AC3"/>
@@ -154,6 +154,6 @@
         <image name="checked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="usX-SO-wUR"/>
+        <segue reference="7RH-6M-AC3"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,6 +14,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // TODO: Why doesn't "Storyboard > Large Title > Always" work?
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
