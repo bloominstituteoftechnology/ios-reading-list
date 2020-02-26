@@ -37,6 +37,9 @@ class BookController {
     func create(title: String, reasonToRead: String) {
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
+
+        books = books.sorted { $0.title.lowercased() < $1.title.lowercased() }
+
         saveToPersistentStore()
     }
     
@@ -47,6 +50,9 @@ class BookController {
         if let index = books.firstIndex(where: { $0 == b }) {
             books[index].hasBeenRead = !books[index].hasBeenRead
         }
+        
+        books = books.sorted { $0.title.lowercased() < $1.title.lowercased() }
+        
         saveToPersistentStore()
     }
     
@@ -56,6 +62,9 @@ class BookController {
             books[index].title = title
             books[index].reasonToRead = title
         }
+        
+        books = books.sorted { $0.title.lowercased() < $1.title.lowercased() }
+
         saveToPersistentStore()
     }
     
@@ -63,6 +72,7 @@ class BookController {
     func delete(book bookToDelete: Book) {
         let booksMinusBookToDelete = books.filter { $0 != bookToDelete }
         books = booksMinusBookToDelete
+
         saveToPersistentStore()
     }
     
@@ -104,8 +114,8 @@ class BookController {
             
             let decodedBooks = try decoder.decode([Book].self, from: booksData)
             
-            self.books = decodedBooks
-            
+            self.books = decodedBooks.sorted { $0.title.lowercased() < $1.title.lowercased() }
+
         } catch {
             print("Unable to open books to plist: \(error)")
         }
