@@ -24,33 +24,31 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="211" translatesAutoresizingMaskIntoConstraints="NO" id="cUJ-Zs-bWt">
-                                            <rect key="frame" x="20" y="8" width="374" height="54"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXc-aM-aNX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="109" height="54"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtH-XJ-dwj">
-                                                    <rect key="frame" x="320" y="0.0" width="54" height="54"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="ZtH-XJ-dwj" secondAttribute="height" multiplier="1:1" id="9Bv-Vy-5MV"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button" image="unchecked"/>
-                                                    <connections>
-                                                        <action selector="hasBeenReadTapped:" destination="bZz-by-rzw" eventType="touchUpInside" id="lkv-Yh-87A"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXc-aM-aNX">
+                                            <rect key="frame" x="20" y="8" width="77" height="54"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtH-XJ-dwj">
+                                            <rect key="frame" x="360" y="8" width="54" height="54"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="ZtH-XJ-dwj" secondAttribute="height" multiplier="1:1" id="9Bv-Vy-5MV"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="unchecked"/>
+                                            <connections>
+                                                <action selector="hasBeenReadTapped:" destination="bZz-by-rzw" eventType="touchUpInside" id="lkv-Yh-87A"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="cUJ-Zs-bWt" firstAttribute="top" secondItem="Zsc-eJ-rxo" secondAttribute="top" constant="8" id="0gY-NZ-v9J"/>
-                                        <constraint firstAttribute="bottom" secondItem="cUJ-Zs-bWt" secondAttribute="bottom" constant="8" id="6vw-Ce-fZf"/>
-                                        <constraint firstItem="cUJ-Zs-bWt" firstAttribute="leading" secondItem="Zsc-eJ-rxo" secondAttribute="leading" constant="20" id="LBZ-62-z9K"/>
-                                        <constraint firstAttribute="trailing" secondItem="cUJ-Zs-bWt" secondAttribute="trailing" constant="20" id="Qm9-Y4-Uig"/>
+                                        <constraint firstItem="ZtH-XJ-dwj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RXc-aM-aNX" secondAttribute="trailing" constant="8" id="ADh-1o-k4P"/>
+                                        <constraint firstItem="RXc-aM-aNX" firstAttribute="top" secondItem="Zsc-eJ-rxo" secondAttribute="top" constant="8" id="Ajl-Hy-Gyc"/>
+                                        <constraint firstItem="ZtH-XJ-dwj" firstAttribute="top" secondItem="Zsc-eJ-rxo" secondAttribute="top" constant="8" id="Jsd-cg-raX"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZtH-XJ-dwj" secondAttribute="trailing" id="SLI-ql-w9A"/>
+                                        <constraint firstItem="RXc-aM-aNX" firstAttribute="leading" secondItem="Zsc-eJ-rxo" secondAttribute="leading" constant="20" id="dzb-HG-efJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="RXc-aM-aNX" secondAttribute="bottom" constant="8" id="ftd-p9-ub9"/>
+                                        <constraint firstAttribute="bottom" secondItem="ZtH-XJ-dwj" secondAttribute="bottom" constant="8" id="yzj-HN-Zel"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

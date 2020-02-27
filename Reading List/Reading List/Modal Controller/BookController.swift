@@ -65,8 +65,8 @@ class BookController {
     }
 
 
-    func create(for book: Book) {
-        
+    func create(title: String, reasonToRead: String) {
+        let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistentStore()
     }
@@ -79,16 +79,16 @@ class BookController {
 
     func updateHasBeenRead(for book: Book) {
         guard let bookToEdit = books.firstIndex(of: book) else { return }
-        books[bookToEdit].hasBeenRead = !books[bookToEdit].hasBeenRead
+        books[bookToEdit].hasBeenRead.toggle()
         saveToPersistentStore()
     }
 
-    func editBook(for book: Book) {
+    func editBook(for book: Book, title: String, reasonToRead: String) {
         guard let bookToEdit = books.firstIndex(of: book) else { return }
         var tempBook = book
         
-        tempBook.title = book.title
-        tempBook.reasonToRead = book.reasonToRead
+        tempBook.title = title
+        tempBook.reasonToRead = reasonToRead
         
         books.remove(at: bookToEdit)
         books.insert(tempBook, at: bookToEdit)

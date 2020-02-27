@@ -18,19 +18,12 @@ class ReadingListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleRead(_:)), name: .toggleBeenRead, object: nil)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 2
     }
 
@@ -49,9 +42,12 @@ class ReadingListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
-
+        
         cell.delegate = self
 
+        let book = bookFor(indexPath: indexPath)
+        cell.book = book
+        
         return cell
     }
     
@@ -68,8 +64,8 @@ class ReadingListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            
+            bookController.delete(for: bookFor(indexPath: indexPath))
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -100,6 +96,13 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
+    @objc func toggleRead(_ notification: Notification) {
+        if let book = notification.userInfo?["book"] {
+            bookController.updateHasBeenRead(for: book as! Book)
+            tableView.reloadData()
+        }
+        
+    }
     
     // MARK: - Navigation
 
@@ -124,7 +127,7 @@ class ReadingListTableViewController: UITableViewController {
 
 extension ReadingListTableViewController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        guard let indexPath = self.tableView.indexPath(for: cell) else { return }
          let bookIndexPath = bookFor(indexPath: indexPath)
         
             bookController.updateHasBeenRead(for: bookIndexPath)

@@ -29,9 +29,9 @@ class BookTableViewCell: UITableViewCell {
 
 
     @IBAction func hasBeenReadTapped(_ sender: Any) {
-        book?.hasBeenRead.toggle()
-        delegate?.toggleHasBeenRead(for: self)
-        updateViews()
+//        delegate?.toggleHasBeenRead(for: self)
+        guard let book = book else { return }
+        NotificationCenter.default.post(name: .toggleBeenRead, object: self, userInfo: ["book" : book])
     }
     
     func updateViews() {
@@ -44,11 +44,5 @@ class BookTableViewCell: UITableViewCell {
             hasBeenReadButton.setImage(UIImage(imageLiteralResourceName: "unchecked"), for: .normal)
         }
     }
-    
-    
-    
-    
-    
-
 }
 

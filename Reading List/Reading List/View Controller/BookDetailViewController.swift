@@ -36,11 +36,10 @@ class BookDetailViewController: UIViewController {
     @IBAction func saveTapped(_ sender: Any) {
         
         if let unwrappedBook = book {
-                bookController?.editBook(for: unwrappedBook)
+            bookController?.editBook(for: unwrappedBook, title: unwrappedBook.title, reasonToRead: unwrappedBook.reasonToRead)
             } else {
             if let title = bookTextField.text, let reason = bookTextView.text, !title.isEmpty, !reason.isEmpty {
-                let book = Book(title: title, reasonToRead: reason)
-                bookController?.create(for: book)
+                bookController?.create(title: title, reasonToRead: reason)
                 }
             }
             navigationController?.popViewController(animated: true)
