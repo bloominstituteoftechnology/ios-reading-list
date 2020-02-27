@@ -13,13 +13,13 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var readBooks: UILabel!
     @IBOutlet weak var checkedBox: UIButton!
     
-    
-    var delegate: BookTableViewCellDelegate?
-    
-    @IBAction func addBookTapped(_ sender: UIBarButtonItem) {
+    @IBAction func readTapped(_ sender: Any) {
         delegate?.toggleHasBeenRead(for: self)
     }
     
+    var delegate: BookTableViewCellDelegate?
+    
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

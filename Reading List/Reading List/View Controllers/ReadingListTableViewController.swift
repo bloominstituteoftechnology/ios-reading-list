@@ -10,14 +10,20 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
     
-    let bookController: BookController
     
+    var bookController = BookController()
+    
+    var delegate: BookTableViewCellDelegate?
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -82,13 +88,13 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "BookDetail" {
+        if segue.identifier == "addBookSegue" {
             if let destinationVC = segue.destination as? BookDetailViewController {
                 destinationVC.bookController = bookController
             }
         }
         
-        if segue.identifier == "addBookSegue" {
+        if segue.identifier == "BookDetail" {
             if let destinationVC = segue.destination as? BookDetailViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
                     let book = bookFor(indexPath: indexPath)

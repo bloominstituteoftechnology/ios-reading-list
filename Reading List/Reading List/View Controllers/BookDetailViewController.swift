@@ -26,6 +26,15 @@ class BookDetailViewController: UIViewController {
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         guard let bookTitle = bookTitleTextField.text,
             let reasonToRead = reasonToReadTextView.text,
+            !bookTitle.isEmpty,
+            !reasonToRead.isEmpty else { return }
+        if let book = book {
+            bookController?.updateTitle(book: book, title: bookTitle, reasonToRead: reasonToRead)
+        } else {
+            bookController?.createABook(with: bookTitle, reasonToRead: reasonToRead)
+            
+        }
+        navigationController?.popViewController(animated: true)
             
         
     }

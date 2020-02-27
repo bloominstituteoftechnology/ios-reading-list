@@ -38,16 +38,16 @@ class BookController {
         }
     }
     
-    func updateTitle(for book: Book, with title: String, and reasonToRead: String?) {
-        if let index = books.firstIndex(of: book) {
-            var book = books[index]
-            book.title = title
-            if let reasonToRead = reasonToRead {
-                book.reasonToRead = reasonToRead
-            }
+    func updateTitle(book: Book, title: String, reasonToRead: String) {
+        guard let index = books.firstIndex(of: book)  else { return }
+        var scratch = book
+            scratch.title = title
+            scratch.reasonToRead = reasonToRead
+        books.remove(at: index)
+        books.insert(scratch, at: index)
             saveToPersistentStore()
         }
-    }
+    
     
     // computed property
     

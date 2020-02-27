@@ -17,31 +17,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VkX-Qo-Mf7" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="VkX-Qo-Mf7" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="54.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VkX-Qo-Mf7" id="aRg-D2-Rft">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="54.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="260" translatesAutoresizingMaskIntoConstraints="NO" id="2Kq-ms-oRg">
-                                            <rect key="frame" x="39" y="4" width="336" height="34"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Kq-ms-oRg">
+                                            <rect key="frame" x="8" y="0.0" width="398" height="34.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjT-mK-jTH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="34"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="355.5" height="34.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbq-NE-RNU">
-                                                    <rect key="frame" x="302" y="0.0" width="34" height="34"/>
+                                                    <rect key="frame" x="363.5" y="0.0" width="34.5" height="34.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Xbq-NE-RNU" secondAttribute="height" multiplier="1:1" id="Wzh-gs-5n7"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="readTapped:" destination="VkX-Qo-Mf7" eventType="touchUpInside" id="7hs-dJ-u3G"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Xbq-NE-RNU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NjT-mK-jTH" secondAttribute="trailing" constant="8" id="yju-GR-U15"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2Kq-ms-oRg" firstAttribute="top" secondItem="aRg-D2-Rft" secondAttribute="top" id="PDC-Jl-F4Q"/>
+                                        <constraint firstAttribute="trailing" secondItem="2Kq-ms-oRg" secondAttribute="trailing" constant="8" id="dsq-Im-jn0"/>
+                                        <constraint firstAttribute="bottom" secondItem="2Kq-ms-oRg" secondAttribute="bottom" constant="20" symbolic="YES" id="eUc-GI-cFb"/>
+                                        <constraint firstItem="2Kq-ms-oRg" firstAttribute="leading" secondItem="aRg-D2-Rft" secondAttribute="leading" constant="8" id="yZ7-XP-KcD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="checkedBox" destination="Xbq-NE-RNU" id="oqH-Tw-rYn"/>
@@ -58,7 +70,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="hVk-ZE-XOX">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="h6o-YT-W1W">
                             <connections>
-                                <action selector="addBookTapped:" destination="VkX-Qo-Mf7" id="xvu-ze-ctk"/>
+                                <action selector="addBookTapped:" destination="fmp-dM-DEb" id="AMh-zi-dgy"/>
                                 <segue destination="Y1o-4f-ix8" kind="show" identifier="addBookSegue" id="g1e-lX-xQl"/>
                             </connections>
                         </barButtonItem>
@@ -138,6 +150,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rf3-Ph-Apg"/>
+        <segue reference="g1e-lX-xQl"/>
     </inferredMetricsTieBreakers>
 </document>

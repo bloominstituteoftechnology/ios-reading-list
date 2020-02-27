@@ -64,6 +64,7 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
+				466941742110E22B00E7FF73 /* Info.plist */,
 				FE08A6BB2405DB45009FEAED /* Storyboards */,
 				FE08A6BC2405DB56009FEAED /* View Controllers */,
 				FE08A6BE2405DB76009FEAED /* View */,
@@ -80,7 +81,6 @@
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
-				466941742110E22B00E7FF73 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
