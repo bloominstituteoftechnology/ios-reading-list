@@ -65,7 +65,7 @@ Let's prepare the `BookController` to handle saving and loading from the persist
 
 You may have noticed from the screen recording that the table view is going to have more than one section. In order to facilitate the implementation of this multi-section table view, we're going to add a couple computed properties to the `BookController`:
 
-7. Create a computed property called `readBooks: [Book]`. Inside of the closure of the computed property, you will need to return an array of all of the `Book` objects from the `books` array whose `hasBeenRead` property is true. The easiest way to do that is by using the `.filter` higher-order function. If you are unfamiliar with this function, read the part of [this article](https://useyourloaf.com/blog/swift-guide-to-map-filter-reduce/) titled "Filter". If you still have questions, please ask in the help channel for your cohort, and a PM will explain it to you in more depth.
+7. Create a computed property called `readBooks: [Book]`. Inside of the closure of the computed property, you will need to return an array of all of the `Book` objects from the `books` array whose `hasBeenRead` property is true. The easiest way to do that is by using the `.filter` higher-order function. If you are unfamiliar with this function, read the part of [this article](https://useyourloaf.com/blog/swiftisguide-to-map-filter-reduce/) titled "Filter". If you still have questions, please ask in the help channel for your cohort, and a PM will explain it to you in more depth.
 8. Create a similar computed property called `unreadBooks: [Book]` that does the same thing, except it returns an array of `Book`s whose `hasBeenRead` property is `false`.
 
 ### Part 2 - Storyboard Scenes
