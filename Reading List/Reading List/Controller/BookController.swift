@@ -10,6 +10,8 @@ import Foundation
 
 class BookController {
 
+    // replace checkbox with SFSymbols and make SFSymbols take configuration, point size and weight
+
     private(set) var books: [Book] = []
 
     var readingListURL: URL? {
@@ -19,11 +21,11 @@ class BookController {
     }
     var readBooks: [Book] {
         books.filter { $0.hasBeenRead }
-            .sorted { $0.title < $1.title }
+            .sorted { $0.title.lowercased() < $1.title.lowercased() }
     }
     var unreadBooks: [Book] {
         books.filter { !$0.hasBeenRead }
-            .sorted { $0.title < $1.title }
+            .sorted { $0.title.lowercased() < $1.title.lowercased() }
     }
 
     init() {
