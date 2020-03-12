@@ -79,3 +79,11 @@ class BookController {
         saveToPersistentStore()
     }
 }
+
+protocol BookTableViewCellDelegate {
+    func toggleHasBeenRead(for cell: BookTableViewCell)
+}
+
+protocol BookDetailDelegate {
+    func bookHasBeenUpdated()
+}
