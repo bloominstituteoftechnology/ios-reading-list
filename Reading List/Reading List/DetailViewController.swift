@@ -49,3 +49,6 @@ class DetailViewController: UIViewController {
         title = book.title
     }
 }
+
+//use sf symbols checkmark on cell
+//set configuration on symbol with point size and weight
