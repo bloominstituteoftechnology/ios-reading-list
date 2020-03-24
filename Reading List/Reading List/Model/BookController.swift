@@ -13,6 +13,16 @@ class BookController {
     
     var books: [Book] = []
     
+    // MARK: - Properties
+    
+    var unreadBooks: [Book] {
+        return books.filter({ $0.hasBeenRead == false })
+    }
+    
+    var readBooks: [Book] {
+        return books.filter({ $0.hasBeenRead })
+    }
+
     var readingListURL: URL? {
         
         let fileManager = FileManager.default
