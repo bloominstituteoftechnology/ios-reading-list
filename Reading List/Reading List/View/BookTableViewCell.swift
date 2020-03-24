@@ -2,16 +2,35 @@
 //  BookTableViewCell.swift
 //  Reading List
 //
-//  Created by Harmony Radley on 3/24/20.
+//  Created by Harmony Radley on 2/25/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
 import UIKit
 
+
 class BookTableViewCell: UITableViewCell {
+    @IBOutlet weak var readBooks: UILabel!
+    @IBOutlet weak var checkedBox: UIButton!
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var hasBeenReadButton: UIButton!
+    @IBAction func readTapped(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
+    }
+    
+    var delegate: BookTableViewCellDelegate?
+    
+
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
     
     var book: Book? {
         didSet {
@@ -19,30 +38,19 @@ class BookTableViewCell: UITableViewCell {
         }
     }
     
-    weak var delegate: BookTableViewCellDelegate?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    @IBAction func hasBeenReadButtonTapped(_ sender: Any) {
-        delegate?.toggleHasBeenReadFor(cell: self)
-    }
-    
     func updateViews() {
         if let book = book {
-            titleLabel.text = book.title
+            readBooks.text = book.title
             switch book.hasBeenRead {
             case true:
-                hasBeenReadButton.setImage(UIImage(named: "checked"), for: .normal)
+                checkedBox.setImage(UIImage(named: "checked"), for: .normal)
             case false:
-               hasBeenReadButton.setImage(UIImage(named: "unchecked"), for: .normal)
+                checkedBox.setImage(UIImage(named: "unchecked"), for: .normal)
             }
         }
-        
     }
+    
+    
+    
+
 }

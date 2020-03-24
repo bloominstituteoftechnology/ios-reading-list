@@ -2,7 +2,7 @@
 //  BookDetailViewController.swift
 //  Reading List
 //
-//  Created by Harmony Radley on 3/24/20.
+//  Created by Harmony Radley on 2/25/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
@@ -10,39 +10,48 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
 
-    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var reasonToReadTextView: UITextView!
     
-    var book: Book?
     var bookController: BookController?
+    var book: Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        // Do any additional setup after loading the view.
     }
-    
-    
-    @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let title = titleTextField.text,
-                   let reasonToRead = reasonToReadTextView.text,
-                   title != "" && reasonToRead != "" else { return }
-               
-               if let book = book {
-                   bookController?.update(book: book, withTitle: title, reasonToRead: reasonToRead)
-               } else {
-                   bookController?.createBook(withTitle: title, reasonToRead: reasonToRead)
-               }
-               
-               navigationController?.popViewController(animated: true)
-    }
-    
-    private func updateViews() {
-        guard let book = book else {
-            title = "Add a new book"
-            return }
+ 
+
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        guard let bookTitle = bookTitleTextField.text,
+            let reasonToRead = reasonToReadTextView.text,
+            !bookTitle.isEmpty,
+            !reasonToRead.isEmpty else { return }
+        if let book = book {
+            bookController?.updateTitle(book: book, title: bookTitle, reasonToRead: reasonToRead)
+        } else {
+            bookController?.createABook(with: bookTitle, reasonToRead: reasonToRead)
+            
+        }
+        navigationController?.popViewController(animated: true)
+            
         
-        title = book.title
-        titleTextField.text = book.title
-        reasonToReadTextView.text = book.reasonToRead
     }
+    
+    
+    
+
+
+    func updateViews() {
+        if let book = book {
+            title = book.title
+            bookTitleTextField.text = book.title
+            reasonToReadTextView.text = book.reasonToRead
+        }
+    }
+    
+  
+
 }
+

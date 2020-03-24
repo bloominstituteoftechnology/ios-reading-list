@@ -2,27 +2,68 @@
 //  BookController.swift
 //  Reading List
 //
-//  Created by Harmony Radley on 3/24/20.
+//  Created by Harmony Radley on 2/25/20.
 //  Copyright © 2020 Lambda School. All rights reserved.
 //
 
 import Foundation
 
-
 class BookController {
-    
     var books: [Book] = []
     
-    // MARK: - Properties
-    
-    var unreadBooks: [Book] {
-        return books.filter({ $0.hasBeenRead == false })
+    init() {
+        loadFromPersistentStore()
     }
+    
+    func createABook(with title: String, reasonToRead: String) {
+        let book = Book(title: title, reasonToRead: reasonToRead)
+        
+        books.append(book)
+        saveToPersistentStore()
+    }
+    
+    // "Delete" method
+    func deleteBook(book: Book) {
+        if let index = books.firstIndex(of: book) {
+            books.remove(at: index)
+            saveToPersistentStore()
+        }
+    }
+    
+    // Two "Update" methods
+    func updateHasBeenRead(for book: Book) {
+        if let index = books.firstIndex(of: book) {
+            books[index].hasBeenRead.toggle()
+            saveToPersistentStore()
+        }
+    }
+    
+    func updateTitle(book: Book, title: String, reasonToRead: String) {
+        guard let index = books.firstIndex(of: book)  else { return }
+        var scratch = book
+            scratch.title = title
+            scratch.reasonToRead = reasonToRead
+        books.remove(at: index)
+        books.insert(scratch, at: index)
+            saveToPersistentStore()
+        }
+    
+    
+    // computed property
     
     var readBooks: [Book] {
-        return books.filter({ $0.hasBeenRead })
+        let read = books.filter { return $0.hasBeenRead }
+        return read
     }
-
+    
+    var unreadBooks: [Book] {
+        let unread = books.filter { return !$0.hasBeenRead }
+        return unread
+    }
+    
+    
+    // MARK: - Persistence
+    
     var readingListURL: URL? {
         
         let fileManager = FileManager.default
@@ -32,88 +73,50 @@ class BookController {
         let booksURL = documentsDir?.appendingPathComponent("ReadingList.plist")
         
         return booksURL
-        
     }
     
-    // MARK: - CRUD
-    
-    // Create
-    
-    func createBook(title: String, reasonToRead: String) {
-        let book = Book(title: title, reasonToRead: reasonToRead)
-        
-        books.append(book)
-        
-        saveToPersistentStore()
-    }
-    
-    // Delete
-    
-    func delete(book: Book) {
-        guard let index = books.firstIndex(of: book) else { return }
-        
-        books.remove(at: index)
-        
-        saveToPersistentStore()
-    }
-    
-    // Update
-    
-    func updateHasBeenRead(for book: Book) {
-        
-        guard let index = books.firstIndex(of: book) else { return }
-        
-        books[index].hasBeenRead = !books[index].hasBeenRead
-        
-        saveToPersistentStore()
-    }
-    
-    func update(book: Book, title: String, reasonToRead: String) {
-        guard let index = books.firstIndex(of: book) else { return }
-        
-        var updateBook = book
-        
-        updateBook.title = title
-        updateBook.reasonToRead = reasonToRead
-        
-        books.remove(at: index)
-        books.insert(updateBook, at: index)
-    }
-    
-    
-    // MARK: - Persistence
     func saveToPersistentStore() {
+        // Covert Stars into a Property List
+        
+        let encoder = PropertyListEncoder()
         
         do {
             
-            let encoder = PropertyListEncoder()
+            let booksData = try encoder.encode(books)
             
-            let readingListPlist = try encoder.encode(books)
+            guard let booksURL = readingListURL else { return }
             
-            guard let readingListURL = readingListURL else { return }
+            try booksData.write(to: booksURL)
             
-            try readingListPlist.write(to: readingListURL)
         } catch {
-            print("Error saving books: \(error).")
+            // The catch statement gets called if the functions(s) that you call "try" on fails.
+            print("Unable to save books to plist: \(error)")
+            
         }
     }
     
     func loadFromPersistentStore() {
         
-        guard let readingListURL = readingListURL else { return }
+        guard let booksURL = readingListURL else { return }
+        
+        let decoder = PropertyListDecoder()
         
         do {
+            // Goes to the starsURL and grab the file (data) from that location
+            let booksData = try Data(contentsOf: booksURL)
             
-            let decoder = PropertyListDecoder()
+            let decodedBooks = try decoder.decode([Book].self, from: booksData)
             
-            let readingListPlist = try Data(contentsOf: readingListURL)
-            
-            let books = try decoder.decode([Book].self, from: readingListPlist)
-            
-            self.books = books
+            self.books = decodedBooks
             
         } catch {
+            print("Error decoding books: \(error)")
             
         }
     }
+    
+    
+    
+    
+    
 }
