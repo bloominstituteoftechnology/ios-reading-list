@@ -10,6 +10,9 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController {
 
+    //Variables
+    let bookController = BookController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,28 +22,46 @@ class ReadingListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    
+    
+    
+    private func bookFor(indexPath: IndexPath) -> Book {
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+        } else {
+            return bookController.unreadBooks[indexPath.row]
+        }
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        if section == 0 {
+            return bookController.readBooks.count
+        } else {
+            return bookController.unreadBooks.count
+        }
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
 
-        // Configure the cell...
+        guard let myCell = cell as? BookTableViewCell  else {
+                return cell
+            }
+        
 
+        myCell.book = bookFor(indexPath: indexPath)
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -87,4 +108,15 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
+}
+
+
+extension ReadingListTableViewController: BookTableViewCellDelegate {
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        bookController.updateHasBeenRead(for: bookController.books[tableView.indexPathForSelectedRow?.row ?? 0])
+        tableView.reloadData()
+    }
+    
+    
 }

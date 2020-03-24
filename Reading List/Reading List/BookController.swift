@@ -16,7 +16,7 @@ class BookController {
     //CRUD
     
     //Variables
-    private var books: [Book] = []
+    var books: [Book] = []
     
     //Computed Properties
     var readBooks: [Book] {
