@@ -11,13 +11,13 @@
         <!--Reading List-->
         <scene sceneID="fKh-yt-SOT">
             <objects>
-                <tableViewController title="Reading List" id="bkn-8G-uIF" sceneMemberID="viewController">
+                <tableViewController title="Reading List" id="bkn-8G-uIF" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="avU-pN-7CR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Jhg-ks-CnJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="60" id="Jhg-ks-CnJ" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jhg-ks-CnJ" id="hZT-ap-Spx">
@@ -36,6 +36,9 @@
                                                 <constraint firstAttribute="width" secondItem="Jqw-65-Eb2" secondAttribute="height" multiplier="1:1" id="dCC-hc-Cik"/>
                                             </constraints>
                                             <state key="normal" image="unchecked"/>
+                                            <connections>
+                                                <action selector="hasBeenReadButtonTapped:" destination="Jhg-ks-CnJ" eventType="touchUpInside" id="AFU-9d-EoN"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -46,6 +49,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="hasBeenReadButton" destination="Jqw-65-Eb2" id="kWg-WK-68G"/>
+                                    <outlet property="titleLabel" destination="Mjv-Ug-j4m" id="jqQ-jb-7hP"/>
                                     <segue destination="woc-OV-5mx" kind="show" identifier="ViewBook" id="EbG-0j-YYT"/>
                                 </connections>
                             </tableViewCell>
