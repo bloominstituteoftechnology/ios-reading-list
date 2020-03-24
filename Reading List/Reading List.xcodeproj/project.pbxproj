@@ -15,6 +15,7 @@
 		FE735DCA242AAACB0063287F /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE735DC9242AAACB0063287F /* BookController.swift */; };
 		FE735DCE242AB7610063287F /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE735DCD242AB7610063287F /* ReadingListTableViewController.swift */; };
 		FE735DD0242AB7750063287F /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE735DCF242AB7750063287F /* BookTableViewCell.swift */; };
+		FE735DD4242ABC9F0063287F /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE735DD3242ABC9F0063287F /* BookDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FE735DC9242AAACB0063287F /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		FE735DCD242AB7610063287F /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		FE735DCF242AB7750063287F /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		FE735DD3242ABC9F0063287F /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				FE735DCF242AB7750063287F /* BookTableViewCell.swift */,
+				FE735DD3242ABC9F0063287F /* BookDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			files = (
 				FE735DCE242AB7610063287F /* ReadingListTableViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
+				FE735DD4242ABC9F0063287F /* BookDetailViewController.swift in Sources */,
 				FE735DCA242AAACB0063287F /* BookController.swift in Sources */,
 				FE735DD0242AB7750063287F /* BookTableViewCell.swift in Sources */,
 				FE735DC7242AA8930063287F /* Book.swift in Sources */,
