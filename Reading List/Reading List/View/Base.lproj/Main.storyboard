@@ -52,7 +52,7 @@
                                 <connections>
                                     <outlet property="checkBox" destination="0rV-Rr-hQY" id="0gV-Qs-DTP"/>
                                     <outlet property="titleLabel" destination="G2p-4R-jGG" id="s2V-ly-d40"/>
-                                    <segue destination="OSy-id-vrx" kind="show" identifier="showDetailSegue" id="0Co-6m-d4e"/>
+                                    <segue destination="OSy-id-vrx" kind="show" identifier="ShowBookDetailSegue" id="0Co-6m-d4e"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -64,7 +64,7 @@
                     <navigationItem key="navigationItem" title="Reading List" id="BmX-OZ-C8p">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DbZ-vh-t93">
                             <connections>
-                                <segue destination="OSy-id-vrx" kind="show" identifier="addSegue" id="4vL-qk-Y3F"/>
+                                <segue destination="OSy-id-vrx" kind="show" identifier="AddBookSegue" id="4vL-qk-Y3F"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
