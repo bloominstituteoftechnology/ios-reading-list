@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="1173.913043478261" y="225.66964285714283"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Detail View Controller-->
         <scene sceneID="i6x-PA-rup">
             <objects>
-                <viewController id="1wo-L5-aRB" sceneMemberID="viewController">
+                <viewController id="1wo-L5-aRB" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XLg-Me-y8s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +120,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WLa-vi-MXj"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Y1p-Lx-WtZ"/>
+                    <navigationItem key="navigationItem" id="Y1p-Lx-WtZ">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="tbT-Te-1W4">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="1wo-L5-aRB" id="Yux-5W-G1y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="TextField" destination="dsg-f4-etR" id="Rfb-Cc-Mre"/>
+                        <outlet property="TextView" destination="VjL-M6-Kec" id="rro-Ya-l9i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xLS-Ah-z4y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

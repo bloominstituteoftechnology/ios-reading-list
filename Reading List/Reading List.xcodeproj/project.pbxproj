@@ -16,6 +16,7 @@
 		DD4893DD242A9C6200BA7F25 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4893DC242A9C6200BA7F25 /* BookController.swift */; };
 		DD4893DF242AAFDB00BA7F25 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4893DE242AAFDB00BA7F25 /* ReadingListTableViewController.swift */; };
 		DD4893E1242AAFF700BA7F25 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4893E0242AAFF700BA7F25 /* BookTableViewCell.swift */; };
+		DD4893E3242AB38E00BA7F25 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4893E2242AB38E00BA7F25 /* BookDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DD4893DC242A9C6200BA7F25 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		DD4893DE242AAFDB00BA7F25 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		DD4893E0242AAFF700BA7F25 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		DD4893E2242AB38E00BA7F25 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				466941742110E22B00E7FF73 /* Info.plist */,
 				DD4893DE242AAFDB00BA7F25 /* ReadingListTableViewController.swift */,
 				DD4893E0242AAFF700BA7F25 /* BookTableViewCell.swift */,
+				DD4893E2242AB38E00BA7F25 /* BookDetailViewController.swift */,
 			);
 			path = "Reading List";
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				DD4893DF242AAFDB00BA7F25 /* ReadingListTableViewController.swift in Sources */,
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
 				DD4893DD242A9C6200BA7F25 /* BookController.swift in Sources */,
+				DD4893E3242AB38E00BA7F25 /* BookDetailViewController.swift in Sources */,
 				DD4893E1242AAFF700BA7F25 /* BookTableViewCell.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 			);
