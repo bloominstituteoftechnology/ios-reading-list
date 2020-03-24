@@ -105,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				FE735DCD242AB7610063287F /* ReadingListTableViewController.swift */,
+				FE735DD3242ABC9F0063287F /* BookDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -114,7 +115,6 @@
 			children = (
 				FE735DCF242AB7750063287F /* BookTableViewCell.swift */,
 				FE735DD5242ABF170063287F /* BookTableViewCellDelegate.swift */,
-				FE735DD3242ABC9F0063287F /* BookDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
