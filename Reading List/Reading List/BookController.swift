@@ -37,9 +37,9 @@ class BookController {
                
                let booksPlist = try encoder.encode(books)
                
-               guard let readingListURL = readingListURL else { return }
+               guard let persistentFileURL = persistentFileURL else { return }
                
-               try booksPlist.write(to: readingListURL)
+               try booksPlist.write(to: persistentFileURL)
            
            } catch {
               
@@ -50,13 +50,13 @@ class BookController {
     
     func loadFromPersistentStore() {
                
-               guard let readingListURL = readingListURL else {return }
+               guard let persistentFileURL = persistentFileURL else {return }
                
                do {
                    
                    let decoder = PropertyListDecoder()
                    
-                   let booksPlist = try Data(contentsOf: readingListURL)
+                   let booksPlist = try Data(contentsOf: persistentFileURL)
                
                    let books = try decoder.decode([Book].self, from: booksPlist)
                    
@@ -91,9 +91,8 @@ class BookController {
         
         func updateBook(for book: Book, title: String, reasonToRead: String){
             guard let index = books.firstIndex(of: book) else {return}
-            var book = books[index]
-            book.title = title
-            book.reasonToRead = reasonToRead
+            books[index].title = title
+            books[index].reasonToRead = reasonToRead
         }
 }
 

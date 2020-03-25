@@ -37,6 +37,7 @@ class BookDetailViewController: UIViewController {
     @IBAction func saveButton(_ sender: Any) {
         guard let title = bookTitleTextField.text, !title.isEmpty, let description = reasonToReadTextField.text, !description.isEmpty else { return }
             if let book = book {
+                
                 bookController?.updateBook(for: book, title: title, reasonToRead: description)
             } else {
                 bookController?.createBook(withBook: title, reasonToRead: description)

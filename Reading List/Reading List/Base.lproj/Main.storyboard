@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Reading List" id="RKE-Sg-YSY" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="RKE-Sg-YSY" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RKE-Sg-YSY" id="kuu-F8-EAo">
@@ -25,22 +25,23 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="292" translatesAutoresizingMaskIntoConstraints="NO" id="mcD-m3-uhe">
-                                            <rect key="frame" x="15" y="-3.5" width="384" height="50.5"/>
+                                            <rect key="frame" x="8" y="-5" width="398" height="53.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RO-J3-fZx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="50.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5RO-J3-fZx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="53.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVP-du-ORk">
-                                                    <rect key="frame" x="334" y="0.0" width="50" height="50.5"/>
+                                                    <rect key="frame" x="345" y="0.0" width="53" height="53.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="DVP-du-ORk" secondAttribute="height" multiplier="1:1" id="k0C-j6-CDa"/>
                                                     </constraints>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
                                                         <action selector="checkedButton:" destination="RKE-Sg-YSY" eventType="touchUpInside" id="6Zj-VO-4Tw"/>
+                                                        <action selector="hasReadButtonPressed:" destination="RKE-Sg-YSY" eventType="touchUpInside" id="swV-HB-CsV"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -49,6 +50,8 @@
                                     <constraints>
                                         <constraint firstItem="mcD-m3-uhe" firstAttribute="centerY" secondItem="kuu-F8-EAo" secondAttribute="centerY" id="D5E-7w-7eG"/>
                                         <constraint firstItem="mcD-m3-uhe" firstAttribute="centerX" secondItem="kuu-F8-EAo" secondAttribute="centerX" id="Mmx-Ht-dly"/>
+                                        <constraint firstAttribute="trailing" secondItem="mcD-m3-uhe" secondAttribute="trailing" constant="8" id="jMf-T8-F8D"/>
+                                        <constraint firstItem="mcD-m3-uhe" firstAttribute="leading" secondItem="kuu-F8-EAo" secondAttribute="leading" constant="8" id="wRk-uA-kmK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -62,7 +65,7 @@
                             <outlet property="delegate" destination="2th-87-XYt" id="efw-iE-U34"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yXU-4t-g4V">
+                    <navigationItem key="navigationItem" title="Reading List" id="yXU-4t-g4V">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zYX-RS-4f2">
                             <connections>
                                 <segue destination="Fib-bA-Mbe" kind="show" identifier="ShowAddBook" id="XaK-GI-PAO"/>
@@ -86,14 +89,13 @@
                                 <rect key="frame" x="20" y="139" width="359" height="170"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xNQ-he-FB6">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="86"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZCN-oe-bVq">
-                                        <rect key="frame" x="0.0" y="42" width="359" height="128"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason To Read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZCN-oe-bVq">
+                                        <rect key="frame" x="0.0" y="94" width="359" height="76"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

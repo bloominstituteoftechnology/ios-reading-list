@@ -41,7 +41,7 @@ var book: Book? {
        // Initialization code
    }
 
-   @IBAction func hasReadButtonPressed(_ sender: UIButton) {
+    @IBAction func hasReadButtonPressed(_ sender: UIButton) {
        delegate?.toggleHasBeenRead(for: self)
    }
 }

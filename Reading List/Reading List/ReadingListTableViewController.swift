@@ -14,8 +14,14 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+    
     
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
@@ -23,6 +29,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         bookController.updateHasBeenRead(for: book)
         tableView.reloadData()
     }
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -40,7 +47,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as! BookTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
         cell.delegate = self
         cell.book = bookFor(indexPath: indexPath)
         return cell
@@ -55,10 +62,13 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 { return "Read Books" } else { return "Unread Books"}
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "AddBookSegue" {
+    if segue.identifier == "ShowAddBook" {
         guard let bookDetailViewController = segue.destination as? BookDetailViewController else { return }
-        
         bookDetailViewController.bookController = self.bookController
     } else if segue.identifier == "ShowBookDetailSegue" {
         
@@ -68,6 +78,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         bookDetailViewController.book = bookFor(indexPath: indexPath)
         bookDetailViewController.bookController = bookController
     }
+        
 }
 
           
