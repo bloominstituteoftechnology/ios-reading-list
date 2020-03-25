@@ -15,17 +15,6 @@ class BookController {
     var readBooks: [Book] { books.filter { $0.hasBeenRead } }
     var unreadBooks: [Book] { books.filter { $0.hasBeenRead == false }}
     
-    // MARK: - Persitence
-    var readingListURL: URL? {
-        let fileManager = FileManager.default
-        // Grab the app's document directory
-        let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
-        // Create location for plist
-        let booksURL = documentDirectory?.appendingPathComponent("ReadingList.plist")
-        // Return URL
-        return booksURL
-    }
-    
     // MARK: - Create
     func createBook(title: String, reasonToRead: String) {
         books.append(Book(title: title, reasonToRead: reasonToRead))
@@ -36,6 +25,17 @@ class BookController {
     func deleteBook(_ book: Book) {
         books.remove(at: books.firstIndex(of: book)!)
         saveToPersistentStore()
+    }
+    
+    // MARK: - Persitence
+    var readingListURL: URL? {
+        let fileManager = FileManager.default
+        // Grab the app's document directory
+        let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+        // Create location for plist
+        let booksURL = documentDirectory?.appendingPathComponent("ReadingList.plist")
+        // Return URL
+        return booksURL
     }
     
     // MARK: - Save

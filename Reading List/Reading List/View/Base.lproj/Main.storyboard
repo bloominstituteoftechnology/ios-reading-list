@@ -31,13 +31,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rV-Rr-hQY">
-                                            <rect key="frame" x="344" y="-3.5" width="50" height="50.5"/>
+                                            <rect key="frame" x="294" y="-28.5" width="100" height="100.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="0rV-Rr-hQY" secondAttribute="height" multiplier="1:1" id="6al-8w-ie6"/>
                                             </constraints>
                                             <state key="normal" image="unchecked"/>
                                             <connections>
                                                 <action selector="checkBoxTapped:" destination="W9i-RF-wCk" eventType="touchUpInside" id="PoP-WY-KpJ"/>
+                                                <action selector="hasBeenReadButtonPressed:" destination="W9i-RF-wCk" eventType="touchUpInside" id="xPb-VQ-9Rp"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -50,7 +51,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bookTitleLabel" destination="G2p-4R-jGG" id="lTG-cy-EKA"/>
                                     <outlet property="checkBox" destination="0rV-Rr-hQY" id="0gV-Qs-DTP"/>
+                                    <outlet property="hasBeenReadButton" destination="0rV-Rr-hQY" id="ULa-zX-unz"/>
                                     <outlet property="titleLabel" destination="G2p-4R-jGG" id="s2V-ly-d40"/>
                                     <segue destination="OSy-id-vrx" kind="show" identifier="ShowBookDetailSegue" id="0Co-6m-d4e"/>
                                 </connections>
@@ -116,12 +119,14 @@
                     <navigationItem key="navigationItem" title="Title" id="PBa-NI-ysp">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="bsC-Nv-a7f">
                             <connections>
-                                <action selector="saveButtonTapped:" destination="OSy-id-vrx" id="vDT-wM-kZl"/>
+                                <action selector="saveButtonPressed:" destination="OSy-id-vrx" id="UNH-20-mp1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bookTitleTextField" destination="q2T-pZ-YFs" id="vj8-fP-jGF"/>
                         <outlet property="reasonTextView" destination="uor-u7-o34" id="ZZY-8P-ohG"/>
+                        <outlet property="reasonToReadTextField" destination="uor-u7-o34" id="qPt-HM-3Cg"/>
                         <outlet property="titleTextField" destination="q2T-pZ-YFs" id="k2I-3o-JjY"/>
                     </connections>
                 </viewController>
