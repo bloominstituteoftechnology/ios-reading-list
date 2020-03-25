@@ -106,11 +106,11 @@ This custom cell will follow the delegate pattern in order to let the table view
 4. Create a new Swift file called "BookTableViewCellDelegate.swift", and create a protocol with the same name (minus the ".swift", of course).
 5. Add a function called `func toggleHasBeenRead(for cell: BookTableViewCell)`
 6. Back in the `BookTableViewCell` class, add a `weak var delegate: BookTableViewCellDelegate?` variable.
-7. Call the `delegate` property's `toggleHasBeenRead(for cell: ...)` function in the action of the button.
+7. Call the `delegate` property's `` function in the action of the button.
 
 #### ReadingListTableViewController
 
-This table view controller is going to set the table view up to use two sections; one to group all of the read books, and one to group all of the unread books. This is potentially the first time you have used with multiple sections. As always when setting up a table view, we need to use the `numberOfRowsInSection` and `cellForRowAt` methods. However since we want a table view with more than one section, we also need to implement the `numberOfSections(in tableView: ...)` method. Another useful `UITableViewDataSource` method to use when your table view has more than one section is the `titleForHeaderInSection` method that allows us to give a title to each section in order to let the user know how the table view is grouping its cells.
+This table view controller is going to set the table view up to use two sections; one to group all of the read books, and one to group all of the unread books. This is potentially the first time you have used with multiple sections. As always when setting up a table view, w"e" need to use the `numberOfRowsInSection` and `cellForRowAt` methods. However since we want a table view with more than one section, we also need to implement the `numberOfSections(in tableView: ...)` method. Another useful `UITableViewDataSource` method to use when your table view has more than one section is the `titleForHeaderInSection` method that allows us to give a title to each section in order to let the user know how the table view is grouping its cells.
 
 1. Add a `bookController` constant, and set its value to a new instance of `BookController`.
 2. Implement the `numberOfSections(in tableView: ...)`. It should already be in the table view subclass above the `numberOfRowsInSection`. If you've deleted it, simply call it again. This method is very similar to the `numberOfRowsInSection`. It simply wants you to return an `Int` indicating how many sections the table view should have. In this case, **we simply want to return two.**
