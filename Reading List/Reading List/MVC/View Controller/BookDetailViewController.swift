@@ -10,8 +10,11 @@ import UIKit
 
 class BookDetailViewController: UIViewController {
 
+    var previousController: ReadingListTableViewController?
+    
     @IBOutlet weak var TextField: UITextField!
     @IBOutlet weak var TextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,11 +30,12 @@ class BookDetailViewController: UIViewController {
             if let myField = TextField.text, let myTextView = TextView.text
             {
                 bookController?.createBook(hasBeenRead: false, title: myField, reasonToRead: myTextView)
+                previousController?.tableView.reloadData()
             }
             
+            navigationController?.popViewController(animated: true)
             return
         }
-        
     }
     
     func updateViews() {

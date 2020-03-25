@@ -124,8 +124,8 @@
 		DD48941C242B0EFC00BA7F25 /* Controller Sub-Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DD4893E0242AAFF700BA7F25 /* BookTableViewCell.swift */,
 				DD4893E4242AB68D00BA7F25 /* BookTableViewCellDelegate.swift */,
+				DD4893E0242AAFF700BA7F25 /* BookTableViewCell.swift */,
 			);
 			path = "Controller Sub-Classes";
 			sourceTree = "<group>";

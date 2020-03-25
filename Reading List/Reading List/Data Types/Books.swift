@@ -10,7 +10,7 @@ import Foundation
 
 struct Book: Equatable, Codable {
     
-    static func == (lhs: Mob, rhs: Mob) -> Bool {
+    static func == (lhs: Book, rhs: Book) -> Bool {
         return lhs.title == rhs.title
     }
     

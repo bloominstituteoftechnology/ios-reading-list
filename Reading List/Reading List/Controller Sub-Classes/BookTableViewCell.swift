@@ -32,7 +32,12 @@ class BookTableViewCell: UITableViewCell {
     func updateViews() {
         guard let myBook = book else { return }
         BookTitle.text = myBook.title
-        ButtonRead.setImage(UIImage(named: "unchecked"), for: .normal)
+        
+        if myBook.hasBeenRead == false {
+            ButtonRead.setImage(UIImage(named: "unchecked"), for: .normal)
+        } else {
+            ButtonRead.setImage(UIImage(named: "checked"), for: .normal)
+        }
         
     }
     

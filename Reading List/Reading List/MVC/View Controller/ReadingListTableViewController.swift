@@ -41,9 +41,9 @@ class ReadingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
-            return bookController.readBooks.count - 1
+            return bookController.readBooks.count
         } else {
-            return bookController.unreadBooks.count - 1
+            return bookController.unreadBooks.count 
         }
     }
 
@@ -51,7 +51,7 @@ class ReadingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
 
-        guard let myCell = cell as? BookTableViewCell  else {
+        guard let myCell = cell as? BookTableViewCell else {
                 return cell
             }
         
@@ -61,28 +61,23 @@ class ReadingListTableViewController: UITableViewController {
         return myCell
     }
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
-
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            bookController.deleteBook(book: bookController.books[indexPath.row])
-            print("Deleted Book")
-            
-            
-           // myCell.book.deleteBook()
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            if editingStyle == .delete {
+                bookController.books.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
+            }
+        }
     }
     
 
@@ -112,17 +107,17 @@ class ReadingListTableViewController: UITableViewController {
                     return
                 }
                 myDestination.bookController = bookController
+                myDestination.previousController = self
             } else if myIdentifier == "BookDetailSegue" {
                 guard let myDestination = segue.destination as? BookDetailViewController else {
                     return
                 }
                 myDestination.bookController = bookController
                 myDestination.book = bookController.books[tableView.indexPathForSelectedRow?.row ?? 0]
+                 myDestination.previousController = self
             }
         }
     }
-    
-
 }
 
 
@@ -132,6 +127,4 @@ extension ReadingListTableViewController: BookTableViewCellDelegate {
         bookController.updateHasBeenRead(for: bookController.books[tableView.indexPathForSelectedRow?.row ?? 0])
         tableView.reloadData()
     }
-    
-    
 }
