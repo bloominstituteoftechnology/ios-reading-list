@@ -9,6 +9,11 @@
 import Foundation
 
 struct Book: Equatable, Codable {
+    
+    static func == (lhs: Mob, rhs: Mob) -> Bool {
+        return lhs.title == rhs.title
+    }
+    
     var title: String
     var reasonToRead: String
     var hasBeenRead: Bool

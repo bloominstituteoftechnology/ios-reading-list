@@ -23,9 +23,6 @@ class ReadingListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    
-    
-    
     private func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
             return bookController.readBooks[indexPath.row]
@@ -44,9 +41,9 @@ class ReadingListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
-            return bookController.readBooks.count
+            return bookController.readBooks.count - 1
         } else {
-            return bookController.unreadBooks.count
+            return bookController.unreadBooks.count - 1
         }
     }
 
@@ -58,9 +55,10 @@ class ReadingListTableViewController: UITableViewController {
                 return cell
             }
         
-
+        myCell.delegate = self
         myCell.book = bookFor(indexPath: indexPath)
-        return cell
+        
+        return myCell
     }
 
     /*
@@ -71,17 +69,22 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
+            bookController.deleteBook(book: bookController.books[indexPath.row])
+            print("Deleted Book")
+            
+            
+           // myCell.book.deleteBook()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -98,15 +101,27 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let myIdentifier = segue.identifier {
+            if myIdentifier == "AddBookSegue" {
+                guard let myDestination = segue.destination as? BookDetailViewController else {
+                    return
+                }
+                myDestination.bookController = bookController
+            } else if myIdentifier == "BookDetailSegue" {
+                guard let myDestination = segue.destination as? BookDetailViewController else {
+                    return
+                }
+                myDestination.bookController = bookController
+                myDestination.book = bookController.books[tableView.indexPathForSelectedRow?.row ?? 0]
+            }
+        }
     }
-    */
+    
 
 }
 

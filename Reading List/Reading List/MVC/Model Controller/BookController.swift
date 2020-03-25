@@ -60,7 +60,12 @@ class BookController {
     func updateHasBeenRead(for book: Book) {
         for i in 0...books.count - 1 {
             if books[i] == book {
-                books[i].hasBeenRead = book.hasBeenRead
+                if books[i].hasBeenRead == true {
+                    books[i].hasBeenRead = false
+                } else {
+                    books[i].hasBeenRead = true
+                }
+                return
             }
         }
     }
@@ -70,6 +75,7 @@ class BookController {
             if books[i] == book {
                 books[i].title = book.title
                 books[i].reasonToRead = book.reasonToRead
+                return
             }
         }
     }
@@ -80,6 +86,7 @@ class BookController {
         for i in 0...books.count - 1 {
             if books[i] == book {
                 books.remove(at: i)
+                return
             }
         }
     }
