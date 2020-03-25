@@ -11,88 +11,89 @@ import Foundation
 class BookController {
     
     var books: [Book] = []
+    var readBooks: [Book] {books.filter({ $0.hasBeenRead })}
+    var unreadBooks: [Book] {books.filter({ $0.hasBeenRead == false })}
+    
+    var persistentFileURL: URL? {
+        
+        let fileManager = FileManager.default
+        
+        let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+        
+        let booksURL = documentsDir?.appendingPathComponent("ReadingList.plist")
+        
+        return booksURL
+    }
+    
+    func createBook(withBook title: String, reasonToRead: String) {
+        books.append(Book(title: title, reasonToRead: reasonToRead))
+        savedToPresistentStore()
+    }
+    
+    func savedToPresistentStore() {
+           
+           do {
+               let encoder = PropertyListEncoder()
+               
+               let booksPlist = try encoder.encode(books)
+               
+               guard let readingListURL = readingListURL else { return }
+               
+               try booksPlist.write(to: readingListURL)
+           
+           } catch {
+              
+               print("Error saving books: \(error)")
+               
+           }
+       }
+    
+    func loadFromPersistentStore() {
+               
+               guard let readingListURL = readingListURL else {return }
+               
+               do {
+                   
+                   let decoder = PropertyListDecoder()
+                   
+                   let booksPlist = try Data(contentsOf: readingListURL)
+               
+                   let books = try decoder.decode([Book].self, from: booksPlist)
+                   
+                   self.books = books
+                   
+               } catch {
+                   print("Error decoding books: \(error)")
+               }
+    }
+       
     
     init(){
         loadFromPersistentStore()
     }
-    
-    func createBook(title: String, reasonToRead: String) {
-        let book = Book(title: title, reasonToRead: reasonToRead)
-        books.append(book)
-        savedToPresistentStore()
-}
-    
-    func deleteBook(book: Book) {
-        guard let bookIndex = books.firstIndex(of: book) else { return }
-        books.remove(at: bookIndex)
-        savedToPresistentStore()
+       
         
-}
-    
-  func updateHasBeenRead(for book: Book) {
-      guard let bookIndex = books.firstIndex(of: book) else { return }
-      if books[bookIndex].hasBeenRead == true {
-          books[bookIndex].hasBeenRead = false
-      } else if books[bookIndex].hasBeenRead == false {
-              books[bookIndex].hasBeenRead = true
-      }
-  }
-
-    var readBooks: [Book] {
-            return books.filter({ $0.hasBeenRead })
-        }
-    var unreadBooks: [Book] {
-            return books.filter({ $0.hasBeenRead == false })
-        }
-    
-    var persistentFileURL: URL? {
-    
-    let fileManager = FileManager.default
-    
-    let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
-    
-    let booksURL = documentsDir?.appendingPathComponent("ReadingList.plist")
-    
-    return booksURL
-}
-        
-    func savedToPresistentStore() {
-        
-        do {
-            let encoder = PropertyListEncoder()
+        func deleteBook(book: Book) {
+            guard let bookIndex = books.firstIndex(of: book) else { return }
+            books.remove(at: bookIndex)
+            savedToPresistentStore()
             
-            let readingListPlist = try encoder.encode(books)
-            
-            guard let persistentFileURL = persistentFileURL else { return }
-            
-            try readingListPlist.write(to: persistentFileURL)
-        
-        } catch {
-           
-            print("Error saving books: \(error)")
-            
-        }
     }
-    
-        func loadFromPersistentStore() {
-            
-            guard let persistentFileURL = persistentFileURL else {return }
-            
-            do {
-                
-                let decoder = PropertyListDecoder()
-                
-                let readingListPlist = try Data(contentsOf: persistentFileURL)
-            
-                let decodedBooks = try decoder.decode([Book].self, from: readingListPlist)
-                
-                self.books = decodedBooks
-                
-                
-            } catch {
-                print("Error decoding books: \(error)")
-            }
+        
+      func updateHasBeenRead(for book: Book) {
+          guard let bookIndex = books.firstIndex(of: book) else { return }
+          if books[bookIndex].hasBeenRead == true {
+              books[bookIndex].hasBeenRead = false
+          } else if books[bookIndex].hasBeenRead == false {
+                  books[bookIndex].hasBeenRead = true
+          }
+      }
+        
+        func updateBook(for book: Book, title: String, reasonToRead: String){
+            guard let index = books.firstIndex(of: book) else {return}
+            var book = books[index]
+            book.title = title
+            book.reasonToRead = reasonToRead
         }
-    
 }
 
