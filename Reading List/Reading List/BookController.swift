@@ -37,11 +37,13 @@ class BookController {
               books[bookIndex].hasBeenRead = true
       }
   }
-    
-   
-    
-    
-    
+
+    var readBooks: [Book] {
+            return books.filter({ $0.hasBeenRead })
+        }
+    var unreadBooks: [Book] {
+            return books.filter({ $0.hasBeenRead == false })
+        }
     
     var persistentFileURL: URL? {
     
@@ -91,5 +93,6 @@ class BookController {
                 print("Error decoding books: \(error)")
             }
         }
+    
 }
 
