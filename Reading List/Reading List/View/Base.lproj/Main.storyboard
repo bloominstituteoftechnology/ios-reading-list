@@ -31,13 +31,12 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rV-Rr-hQY">
-                                            <rect key="frame" x="294" y="-28.5" width="100" height="100.5"/>
+                                            <rect key="frame" x="344" y="-3.5" width="50" height="50.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="0rV-Rr-hQY" secondAttribute="height" multiplier="1:1" id="6al-8w-ie6"/>
                                             </constraints>
                                             <state key="normal" image="unchecked"/>
                                             <connections>
-                                                <action selector="checkBoxTapped:" destination="W9i-RF-wCk" eventType="touchUpInside" id="PoP-WY-KpJ"/>
                                                 <action selector="hasBeenReadButtonPressed:" destination="W9i-RF-wCk" eventType="touchUpInside" id="xPb-VQ-9Rp"/>
                                             </connections>
                                         </button>
@@ -52,9 +51,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookTitleLabel" destination="G2p-4R-jGG" id="lTG-cy-EKA"/>
-                                    <outlet property="checkBox" destination="0rV-Rr-hQY" id="0gV-Qs-DTP"/>
                                     <outlet property="hasBeenReadButton" destination="0rV-Rr-hQY" id="ULa-zX-unz"/>
-                                    <outlet property="titleLabel" destination="G2p-4R-jGG" id="s2V-ly-d40"/>
                                     <segue destination="OSy-id-vrx" kind="show" identifier="ShowBookDetailSegue" id="0Co-6m-d4e"/>
                                 </connections>
                             </tableViewCell>
@@ -92,13 +89,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uor-u7-o34">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uor-u7-o34">
                                         <rect key="frame" x="0.0" y="42" width="374" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="tBE-57-rHo"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -125,9 +121,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bookTitleTextField" destination="q2T-pZ-YFs" id="vj8-fP-jGF"/>
-                        <outlet property="reasonTextView" destination="uor-u7-o34" id="ZZY-8P-ohG"/>
                         <outlet property="reasonToReadTextField" destination="uor-u7-o34" id="qPt-HM-3Cg"/>
-                        <outlet property="titleTextField" destination="q2T-pZ-YFs" id="k2I-3o-JjY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugg-Od-1IS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -157,6 +151,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Co-6m-d4e"/>
+        <segue reference="4vL-qk-Y3F"/>
     </inferredMetricsTieBreakers>
 </document>

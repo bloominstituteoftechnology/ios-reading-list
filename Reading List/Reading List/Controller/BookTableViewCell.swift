@@ -14,9 +14,18 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var hasBeenReadButton: UIButton!
     
+    // MARK: - Properties
+    var book: Book? {
+        didSet {
+            updateViews()
+        }
+    }
+    var delegate: BookTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        updateViews()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,6 +36,13 @@ class BookTableViewCell: UITableViewCell {
 
     // MARK: - Actions
     @IBAction func hasBeenReadButtonPressed(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
+    }
+    
+    func updateViews() {
+        bookTitleLabel.text = self.book?.title
+        if self.book?.hasBeenRead == true { hasBeenReadButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal) }
+        else { hasBeenReadButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal) }
     }
     
 }

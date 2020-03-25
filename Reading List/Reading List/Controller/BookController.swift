@@ -27,6 +27,22 @@ class BookController {
         saveToPersistentStore()
     }
     
+    // MARK: - Update methods
+
+    func updateHasBeenRead(for book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+            books[index].hasBeenRead.toggle()
+            saveToPersistentStore()
+        }
+    
+    func updateText(book: Book, title: String, reasonToRead: String) {
+        guard let index = books.firstIndex(of: book) else { return }
+        var book = books[index]
+        book.title = title
+        book.reasonToRead = reasonToRead
+        saveToPersistentStore()
+    }
+    
     // MARK: - Persitence
     var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -69,6 +85,10 @@ class BookController {
         } catch {
             print("Error loading stars: \(error)")
         }
+    }
+    
+    init() {
+        loadFromPersistentStore()
     }
     
 }
