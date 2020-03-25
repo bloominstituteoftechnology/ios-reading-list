@@ -37,9 +37,8 @@ class BookController {
     
     func updateText(book: Book, title: String, reasonToRead: String) {
         guard let index = books.firstIndex(of: book) else { return }
-        var book = books[index]
-        book.title = title
-        book.reasonToRead = reasonToRead
+        books.remove(at: index)
+        books.insert(Book(title: title, reasonToRead: reasonToRead), at: index)
         saveToPersistentStore()
     }
     
