@@ -7,3 +7,7 @@
 //
 
 import Foundation
+//MARK: PART 3 #4
+protocol BookTableViewCellDelegate: AnyObject {
+    func toggleHasBeenRead(for cell: BookTableViewCell)
+}

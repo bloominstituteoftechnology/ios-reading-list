@@ -33,7 +33,7 @@ class BookController {
         var unreadBooks: [Book] {
             return books.filter { book in !book.hasBeenRead }
         }
-        }
+    }
     
 //MARK: #4
     func saveToPresistenceStore() {
@@ -46,8 +46,8 @@ class BookController {
             try booksData.write(to: url)
         } catch {
             print("Error saving book data: \(error)")
-        }
     }
+}
 //MARK: #5
         func loadFromPersistentStore() {
              do {

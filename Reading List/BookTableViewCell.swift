@@ -12,15 +12,18 @@ class BookTableViewCell: UITableViewCell {
 //MARK: OUTLETS & ACTIONS
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var button: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     @IBAction func buttonTapped(_ sender: Any) {
+        //delegate?.toggleHasBeenRead(for cell: )
     }
+    
 //MARK: Part 3 - Wiring Everything Up
     var book: Book?
-
+    weak var delegate: BookTableViewCellDelegate?
     func updateViews() {
         guard let book = book else { return }
         titleLabel.text = book.title
@@ -30,8 +33,6 @@ class BookTableViewCell: UITableViewCell {
             
         }
     }
-
-        // Configure the view for the selected state
-    }
+}
 
 
