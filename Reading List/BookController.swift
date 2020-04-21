@@ -20,15 +20,20 @@ class BookController {
         saveToPresistenceStore()
         return book
     }
-    
+//MARK: #3
     var readingListURL: URL? {
         let fileManager = FileManager.default
         guard let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         
         return documentsDir.appendingPathComponent("ReadingList.plist")
+//MARK: #7 Adding Filter
+        var readBooks: [Book] {
+            return books.filter { book in book.hasBeenRead }
+        }
+        var unreadBooks: [Book]
         }
     
-    
+//MARK: #4
     func saveToPresistenceStore() {
         
         guard let url = readingListURL else { return }
@@ -40,7 +45,7 @@ class BookController {
         } catch {
             print("Error saving book data: \(error)")
         }
-      
+//MARK: #5
         func loadFromPersistentStore() {
              do {
             guard let url = readingListURL else { return }
