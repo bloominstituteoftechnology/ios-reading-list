@@ -16,10 +16,62 @@ class BookController {
     
 var books: [Book] = []
     
-    func createBook(name:) ->  {
+    func createBook(title: String, reasonToRead: String, hasBeenRead: Bool ) -> Book  {
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: false)
+        
+        books.append(book)
+        
+        saveToPersistentStore()
+        
+        return book
+    }
+    
+    func deleteBook(my book: Book) {
+        
+        guard let myBook = books.firstIndex(of: book) else { return }
+        
+        books.remove(at: myBook)
+        
+        saveToPersistentStore()
         
     }
     
+    func updateHasBeenRead(for book: Book) {
+        
+        guard let bookUpdated = books.firstIndex(of: book) else { return }
+        
+        books[bookUpdated].hasBeenRead = !books[bookUpdated].hasBeenRead
+        
+        saveToPersistentStore()
+    }
+    
+    func update(for book: Book, for title: String, for reasonToRead: String ) {
+        
+        guard let index = books.firstIndex(of: book) else { return }
+        
+        var scratch = book
+        
+        scratch.title = title
+        scratch.reasonToRead = reasonToRead
+        
+        books.remove(at: index)
+        
+        books.insert(scratch, at: index)
+        
+    }
+    
+    var readBooks: [Book] {
+
+        let readBooksFiltered = books.filter { $0; where hasBeenRead == true }
+
+        return booksFiltered
+    }
+
+    var unreadBooks: [Book] {
+        let unreadBooksFilterd = books.filter { $0; where hasBeenRead == true }
+
+        retun unreadBooksFilterd
+    }
     
 
 
