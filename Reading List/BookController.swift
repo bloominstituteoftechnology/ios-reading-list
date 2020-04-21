@@ -30,7 +30,9 @@ class BookController {
         var readBooks: [Book] {
             return books.filter { book in book.hasBeenRead }
         }
-        var unreadBooks: [Book]
+        var unreadBooks: [Book] {
+            return books.filter { book in !book.hasBeenRead }
+        }
         }
     
 //MARK: #4
@@ -45,6 +47,7 @@ class BookController {
         } catch {
             print("Error saving book data: \(error)")
         }
+    }
 //MARK: #5
         func loadFromPersistentStore() {
              do {
@@ -57,8 +60,5 @@ class BookController {
                 print("Error loading data from books \(error)")
             }
         }
-    }
-    
-    
     }
     
