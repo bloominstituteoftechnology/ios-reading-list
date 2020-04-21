@@ -12,6 +12,10 @@ import os.log
 class BookController {
     var books: [Book] = [Book]()
     
+    init() {
+        loadFromPersistentStore()
+    }
+    
     var readingListURL: URL? {
         let fileManager = FileManager.default
         let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first

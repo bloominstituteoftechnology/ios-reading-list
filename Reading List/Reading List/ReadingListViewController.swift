@@ -68,7 +68,7 @@ class ReadingListViewController: UITableViewController, BookTableViewCellDelegat
         
         let book = bookFor(indexPath: indexPath)
         
-        cell.titleLabel.text = book.title
+        cell.titleLabel?.text = book.title
         
         if book.hasBeenRead {
             cell.hasReadButton?.setImage(UIImage(named: "checked"), for: .selected)
