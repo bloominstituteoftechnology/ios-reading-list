@@ -31,6 +31,8 @@ class ReadingListViewController: UITableViewController, BookTableViewCellDelegat
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             bookController.books.remove(at: indexPath.row)
+            bookController.saveToPersistentStore()
+            tableView.reloadData()
         }
     }
     
