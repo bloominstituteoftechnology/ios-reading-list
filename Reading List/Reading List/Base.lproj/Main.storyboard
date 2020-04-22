@@ -35,9 +35,9 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50.5" id="d1B-YZ-emp"/>
                                             </constraints>
-                                            <state key="normal" image="unchecked"/>
+                                            <state key="normal" image="checkmark.square.fill" catalog="system"/>
                                             <connections>
-                                                <action selector="checkboxPressed:" destination="bd6-B3-Yb6" eventType="touchUpInside" id="nhE-sB-tOx"/>
+                                                <action selector="checkboxPressed:" destination="bd6-B3-Yb6" eventType="touchUpInside" id="n2G-MP-2hv"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -149,6 +149,6 @@
         <segue reference="UGG-U0-2Ka"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="unchecked" width="50" height="50"/>
+        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>

@@ -10,8 +10,11 @@ import UIKit
 import os.log
 
 class ReadingListViewController: UITableViewController, BookTableViewCellDelegate {
+    
 
     let bookController = BookController()
+    
+    var delegate: BookTableViewCellDelegate?
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -43,10 +46,11 @@ class ReadingListViewController: UITableViewController, BookTableViewCellDelegat
         guard let indexPath = tableView.indexPath(for: cell) else {
             fatalError("Dequeued cell was not found in tableView")
         }
-        
-        var book = bookFor(indexPath: indexPath)
-        
-        bookController.updateHasBeenRead(for: &book)
+
+        let book = bookFor(indexPath: indexPath)
+
+        bookController.updateHasBeenRead(for: book)
+    
         tableView.reloadData()
     }
     
@@ -69,11 +73,14 @@ class ReadingListViewController: UITableViewController, BookTableViewCellDelegat
         let book = bookFor(indexPath: indexPath)
         
         cell.titleLabel?.text = book.title
+        cell.delegate = self
         
         if book.hasBeenRead {
-            cell.hasReadButton?.setImage(UIImage(named: "checked"), for: .selected)
+            cell.hasReadButton?.setImage(UIImage(named: "checked"), for: .normal)
+            cell.hasReadButton?.isSelected = false
         } else {
-            cell.hasReadButton?.setImage(UIImage(named: "unchecked"), for: .normal)
+            cell.hasReadButton?.setImage(UIImage(named: "unchecked"), for: .selected)
+            cell.hasReadButton?.isSelected = true
         }
         
         return cell
@@ -83,11 +90,11 @@ class ReadingListViewController: UITableViewController, BookTableViewCellDelegat
         if let sourceViewController = sender.source as? BookDetailViewController, let book = sourceViewController.book {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 
-                var selectedBook = bookFor(indexPath: selectedIndexPath)
-                bookController.updateBook(for: &selectedBook, book.title, book.reasonToRead)
+                let selectedBook = bookFor(indexPath: selectedIndexPath)
+                bookController.updateBook(for: selectedBook, book.title, book.reasonToRead)
                 
                 if book.hasBeenRead != selectedBook.hasBeenRead {
-                    bookController.updateHasBeenRead(for: &selectedBook)
+                    bookController.updateHasBeenRead(for: selectedBook)
                 }
             } else {
                 bookController.create(book.title, book.reasonToRead)

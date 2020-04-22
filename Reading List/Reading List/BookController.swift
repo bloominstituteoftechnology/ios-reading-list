@@ -61,17 +61,26 @@ class BookController {
         } catch {
             fatalError("Object was not of type [Book] or error writing books to persistent storage")
         }
-        
+        loadFromPersistentStore()
+        print(books)
     }
     
-    func updateHasBeenRead(for book: inout Book) {
-        book.hasBeenRead = !book.hasBeenRead
+    func updateHasBeenRead(for book: Book) {
+        let hasRead = !book.hasBeenRead
+        if let index = books.index(of: book) {
+            books[index].hasBeenRead = hasRead
+        }
+        
         saveToPersistentStore()
     }
 
-    func updateBook(for book: inout Book,_ title: String,_ reason: String) {
-        book.title = title
-        book.reasonToRead = reason
+    func updateBook(for book: Book,_ title: String,_ reason: String) {
+        
+        if let index = books.index(of: book) {
+            books[index].title = title
+            books[index].reasonToRead = reason
+        }
+        
         saveToPersistentStore()
     }
     
@@ -91,7 +100,7 @@ class BookController {
             
             os_log("%@", log: OSLog.default, type: .debug, "Successfully loaded books from persistent storage. Number of books loaded: \(books.count)")
         } catch {
-            fatalError("Error decoding books from persistent storage")
+            return
         }
     }
 

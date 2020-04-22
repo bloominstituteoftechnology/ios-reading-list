@@ -13,7 +13,6 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet var hasReadButton: UIButton!
     
     var delegate: BookTableViewCellDelegate?
-    
     @IBAction func checkboxPressed(_ sender: UIButton) {
         delegate?.toggleHasBeenRead(for: self)
     }
@@ -31,11 +30,13 @@ class BookTableViewCell: UITableViewCell {
         
         titleLabel?.text = unwrappedBook.title
         
-        switch unwrappedBook.hasBeenRead {
-        case true:
-            hasReadButton?.setImage(UIImage(named: "checked"), for: .selected)
-        case false:
-            hasReadButton?.setImage(UIImage(named: "unchecked"), for: .normal)
+        if unwrappedBook.hasBeenRead {
+            hasReadButton.setBackgroundImage(UIImage(named: "checked"), for: .normal)
+            hasReadButton.isSelected = false
+        }
+        else {
+            hasReadButton.setBackgroundImage(UIImage(named: "unchecked"), for: .normal)
+            hasReadButton.isSelected = true
         }
     }
     
