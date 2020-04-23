@@ -18,7 +18,8 @@ class BookTableViewCell: UITableViewCell {
         // Initialization code
     }
     @IBAction func buttonTapped(_ sender: Any) {
-        //delegate?.toggleHasBeenRead(for cell: )
+        guard let delegate = delegate else { return }
+        delegate.toggleHasBeenRead(for: self)
     }
     
 //MARK: Part 3 - Wiring Everything Up

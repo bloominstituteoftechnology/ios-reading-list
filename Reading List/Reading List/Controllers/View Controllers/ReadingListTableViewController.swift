@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
-    
+class ReadingListTableViewController: UITableViewController {//BookTableViewCellDelegate {
     let bookController = BookController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+         tableView.dataSource = self
     }
 
     // MARK: - Table view data source
@@ -24,12 +24,20 @@ class ReadingListTableViewController: UITableViewController {
     
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return bookController.readBooks.count
-        } else if section == 1 {
-            return bookController.unreadBooks.count
-        }
-        return 0
-    }
 
-}
+        return 0
+        }
+    
+//    override func 
+
+    }
+    
+    
+//MARK: NOT UNDERSTANDING WHY IT CANT READ MY READ AND UNREAD BOOKS. CANT MOVE ON, ASK 4 HELP.
+//    func bookFor(indexPath: IndexPath) ->  Book {
+//        if indexPath == 0
+//        return BookController.read
+//    }
+    
+    
+

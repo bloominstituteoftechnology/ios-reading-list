@@ -52,10 +52,10 @@ class BookController {
         func loadFromPersistentStore() {
              do {
             guard let url = readingListURL else { return }
-           
                 let booksData = try Data(contentsOf: url)
                 let booksPlist = PropertyListDecoder()
                 let decodeBooks = try booksPlist.decode([Book].self, from: booksData)
+                
             } catch {
                 print("Error loading data from books \(error)")
             }

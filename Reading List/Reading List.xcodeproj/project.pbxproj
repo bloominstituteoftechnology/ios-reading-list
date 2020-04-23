@@ -53,8 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				466941672110E22A00E7FF73 /* Reading List */,
-				466941742110E22B00E7FF73 /* Info.plist */,
-				B40D54A6244F732400311D84 /* Book.swift */,
 				B40D54B6244FB1D200311D84 /* Default-568h@2x.png */,
 				466941662110E22A00E7FF73 /* Products */,
 			);
@@ -71,7 +69,7 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
-				B40D54B9244FB2D000311D84 /* Models */,
+				466941742110E22B00E7FF73 /* Info.plist */,
 				B40D54BA244FB2E000311D84 /* Controllers */,
 				B40D54B8244FB2B400311D84 /* Resources */,
 			);
@@ -90,9 +88,8 @@
 		B40D54B3244FB08000311D84 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B40D54B2244FB04A00311D84 /* View Controllers */,
-				B40D54A8244F74A300311D84 /* BookController.swift */,
 				B40D54B0244F962D00311D84 /* BookTableViewCellDelegate.swift */,
+				B40D54AC244F8F5D00311D84 /* BookTableViewCell.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -110,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				B40D54B4244FB15000311D84 /* StoryBoards */,
-				B40D54AC244F8F5D00311D84 /* BookTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +124,7 @@
 		B40D54B9244FB2D000311D84 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B40D54A8244F74A300311D84 /* BookController.swift */,
 				B40D54B5244FB17A00311D84 /* Views */,
 			);
 			path = Models;
@@ -136,6 +133,9 @@
 		B40D54BA244FB2E000311D84 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B40D54A6244F732400311D84 /* Book.swift */,
+				B40D54B9244FB2D000311D84 /* Models */,
+				B40D54B2244FB04A00311D84 /* View Controllers */,
 				B40D54B3244FB08000311D84 /* Model Controllers */,
 			);
 			path = Controllers;
