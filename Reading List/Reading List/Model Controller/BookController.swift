@@ -12,6 +12,29 @@ class CookController {
     
     var books: [Book] = []
     
+    func createBook(with title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        books.append(book)
+        self.saveToPersistentStore()
+        return book
+    }
+    
+    func deleteBook(bookToDelete: Book) {
+        var index = 0
+        for book in books {
+            if book == bookToDelete {
+                books.remove(at: index)
+                break
+            } else {
+                index += 1
+            }
+        }
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        var isRead = !book.hasBeenRead
+    }
+    
     private var readingListURL: URL? {
         let fm = FileManager.default
         guard let directory = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
