@@ -12,6 +12,16 @@ class CookController {
     
     var books: [Book] = []
     
+    var readBooks: [Book] {
+        let hasRead = books.filter { $0.hasBeenRead == true }
+        return hasRead
+    }
+    
+    var unreadBooks: [Book] {
+        let hasNotRead = books.filter { $0.hasBeenRead == false }
+        return hasNotRead
+    }
+    
     func createBook(with title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
         books.append(book)
@@ -29,6 +39,7 @@ class CookController {
                 index += 1
             }
         }
+        self.saveToPersistentStore()
     }
     
     func updateHasBeenRead(for book: Book) {
