@@ -17,45 +17,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9M7-hV-GLJ" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="46.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewBookCell" id="9M7-hV-GLJ" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9M7-hV-GLJ" id="HUP-su-73h">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="46.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="294" translatesAutoresizingMaskIntoConstraints="NO" id="bvs-SK-JGB">
-                                            <rect key="frame" x="6" y="6" width="402" height="34.5"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g0-EI-mb5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="73.5" height="34.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5n-Zy-xIK">
-                                                    <rect key="frame" x="367.5" y="0.0" width="34.5" height="34.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="j5n-Zy-xIK" secondAttribute="height" multiplier="1:1" id="fLV-EV-LPh"/>
-                                                    </constraints>
-                                                    <state key="selected" image="unchecked"/>
-                                                    <connections>
-                                                        <action selector="hasBeenReadTapped:" destination="9M7-hV-GLJ" eventType="touchUpInside" id="Bek-bu-fAn"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mx3-D0-fgM">
+                                            <rect key="frame" x="20" y="11.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6H-l6-J6w">
+                                            <rect key="frame" x="364" y="5" width="30" height="34"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                            <connections>
+                                                <action selector="hasBeenReadTapped:" destination="9M7-hV-GLJ" eventType="touchUpInside" id="FDC-Ij-wDn"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="bvs-SK-JGB" secondAttribute="bottom" constant="6" id="GRQ-oZ-ggW"/>
-                                        <constraint firstAttribute="trailing" secondItem="bvs-SK-JGB" secondAttribute="trailing" constant="6" id="cBE-wl-VGj"/>
-                                        <constraint firstItem="bvs-SK-JGB" firstAttribute="leading" secondItem="HUP-su-73h" secondAttribute="leading" constant="6" id="fox-ow-xvj"/>
-                                        <constraint firstItem="bvs-SK-JGB" firstAttribute="top" secondItem="HUP-su-73h" secondAttribute="top" constant="6" id="jMb-a8-NYy"/>
+                                        <constraint firstItem="q6H-l6-J6w" firstAttribute="centerY" secondItem="HUP-su-73h" secondAttribute="centerY" id="09Y-97-CMD"/>
+                                        <constraint firstItem="Mx3-D0-fgM" firstAttribute="centerY" secondItem="HUP-su-73h" secondAttribute="centerY" id="FRb-8f-CkF"/>
+                                        <constraint firstItem="q6H-l6-J6w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mx3-D0-fgM" secondAttribute="trailing" constant="8" id="Ta8-08-HC9"/>
+                                        <constraint firstAttribute="trailing" secondItem="q6H-l6-J6w" secondAttribute="trailing" constant="20" id="bEg-6Q-dpn"/>
+                                        <constraint firstItem="Mx3-D0-fgM" firstAttribute="leading" secondItem="HUP-su-73h" secondAttribute="leadingMargin" id="byP-IZ-yKY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="bookLabel" destination="7g0-EI-mb5" id="Q8e-rZ-G0t"/>
-                                    <outlet property="hasBeenReadButton" destination="j5n-Zy-xIK" id="KNZ-Iz-AjB"/>
+                                    <outlet property="bookLabel" destination="Mx3-D0-fgM" id="1pc-kV-GG1"/>
+                                    <outlet property="hasBeenReadButton" destination="q6H-l6-J6w" id="ZRC-tQ-RJU"/>
                                     <segue destination="n2z-zE-Jh0" kind="show" identifier="ReadingDetailSegue" id="EmY-a3-zgg"/>
                                 </connections>
                             </tableViewCell>
@@ -147,9 +140,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2a9-3W-zMz"/>
+        <segue reference="EmY-a3-zgg"/>
     </inferredMetricsTieBreakers>
-    <resources>
-        <image name="unchecked" width="50" height="50"/>
-    </resources>
 </document>
