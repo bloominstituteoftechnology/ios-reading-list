@@ -9,6 +9,10 @@
 import Foundation
 
 class BookController: Codable {
+    init() {
+        self.loadFromPersistentStore()
+    }
+    
     var books: [Book] = []
     
     // Access user's documents & create a plist

@@ -17,21 +17,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="53" id="Ikn-Ha-vmq" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="53"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="Ikn-Ha-vmq" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ikn-Ha-vmq" id="ZpP-b7-zuT">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5s-7J-0DB">
-                                            <rect key="frame" x="8" y="16" width="35.5" height="21"/>
+                                            <rect key="frame" x="8" y="11.5" width="35.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVl-wm-VUm">
-                                            <rect key="frame" x="372" y="9.5" width="34" height="34"/>
+                                            <rect key="frame" x="372" y="5" width="34" height="34"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="tVl-wm-VUm" secondAttribute="height" multiplier="1:1" id="cfP-am-3aW"/>
                                             </constraints>
