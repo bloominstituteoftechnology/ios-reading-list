@@ -10,10 +10,25 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     
+    var delegate: BookTableViewCellDelegate?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var readCheckBox: UIButton!
     
     @IBAction func checkReadTapped(_ sender: Any) {
+        delegate?.toggleHasBeenRead(for: self)
+    }
+    
+    var book: Book? {
+        didSet {
+            self.updateViews()
+        }
+    }
+    
+    func updateViews() {
+        guard let book = book else { return }
+        titleLabel.text = book.title
+        readCheckBox.setImage(UIImage(named: "unchecked"), for: .normal)
     }
     
     override func awakeFromNib() {
