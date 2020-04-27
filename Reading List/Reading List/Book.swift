@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct Book: Codable {
-    var name: String
+struct Book: Codable, Equatable {
+    var title: String
     var reasonToRead: String
     var hasBeenRead: Bool
     
-    init(name: String, reasonToRead: String, hasBeenRead: Bool = false) {
-        self.name = name
+    init(title: String, reasonToRead: String, hasBeenRead: Bool = false) {
+        self.title = title
         self.reasonToRead = reasonToRead
         self.hasBeenRead = hasBeenRead
     }
