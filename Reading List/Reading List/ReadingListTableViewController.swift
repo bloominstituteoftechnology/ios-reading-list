@@ -19,8 +19,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         tableView.reloadSections(IndexSet(0...1), with: .fade) // Try .automatic
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -51,12 +52,14 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
         let book = bookFor(indexPath: indexPath)
         guard let bookCell = cell as? BookTableViewCell else { return cell }
         
         bookCell.book = book
         bookCell.delegate = self
+        bookCell.updateViews()
+        
         return cell
     }
     
@@ -81,15 +84,16 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetailSegue" {
-            let newBookVC = segue.destination as? BookDetailViewController
-            newBookVC?.bookController = bookController
-        } else if segue.identifier == "AddBookSegue" {
-            if let indexPath = tableView.indexPathForSelectedRow,
-                let bookDetailVC = segue.destination as? BookDetailViewController {
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let bookDetailVC = segue.destination as! BookDetailViewController
                 bookDetailVC.bookController = bookController
                 bookDetailVC.book = bookFor(indexPath: indexPath)
             }
+            
+        } else if segue.identifier == "AddBookSegue" {
+            let newBookVC = segue.destination as! BookDetailViewController
+            newBookVC.bookController = bookController
         }
     }
-    
 }

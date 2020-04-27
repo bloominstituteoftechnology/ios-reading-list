@@ -30,6 +30,10 @@ class BookTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
+        if let title = book?.title {
+            titleLabel.text = title
+        }
+        
         if book?.hasBeenRead == true {
             let image = UIImage(named: "checked.png")
             hasReadButton.setImage(image, for: .normal)
