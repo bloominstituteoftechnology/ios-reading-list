@@ -85,7 +85,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reasons to read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xOv-L3-tAf">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reasons to read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xOv-L3-tAf">
                                 <rect key="frame" x="16" y="222" width="382" height="225"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
