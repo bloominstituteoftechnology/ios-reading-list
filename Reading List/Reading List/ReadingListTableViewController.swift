@@ -79,4 +79,17 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetailSegue" {
+            let newBookVC = segue.destination as? BookDetailViewController
+            newBookVC?.bookController = bookController
+        } else if segue.identifier == "AddBookSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow,
+                let bookDetailVC = segue.destination as? BookDetailViewController {
+                bookDetailVC.bookController = bookController
+                bookDetailVC.book = bookFor(indexPath: indexPath)
+            }
+        }
+    }
+    
 }
