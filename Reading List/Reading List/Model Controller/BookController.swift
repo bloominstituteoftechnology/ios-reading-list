@@ -8,9 +8,10 @@
 
 import Foundation
 
-class CookController {
+class BookController {
     
     var books: [Book] = []
+    var bookDetailsVC = BookDetailViewController()
     
     var readBooks: [Book] {
         let hasRead = books.filter { $0.hasBeenRead == true }
@@ -44,6 +45,13 @@ class CookController {
     
     func updateHasBeenRead(for book: Book) {
         var isRead = !book.hasBeenRead
+    }
+    
+    func updateBook(book: Book) {
+//        guard let title = bookDetailsVC.bookTitleTextField.text, let reason = bookDetailsVC.reasonToReadTextField.text else { return }
+//        book.title = title
+//        book.reasonToRead = reason
+//        self.saveToPersistentStore()
     }
     
     private var readingListURL: URL? {
