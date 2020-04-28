@@ -8,9 +8,21 @@
 
 import Foundation
 
-struct Book {
+
+
+// create struct
+struct Book: Codable, Equatable {
     var title: String
     var reasonToRead: String
-    var hasBeenRead: String
+    var hasBeenRead: Bool
     
+    
+// add initializer with Bool = false
+    
+    init(title: String, reasonToRead: String, hasBeenRead: Bool = false) {
+    self.title = title
+    self.reasonToRead = reasonToRead
+    self.hasBeenRead = hasBeenRead
+    }
+
 }
