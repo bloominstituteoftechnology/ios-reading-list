@@ -10,10 +10,10 @@ import Foundation
 
 class BookController {
     init() {
-        self.loadFromPersistentStore()
+        loadFromPersistentStore()
     }
     
-    private(set) var books: [Book] = []
+    var books: [Book] = []
     
     private var readingListURL: URL? {
         let fm = FileManager.default
@@ -41,7 +41,7 @@ class BookController {
         return bookArray
     }
     
-    private func saveToPersistentStore() {
+    func saveToPersistentStore() {
         guard let url = readingListURL else { return }
         
         do {
@@ -53,12 +53,10 @@ class BookController {
         }
     }
     
-    private func loadFromPersistentStore() {
+    func loadFromPersistentStore() {
         let fm = FileManager.default
         guard let url = readingListURL,
             fm.fileExists(atPath: url.path) else { return }
-        
-        // Plist file -> Data -> Stars
         
         do {
             let booksData = try Data(contentsOf: url)
@@ -73,26 +71,26 @@ class BookController {
     @discardableResult func createBook(title: String, reasonToRead: String) -> Book {
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
-        self.saveToPersistentStore()
+        saveToPersistentStore()
         return book
     }
     
     func deleteBook(book: Book) {
         guard let bookIndex = books.firstIndex(of: book) else { return }
         books.remove(at: bookIndex)
-        self.saveToPersistentStore()
+        saveToPersistentStore()
     }
     
     func updateHasBeenRead(for book: Book) {
         guard let bookIndex = books.firstIndex(of: book) else { return }
-        books[bookIndex].hasBeenRead = !books[bookIndex].hasBeenRead
-        self.saveToPersistentStore()
+        books[bookIndex].hasBeenRead.toggle()
+        saveToPersistentStore()
     }
     
     func updateBookData(for book: Book, title: String, reasonToRead: String) {
         guard let bookIndex = books.firstIndex(of: book) else { return }
         books[bookIndex].title = title
         books[bookIndex].reasonToRead = reasonToRead
-        self.saveToPersistentStore()
+        saveToPersistentStore()
     }
 }

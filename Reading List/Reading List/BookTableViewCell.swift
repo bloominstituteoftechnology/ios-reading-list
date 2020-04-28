@@ -21,25 +21,25 @@ class BookTableViewCell: UITableViewCell {
     
     var book: Book? {
         didSet {
-            self.updateViews()
+            updateViews()
         }
     }
     
     func updateViews() {
         guard let book = book else { return }
         titleLabel.text = book.title
-        readCheckBox.setImage(UIImage(named: "unchecked"), for: .normal)
+        if book.hasBeenRead {
+            readCheckBox.setImage(UIImage(named: "checked"), for: .normal)
+        } else {
+            readCheckBox.setImage(UIImage(named: "unchecked"), for: .normal)
+        }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        
+//        // Initialization code
+//        updateViews()
+//    }
 
 }

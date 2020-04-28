@@ -17,21 +17,21 @@ class BookDetailViewController: UIViewController {
     var book: Book?
     
     @IBAction func saveTapped(_ sender: Any) {
+        guard let title = titleTextField.text,
+            let reason = reasonTextView.text else { navigationController?.popViewController(animated: true);return }
+        
         if let book = book {
-            bookController?.updateBookData(for: book, title: book.title, reasonToRead: book.reasonToRead)
+            bookController?.updateBookData(for: book, title: title, reasonToRead: reason)
         } else {
-            guard let title = titleTextField.text,
-                let reason = reasonTextView.text else { return }
             bookController?.createBook(title: title, reasonToRead: reason)
         }
+        
         navigationController?.popViewController(animated: true)
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateViews()
     }
     
     func updateViews() {
@@ -43,16 +43,5 @@ class BookDetailViewController: UIViewController {
             title = "Add a new book"
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
