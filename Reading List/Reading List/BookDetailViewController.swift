@@ -13,7 +13,18 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reasonTextView: UITextView!
     
+    var bookController: BookController?
+    var book: Book?
+    
     @IBAction func saveTapped(_ sender: Any) {
+        if let book = book {
+            bookController?.updateBookData(for: book, title: book.title, reasonToRead: book.reasonToRead)
+        } else {
+            guard let title = titleTextField.text,
+                let reason = reasonTextView.text else { return }
+            bookController?.createBook(title: title, reasonToRead: reason)
+        }
+        navigationController?.popViewController(animated: true)
     }
     
 
@@ -21,6 +32,16 @@ class BookDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func updateViews() {
+        if let book = book {
+            titleTextField.text = book.title
+            reasonTextView.text = book.reasonToRead
+            title = book.title
+        } else {
+            title = "Add a new book"
+        }
     }
     
 
