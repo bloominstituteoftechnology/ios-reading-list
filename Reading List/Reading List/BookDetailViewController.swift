@@ -18,7 +18,8 @@ class BookDetailViewController: UIViewController {
     
     @IBAction func saveTapped(_ sender: Any) {
         guard let title = titleTextField.text,
-            let reason = reasonTextView.text else { navigationController?.popViewController(animated: true);return }
+            let reason = reasonTextView.text,
+            title != "" && reason != "" else { navigationController?.popViewController(animated: true);return }
         
         if let book = book {
             bookController?.updateBookData(for: book, title: title, reasonToRead: reason)

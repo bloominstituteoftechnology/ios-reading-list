@@ -10,15 +10,11 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
     
-    let bookController = BookController()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        bookController.loadFromPersistentStore()
-        tableView.reloadData()
-    }
+    var bookController = BookController()
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         tableView.reloadData()
     }
 
@@ -46,7 +42,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     func toggleHasBeenRead(for cell: BookTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        bookController.updateHasBeenRead(for: bookController.books[indexPath.row])
+        bookController.updateHasBeenRead(for: bookFor(indexPath: indexPath))
         tableView.reloadData()
     }
 
@@ -55,7 +51,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         
         cell.delegate = self
         
-        let book = bookController.books[indexPath.row]
+        let book = bookFor(indexPath: indexPath)
         
         cell.book = book
 
@@ -64,15 +60,17 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tableView.deleteRows(at: [indexPath], with: .fade)
             bookController.deleteBook(book: bookFor(indexPath: indexPath))
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
+            guard bookController.readBooks.count > 0 else { return nil }
             return "Read Books"
         } else {
+            guard bookController.unreadBooks.count > 0 else { return nil }
             return "Unread Books"
         }
     }

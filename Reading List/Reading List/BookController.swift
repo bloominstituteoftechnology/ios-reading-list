@@ -13,7 +13,7 @@ class BookController {
         loadFromPersistentStore()
     }
     
-    var books: [Book] = []
+    private(set) var books: [Book] = []
     
     private var readingListURL: URL? {
         let fm = FileManager.default
@@ -22,23 +22,11 @@ class BookController {
     }
     
     var readBooks: [Book] {
-        var bookArray: [Book] = []
-        for book in books {
-            if book.hasBeenRead {
-                bookArray.append(book)
-            }
-        }
-        return bookArray
+        return books.filter({ $0.hasBeenRead })
     }
     
     var unreadBooks: [Book] {
-        var bookArray: [Book] = []
-        for book in books {
-            if !book.hasBeenRead {
-                bookArray.append(book)
-            }
-        }
-        return bookArray
+        return books.filter({ $0.hasBeenRead == false })
     }
     
     func saveToPersistentStore() {
@@ -54,9 +42,7 @@ class BookController {
     }
     
     func loadFromPersistentStore() {
-        let fm = FileManager.default
-        guard let url = readingListURL,
-            fm.fileExists(atPath: url.path) else { return }
+        guard let url = readingListURL else { return }
         
         do {
             let booksData = try Data(contentsOf: url)
@@ -68,11 +54,10 @@ class BookController {
         }
     }
     
-    @discardableResult func createBook(title: String, reasonToRead: String) -> Book {
+    func createBook(title: String, reasonToRead: String) {
         let book = Book(title: title, reasonToRead: reasonToRead)
         books.append(book)
         saveToPersistentStore()
-        return book
     }
     
     func deleteBook(book: Book) {
@@ -83,14 +68,20 @@ class BookController {
     
     func updateHasBeenRead(for book: Book) {
         guard let bookIndex = books.firstIndex(of: book) else { return }
-        books[bookIndex].hasBeenRead.toggle()
+        books[bookIndex].hasBeenRead = !books[bookIndex].hasBeenRead
         saveToPersistentStore()
     }
     
     func updateBookData(for book: Book, title: String, reasonToRead: String) {
         guard let bookIndex = books.firstIndex(of: book) else { return }
-        books[bookIndex].title = title
-        books[bookIndex].reasonToRead = reasonToRead
+        
+        var temp = book
+        temp.title = title
+        temp.reasonToRead = reasonToRead
+        
+        books.remove(at: bookIndex)
+        books.insert(temp, at: bookIndex)
+        
         saveToPersistentStore()
     }
 }

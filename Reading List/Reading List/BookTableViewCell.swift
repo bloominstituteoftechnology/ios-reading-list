@@ -10,7 +10,7 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     
-    var delegate: BookTableViewCellDelegate?
+    weak var delegate: BookTableViewCellDelegate?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var readCheckBox: UIButton!
@@ -34,12 +34,5 @@ class BookTableViewCell: UITableViewCell {
             readCheckBox.setImage(UIImage(named: "unchecked"), for: .normal)
         }
     }
-    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        
-//        // Initialization code
-//        updateViews()
-//    }
 
 }
