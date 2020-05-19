@@ -10,6 +10,14 @@ import Foundation
 
 class BookController {
     var books: [Book] = []
+    var readBooks: [Book] {
+        
+    }
+    
+    var unreadBooks: [Book] {
+        
+    }
+    
     
     init() {
         loadFromPersistentStore()
@@ -22,23 +30,20 @@ class BookController {
         saveToPersistentStore()
     }
     
-    func deleteBook(book: Book) {
-        
+    func deleteBook(book : Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
+        saveToPersistentStore()
     }
     
     func updateHasBeenRead(for book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
         
-    }
+        books[index].hasBeenRead.toggle()
+        
+        }
     
     func editBook() {
-        
-    }
-    
-    var readBooks: [Book] {
-        
-    }
-    
-    var unreadBooks: [Book] {
         
     }
     

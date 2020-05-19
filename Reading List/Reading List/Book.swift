@@ -10,7 +10,7 @@ import Foundation
 struct Book: Equatable, Codable {
     let title: String
     let reasonToRead: String
-    let hasBeenRead: Bool
+    var hasBeenRead: Bool
     
     init(title: String, reasonToRead: String, hasBeenRead: Bool = false) {
         self.title = title
