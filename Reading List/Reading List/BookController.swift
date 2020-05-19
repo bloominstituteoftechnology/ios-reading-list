@@ -13,18 +13,33 @@ class BookController {
     
     var books: [Book] = []
     
+    var readBooks: [Book] = []
+    
     func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
         let book = Book(title: title, reasonToRead: reasonToRead)
     
         books.append(book)
-        
+        saveToPersistentStore()
     }
     
-    func deleteBook(_ : Book) {
-    
-        
+    func deleteBook(book : Book) {
+            
+        guard let index = books.firstIndex(of: book) else { return }
+        books.remove(at: index)
+        saveToPersistentStore()
     
     }
+    
+    func updateHasBeenRead(for book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].hasBeenRead.toggle()
+        
+            }
+    
+    func editBook(for book: Book) {
+        g
+        }
+
     
     var readListURL: URL? {
         
@@ -75,6 +90,6 @@ class BookController {
         }
             
         }
-        
-    }
+}
+    
 
