@@ -13,6 +13,7 @@
 		466941702110E22B00E7FF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4669416F2110E22B00E7FF73 /* Assets.xcassets */; };
 		466941732110E22B00E7FF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466941712110E22B00E7FF73 /* LaunchScreen.storyboard */; };
 		B1F7F3E524746BAF00B5E882 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7F3E424746BAF00B5E882 /* Book.swift */; };
+		B1F7F3E724747FC200B5E882 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7F3E624747FC200B5E882 /* BookController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		466941722110E22B00E7FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		466941742110E22B00E7FF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1F7F3E424746BAF00B5E882 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		B1F7F3E624747FC200B5E882 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,8 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
-				B1F7F3E324746B9000B5E882 /* Modals */,
+				B1F7F3E82474829300B5E882 /* Model Controllers */,
+				B1F7F3E324746B9000B5E882 /* Models */,
 				B1F7F3E224743A6400B5E882 /* Resources */,
 				B1F7F3E124743A3300B5E882 /* Storyboards */,
 				4669416A2110E22B00E7FF73 /* ViewController.swift */,
@@ -83,12 +86,20 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		B1F7F3E324746B9000B5E882 /* Modals */ = {
+		B1F7F3E324746B9000B5E882 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				B1F7F3E424746BAF00B5E882 /* Book.swift */,
 			);
-			path = Modals;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B1F7F3E82474829300B5E882 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1F7F3E624747FC200B5E882 /* BookController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 			files = (
 				4669416B2110E22B00E7FF73 /* ViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
+				B1F7F3E724747FC200B5E882 /* BookController.swift in Sources */,
 				B1F7F3E524746BAF00B5E882 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
