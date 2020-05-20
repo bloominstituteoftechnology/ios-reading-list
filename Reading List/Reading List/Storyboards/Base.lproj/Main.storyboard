@@ -49,6 +49,9 @@
                                         <constraint firstItem="mif-9R-gAb" firstAttribute="centerY" secondItem="uIS-Kb-THd" secondAttribute="centerY" id="ck0-9M-Mq2"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="tBk-u2-B3s" kind="show" identifier="tableViewCellSegue" id="m4m-a1-Gz1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -56,7 +59,13 @@
                             <outlet property="delegate" destination="JuZ-NA-jdL" id="xcM-CV-2xs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="6r3-rU-sIE"/>
+                    <navigationItem key="navigationItem" id="6r3-rU-sIE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YSH-j2-p6r">
+                            <connections>
+                                <segue destination="tBk-u2-B3s" kind="show" identifier="addDetailSegue" id="H8x-ns-GVY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQn-Th-Veh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,6 +81,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="NBS-eE-k2L"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1qb-Ma-GRV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYo-Fe-0SU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,6 +106,9 @@
             <point key="canvasLocation" x="-257.97101449275362" y="-111.16071428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="m4m-a1-Gz1"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="checked" width="50" height="50"/>
         <image name="unchecked" width="50" height="50"/>
