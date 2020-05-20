@@ -10,11 +10,19 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
 
+    var book: Book?
+
     @IBOutlet weak var checkBoxButton: UIButton!
+    @IBOutlet weak var bookTitleLabel: UILabel!
     @IBAction func checkBoxSelected(_ sender: UIButton) {
     }
     
-    @IBOutlet weak var bookTitleLabel: UILabel!
+    func updateViews() {
+        guard let book = book else { return }
+        bookTitleLabel.text = book.title
+        checkBoxButton.setImage(UIImage(named: "unchecked"), for: .normal)
+        checkBoxButton.setImage(UIImage(named: "checked"), for: .selected)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
