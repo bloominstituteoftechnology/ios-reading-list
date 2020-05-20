@@ -11,11 +11,15 @@ import Foundation
 class BookController {
     var books: [Book] = []
     var readBooks: [Book] {
-        
+        books.filter {
+            $0.hasBeenRead == true
+        }
     }
     
     var unreadBooks: [Book] {
-        
+        books.filter {
+            $0.hasBeenRead == false
+        }
     }
     
     
@@ -40,10 +44,15 @@ class BookController {
         guard let index = books.firstIndex(of: book) else { return }
         
         books[index].hasBeenRead.toggle()
-        
+        saveToPersistentStore()
         }
     
-    func editBook() {
+    func editBook(for book: Book) {
+        guard let index = books.firstIndex(of: book) else { return }
+        
+        books[index].title = "\(book.title)"
+        books[index].reasonToRead = "\(book.reasonToRead)"
+        saveToPersistentStore()
         
     }
     
