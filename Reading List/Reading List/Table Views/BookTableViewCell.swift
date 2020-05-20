@@ -8,13 +8,19 @@
 
 import UIKit
 
-class BookTableViewCell: UITableViewCell {
-
+class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        
+    }
+    
+ 
     var book: Book?
 
+    weak var delegate: BookTableViewCellDelegate?
     @IBOutlet weak var checkBoxButton: UIButton!
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBAction func checkBoxSelected(_ sender: UIButton) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     func updateViews() {
@@ -36,3 +42,6 @@ class BookTableViewCell: UITableViewCell {
     }
 
 }
+
+    
+

@@ -10,6 +10,8 @@ import UIKit
 
 class ReadingListTableViewController: UITableViewController {
 
+    var bookController = BookController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

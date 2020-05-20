@@ -16,6 +16,7 @@
 		B1F7F3EA2474C1BF00B5E882 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7F3E92474C1BF00B5E882 /* ReadingListTableViewController.swift */; };
 		B1F7F3EC2474C24100B5E882 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7F3EB2474C24100B5E882 /* BookTableViewCell.swift */; };
 		B1F7F3EF2474CC1000B5E882 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7F3EE2474CC1000B5E882 /* BookDetailViewController.swift */; };
+		B1F7F3F22474E0D800B5E882 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7F3F12474E0D700B5E882 /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B1F7F3E92474C1BF00B5E882 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		B1F7F3EB2474C24100B5E882 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		B1F7F3EE2474CC1000B5E882 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		B1F7F3F12474E0D700B5E882 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				B1F7F3E92474C1BF00B5E882 /* ReadingListTableViewController.swift */,
 				B1F7F3EB2474C24100B5E882 /* BookTableViewCell.swift */,
+				B1F7F3F12474E0D700B5E882 /* BookTableViewCellDelegate.swift */,
 			);
 			path = "Table Views";
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				B1F7F3EF2474CC1000B5E882 /* BookDetailViewController.swift in Sources */,
 				B1F7F3E724747FC200B5E882 /* BookController.swift in Sources */,
 				B1F7F3EC2474C24100B5E882 /* BookTableViewCell.swift in Sources */,
+				B1F7F3F22474E0D800B5E882 /* BookTableViewCellDelegate.swift in Sources */,
 				B1F7F3E524746BAF00B5E882 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
