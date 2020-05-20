@@ -7,7 +7,6 @@
 //
 
 import Foundation
-protocol BookTableViewCellDelegate {
-    func toggleHasBeenRead(for cell: BookTableViewCellDelegate?)
-    
+protocol BookTableViewCellDelegate: AnyObject {
+    func toggleHasBeenRead(for cell: BookTableViewCellDelegate)
 }

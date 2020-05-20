@@ -8,28 +8,34 @@
 
 import UIKit
 
-class BookTableViewCell: UITableViewCell {
+class BookTableViewCell: UITableViewCell, BookTableViewCellDelegate {
+    func toggleHasBeenRead(for cell: BookTableViewCellDelegate) {
+    }
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        }
+   
     var book: Book?
     weak var delegate: BookTableViewCellDelegate?
     
-    
-    
+
     @IBOutlet weak var bookLabel: UILabel!
     @IBOutlet weak var readButton: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
     
     @IBAction func readButtonToggle(_ sender: UIButton) {
-        func toggleHasBeenRead(for: BookTableViewCellDelegate?)
+        func toggleHasBeenRead(for: BookTableViewCell) {
+            delegate?.toggleHasBeenRead(for: self)
     }
     
     func updateViews() {
@@ -37,7 +43,8 @@ class BookTableViewCell: UITableViewCell {
     
         bookLabel.text = book.title
         readButton.setImage(UIImage(named: "unchecked"), for: .normal)
-        readButton.setImage(UIImage(named: "checked"), for: .selected )
+        readButton.setImage(UIImage(named: "checked"), for: .normal)
     }
 }
 
+}
