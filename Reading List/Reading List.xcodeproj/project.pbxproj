@@ -42,7 +42,6 @@
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
-				A3913E632474730300D84688 /* Book.swift */,
 				466941672110E22A00E7FF73 /* Reading List */,
 				A3913E61247472B500D84688 /* Resources */,
 				A3913E62247472CA00D84688 /* Storyboards */,
@@ -72,6 +71,7 @@
 		A3913E602474729000D84688 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A3913E632474730300D84688 /* Book.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
