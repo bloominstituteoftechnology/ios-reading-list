@@ -10,45 +10,53 @@
 import Foundation
 
 class BookController {
-    
+        
     var books: [Book] = []
-    
-    var readBooks: [Book] = []
+    var readBooks: [Book] {
+        books.filter {
+            $0.hasBeenRead == true
+                }
+            }
+    var unReadBooks: [Book] {
+        books.filter {
+            $0.hasBeenRead == false
+        }
+    }
+        
     
     func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) {
         let book = Book(title: title, reasonToRead: reasonToRead)
     
         books.append(book)
         saveToPersistentStore()
-    }
+        }
     
     func deleteBook(book : Book) {
             
         guard let index = books.firstIndex(of: book) else { return }
         books.remove(at: index)
         saveToPersistentStore()
-    
-    }
+        }
     
     func updateHasBeenRead(for book: Book) {
         guard let index = books.firstIndex(of: book) else { return }
         books[index].hasBeenRead.toggle()
-        
-            }
+        saveToPersistentStore()
+        }
     
     func editBook(for book: Book) {
-        g
+        guard let index = books.firstIndex(of: book) else { return }
+        books[index].title = "\(book.title)"
+        books[index].reasonToRead = "\(book.reasonToRead)"
+        saveToPersistentStore()
         }
 
     
     var readListURL: URL? {
         
         let fileManager = FileManager.default
-        
         let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
-        
         let bookURL = documentsDir?.appendingPathComponent("readingList.plist")
-        
         return bookURL
     }
     
