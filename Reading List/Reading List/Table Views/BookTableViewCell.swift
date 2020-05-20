@@ -10,6 +10,9 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var checkBoxButton: UIButton!
+    @IBAction func checkBoxSelected(_ sender: UIButton) {
+    }
     
     @IBOutlet weak var bookTitleLabel: UILabel!
     
