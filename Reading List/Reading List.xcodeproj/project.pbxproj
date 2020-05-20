@@ -64,19 +64,59 @@
 		466941672110E22A00E7FF73 /* Reading List */ = {
 			isa = PBXGroup;
 			children = (
-				4B7598B324746C17005387E2 /* Book.swift */,
-				4B7598B524746D88005387E2 /* BookController.swift */,
+				4B7598C42474C8E9005387E2 /* Models */,
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
-				4B7598BB2474AD59005387E2 /* BookTableViewCell.swift */,
-				4B7598BF2474B967005387E2 /* BookTableViewCellDelegate.swift */,
-				4669416C2110E22B00E7FF73 /* Main.storyboard */,
-				4B7598BD2474B206005387E2 /* BookDetailViewController.swift */,
-				4B7598B92474AD3F005387E2 /* ReadingListTableViewController.swift */,
-				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
-				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
+				4B7598C32474C8D6005387E2 /* Views */,
+				4B7598C12474C8A1005387E2 /* Stroyboards */,
+				4B7598C52474C905005387E2 /* View Controllers */,
+				4B7598C22474C8AE005387E2 /* Resources */,
 				466941742110E22B00E7FF73 /* Info.plist */,
 			);
 			path = "Reading List";
+			sourceTree = "<group>";
+		};
+		4B7598C12474C8A1005387E2 /* Stroyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4669416C2110E22B00E7FF73 /* Main.storyboard */,
+				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
+			);
+			path = Stroyboards;
+			sourceTree = "<group>";
+		};
+		4B7598C22474C8AE005387E2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4B7598C32474C8D6005387E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4B7598BB2474AD59005387E2 /* BookTableViewCell.swift */,
+				4B7598BF2474B967005387E2 /* BookTableViewCellDelegate.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4B7598C42474C8E9005387E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4B7598B324746C17005387E2 /* Book.swift */,
+				4B7598B524746D88005387E2 /* BookController.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4B7598C52474C905005387E2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4B7598BD2474B206005387E2 /* BookDetailViewController.swift */,
+				4B7598B92474AD3F005387E2 /* ReadingListTableViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -8,6 +8,6 @@
 
 import Foundation
 
-func toggleHasBeenRead(for cell: BookTableViewCell) {
-    
+protocol BookTableViewCellDelegate: AnyObject {
+    func toggleHasBeenRead(for cell: BookTableViewCell)
 }
