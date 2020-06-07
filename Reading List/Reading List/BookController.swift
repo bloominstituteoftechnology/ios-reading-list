@@ -56,11 +56,13 @@ class BookController {
     }
     
     var readBooks: [Book] {
-        return books.filter { $0.hasBeenRead == true }
+        let readBooksArray = books.filter { $0.hasBeenRead == true }
+        return readBooksArray.sorted(by: { $0.title < $1.title })
     }
     
     var unreadBooks: [Book] {
-        return books.filter { $0.hasBeenRead == false }
+        let unreadBooksArray = books.filter { $0.hasBeenRead == false }
+        return unreadBooksArray.sorted(by: { $0.title < $1.title })
     }
     
     // MARK: Persistence
