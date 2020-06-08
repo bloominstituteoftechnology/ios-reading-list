@@ -45,6 +45,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AC3E792248ECA79008969F2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A7868A0248C12AA00FC699C /* ReadingListTableViewController.swift */,
+				1A46B657248C48C500C1C2C5 /* BookDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1AC3E793248ECAA9008969F2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A7868A2248C12DB00FC699C /* BookTableViewCell.swift */,
+				1AC25EB9248C16A3007C54CC /* BookTableViewCellDelegate.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4669415C2110E22A00E7FF73 = {
 			isa = PBXGroup;
 			children = (
@@ -66,12 +84,10 @@
 			children = (
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,
-				1A46B657248C48C500C1C2C5 /* BookDetailViewController.swift */,
-				1A7868A0248C12AA00FC699C /* ReadingListTableViewController.swift */,
-				1A7868A2248C12DB00FC699C /* BookTableViewCell.swift */,
-				1AC25EB9248C16A3007C54CC /* BookTableViewCellDelegate.swift */,
 				1A78689C248BF72400FC699C /* Book.swift */,
 				1A78689E248BF94D00FC699C /* BookController.swift */,
+				1AC3E793248ECAA9008969F2 /* Views */,
+				1AC3E792248ECA79008969F2 /* ViewControllers */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
 				466941742110E22B00E7FF73 /* Info.plist */,

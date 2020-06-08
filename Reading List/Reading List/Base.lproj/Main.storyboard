@@ -73,21 +73,21 @@
             </objects>
             <point key="canvasLocation" x="1113.0434782608697" y="75.669642857142847"/>
         </scene>
-        <!--DetailViewController-->
+        <!--BookDetailViewController-->
         <scene sceneID="Fws-3Z-dvm">
             <objects>
-                <viewController title="DetailViewController" id="MeT-I9-2P3" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="BookDetailViewController" id="MeT-I9-2P3" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d63-tH-lvS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6rG-PH-2lq">
-                                <rect key="frame" x="176.5" y="128" width="61.5" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6rG-PH-2lq">
+                                <rect key="frame" x="60" y="180" width="294" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to Read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ktg-K6-3Rb">
-                                <rect key="frame" x="60" y="192" width="294" height="270"/>
+                                <rect key="frame" x="60" y="244" width="294" height="318"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -102,7 +102,9 @@
                             <constraint firstItem="b8U-hV-5gO" firstAttribute="trailing" secondItem="Ktg-K6-3Rb" secondAttribute="trailing" constant="60" id="VzY-cb-IKj"/>
                             <constraint firstItem="Ktg-K6-3Rb" firstAttribute="centerX" secondItem="d63-tH-lvS" secondAttribute="centerX" id="afd-Lc-9xr"/>
                             <constraint firstItem="Ktg-K6-3Rb" firstAttribute="top" secondItem="6rG-PH-2lq" secondAttribute="bottom" constant="30" id="fGG-PZ-qhE"/>
-                            <constraint firstItem="b8U-hV-5gO" firstAttribute="bottom" secondItem="Ktg-K6-3Rb" secondAttribute="bottom" constant="400" id="fT8-40-KEd"/>
+                            <constraint firstItem="b8U-hV-5gO" firstAttribute="bottom" secondItem="Ktg-K6-3Rb" secondAttribute="bottom" constant="300" id="fT8-40-KEd"/>
+                            <constraint firstItem="b8U-hV-5gO" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6rG-PH-2lq" secondAttribute="trailing" constant="60" id="gW3-o5-dBU"/>
+                            <constraint firstItem="6rG-PH-2lq" firstAttribute="leading" relation="lessThanOrEqual" secondItem="b8U-hV-5gO" secondAttribute="leading" constant="60" id="rNu-lB-M0x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b8U-hV-5gO"/>
                     </view>
@@ -127,8 +129,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AfS-Mu-3co" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cxr-kf-hgo">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Cxr-kf-hgo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
