@@ -13,18 +13,20 @@ private let unreadSection = 1
 
 class ReadingListTableViewController: UITableViewController {
 
-    let bookController = BookController()
+    // MARK: - Private Properties
     
-    //MARK: - Helper Functions
+    private let bookController = BookController()
     
-    func bookFor(indexPath: IndexPath) -> Book {
-        indexPath.section == readSection ? bookController.readBooks[indexPath.row] : bookController.unreadBooks[indexPath.row]
-    }
-
-    //MARK: - View Lifecycle
+    // MARK: - View Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func bookFor(indexPath: IndexPath) -> Book {
+        indexPath.section == readSection ? bookController.readBooks[indexPath.row] : bookController.unreadBooks[indexPath.row]
     }
     
     // MARK: - UITableViewDataSource
@@ -65,10 +67,8 @@ class ReadingListTableViewController: UITableViewController {
         return nil
     }
 
-
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let bookDetailVC = segue.destination as? BookDetailViewController {
             bookDetailVC.bookController = bookController
@@ -82,7 +82,7 @@ class ReadingListTableViewController: UITableViewController {
 
 }
 
-//MARK: - BookTableViewCellDelegate
+// MARK: - BookTableViewCellDelegate
 
 extension ReadingListTableViewController: BookTableViewCellDelegate {
     func toggleHasBeenRead(for cell: BookTableViewCell) {

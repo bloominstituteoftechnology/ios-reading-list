@@ -8,12 +8,15 @@
 
 import UIKit
 
-protocol BookTableViewCellDelegate: AnyObject {
-    func toggleHasBeenRead(for cell: BookTableViewCell)
-}
 class BookTableViewCell: UITableViewCell {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var checkMarkButton: UIButton!
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var checkMarkButton: UIButton!
+    
+    
+    // MARK: - Public Properties
     
     var book: Book? {
         didSet {
@@ -23,24 +26,22 @@ class BookTableViewCell: UITableViewCell {
     
     weak var delegate: BookTableViewCellDelegate?
     
-    
-    //MARK: - IBActions
+    // MARK: - IBActions
     
     @IBAction func checkMarkToggled(_ sender: UIButton) {
         delegate?.toggleHasBeenRead(for: self)
         updateViews()
     }
     
+    // MARK: - Private Methods
     
-    //MARK: - Helper Functions
-    
-    func updateViews() {
+    private func updateViews() {
         guard let book = book else { return }
         titleLabel.text = book.title
         updateCheckMark(checked: book.hasBeenRead)
     }
     
-    func updateCheckMark(checked: Bool) {
+    private func updateCheckMark(checked: Bool) {
         let checkMarkImage = checked ? UIImage(named: "checked") : UIImage(named: "unchecked")
         checkMarkButton.setImage(checkMarkImage, for: .normal)
     }

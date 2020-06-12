@@ -9,19 +9,28 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
+    
+    // MARK: - IBOutlets
 
-    @IBOutlet weak var titleTextField: UITextField! {
+    @IBOutlet private var titleTextField: UITextField! {
         didSet {
             titleTextField.delegate = self
         }
     }
-    @IBOutlet weak var reasonToReadTextView: UITextView!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet private var reasonToReadTextView: UITextView!
+    @IBOutlet private var saveButton: UIBarButtonItem!
     
+    // MARK: - Public Properties
     
     var bookController: BookController?
     var book: Book?
     
+    //MARK: - View Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateViews()
+    }
     
     //MARK: - IBActions
     
@@ -39,10 +48,9 @@ class BookDetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    //MARK: - Private Methods
     
-    //MARK: - Helper Functions
-    
-    func updateViews() {
+    private func updateViews() {
         if let book = book {
             titleTextField.text = book.title
             reasonToReadTextView.text = book.reasonToRead
@@ -51,19 +59,13 @@ class BookDetailViewController: UIViewController {
         updateSaveButton()
     }
     
-    func updateSaveButton() {
+    private func updateSaveButton() {
         guard let titleText = titleTextField.text else { return }
         saveButton.isEnabled = !titleText.isEmpty
     }
-    
-    
-    //MARK: - View Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateViews()
-    }
 }
+
+// MARK: - Text Field Delegate
 
 extension BookDetailViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
