@@ -42,7 +42,7 @@ class ReadingListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath)
-        guard let bookCell = cell as? BookTableViewCell else { fatalError("Unable to dequeue expected type: BookTableViewCell") }
+        guard let bookCell = cell as? BookTableViewCell else { fatalError("Unable to dequeue expected type: \(BookTableViewCell.self)") }
         
         bookCell.book = bookFor(indexPath: indexPath)
         bookCell.delegate = self
