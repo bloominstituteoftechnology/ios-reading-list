@@ -20,6 +20,7 @@ class ReadingListTableViewController: UITableViewController {
     // MARK: - View Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
     }
     
