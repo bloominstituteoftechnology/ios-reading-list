@@ -35,7 +35,7 @@ class BookController {
             let data = try Data(contentsOf: readingListURL!)
             books = try decoder.decode([Book].self, from: data)
         } catch  {
-            print("Error")
+            print("loadPersistentStore \(error)")
         }
     }
     @discardableResult func createBook(title: String, reasonToRead: String) -> Book {
@@ -45,52 +45,28 @@ class BookController {
         return book
     }
     func deleteBook(book: Book) {
-        var index: Int = 0
+        guard let index: Int = books.firstIndex(of: book) else {return}
         
-        for myBook in books {
-            if myBook == book {
-                books.remove(at: index)
-                saveToPersistentStore()
-                return
-            }
-            index += 1
-        }
-        print("Error")
+        books.remove(at: index)
+        saveToPersistentStore()
+        
     }
     
     func updateHasBeenRead(book: Book) {
-        var index: Int = 0
+        guard let index: Int = books.firstIndex(of: book) else {return}
+        books[index].hasBeenRead.toggle()
         
-        for myBook in books {
-            if myBook == book {
-                if books[index].hasBeenRead {
-                    books[index].hasBeenRead = false
-                } else {
-                    books[index].hasBeenRead = true
-                }
-                saveToPersistentStore()
-                return
-            }
-            index += 1
-        }
-        print("Error")
+        saveToPersistentStore()
     }
     
-    func updateBook(book: Book, title: String?, reasonToRead: String?) {
-        var index: Int = 0
+    func updateBook(book: Book, title: String, reasonToRead: String) {
+        guard let index: Int = books.firstIndex(of: book) else {return}
         
-        for myBook in books {
-            if myBook == book {
-                if let unwrappedTitle = title {
-                    books[index].title = unwrappedTitle
-                }; if let unwrappedReason = reasonToRead {
-                    books[index].reasonToRead = unwrappedReason
-                }
-                saveToPersistentStore()
-                return
-            }
-            index += 1
-        }
-        print ("Error")
+        var myBook = book
+        myBook.title = title
+        myBook.reasonToRead = reasonToRead
+        books.remove(at: index)
+        books.insert(myBook, at: index)
+        saveToPersistentStore()
     }
 }
