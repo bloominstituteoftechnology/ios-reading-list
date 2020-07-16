@@ -8,7 +8,7 @@
 
 import Foundation
 struct Helper {
-    static let bookSegue = "BookSegue" //
-    static let cellId = "BookCell" //
-    static let addSegue = "AddSegue" //
+    static let bookSegue = "BookSegue" 
+    static let cellId = "BookCell"
+    static let addSegue = "AddSegue"
 }

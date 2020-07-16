@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aac-gq-rPJ">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Aac-gq-rPJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,32 +9,32 @@
         <!--Reading List-->
         <scene sceneID="gif-ML-NId">
             <objects>
-                <tableViewController id="MX2-WP-DQD" customClass="ReadingListTableVC" customModule="ReadingLIST" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="MX2-WP-DQD" customClass="ReadingListTableViewController" customModule="ReadingLIST" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="50" sectionFooterHeight="28" id="K8m-vR-Rsr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="80" id="hzM-UQ-iul" customClass="BookTableViewCell" customModule="ReadingLIST" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hzM-UQ-iul" id="gBa-59-0hE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8yd-JQ-E7e">
-                                            <rect key="frame" x="20" y="-9" width="335" height="98"/>
+                                            <rect key="frame" x="20" y="-46.5" width="560" height="173"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.on.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iiv-wN-wNk">
-                                                    <rect key="frame" x="0.0" y="-2.5" width="98.5" height="103"/>
+                                                    <rect key="frame" x="0.0" y="-2.5" width="173.5" height="178"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiQ-ag-AS0">
-                                                    <rect key="frame" x="118.5" y="0.0" width="98" height="98"/>
+                                                    <rect key="frame" x="193.5" y="0.0" width="173" height="173"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bm-NK-zlN">
-                                                    <rect key="frame" x="236.5" y="0.0" width="98.5" height="98"/>
+                                                    <rect key="frame" x="386.5" y="0.0" width="173.5" height="173"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9bm-NK-zlN" secondAttribute="height" multiplier="1:1" id="ndM-5J-SqK"/>
                                                     </constraints>
@@ -83,13 +82,13 @@
         <!--Add a New Book-->
         <scene sceneID="xAy-l7-Mgc">
             <objects>
-                <viewController id="XRw-jd-Pxi" customClass="BookDetailVC" customModule="ReadingLIST" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XRw-jd-Pxi" customClass="BookDetailViewController" customModule="ReadingLIST" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bvl-96-d6N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ue-TC-NFf">
-                                <rect key="frame" x="20" y="104" width="335" height="37.5"/>
+                                <rect key="frame" x="20" y="104" width="560" height="37.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
@@ -97,14 +96,14 @@
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" text="Reason to read:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rGI-48-Zyl">
-                                <rect key="frame" x="20" y="155.5" width="335" height="75"/>
+                                <rect key="frame" x="20" y="155.5" width="560" height="75"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUA-VV-DbW">
-                                <rect key="frame" x="20" y="602" width="335" height="30"/>
+                                <rect key="frame" x="20" y="535" width="560" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Select Book cover">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -119,7 +118,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="cAe-iB-o5d">
-                                <rect key="frame" x="112.5" y="254.5" width="150" height="150"/>
+                                <rect key="frame" x="225" y="254.5" width="150" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -189,10 +188,10 @@
             <point key="canvasLocation" x="153.62318840579712" y="98.4375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="square.and.arrow.up.on.square" catalog="system" width="58" height="64"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="X7w-Gq-w0L"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="square.and.arrow.up.on.square" catalog="system" width="117" height="128"/>
+    </resources>
 </document>

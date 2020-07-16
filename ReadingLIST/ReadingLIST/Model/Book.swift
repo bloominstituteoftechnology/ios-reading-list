@@ -10,22 +10,21 @@ import Foundation
 import UIKit
 
 struct Book : Codable,Equatable,Comparable {
-    static func < (lhs: Book, rhs: Book) -> Bool {
-        return lhs.title < rhs.title
-    }
+  static func < (lhs: Book, rhs: Book) -> Bool {
+    return lhs.title < rhs.title
+  }
+  
+  var title: String
+  var reasonToRead: String
+  var hasBeenRead = false
+  public var image : Data
+  
+  public init(image: UIImage,title:String,reasonToRead:String,hasBeenRead: Bool) {
     
-    var title: String
-    var reasonToRead: String
-    var hasBeenRead = false
-    public var image : Data
-    
-    public init(image: UIImage,title:String,reasonToRead:String,hasBeenRead: Bool) {
-       
-        self.image = image.pngData()!
-        self.title = title
-        self.reasonToRead  = reasonToRead
-        self.hasBeenRead = hasBeenRead
-    }
-   
+    self.image = image.pngData()!
+    self.title = title
+    self.reasonToRead  = reasonToRead
+    self.hasBeenRead = hasBeenRead
+  }
 }
 

@@ -9,39 +9,33 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-   
-    
-    @IBOutlet weak var bookCover: UIImageView!
-    
-    
-    var book: Book? {
-        didSet {
-            updateViews()
-        }
+  
+  
+  @IBOutlet weak var bookCover: UIImageView!
+  @IBOutlet weak var bookTitleLabel: UILabel!
+  @IBOutlet weak var statusLabel: UIButton!
+  
+  var book: Book? {
+    didSet {
+      updateViews()
     }
-   
-    @IBOutlet weak var bookTitleLabel: UILabel!
-    @IBOutlet weak var statusLabel: UIButton!
+  }
+  weak var delegate: BookTableViewDelegate?
+  
+  @IBAction func statusTapped(_ sender: UIButton) {
     
-    weak var delegate: BookTableViewDelegate?
+    delegate?.toggleHasBeenRead(for: self)
+  }
+  
+  private func updateViews() {
+    guard let book = book else { return }
+    bookTitleLabel.text = book.title
+    bookCover.image = UIImage(data: book.image,scale:1.0)
     
-    
-    private func updateViews() {
-        guard let book = book else { return }
-        bookTitleLabel.text = book.title
-        bookCover.image = UIImage(data: book.image,scale:1.0)
-        
-        if book.hasBeenRead == false {
-            statusLabel.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
-        } else {
-            statusLabel.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
-        }
+    if book.hasBeenRead == false {
+      statusLabel.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
+    } else {
+      statusLabel.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
     }
-   
-    @IBAction func statusTapped(_ sender: UIButton) {
-        delegate?.toggleHasBeenRead(for: self)
-        
-    }
-    
-    
+  }
 }

@@ -11,7 +11,3 @@ import Foundation
 protocol BookTableViewDelegate : AnyObject {
     func toggleHasBeenRead(for cell: BookTableViewCell)
 }
-
-
-
-

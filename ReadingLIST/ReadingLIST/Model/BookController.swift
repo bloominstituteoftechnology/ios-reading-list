@@ -6,89 +6,85 @@
 //  Copyright © 2020 Nick Nguyen. All rights reserved.
 //
 
-import Foundation
 import UIKit
+
 class BookController {
-    
-    var books = [Book]()
-    
-    init() {
-        loadFromPersistentStore()
+  
+  var books = [Book]()
+  
+  init() {
+    loadFromPersistentStore()
+  }
+  
+  var readingListURL : URL? {
+    let fm = FileManager.default
+    guard let documentDirectory = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+    let booksURL = documentDirectory.appendingPathComponent("ReadingList.plist")
+    return booksURL
+  }
+  
+  
+  private func saveToPersistStore() {
+    guard let fileURL = readingListURL else { return }
+    do {
+      let encoder = PropertyListEncoder()
+      let booksData = try encoder.encode(books)
+      try booksData.write(to: fileURL)
+    } catch  let err{
+      print("Can't save books.Error : \(err)")
     }
     
-    var readingListURL : URL? {
-        let fm = FileManager.default
-        guard let documentDirectory = fm.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
-        let booksURL = documentDirectory.appendingPathComponent("ReadingList.plist")
-        return booksURL
+  }
+  
+  private func loadFromPersistentStore() {
+    guard let fileURL = readingListURL else { return }
+    do {
+      let booksData = try Data(contentsOf: fileURL)
+      let decoder = PropertyListDecoder()
+      let decodedBooks = try  decoder.decode([Book].self, from: booksData)
+      self.books = decodedBooks
+    } catch let err {
+      print("Can't load Data , error: \(err)")
     }
+  }
+  func createBook(title: String, reason: String , image: Data ) {
+    guard let image = UIImage(data: image) else { return }
+    let newBook = Book( image: image , title: title, reasonToRead: reason, hasBeenRead: false)
+    books.append(newBook)
+    saveToPersistStore()
+  }
+  
+  
+  func delete(book: Book) {
+    guard let index = books.firstIndex(of: book) else { return }
+    books.remove(at: index)
+    saveToPersistStore()
+  }
+  
+  func updateHasBeenRead(for book:Book)  {
+    guard let index = books.firstIndex(of: book) else { return }
+    books[index].hasBeenRead.toggle()
+    saveToPersistStore()
+  }
+  func editBook(for book:Book,with title: String, with reason: String, image: Data) {
+   
+    guard let index = books.firstIndex(of: book) else { return }
+    var scratchBook = book
+    scratchBook.title = title
+    scratchBook.reasonToRead = reason
+    scratchBook.image = image
+    books.remove(at: index)
+    books.insert(scratchBook, at: index)
     
-    
-    private func saveToPersistStore() {
-        guard let fileURL = readingListURL else { return }
-        do {
-             let encoder = PropertyListEncoder()
-            let booksData = try encoder.encode(books)
-            try booksData.write(to: fileURL)
-        } catch  let err{
-            print("Can't save books.Error : \(err)")
-        }
-       
-    }
-    
-   private func loadFromPersistentStore() {
-        guard let fileURL = readingListURL else { return }
-        do {
-            let booksData = try Data(contentsOf: fileURL)
-            let decoder = PropertyListDecoder()
-            let decodedBooks = try  decoder.decode([Book].self, from: booksData)
-            self.books = decodedBooks
-        } catch let err {
-            print("Can't load Data , error: \(err)")
-        }
-    }
-    func createBook(title: String, reason: String , image: Data ) {
-        guard let image = UIImage(data: image) else { return }
-        let newBook = Book( image: image , title: title, reasonToRead: reason, hasBeenRead: false)
-        books.append(newBook)
-        saveToPersistStore()
-    }
-    
-
-
-    func delete(book: Book) {
-        guard let index = books.firstIndex(of: book) else { return }
-
-        books.remove(at: index)
-        
-          saveToPersistStore()
-    }
-    
-    func updateHasBeenRead(for book:Book)  {
-        guard let index = books.firstIndex(of: book) else { return }
-        books[index].hasBeenRead.toggle()
-        saveToPersistStore()
-    }
-    func editBook(for book:Book,with title: String, with reason: String, image: Data) {
-        //
-         guard let index = books.firstIndex(of: book) else { return }
-        var scratchBook = book
-        scratchBook.title = title
-        scratchBook.reasonToRead = reason
-        scratchBook.image = image
-        books.remove(at: index)
-        books.insert(scratchBook, at: index)
-      
-    }
-    
-    var readBooks: [Book] {
-        let readBooks =  books.filter{$0.hasBeenRead == true }
-      
-        return readBooks.sorted()
-    }
-    var unreadBooks : [Book] {
-        let unreadBooks = books.filter {$0.hasBeenRead == false }
-        return unreadBooks.sorted()
-    }
-    
+  }
+  
+  var readBooks: [Book] {
+    let readBooks =  books.filter{$0.hasBeenRead == true }
+    return readBooks.sorted()
+  }
+  
+  var unreadBooks : [Book] {
+    let unreadBooks = books.filter {$0.hasBeenRead == false }
+    return unreadBooks.sorted()
+  }
 }
