@@ -21,6 +21,15 @@ class BookController {
         return documentsDir.appendingPathComponent("ReadingList.plist")
         
     }
+    
+     var readBooks: [Book] {
+       return books.filter { $0.hasBeenRead == true }
+    }
+    
+    var unReadBooks: [Book] {
+        return books.filter { $0.hasBeenRead != true }
+    }
+    
     // MARK: - CRUD
     @discardableResult func createBook(titled title: String, reasonToRead: String) -> Book {
         let book = Book(title: title, reasonToRead: reasonToRead)
@@ -41,6 +50,14 @@ class BookController {
         } else if book.hasBeenRead == true {
             book.hasBeenRead = false
         }
+    }
+    
+    func updateBook(for book: inout Book, title: String, reasonToRead: String) -> Book {
+        if book == book {
+            book.title = title
+            book.reasonToRead = reasonToRead
+        }
+        return book
     }
     
     // MARK: - Persistence
