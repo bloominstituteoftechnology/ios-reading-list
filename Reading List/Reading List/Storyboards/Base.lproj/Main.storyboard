@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="25i-D5-mto">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -14,15 +14,15 @@
             <objects>
                 <tableViewController id="Vcc-E5-4eU" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="u4K-cs-nzh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="9qb-Yd-3bO" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="24.333333969116211" width="428" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9qb-Yd-3bO" id="5pk-Kc-V8K">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6L0-QU-7BB">
@@ -31,8 +31,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZL-6n-TMa">
-                                            <rect key="frame" x="344" y="-3.5" width="50" height="50.5"/>
+                                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZL-6n-TMa">
+                                            <rect key="frame" x="358" y="-3.3333333333333321" width="50" height="50.333333333333329"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="iZL-6n-TMa" secondAttribute="height" multiplier="1:1" id="KgY-yq-fl2"/>
                                             </constraints>
@@ -80,19 +80,19 @@
             <objects>
                 <viewController id="Fy5-ye-USJ" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rz5-Ep-lA1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EiD-xx-T1N">
-                                <rect key="frame" x="16" y="148" width="382" height="187"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BW0-c8-Niy">
+                                <rect key="frame" x="16" y="160" width="396" height="167"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xh-Ec-PZJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="396" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gED-vB-1WS">
-                                        <rect key="frame" x="0.0" y="42" width="382" height="145"/>
+                                        <rect key="frame" x="0.0" y="42" width="396" height="125"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -104,10 +104,10 @@
                         <viewLayoutGuide key="safeArea" id="iey-If-SJZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iey-If-SJZ" firstAttribute="trailing" secondItem="EiD-xx-T1N" secondAttribute="trailing" constant="16" id="A3B-dt-lfQ"/>
-                            <constraint firstItem="EiD-xx-T1N" firstAttribute="top" secondItem="iey-If-SJZ" secondAttribute="top" constant="8" id="VhM-EL-lIf"/>
-                            <constraint firstItem="iey-If-SJZ" firstAttribute="bottom" secondItem="EiD-xx-T1N" secondAttribute="bottom" constant="527" id="W2a-jo-65H"/>
-                            <constraint firstItem="EiD-xx-T1N" firstAttribute="leading" secondItem="iey-If-SJZ" secondAttribute="leading" constant="16" id="vxB-ks-SDH"/>
+                            <constraint firstItem="BW0-c8-Niy" firstAttribute="top" secondItem="iey-If-SJZ" secondAttribute="top" constant="20" id="BIl-7C-3rV"/>
+                            <constraint firstItem="BW0-c8-Niy" firstAttribute="leading" secondItem="iey-If-SJZ" secondAttribute="leading" constant="16" id="EPc-FM-4fU"/>
+                            <constraint firstItem="iey-If-SJZ" firstAttribute="bottom" secondItem="BW0-c8-Niy" secondAttribute="bottom" constant="565" id="O2p-r1-sfz"/>
+                            <constraint firstItem="iey-If-SJZ" firstAttribute="trailing" secondItem="BW0-c8-Niy" secondAttribute="trailing" constant="16" id="xEt-rj-adX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Swift Basics" id="wSO-1j-IZM">
@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a7P-Of-viM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842.0289855072465" y="-21.428571428571427"/>
+            <point key="canvasLocation" x="1840.6542056074766" y="-22.030237580993521"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CDq-UU-DYZ">
@@ -132,7 +132,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="25i-D5-mto" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="6U7-CN-Mpd">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="428" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -146,7 +146,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ky9-NC-9c9"/>
+        <segue reference="58i-Lf-P6g"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checked" width="50" height="50"/>

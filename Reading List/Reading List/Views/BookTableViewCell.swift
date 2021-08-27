@@ -16,7 +16,7 @@ class BookTableViewCell: UITableViewCell {
     
     var book: Book? {
         didSet {
-            UpdateViews()
+            updateViews()
         }
     }
     
@@ -24,7 +24,7 @@ class BookTableViewCell: UITableViewCell {
     
     
     // View Helper Method
-    private func UpdateViews() {
+    private func updateViews() {
         guard let book = book else { return }
         bookTitleLabel.text = book.title
         

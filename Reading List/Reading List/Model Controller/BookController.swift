@@ -30,6 +30,10 @@ class BookController {
         return books.filter { $0.hasBeenRead != true }
     }
     
+    init() {
+        loadFromPersistenStore()
+    }
+    
     // MARK: - CRUD
     @discardableResult func createBook(titled title: String, reasonToRead: String) -> Book {
         let book = Book(title: title, reasonToRead: reasonToRead)
@@ -42,22 +46,31 @@ class BookController {
         if books.contains(book) {
            books = books.filter { $0 != book }
         }
+        saveToPersistantStore()
     }
     
-    func updateHasBeenRead(for book: inout Book) {
-        if book.hasBeenRead == false {
-            book.hasBeenRead = true
-        } else if book.hasBeenRead == true {
-            book.hasBeenRead = false
+    func updateHasBeenRead(for book: Book) {
+        if let bookIndex = books.firstIndex(of: book) {
+            switch books[bookIndex].hasBeenRead {
+            case true:
+                books[bookIndex].hasBeenRead = false
+            case false:
+                books[bookIndex].hasBeenRead = true
+            }
         }
+        saveToPersistantStore()
     }
     
-    func updateBook(for book: inout Book, title: String, reasonToRead: String) -> Book {
-        if book == book {
-            book.title = title
-            book.reasonToRead = reasonToRead
+    func updateBook(for book: Book, title: String?, reasonToRead: String?) {
+        if let bookIndex = books.firstIndex(of: book) {
+            if let newTitle = title, !newTitle.isEmpty {
+                books[bookIndex].title = newTitle
+            }
+            if let newReasonToRead = reasonToRead, !newReasonToRead.isEmpty {
+                books[bookIndex].title = newReasonToRead
+            }
         }
-        return book
+        saveToPersistantStore()
     }
     
     // MARK: - Persistence
@@ -69,7 +82,7 @@ class BookController {
             let booksData = try encoder.encode(books)
             try booksData.write(to: url)
         } catch {
-            print("Error loading stars data: \(error)")
+            print("Error saving books data: \(error)")
         }
     }
     
