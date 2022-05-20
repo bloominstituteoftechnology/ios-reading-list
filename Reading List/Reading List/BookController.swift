@@ -19,7 +19,8 @@ class BookController {
     
 //MARK: - Methods
     
-    // CRUD Methods
+    //MARK: CRUD Methods
+    //Save
     func saveToPersistentStore() {
         let encoder = PropertyListEncoder()
         guard let url = readingListURL else { return }
@@ -32,7 +33,7 @@ class BookController {
         }
         
     }
-    
+    //Load
     func loadFromPersistentStore() {
         do {
             let decoder = PropertyListDecoder()
@@ -44,5 +45,29 @@ class BookController {
             print("ERROR! Could not retrieve books, error code: \(error)")
         }
     }
+    //Create
+    func newBook(title: String, reasonToRead: String) {
+        let newBook = Book(title: title, reasonToRead: reasonToRead)
+        books.append(newBook)
+        saveToPersistentStore()
+    }
+    //Delete
+    func removeBook(_ book: Book) {
+        guard let index = books.firstIndex(of: book) else {
+            print("Book not found")
+            return
+        }
+        books.remove(at: index)
+    }
+    //Update
+    func updateHasBeenRead(for book: inout Book) {
+        book.hasBeenRead.toggle()
+        saveToPersistentStore()
+    }
+    func updateBook(book: inout Book, newTitle: String, newReasonToRead: String) {
+        book.title = newTitle
+        book.reasonToRead = newReasonToRead
+        saveToPersistentStore()
+    }
     
-}
+} //End of class
