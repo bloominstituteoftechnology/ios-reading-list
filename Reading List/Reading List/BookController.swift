@@ -17,6 +17,10 @@ class BookController {
     var readBooks: [Book] {
         return books.filter { $0.hasBeenRead }
     }
+    //Unread Books
+    var unreadBooks: [Book] {
+        return books.filter { !$0.hasBeenRead }
+    }
     //URL where the user's books will be saved to persist
     var readingListURL: URL? {
         guard let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
