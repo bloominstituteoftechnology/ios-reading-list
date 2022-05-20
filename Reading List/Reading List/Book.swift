@@ -8,8 +8,18 @@
 
 import Foundation
 
-struct Book {
+struct Book: Codable, Equatable {
+    
+//MARK: - Properties
     var title:        String
     var reasonToRead: String
     var hasBeenRead:  Bool
+    
+//MARK: - Init methods
+    init(title: String, reasonToRead: String) {
+        self.title = title
+        self.reasonToRead = reasonToRead
+        self.hasBeenRead = false
+    }
+    
 }
