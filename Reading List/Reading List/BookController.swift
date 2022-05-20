@@ -11,7 +11,13 @@ import Foundation
 class BookController {
     
 //MARK: - Properties
+    //All Books
     var books: [Book] = []
+    //Read Books
+    var readBooks: [Book] {
+        return books.filter { $0.hasBeenRead }
+    }
+    //URL where the user's books will be saved to persist
     var readingListURL: URL? {
         guard let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         return documents.appendingPathComponent("ReadingList.plist")
