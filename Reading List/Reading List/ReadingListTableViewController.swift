@@ -69,16 +69,17 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+// MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "NewBookSegueID" {
+            let newBookVC = segue.destination as! BookDetailViewController
+            newBookVC.bookController = bookController
+        } else if segue.identifier == "BookDetailSegueID" {
+            let detailBookVC = segue.destination as! BookDetailViewController
+            let selectedBook = bookFor(indexPath: tableView.indexPathForSelectedRow!)
+            detailBookVC.bookController = bookController
+            detailBookVC.book = selectedBook
+        }
     }
-    */
-
+    
 }
