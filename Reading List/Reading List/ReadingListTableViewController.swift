@@ -79,7 +79,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewBookSegueID" {
-            let newBookVC = segue.destination as! BookDetailViewController
+            guard let newBookVC = segue.destination as? BookDetailViewController else { return }
             newBookVC.bookController = bookController
         } else if segue.identifier == "BookDetailSegueID" {
             let detailBookVC = segue.destination as! BookDetailViewController

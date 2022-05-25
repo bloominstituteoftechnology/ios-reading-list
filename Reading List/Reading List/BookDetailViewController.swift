@@ -19,6 +19,11 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var reasonsToReadTextView: UITextView!
     
 //MARK: - Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateViews()
+    }
+    
     func updateViews() {
         if let book = book {
             title = book.title
