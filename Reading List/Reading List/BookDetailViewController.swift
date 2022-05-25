@@ -42,7 +42,7 @@ class BookDetailViewController: UIViewController {
             bookController?.newBook(title: newTitle, reasonToRead: newReason)
         }
         
-        dismiss(animated: true)
+        self.dismiss(animated: true)
     }
     
 }

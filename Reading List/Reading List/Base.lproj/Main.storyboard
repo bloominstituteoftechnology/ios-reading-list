@@ -19,28 +19,28 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="68P-F7-IvM" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="74.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="31.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="68P-F7-IvM" id="cpl-8w-LMn">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="74.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="31.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FBQ-pj-roP">
-                                            <rect key="frame" x="20" y="0.0" width="394" height="74.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="394" height="31.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EN9-ks-Dr8">
-                                                    <rect key="frame" x="0.0" y="27" width="41.5" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="5.5" width="41.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Clr-Ko-TXx">
-                                                    <rect key="frame" x="320" y="0.5" width="74" height="74"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Clr-Ko-TXx">
+                                                    <rect key="frame" x="363" y="0.5" width="31" height="31"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Clr-Ko-TXx" secondAttribute="height" multiplier="1:1" id="jee-75-2q9"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="checked"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                     <connections>
                                                         <action selector="hasBeenReadButtonTapped:" destination="68P-F7-IvM" eventType="touchUpInside" id="hOy-2r-v40"/>
                                                     </connections>
@@ -154,7 +154,6 @@
         <segue reference="RBJ-7P-pwh"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="checked" width="50" height="50"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

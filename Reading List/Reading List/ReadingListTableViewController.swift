@@ -14,6 +14,12 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     let bookController = BookController()
     
 //MARK: - Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bookController.loadFromPersistentStore()
+        tableView.reloadData()
+    }
+    
     func bookFor(indexPath: IndexPath) -> Book {
         if indexPath.section == 0 {
             return bookController.readBooks[indexPath.row]
@@ -27,6 +33,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         var book = bookFor(indexPath: indexPath)
         bookController.updateHasBeenRead(for: &book)
         tableView.reloadData()
+        cell.updateViews()
     }
 
 // MARK: - Table view data source
@@ -64,8 +71,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         if editingStyle == .delete {
             let book = bookFor(indexPath: indexPath)
             guard let index = bookController.books.firstIndex(of: book) else { return }
-            tableView.deleteRows(at: [indexPath], with: .fade)
             bookController.books.remove(at: index)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         }
     }
     
