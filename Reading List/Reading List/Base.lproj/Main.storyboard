@@ -88,15 +88,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Book Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="upC-9y-994">
-                                <rect key="frame" x="10" y="140" width="404" height="60"/>
+                                <rect key="frame" x="10" y="145" width="394" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="uqn-q0-oOj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nlJ-WY-l8f">
-                                <rect key="frame" x="15" y="240" width="384" height="272"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reason to read: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nlJ-WY-l8f">
+                                <rect key="frame" x="15" y="205" width="384" height="257"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -107,12 +107,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Sfy-Sw-kiK" firstAttribute="trailing" secondItem="nlJ-WY-l8f" secondAttribute="trailing" constant="15" id="0MX-eT-8ns"/>
-                            <constraint firstItem="Sfy-Sw-kiK" firstAttribute="bottom" secondItem="nlJ-WY-l8f" secondAttribute="bottom" constant="350" id="6ma-Pc-fd9"/>
-                            <constraint firstItem="Sfy-Sw-kiK" firstAttribute="trailing" secondItem="upC-9y-994" secondAttribute="trailing" id="AFy-tV-cXZ"/>
+                            <constraint firstItem="Sfy-Sw-kiK" firstAttribute="bottom" secondItem="nlJ-WY-l8f" secondAttribute="bottom" constant="400" id="6ma-Pc-fd9"/>
+                            <constraint firstItem="Sfy-Sw-kiK" firstAttribute="trailing" secondItem="upC-9y-994" secondAttribute="trailing" constant="10" id="AFy-tV-cXZ"/>
                             <constraint firstItem="upC-9y-994" firstAttribute="leading" secondItem="Sfy-Sw-kiK" secondAttribute="leading" constant="10" id="Dsl-CD-qZu"/>
                             <constraint firstItem="nlJ-WY-l8f" firstAttribute="leading" secondItem="Sfy-Sw-kiK" secondAttribute="leading" constant="15" id="FCF-pT-HKk"/>
-                            <constraint firstItem="nlJ-WY-l8f" firstAttribute="top" secondItem="upC-9y-994" secondAttribute="bottom" constant="40" id="gBQ-Ub-0pV"/>
-                            <constraint firstItem="upC-9y-994" firstAttribute="top" secondItem="Sfy-Sw-kiK" secondAttribute="top" id="wMs-4E-Xsr"/>
+                            <constraint firstItem="nlJ-WY-l8f" firstAttribute="top" secondItem="upC-9y-994" secondAttribute="bottom" id="gBQ-Ub-0pV"/>
+                            <constraint firstItem="upC-9y-994" firstAttribute="top" secondItem="Sfy-Sw-kiK" secondAttribute="top" constant="5" id="wMs-4E-Xsr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TgL-Gd-qyG">
