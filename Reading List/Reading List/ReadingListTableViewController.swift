@@ -69,10 +69,8 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let book = bookFor(indexPath: indexPath)
-            guard let index = bookController.books.firstIndex(of: book) else { return }
-            bookController.books.remove(at: index)
+            bookController.removeBook(book)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
         }
     }
     

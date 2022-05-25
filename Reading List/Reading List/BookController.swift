@@ -68,6 +68,7 @@ class BookController {
             return
         }
         books.remove(at: index)
+        saveToPersistentStore()
     }
     //Update
     func updateHasBeenRead(for book: inout Book) {
