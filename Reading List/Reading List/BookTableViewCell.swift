@@ -28,7 +28,9 @@ class BookTableViewCell: UITableViewCell {
     func updateViews() {
         guard let book = book else { return }
         BookTitleLabel.text = book.title
-        hasBeenReadButton.imageView?.image = (book.hasBeenRead ? checkedImage : uncheckedImage)
+        let readStatusImage = (book.hasBeenRead ? checkedImage : uncheckedImage)
+        hasBeenReadButton.setTitle("", for: .normal)
+        hasBeenReadButton.setImage(readStatusImage, for: .normal)
     }
     
 //MARK: - IBActions

@@ -33,7 +33,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         var book = bookFor(indexPath: indexPath)
         bookController.updateHasBeenRead(for: &book)
         tableView.reloadData()
-        cell.updateViews()
     }
 
 // MARK: - Table view data source
