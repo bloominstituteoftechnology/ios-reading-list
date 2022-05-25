@@ -47,7 +47,7 @@ class BookDetailViewController: UIViewController {
             bookController?.newBook(title: newTitle, reasonToRead: newReason)
         }
         
-        self.dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
 }
