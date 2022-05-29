@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Book: Codable, Equatable {
+struct Book: Codable, Equatable, Comparable {
     
 //MARK: - Properties
     var title:        String
@@ -20,6 +20,12 @@ struct Book: Codable, Equatable {
         self.title = title
         self.reasonToRead = reasonToRead
         self.hasBeenRead = false
+    }
+    // Comparable protocol conformance
+    static func < (lhs: Book, rhs: Book) -> Bool {
+        var bookArray = [lhs.title, rhs.title]
+        bookArray.sort()
+        return lhs.title == bookArray.first
     }
     
 }

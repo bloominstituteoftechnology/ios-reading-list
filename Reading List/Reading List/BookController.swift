@@ -15,11 +15,15 @@ class BookController {
     var books: [Book] = []
     //Read Books
     var readBooks: [Book] {
-        return books.filter { $0.hasBeenRead }
+        var readBooks = books.filter { $0.hasBeenRead }
+        readBooks.sort()
+        return readBooks
     }
     //Unread Books
     var unreadBooks: [Book] {
-        return books.filter { !$0.hasBeenRead }
+        var unreadBooks = books.filter { !$0.hasBeenRead }
+        unreadBooks.sort()
+        return unreadBooks
     }
     //URL where the user's books will be saved to persist
     var readingListURL: URL? {
@@ -41,7 +45,6 @@ class BookController {
         } catch {
             print("ERROR! Could not save books, error code: \(error)")
         }
-        
     }
     //Load
     func loadFromPersistentStore() {
