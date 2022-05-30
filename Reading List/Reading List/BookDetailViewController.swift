@@ -17,6 +17,7 @@ class BookDetailViewController: UIViewController {
 //MARK: - IBOutlets
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var reasonsToReadTextView: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
     
 //MARK: - Methods
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +49,35 @@ class BookDetailViewController: UIViewController {
         }
         
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func imageButtonTapped(_ sender: UIButton) {
+        presentImagePickerController()
+    }
+    
+}
+
+extension BookDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    private func presentImagePickerController() {
+        
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
+            print("ERROR: The photo library is not available")
+            return
+        }
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        
+        present(imagePicker, animated: true)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        imageView.image = image
+        picker.dismiss(animated: true)
     }
     
 }

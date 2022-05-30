@@ -102,6 +102,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.app" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5oa-ak-SJz">
+                                <rect key="frame" x="87" y="478" width="240" height="125.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="91S-K9-yqq"/>
+                                    <constraint firstAttribute="height" constant="128" id="NJt-Ap-iRN"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KX1-xA-Ib9">
+                                <rect key="frame" x="87" y="477" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="AXU-yF-owr"/>
+                                    <constraint firstAttribute="height" constant="128" id="uXh-cd-ziw"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <connections>
+                                    <action selector="imageButtonTapped:" destination="l6z-Xd-Cly" eventType="touchUpInside" id="Jem-lI-Tjb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sfy-Sw-kiK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -111,8 +130,12 @@
                             <constraint firstItem="Sfy-Sw-kiK" firstAttribute="trailing" secondItem="upC-9y-994" secondAttribute="trailing" constant="10" id="AFy-tV-cXZ"/>
                             <constraint firstItem="upC-9y-994" firstAttribute="leading" secondItem="Sfy-Sw-kiK" secondAttribute="leading" constant="10" id="Dsl-CD-qZu"/>
                             <constraint firstItem="nlJ-WY-l8f" firstAttribute="leading" secondItem="Sfy-Sw-kiK" secondAttribute="leading" constant="15" id="FCF-pT-HKk"/>
+                            <constraint firstItem="5oa-ak-SJz" firstAttribute="centerX" secondItem="e8a-Qu-EeQ" secondAttribute="centerX" id="ULb-kd-wVL"/>
+                            <constraint firstItem="KX1-xA-Ib9" firstAttribute="centerX" secondItem="5oa-ak-SJz" secondAttribute="centerX" id="dAY-HD-Dzr"/>
+                            <constraint firstItem="5oa-ak-SJz" firstAttribute="top" secondItem="nlJ-WY-l8f" secondAttribute="bottom" constant="15" id="fIx-j4-11C"/>
                             <constraint firstItem="nlJ-WY-l8f" firstAttribute="top" secondItem="upC-9y-994" secondAttribute="bottom" id="gBQ-Ub-0pV"/>
                             <constraint firstItem="upC-9y-994" firstAttribute="top" secondItem="Sfy-Sw-kiK" secondAttribute="top" constant="5" id="wMs-4E-Xsr"/>
+                            <constraint firstItem="KX1-xA-Ib9" firstAttribute="centerY" secondItem="5oa-ak-SJz" secondAttribute="centerY" id="xkW-9A-zk0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TgL-Gd-qyG">
@@ -124,6 +147,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bookTitleTextField" destination="upC-9y-994" id="wTp-QG-pDD"/>
+                        <outlet property="imageView" destination="5oa-ak-SJz" id="R6z-52-3RE"/>
                         <outlet property="reasonsToReadTextView" destination="nlJ-WY-l8f" id="BTK-D2-RLH"/>
                     </connections>
                 </viewController>
@@ -154,6 +178,7 @@
         <segue reference="RBJ-7P-pwh"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

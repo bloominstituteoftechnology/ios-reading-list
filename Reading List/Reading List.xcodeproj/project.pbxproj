@@ -17,6 +17,7 @@
 		7B330E8A283C7186004AD4D3 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B330E89283C7186004AD4D3 /* BookTableViewCellDelegate.swift */; };
 		7B49E75028371C9100975871 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E74F28371C9100975871 /* Book.swift */; };
 		7B49E75328371E3A00975871 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B49E75228371E3A00975871 /* BookController.swift */; };
+		7B78D56F2843E9C00030E537 /* CodableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B78D56E2843E9C00030E537 /* CodableImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7B330E89283C7186004AD4D3 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		7B49E74F28371C9100975871 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		7B49E75228371E3A00975871 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
+		7B78D56E2843E9C00030E537 /* CodableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				7B49E74F28371C9100975871 /* Book.swift */,
+				7B78D56E2843E9C00030E537 /* CodableImage.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			files = (
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
 				7B330E85283C6B9D004AD4D3 /* ReadingListTableViewController.swift in Sources */,
+				7B78D56F2843E9C00030E537 /* CodableImage.swift in Sources */,
 				7B330E87283C6BAD004AD4D3 /* BookDetailViewController.swift in Sources */,
 				7B49E75328371E3A00975871 /* BookController.swift in Sources */,
 				7B330E83283C6B76004AD4D3 /* BookTableViewCell.swift in Sources */,
