@@ -23,14 +23,16 @@ class BookTableViewCell: UITableViewCell {
 //MARK: - IBOutlets
     @IBOutlet weak var BookTitleLabel: UILabel!
     @IBOutlet weak var hasBeenReadButton: UIButton!
+    @IBOutlet weak var bookImageView: UIImageView!
     
 //MARK: - Methods
     func updateViews() {
         guard let book = book else { return }
-        BookTitleLabel.text = book.title
         let readStatusImage = (book.hasBeenRead ? checkedImage : uncheckedImage)
+        BookTitleLabel.text = book.title
         hasBeenReadButton.setTitle("", for: .normal)
         hasBeenReadButton.setImage(readStatusImage, for: .normal)
+        bookImageView.image = book.image?.getImage()
     }
     
 //MARK: - IBActions

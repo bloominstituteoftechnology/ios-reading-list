@@ -19,23 +19,30 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" id="68P-F7-IvM" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="24.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="60.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="68P-F7-IvM" id="cpl-8w-LMn">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="24.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FBQ-pj-roP">
-                                            <rect key="frame" x="20" y="0.0" width="394" height="24.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="394" height="60.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EN9-ks-Dr8">
-                                                    <rect key="frame" x="0.0" y="2" width="41.5" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="20" width="41.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="64I-Uy-w3N">
+                                                    <rect key="frame" x="156" y="0.5" width="100" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="8ib-s7-eG1"/>
+                                                        <constraint firstAttribute="width" constant="100" id="fjS-Ha-kwe"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Clr-Ko-TXx">
-                                                    <rect key="frame" x="370" y="0.5" width="24" height="24"/>
+                                                    <rect key="frame" x="370" y="18.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Clr-Ko-TXx" secondAttribute="height" multiplier="1:1" id="jee-75-2q9"/>
                                                     </constraints>
@@ -57,6 +64,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="BookTitleLabel" destination="EN9-ks-Dr8" id="W3e-ln-iGB"/>
+                                    <outlet property="bookImageView" destination="64I-Uy-w3N" id="P5X-2d-gWt"/>
                                     <outlet property="hasBeenReadButton" destination="Clr-Ko-TXx" id="hKw-Wt-cwh"/>
                                     <segue destination="l6z-Xd-Cly" kind="show" identifier="BookDetailSegueID" id="dSc-dg-lcJ"/>
                                 </connections>
