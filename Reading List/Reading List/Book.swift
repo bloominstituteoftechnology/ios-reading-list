@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Book: Codable, Equatable, Comparable {
     
@@ -31,13 +32,11 @@ struct Book: Codable, Equatable, Comparable {
     }
     //Equatable protocol conformance
     static func == (lhs: Book, rhs: Book) -> Bool {
-        let leftImage = lhs.image?.getImage()
-        let rightImage = rhs.image?.getImage()
         let result =
         lhs.title == rhs.title &&
         lhs.reasonToRead == rhs.reasonToRead &&
         lhs.hasBeenRead == rhs.hasBeenRead &&
-        leftImage?.isEqual(rightImage) == true
+        lhs.image?.imageData == rhs.image?.imageData
         return result
     }
     

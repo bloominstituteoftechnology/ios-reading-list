@@ -102,8 +102,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.app" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5oa-ak-SJz">
-                                <rect key="frame" x="87" y="478" width="240" height="125.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.rectangle.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5oa-ak-SJz">
+                                <rect key="frame" x="87" y="477.5" width="240" height="127"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="91S-K9-yqq"/>
                                     <constraint firstAttribute="height" constant="128" id="NJt-Ap-iRN"/>
@@ -178,7 +178,7 @@
         <segue reference="RBJ-7P-pwh"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="plus.rectangle.on.rectangle" catalog="system" width="128" height="97"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

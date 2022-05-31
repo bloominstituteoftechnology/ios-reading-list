@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class BookController {
     
@@ -59,8 +60,11 @@ class BookController {
         }
     }
     //Create
-    func newBook(title: String, reasonToRead: String) {
-        let newBook = Book(title: title, reasonToRead: reasonToRead)
+    func newBook(title: String, reasonToRead: String, image: UIImage?) {
+        var newBook = Book(title: title, reasonToRead: reasonToRead)
+        if let image = image {
+            newBook.image = CodableImage(withImage: image)
+        }
         books.append(newBook)
         saveToPersistentStore()
     }
@@ -81,12 +85,14 @@ class BookController {
         books.insert(book, at: index)
         saveToPersistentStore()
     }
-    
-    func updateBook(book: inout Book, newTitle: String, newReasonToRead: String) {
+    func updateBook(book: inout Book, newTitle: String, newReasonToRead: String, image: UIImage?) {
         guard let index = books.firstIndex(of: book) else { return }
         books.remove(at: index)
         book.title = newTitle
         book.reasonToRead = newReasonToRead
+        if let image = image {
+            book.image = CodableImage(withImage: image)
+        }
         books.insert(book, at: index)
         saveToPersistentStore()
     }

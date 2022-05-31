@@ -30,6 +30,9 @@ class BookDetailViewController: UIViewController {
             title = book.title
             bookTitleTextField.text = book.title
             reasonsToReadTextView.text = book.reasonToRead
+            if let image = book.image?.getImage() {
+                imageView.image = image
+            }
         } else {
             title = "Add a new book"
         }
@@ -43,9 +46,9 @@ class BookDetailViewController: UIViewController {
               !reasonsToReadTextView.text.isEmpty else { return }
         
         if var book = book {
-            bookController?.updateBook(book: &book, newTitle: newTitle, newReasonToRead: newReason)
+            bookController?.updateBook(book: &book, newTitle: newTitle, newReasonToRead: newReason, image: imageView.image)
         } else {
-            bookController?.newBook(title: newTitle, reasonToRead: newReason)
+            bookController?.newBook(title: newTitle, reasonToRead: newReason, image: imageView.image)
         }
         
         navigationController?.popViewController(animated: true)
