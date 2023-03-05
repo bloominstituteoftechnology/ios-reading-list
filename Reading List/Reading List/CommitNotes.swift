@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+/*
+ 
+ // MARK: - WIP
+ 
+ 
+ 
+ // MARK: - To do
+ Part 1 Book and BookController
+ Part 2 Storyboard Scenes
+ Part 3 Wiring Everything Up
+ 
+ // MARK: - Done
+ 
+ 
+ 
+*/
