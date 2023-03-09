@@ -12,4 +12,15 @@ class BookController {
     
     var books: [Book] = []
     
+    var readingListURL: URL? {
+        let fileManager = FileManager.default
+        
+        let urlPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+        
+        let updatedURLPath = urlPath?.appendingPathExtension("ReadingList.plist")
+        
+        return updatedURLPath
+    }
+    
+    
 }

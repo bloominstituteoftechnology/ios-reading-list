@@ -17,10 +17,6 @@ import Foundation
  // MARK: - To do
  Part 1 Book and BookController
     BookController
-        3. Create computed property called "readingListURL: URL?" and inside:
-            Get user's document directory using FileManager class
-            Create filename string for plist such as "ReadingList.plist"
-            Return URL appending the filename string to the document directory
         4. Create a function saveToPersistentStore() and inside:
             Create an instance of PropertyListEncoder
             Inside a do-try-catch block, create a constant booksData
@@ -53,5 +49,9 @@ import Foundation
     BookController
         1. Create a "BookController.swift" file
         2. Create a BookController class with the variable books set to an empty array of Book objects
+        3. Create computed property called "readingListURL: URL?" and inside:
+            Get user's document directory using FileManager class
+            Create filename string for plist such as "ReadingList.plist"
+            Return URL appending the filename string to the document directory
  
 */
