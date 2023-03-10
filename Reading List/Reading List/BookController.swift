@@ -22,5 +22,20 @@ class BookController {
         return updatedURLPath
     }
     
+    func saveToPersistentStore() {
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let booksData = try encoder.encode(books)
+            
+            guard let unwrappedReadingListURL = readingListURL else { fatalError("Unwrapping failed") }
+            
+            try booksData.write(to: unwrappedReadingListURL)
+        } catch {
+            print("Error in saveToPersistentStore(): \(error)")
+        }
+        
+    }
+    
     
 }

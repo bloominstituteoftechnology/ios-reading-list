@@ -17,11 +17,6 @@ import Foundation
  // MARK: - To do
  Part 1 Book and BookController
     BookController
-        4. Create a function saveToPersistentStore() and inside:
-            Create an instance of PropertyListEncoder
-            Inside a do-try-catch block, create a constant booksData
-            Encode the books array into Data using encode(value: ...)
-            Call the write(to: URL) function on the data you encoded computed property, URL passed in should be unwrapped version of readingListURL
         5. Create a function loadFromPersistentStore
             Inside a do-try-catch block, unwrap the readingListURL
             Inside the same block, use Data(contentsOf: URL) init to get access to property list form of the books and assign this data to a constant
@@ -53,5 +48,10 @@ import Foundation
             Get user's document directory using FileManager class
             Create filename string for plist such as "ReadingList.plist"
             Return URL appending the filename string to the document directory
+        4.Create a function saveToPersistentStore() and inside:
+            Create an instance of PropertyListEncoder
+            Inside a do-try-catch block, create a constant booksData
+            Encode the books array into Data using encode(value: ...) function of the property list encoder, encode the books array into Data.
+            Call the write(to: URL) function on the data you encoded computed property, URL passed in should be unwrapped version of readingListURL
  
 */
