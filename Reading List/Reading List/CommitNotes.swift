@@ -17,13 +17,6 @@ import Foundation
  // MARK: - To do
  Part 1 Book and BookController
     BookController
-        5. Create a function loadFromPersistentStore
-            Inside a do-try-catch block, unwrap the readingListURL
-            Inside the same block, use Data(contentsOf: URL) init to get access to property list form of the books and assign this data to a constant
-            Initialize a PropertyListDecoder and assign it to a constant
-            Create a constant decodedBooks and set value by calling the decode method on the decoder
-            Set the value of books property in BookController to decodedBooks
-            In the catch block, make an error message
         6. Make CRUD methods (call saveToPersistentStore() at the end of each)
             "Create" method that inits a new Book object
             "Delete" method that passes in a Book object as a parameter and removes it from books
@@ -53,5 +46,11 @@ import Foundation
             Inside a do-try-catch block, create a constant booksData
             Encode the books array into Data using encode(value: ...) function of the property list encoder, encode the books array into Data.
             Call the write(to: URL) function on the data you encoded computed property, URL passed in should be unwrapped version of readingListURL
- 
+        5. Create a function loadFromPersistentStore
+            Inside a do-try-catch block, unwrap the readingListURL
+            Inside the same block, use Data(contentsOf: URL) init to get access to property list form of the books and assign this data to a constant
+            Initialize a PropertyListDecoder and assign it to a constant
+            Create a constant decodedBooks and set value by calling the decode method on the decoder
+            Set the value of books property in BookController to decodedBooks
+            In the catch block, make an error message
 */

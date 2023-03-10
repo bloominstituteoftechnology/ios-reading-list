@@ -34,7 +34,24 @@ class BookController {
         } catch {
             print("Error in saveToPersistentStore(): \(error)")
         }
-        
+    }
+    
+    func loadFromPersistentStore() {
+        do {
+            
+            guard let unwrappedReadingListURL = readingListURL else { fatalError("Unwrapping failed") }
+            
+            let data = try Data(contentsOf: unwrappedReadingListURL)
+            
+            let decoder = PropertyListDecoder()
+            
+            let decodedBooks = try decoder.decode([Book].self, from: data)
+            
+            books = decodedBooks
+            
+        } catch {
+            print("Error in loadFromPersistentStore(): \(error)")
+        }
     }
     
     
