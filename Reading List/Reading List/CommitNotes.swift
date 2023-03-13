@@ -16,12 +16,6 @@ import Foundation
  
  // MARK: - To do
  Part 1 Book and BookController
-    BookController
-        6. Make CRUD methods (call saveToPersistentStore() at the end of each)
-            "Create" method that inits a new Book object
-            "Delete" method that passes in a Book object as a parameter and removes it from books
-            "Update" method "updateHasBeenRead(for book: Book)", change the hasBeenRead value
-            "Update" method "updateReasonOrTitle(for books: Book)", swap old title/reason properties with new Strings
         7. "readBooks: [Book]" computed property that returns an array of all Book objects in books whose hasBeenRead property is true
         8. "unreadBooks: [Book]" computed property that returns an array of all Book objects in books whose hasBeenRead property is false
  Part 2 Storyboard Scenes
@@ -53,4 +47,10 @@ import Foundation
             Create a constant decodedBooks and set value by calling the decode method on the decoder
             Set the value of books property in BookController to decodedBooks
             In the catch block, make an error message
+        6. Make CRUD methods (call saveToPersistentStore() at the end of each)
+            "Create" method that inits a new Book object
+            "Delete" method that passes in a Book object as a parameter and removes it from books
+            "Update" method "updateHasBeenRead(for book: Book)", change the hasBeenRead value
+            "Update" method "updateReasonOrTitle(for book: Book)", swap old title/reason properties with new Strings
+ 
 */

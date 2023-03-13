@@ -54,5 +54,67 @@ class BookController {
         }
     }
     
+    func createBook(title: String, reasonToRead: String) {
+        
+        let newBook = Book(title: title, reasonToRead: reasonToRead)
+        
+        books.append(newBook)
+        
+        saveToPersistentStore()
+        
+    }
+    
+    func deleteBook(book: Book) {
+        if let indexOfBook = books.index(of: book) {
+            
+            books.remove(at: indexOfBook)
+            
+        } else {
+            
+            fatalError("No book exists to delete :/")
+        }
+        
+        saveToPersistentStore()
+        
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        
+        if let indexOfBook = books.index(of: book) {
+            
+            if books[indexOfBook].hasBeenRead == true {
+                
+                books[indexOfBook].hasBeenRead = false
+                
+            } else {
+                
+                books[indexOfBook].hasBeenRead = true
+                
+            }
+            
+        } else {
+            
+            fatalError("No book exists to edit the hasBeenRead :/")
+            
+        }
+        
+        saveToPersistentStore()
+        
+    }
+    
+    func updateReasonOrTitle(for book: Book, newTitle: String, newReason: String) {
+        
+        if let indexOfBook = books.index(of: book) {
+            
+            books[indexOfBook].title = newTitle
+            books[indexOfBook].reasonToRead = newReason
+            
+        } else {
+            
+            fatalError("No book exists to edit Title or Reason")
+            
+        }
+        
+    }
     
 }
