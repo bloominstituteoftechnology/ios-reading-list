@@ -16,6 +16,31 @@ import Foundation
  
  // MARK: - To do
  Part 2 Storyboard Scenes
+    1. Add scenes
+        Embed UITableViewController into navigation controller
+        Set navigation controller as initial view controller
+        Add a UIViewController
+    2. Set the table view controller's title to "Reading List"
+    3. In the table view's cell:
+        Set its style to "Custom"
+        Add a label (the title of the book)
+        Add a button and remove its title (checked or unchecked box for read or unread status) and set its aspect ratio to 1:1
+        Constrain these UI elements to the cell's content view (stack view or individually)
+        Create a show segue from the cell to the detail view controller and give the segue an identifier
+    4. Add a bar button item in the top-right corner of the table view controller
+        Set its "System Item" to "Add"
+        Create a segue from the bar button item to the detail view controller and give it an identifier
+    5. Create a Cocoa Touch subclass for both the table view controller and the custom UITableViewCell
+        Call the UITableViewController subclass "ReadingListTableViewController"
+        Call the UITableViewCells subclass "BookTableViewCell"
+        Set the table view controller and the cell's class in the Identity Inspector
+    6. In the custom cell class
+        Create an outlet from the label
+        Create an outlet and an action from the button
+    7. Add a text field (title of book) and a text view (reason to read) to the detail view controller scene and constrain (with keyboard in mind)
+    8. Add navigation item to the detail view controller, and add a "Save" system item bar button item to the top-right corner of the view controller
+    9. Create a Cocoa Touch subclass of UIViewController called "BookDetailViewController" and set it to the class of the view controller
+    10. Add outlets from the text field and text view, and an action from the save button
  Part 3 Wiring Everything Up
  
  // MARK: - Done
