@@ -138,7 +138,7 @@ class BookController {
         
     }
     
-    func updateReasonOrTitle(for book: Book, newTitle: String, newReason: String) {
+    func updateTitleOrReson(for book: Book, newTitle: String, newReason: String) {
         
         if let indexOfBook = books.index(of: book) {
             
@@ -150,6 +150,8 @@ class BookController {
             fatalError("No book exists to edit Title or Reason")
             
         }
+        
+        saveToPersistentStore()
         
     }
     
