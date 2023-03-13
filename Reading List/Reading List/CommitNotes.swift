@@ -15,9 +15,6 @@ import Foundation
  
  
  // MARK: - To do
- Part 1 Book and BookController
-        7. "readBooks: [Book]" computed property that returns an array of all Book objects in books whose hasBeenRead property is true
-        8. "unreadBooks: [Book]" computed property that returns an array of all Book objects in books whose hasBeenRead property is false
  Part 2 Storyboard Scenes
  Part 3 Wiring Everything Up
  
@@ -52,5 +49,6 @@ import Foundation
             "Delete" method that passes in a Book object as a parameter and removes it from books
             "Update" method "updateHasBeenRead(for book: Book)", change the hasBeenRead value
             "Update" method "updateReasonOrTitle(for book: Book)", swap old title/reason properties with new Strings
- 
+        7. "readBooks: [Book]" computed property that returns an array of all Book objects in books whose hasBeenRead property is true
+        8. "unreadBooks: [Book]" computed property that returns an array of all Book objects in books whose hasBeenRead property is false
 */

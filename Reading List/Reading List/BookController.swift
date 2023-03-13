@@ -22,6 +22,42 @@ class BookController {
         return updatedURLPath
     }
     
+    var readBooks: [Book] {
+        
+        var readBooksArray: [Book] = []
+        
+        for book in books {
+            
+            if book.hasBeenRead == true {
+                
+                readBooksArray.append(book)
+                
+            }
+            
+        }
+        
+        return readBooksArray
+        
+    }
+    
+    var unreadBooks: [Book] {
+        
+        var unreadBooksArray: [Book] = []
+        
+        for book in books {
+            
+            if book.hasBeenRead == false {
+                
+                unreadBooksArray.append(book)
+                
+            }
+            
+        }
+        
+        return unreadBooksArray
+        
+    }
+    
     func saveToPersistentStore() {
         let encoder = PropertyListEncoder()
         
