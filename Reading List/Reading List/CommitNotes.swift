@@ -16,11 +16,6 @@ import Foundation
  
  // MARK: - To do
  Part 2 Storyboard Scenes
-    1. Add scenes
-        Embed UITableViewController into navigation controller
-        Set navigation controller as initial view controller
-        Add a UIViewController
-    2. Set the table view controller's title to "Reading List"
     3. In the table view's cell:
         Set its style to "Custom"
         Add a label (the title of the book)
@@ -76,4 +71,12 @@ import Foundation
             "Update" method "updateReasonOrTitle(for book: Book)", swap old title/reason properties with new Strings
         7. "readBooks: [Book]" computed property that returns an array of all Book objects in books whose hasBeenRead property is true
         8. "unreadBooks: [Book]" computed property that returns an array of all Book objects in books whose hasBeenRead property is false
+ Part 2
+    1. Add scenes
+        Embed UITableViewController into navigation controller
+        Set navigation controller as initial view controller
+        Add a UIViewController
+    2. Set the table view controller's title to "Reading List"
+ 
+ 
 */
