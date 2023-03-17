@@ -16,10 +16,6 @@ import Foundation
  
  // MARK: - To do
  Part 2 Storyboard Scenes
-    5. Create a Cocoa Touch subclass for both the table view controller and the custom UITableViewCell
-        Call the UITableViewController subclass "ReadingListTableViewController"
-        Call the UITableViewCells subclass "BookTableViewCell"
-        Set the table view controller and the cell's class in the Identity Inspector
     6. In the custom cell class
         Create an outlet from the label
         Create an outlet and an action from the button
@@ -77,5 +73,9 @@ import Foundation
     4. Add a bar button item in the top-right corner of the table view controller
         Set its "System Item" to "Add"
         Create a segue from the bar button item to the detail view controller and give it an identifier
+    5. Create a Cocoa Touch subclass for both the table view controller and the custom UITableViewCell
+        Call the UITableViewController subclass "ReadingListTableViewController"
+        Call the UITableViewCells subclass "BookTableViewCell"
+        Set the table view controller and the cell's class in the Identity Inspector
  
 */
