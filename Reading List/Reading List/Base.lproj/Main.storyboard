@@ -66,7 +66,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="DetailViewControllerSegue" id="W54-x8-RYA"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="DetailViewControllerSegueFromCell" id="W54-x8-RYA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -75,7 +75,13 @@
                             <outlet property="delegate" destination="LMB-by-ljH" id="8ze-66-8qH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="FMt-7s-FSN"/>
+                    <navigationItem key="navigationItem" id="FMt-7s-FSN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="JJm-Qf-izU">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="DetailViewControllerSegueFromAdd" id="mq5-Iv-1CM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9dY-HE-X6T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,6 +106,9 @@
             <point key="canvasLocation" x="-912.2137404580152" y="-15.492957746478874"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="W54-x8-RYA"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

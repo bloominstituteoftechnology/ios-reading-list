@@ -16,9 +16,6 @@ import Foundation
  
  // MARK: - To do
  Part 2 Storyboard Scenes
-    4. Add a bar button item in the top-right corner of the table view controller
-        Set its "System Item" to "Add"
-        Create a segue from the bar button item to the detail view controller and give it an identifier
     5. Create a Cocoa Touch subclass for both the table view controller and the custom UITableViewCell
         Call the UITableViewController subclass "ReadingListTableViewController"
         Call the UITableViewCells subclass "BookTableViewCell"
@@ -77,5 +74,8 @@ import Foundation
         Add a button and remove its title (checked or unchecked box for read or unread status) and set its aspect ratio to 1:1
         Constrain these UI elements to the cell's content view (stack view or individually)
         Create a show segue from the cell to the detail view controller and give the segue an identifier
+    4. Add a bar button item in the top-right corner of the table view controller
+        Set its "System Item" to "Add"
+        Create a segue from the bar button item to the detail view controller and give it an identifier
  
 */
