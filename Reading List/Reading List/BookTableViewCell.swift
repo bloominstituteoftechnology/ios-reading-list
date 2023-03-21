@@ -9,7 +9,13 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var readButton: UIButton!
+    @IBOutlet weak var bookTitleLabel: UILabel!
+    
+    @IBAction func readTapped(_ sender: UIButton) {
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

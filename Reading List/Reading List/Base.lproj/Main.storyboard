@@ -54,6 +54,9 @@
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain"/>
+                                            <connections>
+                                                <action selector="readTapped:" destination="blj-c0-uHS" eventType="touchUpInside" id="f3R-9l-dem"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
