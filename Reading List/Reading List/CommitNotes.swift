@@ -16,7 +16,6 @@ import Foundation
  
  // MARK: - To do
  Part 2 Storyboard Scenes
-    9. Create a Cocoa Touch subclass of UIViewController called "BookDetailViewController" and set it to the class of the view controller
     10. Add outlets from the text field and text view, and an action from the save button
  Part 3 Wiring Everything Up
  
@@ -77,5 +76,6 @@ import Foundation
         Create an outlet and an action from the button
     7. Add a text field (title of book) and a text view (reason to read) to the detail view controller scene and constrain (with keyboard in mind)
     8. Add navigation item to the detail view controller, and add a "Save" system item bar button item to the top-right corner of the view controller
+    9. Create a Cocoa Touch subclass of UIViewController called "BookDetailViewController" and set it to the class of the view controller
  
 */
