@@ -50,8 +50,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="9az-Xb-Eea">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="AXI-CT-f0b"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="AXI-CT-f0b">
+                            <connections>
+                                <action selector="saveTapped:" destination="BYZ-38-t0r" id="ojW-tw-zc0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="reasonToReadTextView" destination="Er0-rL-FYi" id="dLv-pi-cQl"/>
+                        <outlet property="titleTextField" destination="SWJ-kS-6L9" id="rFB-1q-EnF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

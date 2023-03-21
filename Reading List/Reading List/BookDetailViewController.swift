@@ -9,7 +9,14 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
-
+    
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var reasonToReadTextView: UITextView!
+    
+    @IBAction func saveTapped(_ sender: UIBarButtonItem) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
