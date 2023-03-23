@@ -16,6 +16,25 @@ import Foundation
  
  // MARK: - To do
  Part 3 Wiring Everything Up
+    BookTableViewCell
+        1. Add a var book: Book? variable to the BookTableViewCell class
+        2. Create an updateViews() function that takes the values in the book property and sets its title in the label, and set the button's image to either the checked or unchecked image in the assets folder (using image literals or UIImage(named: String) init to get access to the images from the assets folder)
+        3. Create a new swift file called "BookTableViewCellDelegate.swift" and create a protocol with the same name
+        4. Add a function called "func toggleHasBeenRead(for cell: BookTableViewCell)"
+        5. In BookTableViewCell, add a weak var delegate: BookTableViewCellDelegate?
+        6. Call the delegate property's toggleHasBeenRead(...) func in the action of the button
+    ReadingListTableViewController
+        1. Add a bookController constant, and set its value to a new instance of BookController
+        2. Implement numberOfSections(in tableView: ...) and return 2
+        3. Implement numberOfRowsInSection and use readBooks and unreadBook to calculate rows having the first section (0) show read, and second section (1) show unread
+        4. Write a function "bookFor(indexPath: IndexPath) -> Book" that will return the right book using indexPath.row book of indexPath.section
+        5. Adopt BookTableViewCellDelegate protocol and add toggleHasBeenRead(for cell: ...) function that calls the BookController's updateHasBeenRead(for: Book) method then reload the tableView (get an IndexPath using cell parameter to get an instance of Book to pass into the function)
+        6. Fill out the cellForRowAt function and set the cell's delegate property
+        7. Fill out the "commit editingStyle" function, only worry about the .delete case
+        8. Fill out the titleForHeaderInSection function, giving each section a unique title
+    BookDetailViewController
+    ReadingListTableViewController
+ Go further
  
  // MARK: - Done
  Part 1 Book and BookController
