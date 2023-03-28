@@ -10,6 +10,7 @@
 		4560B36C29C510D600755A73 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560B36B29C510D600755A73 /* ReadingListTableViewController.swift */; };
 		4560B36E29C5110F00755A73 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560B36D29C5110F00755A73 /* BookTableViewCell.swift */; };
 		4560B37029CA6AC000755A73 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560B36F29CA6AC000755A73 /* BookDetailViewController.swift */; };
+		4560B37429D39F1300755A73 /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560B37329D39F1300755A73 /* BookTableViewCellDelegate.swift */; };
 		45B7F90329B3F0A000078510 /* CommitNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7F90229B3F0A000078510 /* CommitNotes.swift */; };
 		45B7F90529B5438D00078510 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7F90429B5438D00078510 /* Book.swift */; };
 		45B7F90729B5574600078510 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7F90629B5574600078510 /* BookController.swift */; };
@@ -23,6 +24,7 @@
 		4560B36B29C510D600755A73 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		4560B36D29C5110F00755A73 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		4560B36F29CA6AC000755A73 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		4560B37329D39F1300755A73 /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		45B7F90229B3F0A000078510 /* CommitNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitNotes.swift; sourceTree = "<group>"; };
 		45B7F90429B5438D00078510 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		45B7F90629B5574600078510 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,
 				45B7F90229B3F0A000078510 /* CommitNotes.swift */,
+				4560B37329D39F1300755A73 /* BookTableViewCellDelegate.swift */,
 				4560B36F29CA6AC000755A73 /* BookDetailViewController.swift */,
 				4560B36D29C5110F00755A73 /* BookTableViewCell.swift */,
 				4560B36B29C510D600755A73 /* ReadingListTableViewController.swift */,
@@ -153,6 +156,7 @@
 				45B7F90529B5438D00078510 /* Book.swift in Sources */,
 				4560B36C29C510D600755A73 /* ReadingListTableViewController.swift in Sources */,
 				45B7F90729B5574600078510 /* BookController.swift in Sources */,
+				4560B37429D39F1300755A73 /* BookTableViewCellDelegate.swift in Sources */,
 				45B7F90329B3F0A000078510 /* CommitNotes.swift in Sources */,
 				4560B37029CA6AC000755A73 /* BookDetailViewController.swift in Sources */,
 				4560B36E29C5110F00755A73 /* BookTableViewCell.swift in Sources */,
