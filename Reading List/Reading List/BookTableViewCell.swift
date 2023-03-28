@@ -15,7 +15,10 @@ class BookTableViewCell: UITableViewCell {
     
     var book: Book?
     
+    weak var delegate: BookTableViewCellDelegate?
+    
     @IBAction func readTapped(_ sender: UIButton) {
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     func updateViews() {
