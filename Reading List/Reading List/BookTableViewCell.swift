@@ -13,7 +13,19 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var readButton: UIButton!
     @IBOutlet weak var bookTitleLabel: UILabel!
     
+    var book: Book?
+    
     @IBAction func readTapped(_ sender: UIButton) {
+    }
+    
+    func updateViews() {
+        bookTitleLabel.text = book?.title
+        
+        if book?.hasBeenRead == true {
+            readButton.imageView?.image = UIImage(named: "checked")
+        } else {
+            readButton.imageView?.image = UIImage(named: "unchecked")
+        }
     }
     
     override func awakeFromNib() {

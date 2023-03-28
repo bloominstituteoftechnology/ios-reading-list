@@ -17,8 +17,6 @@ import Foundation
  // MARK: - To do
  Part 3 Wiring Everything Up
     BookTableViewCell
-        1. Add a var book: Book? variable to the BookTableViewCell class
-        2. Create an updateViews() function that takes the values in the book property and sets its title in the label, and set the button's image to either the checked or unchecked image in the assets folder (using image literals or UIImage(named: String) init to get access to the images from the assets folder)
         3. Create a new swift file called "BookTableViewCellDelegate.swift" and create a protocol with the same name
         4. Add a function called "func toggleHasBeenRead(for cell: BookTableViewCell)"
         5. In BookTableViewCell, add a weak var delegate: BookTableViewCellDelegate?
@@ -95,5 +93,9 @@ import Foundation
     8. Add navigation item to the detail view controller, and add a "Save" system item bar button item to the top-right corner of the view controller
     9. Create a Cocoa Touch subclass of UIViewController called "BookDetailViewController" and set it to the class of the view controller
     10. Add outlets from the text field and text view, and an action from the save button
+ Part 3 Wiring Everything Up
+    BookTableViewCell
+        1. Add a var book: Book? variable to the BookTableViewCell class
+        2. Create an updateViews() function that takes the values in the book property and sets its title in the label, and set the button's image to either the checked or unchecked image in the assets folder (using image literals or UIImage(named: String))
  
 */
