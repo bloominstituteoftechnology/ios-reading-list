@@ -11,7 +11,15 @@ import UIKit
 class ReadingListTableViewController: UITableViewController {
     
     let bookController = BookController()
-
+    
+    private func bookFor(indexPath: IndexPath) -> Book {
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+        } else {
+            return bookController.unreadBooks[indexPath.row]
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
