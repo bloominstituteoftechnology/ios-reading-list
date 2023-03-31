@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
     
     let bookController = BookController()
     
@@ -18,6 +18,18 @@ class ReadingListTableViewController: UITableViewController {
         } else {
             return bookController.unreadBooks[indexPath.row]
         }
+    }
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        
+        guard let indexPath: IndexPath = tableView.indexPath(for: cell) else { return }
+        
+        let cellBook = bookFor(indexPath: indexPath)
+        
+        bookController.updateHasBeenRead(for: cellBook)
+        
+        tableView.reloadData()
+        
     }
     
     override func viewDidLoad() {
@@ -50,15 +62,17 @@ class ReadingListTableViewController: UITableViewController {
         
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
+        
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -105,20 +119,4 @@ class ReadingListTableViewController: UITableViewController {
     }
     */
 
-}
-
-extension ReadingListTableViewController: BookTableViewCellDelegate {
-    
-    func toggleHasBeenRead(for cell: BookTableViewCell) {
-        
-        guard let indexPath: IndexPath = tableView.indexPath(for: cell) else { return }
-        
-        let cellBook = bookFor(indexPath: indexPath)
-        
-        bookController.updateHasBeenRead(for: cellBook)
-        
-        tableView.reloadData()
-        
-    }
-    
 }
