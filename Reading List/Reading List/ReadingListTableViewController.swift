@@ -64,12 +64,10 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as? BookTableViewCell else { fatalError("cellForRowAt error") }
         
+        cell.delegate = self
         
-
         return cell
     }
     
