@@ -16,8 +16,6 @@ import Foundation
  
  // MARK: - To do
  Part 3 Wiring Everything Up
-    ReadingListTableViewController
-        8. Fill out the titleForHeaderInSection function, giving each section a unique title
     BookDetailViewController
     ReadingListTableViewController
  Go further
@@ -97,5 +95,6 @@ import Foundation
         5. Adopt BookTableViewCellDelegate protocol and add toggleHasBeenRead(for cell: ...) function that calls the BookController's updateHasBeenRead(for: Book) method then reload the tableView (get an IndexPath using cell parameter to get an instance of Book to pass into the function)
         6. Fill out the cellForRowAt function and set the cell's delegate property
         7. Fill out the "commit editingStyle" function, only worry about the .delete case
+        8. Fill out the titleForHeaderInSection function, giving each section a unique title
  
 */

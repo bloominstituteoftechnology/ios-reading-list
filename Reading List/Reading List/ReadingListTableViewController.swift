@@ -102,6 +102,16 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }    
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "You've read these books! :)"
+        } else if section == 1 {
+            return "You've not read these books :("
+        } else {
+            return ""
+        }
+    }
+    
 
     /*
     // Override to support rearranging the table view.
