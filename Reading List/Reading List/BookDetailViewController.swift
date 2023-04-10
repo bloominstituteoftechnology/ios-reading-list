@@ -33,7 +33,7 @@ class BookDetailViewController: UIViewController {
     func updateViews() {
         
         titleTextField.text = book?.title
-        reasonToReadTextView.text = book?.reasonToRead
+        reasonToReadTextView.text = book != nil ? book?.reasonToRead : "Reason to read: "
         
         self.title = book != nil ? book?.title : "Add a new book"
         
@@ -41,6 +41,7 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
 
         // Do any additional setup after loading the view.
     }
