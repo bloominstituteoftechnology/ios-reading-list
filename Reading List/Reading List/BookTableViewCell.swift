@@ -10,10 +10,10 @@ import UIKit
 
 class BookTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var readButton: UIButton!
-    @IBOutlet weak var bookTitleLabel: UILabel!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var button: UIButton!
     
-    var book: Book?
+    private var book: Book?
     
     weak var delegate: BookTableViewCellDelegate?
     
@@ -21,13 +21,19 @@ class BookTableViewCell: UITableViewCell {
         delegate?.toggleHasBeenRead(for: self)
     }
     
-    func updateViews() {
-        bookTitleLabel.text = book?.title
+    func set(book: Book?) {
+        self.book = book
+        updateViews()
+    }
+    
+    private func updateViews() {
+        //guard isViewLoaded else { return }
+        label.text = book?.title
         
         if book?.hasBeenRead == true {
-            readButton.imageView?.image = UIImage(named: "checked")
+            button.imageView?.image = UIImage(named: "checked")
         } else {
-            readButton.imageView?.image = UIImage(named: "unchecked")
+            button.imageView?.image = UIImage(named: "unchecked")
         }
     }
     

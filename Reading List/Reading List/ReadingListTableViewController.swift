@@ -35,6 +35,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
+        bookController.loadFromPersistentStore()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,8 +44,8 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         tableView.reloadData()
     }
 
@@ -73,6 +74,18 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as? BookTableViewCell else { fatalError("cellForRowAt error") }
         
         cell.delegate = self
+//        cell.book =
+        
+        var book: Book? = nil
+        if indexPath.section == 0 {
+            book = bookController.readBooks[indexPath.row]
+        } else if indexPath.section == 1 {
+            book = bookController.unreadBooks[indexPath.row]
+        } else {
+            fatalError("cell for row at")
+        }
+        
+        cell.set(book: book)
         
         return cell
     }
@@ -92,11 +105,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         if editingStyle == .delete {
             // Delete the row from the data source
             if indexPath.section == 0 {
-                var book = bookController.readBooks[indexPath.row]
+                let book = bookController.readBooks[indexPath.row]
                 guard let num = bookController.books.firstIndex(of: book) else { fatalError("commit editing style")}
                 bookController.books.remove(at: num)
             } else if indexPath.section == 1 {
-                var book = bookController.unreadBooks[indexPath.row]
+                let book = bookController.unreadBooks[indexPath.row]
                 guard let num = bookController.books.firstIndex(of: book) else { fatalError("commit editing style")}
                 bookController.books.remove(at: num)
             } else {

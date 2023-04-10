@@ -10,7 +10,8 @@ import Foundation
 
 class BookController {
     
-    var books: [Book] = []
+    
+    var books: [Book] = [Book(title: "ONE", reasonToRead: "sdfslauhdfajk"), Book(title: "BOOK TWO", reasonToRead: "reasonskgnjsodijsi")]
     
     var readingListURL: URL? {
         let fileManager = FileManager.default
@@ -68,7 +69,7 @@ class BookController {
             
             try booksData.write(to: unwrappedReadingListURL)
         } catch {
-            print("Error in saveToPersistentStore(): \(error)")
+            fatalError("Error in saveToPersistentStore(): \(error)")
         }
     }
     
@@ -86,7 +87,7 @@ class BookController {
             books = decodedBooks
             
         } catch {
-            print("Error in loadFromPersistentStore(): \(error)")
+            fatalError("Error in loadFromPersistentStore(): \(error)")
         }
     }
     
