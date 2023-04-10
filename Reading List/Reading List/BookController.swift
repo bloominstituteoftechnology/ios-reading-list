@@ -138,7 +138,7 @@ class BookController {
         
     }
     
-    func updateTitleOrReson(for book: Book, newTitle: String, newReason: String) {
+    func updateTitleOrReason(for book: Book, newTitle: String, newReason: String) {
         
         if let indexOfBook = books.index(of: book) {
             

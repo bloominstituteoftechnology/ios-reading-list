@@ -13,9 +13,31 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var reasonToReadTextView: UITextView!
     
+    var bookController: BookController?
+    var book: Book?
+    
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
+        
+        if let book = book, let title = titleTextField.text, let reason = reasonToReadTextView.text {
+            
+            bookController?.updateTitleOrReason(for: book, newTitle: title, newReason: reason)
+            
+        } else if let title = titleTextField.text, let reason = reasonToReadTextView.text {
+        
+            bookController?.createBook(title: title, reasonToRead: reason)
+            
+        }
+        
     }
     
+    func updateViews() {
+        
+        titleTextField.text = book?.title
+        reasonToReadTextView.text = book?.reasonToRead
+        
+        self.title = book != nil ? book?.title : "Add a new book"
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
