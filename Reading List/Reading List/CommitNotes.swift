@@ -17,7 +17,14 @@ import Foundation
  // MARK: - To do
  Part 3 Wiring Everything Up
     BookDetailViewController
+        1. Add an optional book controller variable
+        2. add an optional book variable
+        3. create an updateViews() method. If the book variable has a value, take its title and put it in the text field, and put its reasonToRead in the textView, and set the title of the view controller to the book's title if there is one, or set the title to "Add a new book" if a new book is going to be created
+        4. In the action of the button, either call the createBook function in bookController if the book property is nil, or the update method in the bookController if the book property is not nil
     ReadingListTableViewController
+        1. Check the segue's identifier:
+            If it's the "Add" bar button, that means the user wants to create a new book, pass the bookController in the table view controller to the segue's destination view controller (cast the destination as the correctly typed view controller)
+            If it's the cell's identifier, do the same and also pass a Book object that was selected in the table view to the destination view controller's book property
  Go further
  
  // MARK: - Done
