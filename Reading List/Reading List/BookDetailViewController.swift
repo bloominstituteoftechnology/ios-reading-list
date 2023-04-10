@@ -27,7 +27,7 @@ class BookDetailViewController: UIViewController {
             bookController?.createBook(title: title, reasonToRead: reason)
             
         }
-        
+        navigationController?.popViewController(animated: true)
     }
     
     func updateViews() {
